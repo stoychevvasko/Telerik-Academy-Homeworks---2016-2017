@@ -1,0 +1,6 @@
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\08. Square Root\bin\Debug\_08.Square_Root.exe.config
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\08. Square Root\bin\Debug\_08.Square_Root.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\08. Square Root\bin\Debug\_08.Square_Root.pdb
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\08. Square Root\obj\Debug\08. Square Root.csprojResolveAssemblyReference.cache
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\08. Square Root\obj\Debug\_08.Square_Root.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\08. Square Root\obj\Debug\_08.Square_Root.pdb

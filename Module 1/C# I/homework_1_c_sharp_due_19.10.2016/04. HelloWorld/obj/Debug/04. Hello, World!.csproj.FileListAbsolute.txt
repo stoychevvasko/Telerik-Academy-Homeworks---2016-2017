@@ -1,0 +1,5 @@
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\04. HelloWorld\bin\Debug\_04.HelloWorld.exe.config
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\04. HelloWorld\bin\Debug\_04.HelloWorld.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\04. HelloWorld\bin\Debug\_04.HelloWorld.pdb
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\04. HelloWorld\obj\Debug\_04.HelloWorld.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\04. HelloWorld\obj\Debug\_04.HelloWorld.pdb

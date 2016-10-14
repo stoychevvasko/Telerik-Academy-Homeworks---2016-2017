@@ -1,0 +1,6 @@
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\09. Print Sequence\bin\Debug\_09.Print_Sequence.exe.config
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\09. Print Sequence\bin\Debug\_09.Print_Sequence.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\09. Print Sequence\bin\Debug\_09.Print_Sequence.pdb
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\09. Print Sequence\obj\Debug\_09.Print_Sequence.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\09. Print Sequence\obj\Debug\_09.Print_Sequence.pdb
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\09. Print Sequence\obj\Debug\09. Print Sequence.csprojResolveAssemblyReference.cache

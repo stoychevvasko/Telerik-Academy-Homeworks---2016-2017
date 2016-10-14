@@ -1,0 +1,5 @@
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\13. Comparing Floats\bin\Debug\_13.Comparing_Floats.exe.config
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\13. Comparing Floats\bin\Debug\_13.Comparing_Floats.exe
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\13. Comparing Floats\bin\Debug\_13.Comparing_Floats.pdb
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\13. Comparing Floats\obj\Debug\_13.Comparing_Floats.exe
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\13. Comparing Floats\obj\Debug\_13.Comparing_Floats.pdb

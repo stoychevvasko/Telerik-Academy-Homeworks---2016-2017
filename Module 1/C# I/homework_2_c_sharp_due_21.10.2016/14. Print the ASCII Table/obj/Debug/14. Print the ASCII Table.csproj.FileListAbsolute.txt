@@ -1,0 +1,5 @@
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\14. Print the ASCII Table\bin\Debug\_14.Print_the_ASCII_Table.exe.config
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\14. Print the ASCII Table\bin\Debug\_14.Print_the_ASCII_Table.exe
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\14. Print the ASCII Table\bin\Debug\_14.Print_the_ASCII_Table.pdb
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\14. Print the ASCII Table\obj\Debug\_14.Print_the_ASCII_Table.exe
+C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\14. Print the ASCII Table\obj\Debug\_14.Print_the_ASCII_Table.pdb

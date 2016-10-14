@@ -1,0 +1,6 @@
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\06. Print Numbers\bin\Debug\_06.Print_Numbers.exe.config
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\06. Print Numbers\bin\Debug\_06.Print_Numbers.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\06. Print Numbers\bin\Debug\_06.Print_Numbers.pdb
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\06. Print Numbers\obj\Debug\_06.Print_Numbers.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\06. Print Numbers\obj\Debug\_06.Print_Numbers.pdb
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\06. Print Numbers\obj\Debug\06. Print Numbers.csprojResolveAssemblyReference.cache

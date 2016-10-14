@@ -1,0 +1,6 @@
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\15. Age\bin\Debug\_15.Age.exe.config
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\15. Age\bin\Debug\_15.Age.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\15. Age\bin\Debug\_15.Age.pdb
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\15. Age\obj\Debug\_15.Age.exe
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\15. Age\obj\Debug\_15.Age.pdb
+C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\15. Age\obj\Debug\15. Age.csprojResolveAssemblyReference.cache
