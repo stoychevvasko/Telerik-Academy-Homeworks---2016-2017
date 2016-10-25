@@ -44,27 +44,24 @@ Input	Output
 
 using System;
 
-namespace _07.Point_in_a_Circle
+class PointInCircle
 {
-    class PointInCircle
+    static void Main()
     {
-        static void Main()
-        {
-            double x = double.Parse(Console.ReadLine());
-            double y = double.Parse(Console.ReadLine());
-            Console.WriteLine("{0} {1}", IsInsideCircle(x, y) ? "yes" : "no", Math.Sqrt(x * x + y * y).ToString("0.00"));
-        }
+        double x = double.Parse(Console.ReadLine());
+        double y = double.Parse(Console.ReadLine());
+        Console.WriteLine("{0} {1}", IsInsideCircle(x, y) ? "yes" : "no", Math.Sqrt(x * x + y * y).ToString("0.00"));
+    }
 
-        private static bool IsInsideCircle(double x, double y)
+    private static bool IsInsideCircle(double x, double y)
+    {
+        if (x * x + y * y <= 2 * 2)
         {
-            if (x * x + y * y <= 2 * 2)
-            {
-                return true;
-            }
-            else
-            {
-                return false;
-            }
+            return true;
+        }
+        else
+        {
+            return false;
         }
     }
 }
