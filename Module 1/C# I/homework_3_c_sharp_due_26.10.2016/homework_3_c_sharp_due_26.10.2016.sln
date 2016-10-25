@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. PointCircleRectangle", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Third Bit", "Third Bit\11. Third Bit.csproj", "{D8A141FF-F977-4DF9-AB23-69FF9A29AF7B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NthBit", "NthBit\NthBit.csproj", "{BF2C267A-2512-441E-AAAD-3107EDADD60B}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{D8A141FF-F977-4DF9-AB23-69FF9A29AF7B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D8A141FF-F977-4DF9-AB23-69FF9A29AF7B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D8A141FF-F977-4DF9-AB23-69FF9A29AF7B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BF2C267A-2512-441E-AAAD-3107EDADD60B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BF2C267A-2512-441E-AAAD-3107EDADD60B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BF2C267A-2512-441E-AAAD-3107EDADD60B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BF2C267A-2512-441E-AAAD-3107EDADD60B}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
