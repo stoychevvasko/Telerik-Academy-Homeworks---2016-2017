@@ -40,10 +40,10 @@ class NthBit
 {
     static void Main()
     {
-        int p = int.Parse(Console.ReadLine());
+        ulong p = ulong.Parse(Console.ReadLine());
         int n = int.Parse(Console.ReadLine());
-        int mask = (1 << n);
-        int result = ((p & mask) >> n);
+        ulong mask = (1UL << n);
+        ulong result = ((p & mask) >> n);
         Console.WriteLine(result);
     }
 }
