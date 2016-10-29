@@ -11,6 +11,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Play card", "03. Play c
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Multiplication sign", "04. Multiplication sign\04. Multiplication sign.csproj", "{351E9BED-9766-4F95-8BD8-B72AEB149A72}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "05. Biggest of 3", "05. Biggest of 3\05. Biggest of 3.csproj", "{758D7399-07A1-48B0-8DBD-3A6D3C4ECAED}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -33,6 +35,10 @@ Global
 		{351E9BED-9766-4F95-8BD8-B72AEB149A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{351E9BED-9766-4F95-8BD8-B72AEB149A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{351E9BED-9766-4F95-8BD8-B72AEB149A72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{758D7399-07A1-48B0-8DBD-3A6D3C4ECAED}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{758D7399-07A1-48B0-8DBD-3A6D3C4ECAED}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{758D7399-07A1-48B0-8DBD-3A6D3C4ECAED}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{758D7399-07A1-48B0-8DBD-3A6D3C4ECAED}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
