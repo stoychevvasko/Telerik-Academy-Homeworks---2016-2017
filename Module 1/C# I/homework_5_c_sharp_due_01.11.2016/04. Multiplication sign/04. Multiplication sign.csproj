@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{976324EA-1970-4904-96BB-62DDFB5FB6B8}</ProjectGuid>
+    <ProjectGuid>{351E9BED-9766-4F95-8BD8-B72AEB149A72}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>_03.Play_card</RootNamespace>
-    <AssemblyName>_03.Play_card</AssemblyName>
+    <RootNamespace>_04.Multiplication_sign</RootNamespace>
+    <AssemblyName>_04.Multiplication_sign</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -43,7 +43,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="PlayCard.cs" />
+    <Compile Include="MultiplicationSign.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

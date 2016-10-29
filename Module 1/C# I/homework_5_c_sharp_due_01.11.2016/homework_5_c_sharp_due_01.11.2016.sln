@@ -7,6 +7,10 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Exchange if greater", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Bonus score", "02. Bonus score\02. Bonus score.csproj", "{E647037D-1352-4252-9C4E-A4F1F1797558}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "03. Play card", "03. Play card\03. Play card.csproj", "{976324EA-1970-4904-96BB-62DDFB5FB6B8}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "04. Multiplication sign", "04. Multiplication sign\04. Multiplication sign.csproj", "{351E9BED-9766-4F95-8BD8-B72AEB149A72}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +25,14 @@ Global
 		{E647037D-1352-4252-9C4E-A4F1F1797558}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{E647037D-1352-4252-9C4E-A4F1F1797558}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{E647037D-1352-4252-9C4E-A4F1F1797558}.Release|Any CPU.Build.0 = Release|Any CPU
+		{976324EA-1970-4904-96BB-62DDFB5FB6B8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{976324EA-1970-4904-96BB-62DDFB5FB6B8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{976324EA-1970-4904-96BB-62DDFB5FB6B8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{976324EA-1970-4904-96BB-62DDFB5FB6B8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{351E9BED-9766-4F95-8BD8-B72AEB149A72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{351E9BED-9766-4F95-8BD8-B72AEB149A72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{351E9BED-9766-4F95-8BD8-B72AEB149A72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{351E9BED-9766-4F95-8BD8-B72AEB149A72}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
