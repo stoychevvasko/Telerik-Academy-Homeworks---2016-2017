@@ -49,14 +49,17 @@
 				margin-left: 10px;
 			}
 			
+			.data-row {
+				height: 23px;
+				margin: -5px;
+			}
+			
 			.data-row > span {
 				border: 1px solid #a4aaab;
 				background-color: white;
-				height: 23px;
-				float: left;				
-				margin-top: 0px;
-				margin-left: -6px;
-				padding: 5px 0px 0px 5px;
+				float: left;
+				padding: 5px;
+				margin-left: -1px;
 			}
 			
 			.product-id {
@@ -80,8 +83,8 @@
 			}
 			
 			.discontinued {				
-				padding-right: 0px;
-				width: 67px;
+				width: 7.7%;
+				border-right: 0px solid black;
 			}
 						
 			.title-row-gradient {
@@ -117,7 +120,7 @@
 				border: 1px solid #a4aaab;
 				border-radius: 2px;
 				float: right;
-				margin: 4px 26px 0px 0px;
+				margin: 4px 24px 0px 0px;
 				padding: 2px;	
 			}
 			
@@ -152,18 +155,13 @@
 			}		
 			
 			.check-box {
-				margin-left: 1px;
-				margin-top: 7px;
-				margin-right: 5px;
+				margin-left: 3px;
+				margin-top: 5px;				
 				float: left;
 			}
 			
 			img {
 			margin-top: 5px;
-			}
-			
-			.discontinued {
-				border: 0px solid black;
 			}
 		</style>
 		<title>Grid component</title>
@@ -202,18 +200,18 @@
 				</span>
 				<span class="unit-price">
 					<input type="text" id="input-unit-price" value=""/>
-					<input type="image" class="filter-1 title-row-gradient" src="./images/filter.png" alt="filter icon" />
+					<input type="image" class="filter-1" src="./images/filter.png" alt="filter icon" />
 				</span>
 				<span class="quantity-per-unit">
 					<input type="text" id="input-quantity-per-unit" value=""/>
 				</span>
 				<span class="units-in-stock">
 					<input type="text" id="input-units-in-stock" value=""/>
-					<input type="image" class="filter-2 title-row-gradient" src="./images/filter.png" alt="filter icon" />
+					<input type="image" class="filter-2" src="./images/filter.png" alt="filter icon" />
 				</span>
 				<span class="discontinued">
-					<input type="checkbox" id="check-box">
-					<input type="image" class="filter-3 title-row-gradient" src="./images/filter.png" alt="filter icon" />
+					<input type="checkbox" class="check-box">
+					<input type="image" class="filter-3" src="./images/filter.png" alt="filter icon" />
 				</span>
 			</div>
 			<div class="data-row">
@@ -233,7 +231,7 @@
 					39
 				</span>
 				<span class="discontinued">
-					<input type="checkbox" class="check-box">					
+					<input type="checkbox" class="check-box" disabled>					
 				</span>
 			</div>
 		</div>
