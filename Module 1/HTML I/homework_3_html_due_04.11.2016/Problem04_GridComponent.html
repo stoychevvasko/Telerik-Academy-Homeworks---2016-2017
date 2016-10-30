@@ -32,28 +32,44 @@
 				padding: 5px;
 				margin-top: 0px;
 			}
+						
+			.sub-title-row {
+				height: 30px;
+				border-top: 1px solid #a4aaab;				
+				background-color: #f3f2f3;
+				margin-top: 5px;
+				margin-left: -5px;
+			}
 			
-			#product-id {
+			.sub-title-row > span {
+				border-right: 1px solid #a4aaab;
+				height: 30px;
+				float: left;				
+				margin-top: 0px;
+				margin-left: 10px;
+			}
+			
+			.product-id {
 				width: 60px;
 			}
 			
-			#product-name {
+			.product-name {
 				width: 237px;
 			}
 			
-			#unit-price {
+			.unit-price {
 				width: 148px;
 			}
 			
-			#quantity-per-unit {
+			.quantity-per-unit {
 				width: 140px;
 			}
 			
-			#units-in-stock {
+			.units-in-stock {
 				width: 155px;
 			}
 			
-			#discontinued {
+			.discontinued {
 				width: 64px;
 				border-right: 0px;
 				padding-right: 0px;
@@ -66,6 +82,18 @@
 				background: -webkit-linear-gradient(top,  #f3f2f3 0%,#dee1ee 100%); /* Chrome10-25,Safari5.1-6 */
 				background: linear-gradient(to bottom,  #f3f2f3 0%,#dee1ee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f2f3', endColorstr='#dee1ee',GradientType=0 ); /* IE6-9 */
+			}
+			
+			#input-product-id {
+				width: 25px;
+				margin-top: 4px;
+				margin-left: -3px;
+			}
+			
+			#input-product-name {
+				width: 140px;
+				margin-top: 4px;
+				margin-left: -3px;
 			}
 
 			img {
@@ -80,22 +108,42 @@
 				Drag a column header and drop it here to group by that column
 			</div>
 			<div class="title-row title-row-gradient">
-				<span id="product-id">
+				<span class="product-id">
 					ProductID
 				</span>
-				<span id="product-name">
+				<span class="product-name">
 					Product name
 				</span>
-				<span id="unit-price">
+				<span class="unit-price">
 					Unit price
 				</span>
-				<span id="quantity-per-unit">
+				<span class="quantity-per-unit">
 					Quantity per unit
 				</span>
-				<span id="units-in-stock">
+				<span class="units-in-stock">
 					Units in stock
 				</span>
-				<span id="discontinued">
+				<span class="discontinued">
+					Discontinued
+				</span>
+			</div>
+			<div class="sub-title-row">
+				<span class="product-id">
+					<input type="text" id="input-product-id" value="" autofocus="autofocus"/>
+				</span>
+				<span class="product-name">
+					<input type="text" id="input-product-name" value=""/>
+				</span>
+				<span class="unit-price">
+					Unit price
+				</span>
+				<span class="quantity-per-unit">
+					Quantity per unit
+				</span>
+				<span class="units-in-stock">
+					Units in stock
+				</span>
+				<span class="discontinued">
 					Discontinued
 				</span>
 			</div>
