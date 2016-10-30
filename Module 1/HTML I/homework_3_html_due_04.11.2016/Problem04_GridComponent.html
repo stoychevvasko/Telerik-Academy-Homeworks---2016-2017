@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<style>
+			.grid-component {
+				width: 870px;
+				border: 1px solid #a4aaab;
+				border-radius: 5px 5px 0px 0px;				
+				font-family: Arial, sans-serif;
+				font-size: 12px;
+				padding: 5px 5px 0px 5px;
+				background-color: #e9eae9;
+			}
+
+			.top-row {
+				height: 23px;				
+				width: 870px;
+				background-color: #e9eae9;
+			}
+			
+			.title-row {
+				height: 23px;				
+				width: 870px;
+				border-top: 1px solid #a4aaab;
+				margin: -5px;
+				padding: 5px 5px 0px 5px;
+				background-color: #e9eae9;
+			}
+			
+			.title-row > span {
+				border-right: 1px solid #a4aaab;
+				height: 23px;
+				float: left;
+				padding: 5px 5px 0px 5px;
+				margin: -5px;
+			}
+			
+			#product-id {
+				width: 60px;
+			}
+
+			img {
+			margin-top: 5px;
+			}
+		</style>
+		<title>Grid component</title>
+	</head>
+	<body>
+		<div class="grid-component">
+			<div class="top-row">
+				Drag a column header and drop it here to group by that column
+			</div>
+			<div class="title-row">
+				<span id="product-id">
+					ProductID
+				</span>
+				<span id="product-name">
+					Product name
+				</span>
+				<span id="unit-price">
+					Unit price
+				</span>
+				<span id="quantity-per-unit">
+					Quantity per unit
+				</span>
+				<span id="units-in-stock">
+					Units in stock
+				</span>
+				<span id="discontinued">
+					Discontinued
+				</span>
+			</div>
+		</div>
+		<img src="https://cloud.githubusercontent.com/assets/3619393/7003234/b2d1eb4a-dc5f-11e4-8844-f1462f705ddf.png" alt="Desired look">
+	</body>
+</html>
