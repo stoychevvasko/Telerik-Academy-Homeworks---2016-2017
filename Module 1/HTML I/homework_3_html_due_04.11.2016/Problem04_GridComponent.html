@@ -3,7 +3,7 @@
 	<head>
 		<style>
 			.grid-component {
-				width: 870px;
+				width: 868px;
 				border: 1px solid #a4aaab;
 				border-radius: 5px 5px 0px 0px;				
 				font-family: Arial, sans-serif;
@@ -19,24 +19,53 @@
 			}
 			
 			.title-row {
-				height: 23px;				
-				width: 870px;
+				height: 23px;
 				border-top: 1px solid #a4aaab;
 				margin: -5px;
-				padding: 5px 5px 0px 5px;
 				background-color: #e9eae9;
 			}
 			
 			.title-row > span {
 				border-right: 1px solid #a4aaab;
-				height: 23px;
+				//border-bottom: 1px solid #a4aaab;
 				float: left;
-				padding: 5px 5px 0px 5px;
-				margin: -5px;
+				padding: 5px;
+				margin-top: 0px;
 			}
 			
 			#product-id {
 				width: 60px;
+			}
+			
+			#product-name {
+				width: 237px;
+			}
+			
+			#unit-price {
+				width: 148px;
+			}
+			
+			#quantity-per-unit {
+				width: 140px;
+			}
+			
+			#units-in-stock {
+				width: 155px;
+			}
+			
+			#discontinued {
+				width: 64px;
+				border-right: 0px;
+				padding-right: 0px;
+			}
+			
+			.title-row-gradient {
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f3f2f3+0,dee1ee+100 */
+				background: #f3f2f3; /* Old browsers */
+				background: -moz-linear-gradient(top,  #f3f2f3 0%, #dee1ee 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(top,  #f3f2f3 0%,#dee1ee 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom,  #f3f2f3 0%,#dee1ee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f2f3', endColorstr='#dee1ee',GradientType=0 ); /* IE6-9 */
 			}
 
 			img {
@@ -50,7 +79,7 @@
 			<div class="top-row">
 				Drag a column header and drop it here to group by that column
 			</div>
-			<div class="title-row">
+			<div class="title-row title-row-gradient">
 				<span id="product-id">
 					ProductID
 				</span>
