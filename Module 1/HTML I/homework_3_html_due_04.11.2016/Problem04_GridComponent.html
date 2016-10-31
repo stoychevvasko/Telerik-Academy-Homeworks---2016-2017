@@ -10,6 +10,7 @@
 		
 			#grid-component {						
 				font-family: Lucida Sans, sans-serif;
+				font-color: #3d3e3e;
 				font-size: 11px;
 				opacity: 1.6;							
 				width: 875px;
@@ -95,6 +96,28 @@
 				padding: 5px 5px 0px 5px;
 			}
 			
+			.footer-row > span {				
+				float: left;
+				margin-right: 3px;
+				margin-left: 2px;
+			}
+			
+			.footer-row > span > a {
+			    border: 1px solid transparent;				
+				border-radius: 2px;
+				padding: 3px 2px 3px 2px;
+				font-family: Arial;
+				text-decoration: none;
+				font-size: 12px;
+				line-height: 20px;
+			}
+			
+			.footer-row > span > a:hover {
+				border: 1px solid red;
+				border-radius: 2px;
+				padding: 3px 2px 3px 2px;
+			}
+			
 			.product-id {
 				width: 60px;
 			}
@@ -129,7 +152,7 @@
 				background: linear-gradient(to bottom,  #f3f2f3 0%,#dee1ee 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f2f3', endColorstr='#dee1ee',GradientType=0 ); /* IE6-9 */
 			}
-			
+						
 			.title-button-gradient {
 				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f2f2+0,dfdfdf+100 */
 				background: #f2f2f2; /* Old browsers */
@@ -137,6 +160,15 @@
 				background: -webkit-linear-gradient(-45deg,  #f2f2f2 0%,#dfdfdf 100%); /* Chrome10-25,Safari5.1-6 */
 				background: linear-gradient(135deg,  #f2f2f2 0%,#dfdfdf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#dfdfdf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			}
+			
+			.title-button-gradient:hover {
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#dfdfdf+1,f2f2f2+100 */
+				background: #dfdfdf; /* Old browsers */
+				background: -moz-linear-gradient(-45deg,  #dfdfdf 1%, #f2f2f2 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(-45deg,  #dfdfdf 1%,#f2f2f2 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(135deg,  #dfdfdf 1%,#f2f2f2 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#dfdfdf', endColorstr='#f2f2f2',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 			}
 			
 			.footer-row-gradient {
@@ -155,6 +187,15 @@
 				background: -webkit-linear-gradient(-45deg,  #f1f1f2 0%,#e0e0df 100%); /* Chrome10-25,Safari5.1-6 */
 				background: linear-gradient(135deg,  #f1f1f2 0%,#e0e0df 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f2', endColorstr='#e0e0df',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			}
+			
+			.footer-button-gradient:hover {
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#bcbfbe+0,e6eaeb+100 */
+				background: #bcbfbe; /* Old browsers */
+				background: -moz-linear-gradient(-45deg,  #bcbfbe 0%, #e6eaeb 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(-45deg,  #bcbfbe 0%,#e6eaeb 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(135deg,  #bcbfbe 0%,#e6eaeb 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#bcbfbe', endColorstr='#e6eaeb',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
 			}
 			
 			.filter-1 {
@@ -202,7 +243,12 @@
 			#input-units-in-stock {
 				width: 75px;
 				margin-left: -3px;
-			}		
+			}
+			
+			#item-stats {
+				float: right;				
+				line-height: 20px;
+			}
 			
 			.check-box {
 				margin-left: 3px;
@@ -210,6 +256,19 @@
 				float: left;
 			}
 			
+			.page-select > select {
+				border-radius: 2px;
+				padding: 0px 25px 0px 3px;
+				font-family: Arial;
+				text-decoration: none;
+				font-size: 12px;
+				line-height: 20px;
+				background-image: url("./images/down.png");
+				background-repeat: no-repeat;
+				background-position: 26px -2px;
+				-webkit-appearance: none;
+			}
+									
 			img {
 				margin-top: 5px;
 			}
@@ -472,37 +531,37 @@
 					<input type="image" class="rewind-button icon-button footer-button-gradient" src="./images/first.png" alt="rewind icon" />
 				</span>
 				<span>
-					<a href src="#">1</a>
+					<a href="#">1</a>
 				</span>
 				<span>
-					<a href src="#">2</a>
+					<a href="#">2</a>
 				</span>
 				<span>
-					<a href src="#">3</a>
+					<a href="#">3</a>
 				</span>
 				<span>
-					<a href src="#">4</a>
+					<a href="#">4</a>
 				</span>
 				<span>
-					<a href src="#">5</a>
+					<a href="#">5</a>
 				</span>
 				<span>
-					<a href src="#">6</a>
+					<a href="#">6</a>
 				</span>
 				<span>
-					<a href src="#">7</a>
+					<a href="#">7</a>
 				</span>
 				<span>
-					<a href src="#">8</a>
+					<a href="#">8</a>
 				</span>
 				<span>
-					<a href src="#">9</a>
+					<a href="#">9</a>
 				</span>
 				<span>
-					<a href src="#">10</a>
+					<a href="#">10</a>
 				</span>
 				<span>
-					<a href src="#">...</a>
+					<a href="#">...</a>
 				</span>
 				<span>									
 					<input type="image" class="forward-button icon-button footer-button-gradient" src="./images/forward.png" alt="forward icon" />
@@ -510,7 +569,15 @@
 				<span>					
 					<input type="image" class="fast-forward-button icon-button footer-button-gradient" src="./images/last.png" alt="fast forward icon" />
 				</span>
-				<span>
+				<span class="page-select">
+					<label for="page-size">Page size: </label>
+					<select name="page-size" id="page-size">
+                            <option value="10" selected="selected">10</option>
+                            <option value="20">20</option>
+                            <option value="50">50</option>
+                    </select>
+				</span>
+				<span id="item-stats">
 					335104 items in 33511 pages
 				</span>
 			</div>
