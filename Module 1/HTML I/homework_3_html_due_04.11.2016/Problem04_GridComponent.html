@@ -85,12 +85,14 @@
 			}
 			
 			.footer-row {
-				width: 870px;
+				width: 868px;
 				height: 26px;
 				border-left: 1px solid #a4aaab;
 				border-right: 1px solid #a4aaab;
 				border-bottom: 1px solid #a4aaab;
-				border-radius: 0px 0px 5px 5px;	
+				border-radius: 0px 0px 5px 5px;				
+				background-color: #e9eae9;
+				padding: 5px 5px 0px 5px;
 			}
 			
 			.product-id {
@@ -128,33 +130,51 @@
 				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f3f2f3', endColorstr='#dee1ee',GradientType=0 ); /* IE6-9 */
 			}
 			
+			.title-button-gradient {
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f2f2f2+0,dfdfdf+100 */
+				background: #f2f2f2; /* Old browsers */
+				background: -moz-linear-gradient(-45deg,  #f2f2f2 0%, #dfdfdf 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(-45deg,  #f2f2f2 0%,#dfdfdf 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(135deg,  #f2f2f2 0%,#dfdfdf 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f2f2f2', endColorstr='#dfdfdf',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			}
+			
+			.footer-row-gradient {
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#e6eaeb+0,bcbfbe+100 */
+				background: #e6eaeb; /* Old browsers */
+				background: -moz-linear-gradient(top,  #e6eaeb 0%, #bcbfbe 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(top,  #e6eaeb 0%,#bcbfbe 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(to bottom,  #e6eaeb 0%,#bcbfbe 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#e6eaeb', endColorstr='#bcbfbe',GradientType=0 ); /* IE6-9 */
+			}
+			
+			.footer-button-gradient {
+				/* Permalink - use to edit and share this gradient: http://colorzilla.com/gradient-editor/#f1f1f2+0,e0e0df+100 */
+				background: #f1f1f2; /* Old browsers */
+				background: -moz-linear-gradient(-45deg,  #f1f1f2 0%, #e0e0df 100%); /* FF3.6-15 */
+				background: -webkit-linear-gradient(-45deg,  #f1f1f2 0%,#e0e0df 100%); /* Chrome10-25,Safari5.1-6 */
+				background: linear-gradient(135deg,  #f1f1f2 0%,#e0e0df 100%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+				filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#f1f1f2', endColorstr='#e0e0df',GradientType=1 ); /* IE6-9 fallback on horizontal gradient */
+			}
+			
 			.filter-1 {
-				display: block;
-				background-color: #f3f2f3;
-				border: 1px solid #a4aaab;
-				border-radius: 2px;
-				float: right;
-				margin: 0px 48px 0px 0px;	
-				padding: 2px;
+				margin: 0px 48px 0px 0px;
 			}
 			
 			.filter-2 {
-				display: block;
-				background-color: #f3f2f3;
-				border: 1px solid #a4aaab;
-				border-radius: 2px;
-				float: right;
 				margin: 0px 55px 0px 0px;
-				padding: 2px;
 			}
 			
 			.filter-3 {
-				display: block;
-				background-color: #f3f2f3;
+				margin: 0px 20px 0px 0px;
+			}
+			
+			.icon-button {				
+				display: inline-block;
+				background-color: #e2e4e6;
 				border: 1px solid #a4aaab;
 				border-radius: 2px;
 				float: right;
-				margin: -2px 20px 0px 0px;
 				padding: 2px;
 				clear: right;
 			}
@@ -230,18 +250,18 @@
 				</span>
 				<span class="unit-price">
 					<input type="text" id="input-unit-price" value=""/>
-					<input type="image" class="filter-1" src="./images/filter.png" alt="filter icon" />
+					<input type="image" class="filter-1 icon-button title-button-gradient" src="./images/filter.png" alt="filter icon" />
 				</span>
 				<span class="quantity-per-unit">
 					<input type="text" id="input-quantity-per-unit" value=""/>
 				</span>
 				<span class="units-in-stock">
 					<input type="text" id="input-units-in-stock" value=""/>
-					<input type="image" class="filter-2" src="./images/filter.png" alt="filter icon" />
+					<input type="image" class="filter-2 icon-button title-button-gradient" src="./images/filter.png" alt="filter icon" />
 				</span>
 				<span class="discontinued">
 					<input type="checkbox" class="check-box">
-					<input type="image" class="filter-3" src="./images/filter.png" alt="filter icon" />
+					<input type="image" class="filter-3 icon-button title-button-gradient" src="./images/filter.png" alt="filter icon" />
 				</span>
 			</div>
 			<div class="data-row">
@@ -444,10 +464,12 @@
 					<input type="checkbox" class="check-box" disabled>					
 				</span>
 			</div>
-			<div class="footer-row">
-				<span>
+			<div class="footer-row footer-row-gradient">
+				<span>					
+					<input type="image" class="back-button icon-button footer-button-gradient" src="./images/back.png" alt="back icon" />
 				</span>
-				<span>
+				<span>					
+					<input type="image" class="rewind-button icon-button footer-button-gradient" src="./images/first.png" alt="rewind icon" />
 				</span>
 				<span>
 					<a href src="#">1</a>
@@ -482,9 +504,11 @@
 				<span>
 					<a href src="#">...</a>
 				</span>
-				<span>
+				<span>									
+					<input type="image" class="forward-button icon-button footer-button-gradient" src="./images/forward.png" alt="forward icon" />
 				</span>
-				<span>
+				<span>					
+					<input type="image" class="fast-forward-button icon-button footer-button-gradient" src="./images/last.png" alt="fast forward icon" />
 				</span>
 				<span>
 					335104 items in 33511 pages
