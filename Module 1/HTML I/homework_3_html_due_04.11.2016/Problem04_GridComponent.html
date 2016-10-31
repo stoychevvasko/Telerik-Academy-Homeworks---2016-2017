@@ -3,63 +3,77 @@
 	<head>
 		<style>
 			#grid-component {
-				width: 868px;
-				height: 200px;
-				border: 1px solid #a4aaab;
-				border-radius: 5px 5px 0px 0px;				
+				height: 200px;							
 				font-family: Arial, sans-serif;
 				font-size: 12px;
-				padding: 5px 5px 0px 5px;
-				background-color: #e9eae9;
 			}
 
 			.top-row {
 				height: 23px;				
 				width: 870px;
 				background-color: #e9eae9;
+				border: 1px solid #a4aaab;
+				border-radius: 5px 5px 0px 0px;	
+				padding: 5px 5px 0px 5px;
 			}
 			
 			.title-row {
 				height: 23px;
-				border-top: 1px solid #a4aaab;
-				margin: -5px;
-				background-color: #e9eae9;
+				width: 870px;
+				border-left: 1px solid #a4aaab;
+				border-right: 1px solid #a4aaab;
+				background-color: #f3f2f3;
+				padding: 0px 5px 0px 5px;
 			}
 			
 			.title-row > span {
 				border-right: 1px solid #a4aaab;
-				//border-bottom: 1px solid #a4aaab;
 				float: left;
 				padding: 5px;
-				margin-top: 0px;
+			}
+			
+			.title-row > span:last-child {
+				border-right: 0px solid white;
 			}
 						
 			.sub-title-row {
-				height: 30px;	
-				margin-top: 5px;
-				margin-left: -5px;
+				height: 30px;
+				width: 870px;
+				border-left: 1px solid #a4aaab;
+				border-right: 1px solid #a4aaab;
+				border-bottom: 1px solid #a4aaab;
+				background-color: #e2e4e6;
+				padding: 0px 5px 0px 5px;
 			}
 			
 			.sub-title-row > span {
 				border-right: 1px solid #a4aaab;
-				height: 30px;
 				float: left;				
-				margin-top: 0px;
-				margin-right: 0px;
-				margin-left: 10px;
+				padding: 5px;
+			}
+			
+			.sub-title-row > span:last-child {
+				border-right: 0px solid white;
 			}
 			
 			.data-row {
 				height: 23px;
-				margin: -5px;
+				width: 870px;
+				border-left: 1px solid #a4aaab;
+				border-right: 1px solid #a4aaab;
+				border-bottom: 1px solid #a4aaab;
+				background-color: white;
+				padding: 0px 5px 0px 5px;
 			}
 			
 			.data-row > span {
-				border: 1px solid #a4aaab;
-				background-color: white;
+				border-right: 1px solid #a4aaab;
 				float: left;
-				padding: 5px;
-				margin-left: -1px;
+				padding: 5px 5px 0px 5px;
+			}
+			
+			.data-row > span:last-child {
+				border-right: 0px solid white;
 			}
 			
 			.product-id {
@@ -83,8 +97,8 @@
 			}
 			
 			.discontinued {				
-				width: 7.7%;
-				border-right: 0px solid black;
+				width: 60px;
+				padding: 0px;
 			}
 						
 			.title-row-gradient {
@@ -98,59 +112,58 @@
 			}
 			
 			.filter-1 {
+				display: block;
 				background-color: #f3f2f3;
 				border: 1px solid #a4aaab;
 				border-radius: 2px;
 				float: right;
-				margin: 4px 48px 0px 0px;
-				padding: 2px;				
+				margin: 0px 48px 0px 0px;	
+				padding: 2px;
 			}
 			
 			.filter-2 {
+				display: block;
 				background-color: #f3f2f3;
 				border: 1px solid #a4aaab;
 				border-radius: 2px;
 				float: right;
-				margin: 4px 55px 0px 0px;
-				padding: 2px;	
+				margin: 0px 55px 0px 0px;
+				padding: 2px;
 			}
 			
 			.filter-3 {
+				display: block;
 				background-color: #f3f2f3;
 				border: 1px solid #a4aaab;
 				border-radius: 2px;
 				float: right;
-				margin: 4px 24px 0px 0px;
-				padding: 2px;	
+				margin: -20px 20px 0px 0px;
+				padding: 2px;
+				clear: right;
 			}
 			
 			#input-product-id {
 				width: 26px;
-				margin-top: 4px;
 				margin-left: -3px;
 			}
 			
 			#input-product-name {
 				width: 140px;
-				margin-top: 4px;
 				margin-left: -3px;
 			}
 			
 			#input-unit-price {
 				width: 75px;
-				margin-top: 4px;
 				margin-left: -3px;
 			}
 			
 			#input-quantity-per-unit {
 				width: 90px;
-				margin-top: 4px;
 				margin-left: -3px;
 			}
 
 			#input-units-in-stock {
 				width: 75px;
-				margin-top: 4px;
 				margin-left: -3px;
 			}		
 			
@@ -161,7 +174,7 @@
 			}
 			
 			img {
-			margin-top: 5px;
+				margin-top: 5px;
 			}
 		</style>
 		<title>Grid component</title>
@@ -229,6 +242,46 @@
 				</span>
 				<span class="units-in-stock">
 					39
+				</span>
+				<span class="discontinued">
+					<input type="checkbox" class="check-box" disabled>					
+				</span>
+			</div>
+			<div class="data-row">
+				<span class="product-id">
+					2
+				</span>
+				<span class="product-name">
+					Chang
+				</span>
+				<span class="unit-price">
+					$19.00
+				</span>
+				<span class="quantity-per-unit">
+					24 - 12 oz bottles
+				</span>
+				<span class="units-in-stock">
+					17
+				</span>
+				<span class="discontinued">
+					<input type="checkbox" class="check-box" disabled>					
+				</span>
+			</div>
+			<div class="data-row">
+				<span class="product-id">
+					3
+				</span>
+				<span class="product-name">
+					Aniseed Syrup
+				</span>
+				<span class="unit-price">
+					$10.00
+				</span>
+				<span class="quantity-per-unit">
+					12 - 550 ml bottles
+				</span>
+				<span class="units-in-stock">
+					13
 				</span>
 				<span class="discontinued">
 					<input type="checkbox" class="check-box" disabled>					
