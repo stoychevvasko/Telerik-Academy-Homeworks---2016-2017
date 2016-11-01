@@ -36,28 +36,28 @@ class Calculate
 {
     static void Main()
     {
-        uint n = uint.Parse(Console.ReadLine());
+        ulong n = ulong.Parse(Console.ReadLine());
         decimal x = decimal.Parse(Console.ReadLine());
         decimal result = CalculateValues(n, x);
         Console.WriteLine("{0:F5}", result);
     }
 
-    private static decimal CalculateValues(uint intValue, decimal decimalValue)
+    private static decimal CalculateValues(ulong intValue, decimal decimalValue)
     {
         decimal result = 1;
-        for (uint i = 1; i <= intValue; i++)
+        for (ulong i = 1; i <= intValue; i++)
         {
             result += Factorial(i) / DecimalPower(decimalValue, i);
         }
         return result;
     }
 
-    private static decimal DecimalPower(decimal decimalValue, uint pow)
+    private static decimal DecimalPower(decimal decimalValue, ulong pow)
     {
         decimal result = 1;
         if (pow > 0)
         {
-            for (int i = 0; i < pow; i++)
+            for (ulong i = 0; i < pow; i++)
             {
                 result *= decimalValue;
             }
@@ -66,7 +66,7 @@ class Calculate
         return result;
     }
 
-    private static uint Factorial(uint value)
+    private static ulong Factorial(ulong value)
     {
         if (value == 0 || value == 1) return 1;
         else return Factorial(value - 1) * value;
