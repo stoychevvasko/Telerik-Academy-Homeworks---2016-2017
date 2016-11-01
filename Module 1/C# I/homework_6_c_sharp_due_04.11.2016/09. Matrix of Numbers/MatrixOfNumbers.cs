@@ -48,7 +48,6 @@ class MatrixOfNumbers
                 {
                     builder.Append(" ");
                 }
-
                 builder.Append(i + j);                
             }
             Console.WriteLine(builder);
