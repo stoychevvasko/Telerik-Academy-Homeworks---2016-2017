@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. Odd and Even Product", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Binary to Decimal", "11. Binary to Decimal\11. Binary to Decimal.csproj", "{9BAC8C27-8677-4DE5-B1E3-45D6C5A93924}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12. Decimal to Binary", "12. Decimal to Binary\12. Decimal to Binary.csproj", "{D857DFBB-6694-44B4-8F4E-189897CE9146}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{9BAC8C27-8677-4DE5-B1E3-45D6C5A93924}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9BAC8C27-8677-4DE5-B1E3-45D6C5A93924}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9BAC8C27-8677-4DE5-B1E3-45D6C5A93924}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D857DFBB-6694-44B4-8F4E-189897CE9146}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D857DFBB-6694-44B4-8F4E-189897CE9146}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D857DFBB-6694-44B4-8F4E-189897CE9146}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D857DFBB-6694-44B4-8F4E-189897CE9146}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
