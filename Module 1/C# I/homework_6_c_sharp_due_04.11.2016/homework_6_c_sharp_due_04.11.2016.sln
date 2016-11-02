@@ -33,6 +33,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14. Hex to Decimal", "14. H
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15. GCD", "15. GCD\15. GCD.csproj", "{1E4F83F4-121D-44C2-A020-6887B958CCFD}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16. Trailing 0 in N!", "16. Trailing 0 in N!\16. Trailing 0 in N!.csproj", "{36431ECD-34C8-4D05-AFFD-B92FF6F8F80D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -99,6 +101,10 @@ Global
 		{1E4F83F4-121D-44C2-A020-6887B958CCFD}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{1E4F83F4-121D-44C2-A020-6887B958CCFD}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{1E4F83F4-121D-44C2-A020-6887B958CCFD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{36431ECD-34C8-4D05-AFFD-B92FF6F8F80D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{36431ECD-34C8-4D05-AFFD-B92FF6F8F80D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{36431ECD-34C8-4D05-AFFD-B92FF6F8F80D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{36431ECD-34C8-4D05-AFFD-B92FF6F8F80D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
