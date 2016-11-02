@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15. GCD", "15. GCD\15. GCD.
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "16. Trailing 0 in N!", "16. Trailing 0 in N!\16. Trailing 0 in N!.csproj", "{36431ECD-34C8-4D05-AFFD-B92FF6F8F80D}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "17. Spiral Matrix", "17. Spiral Matrix\17. Spiral Matrix.csproj", "{5D20E87A-D169-455A-A587-FB2D9557C7D7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{36431ECD-34C8-4D05-AFFD-B92FF6F8F80D}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{36431ECD-34C8-4D05-AFFD-B92FF6F8F80D}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{36431ECD-34C8-4D05-AFFD-B92FF6F8F80D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5D20E87A-D169-455A-A587-FB2D9557C7D7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5D20E87A-D169-455A-A587-FB2D9557C7D7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5D20E87A-D169-455A-A587-FB2D9557C7D7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5D20E87A-D169-455A-A587-FB2D9557C7D7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
