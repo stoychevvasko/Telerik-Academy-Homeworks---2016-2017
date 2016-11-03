@@ -57,23 +57,43 @@ class BobiAvokadoto
 {
     static void Main()
     {
-        uint n = uint.Parse(Console.ReadLine());
+        uint head = uint.Parse(Console.ReadLine());
         int c = int.Parse(Console.ReadLine());
-        uint[] combs = new uint[c];
-        uint[] combXORs = new uint[c];
+
+        
+        int bestToothCount = -5;
+        uint bestComb = 0;
+
         for (int i = 0; i < c; i++)
         {
-            combs[i] = uint.Parse(Console.ReadLine());
-            combXORs[i] = combs[i] ^ n;
-        }
-        int bestIndex = 0;
-        for (int i = 0; i < combs.Length; i++)
-        {
-            if (i != bestIndex && combXORs[i] > combXORs[bestIndex])
+            uint comb = uint.Parse(Console.ReadLine());
+            bool canUseComb = true;
+            int toothCount = 0;
+
+            for (int j = 0; j < 32; j++)
+            {                
+                uint hasHair = (head >> j) & 1;
+                uint hasTooth = (comb >> j) & 1;
+                if (hasHair == 1 && hasTooth == 1)
+                {
+                    canUseComb = false;
+                    break;
+                }
+                if (hasTooth == 1)
+                {
+                    ++toothCount;
+                }
+            }
+            if (canUseComb)
             {
-                bestIndex = i;
+                //Console.WriteLine("{0} {1}", comb, toothCount);
+                if (toothCount > bestToothCount)
+                {
+                    bestToothCount = toothCount;
+                    bestComb = comb;
+                }
             }
         }
-        Console.WriteLine(combs[bestIndex]);
+        Console.WriteLine(bestComb);
     }
 }
