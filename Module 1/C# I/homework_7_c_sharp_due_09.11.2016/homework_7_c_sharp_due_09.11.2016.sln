@@ -23,6 +23,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "09. Frequent number", "09. 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Binary search", "11. Binary search\11. Binary search.csproj", "{A485B87C-EA34-468D-BFA1-1932A5E43CD4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12. Index of letters", "12. Index of letters\12. Index of letters.csproj", "{487EAF14-DBC5-4E15-B015-7AC84E7B8947}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -69,6 +71,10 @@ Global
 		{A485B87C-EA34-468D-BFA1-1932A5E43CD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{A485B87C-EA34-468D-BFA1-1932A5E43CD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{A485B87C-EA34-468D-BFA1-1932A5E43CD4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{487EAF14-DBC5-4E15-B015-7AC84E7B8947}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{487EAF14-DBC5-4E15-B015-7AC84E7B8947}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{487EAF14-DBC5-4E15-B015-7AC84E7B8947}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{487EAF14-DBC5-4E15-B015-7AC84E7B8947}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
