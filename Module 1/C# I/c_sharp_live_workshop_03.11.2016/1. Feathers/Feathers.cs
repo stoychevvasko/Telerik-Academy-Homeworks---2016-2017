@@ -1,12 +1,31 @@
 ﻿/**
-Description
+Your task is to find the average feathers count per bird and apply some more calculations on the result. If the birds count is an even number - multiply the result by the magic number 123123123123, if the birds count is an odd number - divide the result by the magic number 317.
 
-Look at the back of the hall. On the first 3 glass windows(right-to-left) you have the solution of the first task. Grab a pen and paper as fast as you can and go take it.
+Input
 
-Okay, done playing games?
-Fine.
+The input data should be read from the console.
+On the first console line you will receive a number B, that represents the number of birds in the forest. On the second console line you will receive a number F, that represents the total number of bird feathers in the forest. The input data will always be valid and in the format described. There is no need to check it explicitly.
 
-You probably didn't find any solutions but you might have saw that the weather outside is pretty warm and sunny. Imagine that you weren't having an exam at this moment, and you were taking a walk in your favorite park. A lot of trees surround you. You hear a bird singing. This is the most miraculous song you have ever heard! You look up and you see tons of birds sitting on the branches, whistling. We all know you are weird as hell, the lights are on but nobody is home, so you start counting the birds in the park. You're obsessed with this task, and for your surprise - at the end of the park, you notice a sign that actually shows the total number of feathers of all birds in the park (what? how did they count that). You see another sign, which says - "The person who guesses what is the average feathers count per bird will win a prize of (continuing his education at the Academy)". Wow, ain't that a day? You've got all the data required to do an accurate calculation and win the prize.
+Output
+
+The output data should be printed on the console.
+On the only output line, print the average feathers count per bird, modified by the extra given conditions with 4 digits precision after the decimal point.
+
+Constraints
+
+B will be a positive integer between 0 and 80000 inclusive.
+F will be a positive integer between 0 and 2000000000 inclusive.
+Allowed memory: 16 MiB
+Allowed working time for your program: 0.1 seconds
+Examples
+
+Input
+
+3
+125
+Output
+
+0.1314
 **/
 
 using System;
@@ -15,22 +34,18 @@ class Feathers
 {
     static void Main()
     {
-        ulong b = ulong.Parse(Console.ReadLine());
-        ulong f = ulong.Parse(Console.ReadLine());
-        decimal result = 0;
-        if (b != 0 && f != 0)
+        int birds = int.Parse(Console.ReadLine());
+        int feathers = int.Parse(Console.ReadLine());
+        double result = 0;
+        double avg = feathers / (double)birds;
+        if (birds % 2 == 0)
         {
-            result = (decimal)f / (decimal)b;
-            if (b % 2 == 0)
-            {
-                result = result * 123123123123;
-            }
-            else
-            {
-                result = result / 317;
-            }
+            result = avg * 123123123123;
         }
-
-        Console.WriteLine("{0:0.0000}", result);
+        else
+        {
+            result = avg / 317d;
+        }
+        Console.WriteLine(result.ToString("0.0000"));
     }
 }
