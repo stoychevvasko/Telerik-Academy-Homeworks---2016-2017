@@ -30,12 +30,12 @@ class MutantSquirrels
 {
     static void Main()
     {
-        ulong t = ulong.Parse(Console.ReadLine());
-        ulong b = ulong.Parse(Console.ReadLine());
-        ulong s = ulong.Parse(Console.ReadLine());
-        ulong n = ulong.Parse(Console.ReadLine());
-        decimal result = t * b * s * n;
+        double t = double.Parse(Console.ReadLine());
+        double b = double.Parse(Console.ReadLine());
+        double s = double.Parse(Console.ReadLine());
+        double n = double.Parse(Console.ReadLine());
+        double result = t * b * s * n;
         if (result % 2 == 0) Console.WriteLine((376439 * result).ToString("0.000"));
-        else Console.WriteLine((result / 7).ToString("0.000"));
+        else Console.WriteLine((result / 7d).ToString("0.000"));
     }
 }
