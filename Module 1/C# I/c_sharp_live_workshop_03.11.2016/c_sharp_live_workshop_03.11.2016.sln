@@ -5,7 +5,7 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. Feathers", "1. Feathers\1. Feathers.csproj", "{964F3AE5-6E01-4B34-BDAF-68EA55DCC425}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Busses", "2. Busses\2. Busses.csproj", "{7FA3CCAD-1956-4A15-BFC1-41958AB95187}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Buses", "2. Busses\2. Buses.csproj", "{7FA3CCAD-1956-4A15-BFC1-41958AB95187}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. NumberOfPages", "3. NumberOfPages\3. NumberOfPages.csproj", "{65376145-0586-413C-8A3F-1F84F7BBD866}"
 EndProject

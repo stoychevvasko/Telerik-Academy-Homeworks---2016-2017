@@ -37,32 +37,22 @@ The input data will always be correct and there is no need to check it explicitl
 
 using System;
 
-class Busses
+class Buses
 {
     static void Main()
     {
-        int c = int.Parse(Console.ReadLine());
-        int[] speeds = new int[c];
-        for (int i = 0; i < c; i++)
+        int count = int.Parse(Console.ReadLine());
+        int groups = 0;
+        int groupSpeed = int.MaxValue;
+        for (int i = 0; i < count; i++)
         {
-            speeds[i] = int.Parse(Console.ReadLine());
-        }
-
-        if (c == 1)
-        {
-            Console.WriteLine(1);
-        }
-        else
-        {
-            int result = 1;
-            for (int i = 0; i < speeds.Length - 1; i++)
+            int busSpeed = int.Parse(Console.ReadLine());
+            if (busSpeed <= groupSpeed)
             {
-                if (speeds[i] >= speeds[i + 1])
-                {
-                    result++;
-                }
+                groups++;
+                groupSpeed = busSpeed;
             }
-            Console.WriteLine(result);
         }
+        Console.WriteLine(groups);
     }
 }
