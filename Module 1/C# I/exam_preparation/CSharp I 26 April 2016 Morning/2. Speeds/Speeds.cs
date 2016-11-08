@@ -102,29 +102,37 @@ class Speeds
     static void Main()
     {
         int c = int.Parse(Console.ReadLine());
-        int lastCar = -1;
-        int currentGroupSum = 0, bestGroupSum = 0;
-        int currentGroupSize = 0, bestGroupSize = 0;
+        int sum = 0, bestSum = 0, count = 0, bestCount = 0;
+        int groupSpeed = int.MaxValue;
         for (int i = 0; i < c; i++)
         {
             int car = int.Parse(Console.ReadLine());
-            if (car > lastCar)
+            if (car <= groupSpeed)
             {
-                currentGroupSum += car;
-                currentGroupSize++;
-            }
-            else
-            {
-                if (currentGroupSize >= bestGroupSize)
+                // new group
+                groupSpeed = car;
+                if (count >= bestCount)
                 {
-                    bestGroupSize = currentGroupSize;
-                    bestGroupSum = (currentGroupSum > bestGroupSum) ? currentGroupSum : bestGroupSum;
-                    currentGroupSize = 0;
-                    currentGroupSum = 0;
+                    if (count == bestCount)
+                    {
+                        bestSum = (sum > bestSum) ? sum : bestSum;
+                    }
+                    else
+                    {
+                        bestSum = sum;
+                    }
+                    bestCount = count;
                 }
+                sum = 0;
+                count = 0;
             }
-            lastCar = car;
+            sum += car;
+            count++;
         }
-        Console.WriteLine(bestGroupSum);
+        if (bestSum == 0)
+        {
+            bestSum = sum;
+        }
+        Console.WriteLine(bestSum);
     }
 }
