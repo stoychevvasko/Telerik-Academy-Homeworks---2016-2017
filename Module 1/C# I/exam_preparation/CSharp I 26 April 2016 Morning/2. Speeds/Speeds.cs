@@ -101,38 +101,52 @@ class Speeds
 {
     static void Main()
     {
-        int c = int.Parse(Console.ReadLine());
-        int sum = 0, bestSum = 0, count = 0, bestCount = 0;
-        int groupSpeed = int.MaxValue;
-        for (int i = 0; i < c; i++)
+        int cars = int.Parse(Console.ReadLine());
+        int currentSpeed = 0;
+        int sumOfSpeed = 0;
+        int groupCount = 0;
+        int biggestCount = 0;
+        int bestSpeed = 0;
+        for (int i = 1; i <= cars; i++)
         {
-            int car = int.Parse(Console.ReadLine());
-            if (car <= groupSpeed)
+            int newSpeed = int.Parse(Console.ReadLine());
+            if (i == 1)
             {
-                // new group
-                groupSpeed = car;
-                if (count >= bestCount)
-                {
-                    if (count == bestCount)
-                    {
-                        bestSum = (sum > bestSum) ? sum : bestSum;
-                    }
-                    else
-                    {
-                        bestSum = sum;
-                    }
-                    bestCount = count;
-                }
-                sum = 0;
-                count = 0;
+                currentSpeed = newSpeed;
+                sumOfSpeed = newSpeed;
+                groupCount = 1;
             }
-            sum += car;
-            count++;
+            else
+            {
+                if (newSpeed > currentSpeed)
+                {
+                    sumOfSpeed += newSpeed;
+                    groupCount++;
+                }
+                if (newSpeed == currentSpeed)
+                {
+                    groupCount = 1;
+                    sumOfSpeed = newSpeed;
+
+                }
+                if (newSpeed < currentSpeed)
+                {
+                    groupCount = 1;
+                    currentSpeed = newSpeed;
+                    sumOfSpeed = newSpeed;
+                }
+            }
+            if (groupCount > biggestCount)
+            {
+                biggestCount = groupCount;
+                bestSpeed = sumOfSpeed;
+            }
+            if ((groupCount == biggestCount) && (sumOfSpeed > bestSpeed))
+            {
+                biggestCount = groupCount;
+                bestSpeed = sumOfSpeed;
+            }
         }
-        if (bestSum == 0)
-        {
-            bestSum = sum;
-        }
-        Console.WriteLine(bestSum);
+        Console.WriteLine(bestSpeed);
     }
 }
