@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "1. MutantSquirrels", "1. Mu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "2. Speeds", "2. Speeds\2. Speeds.csproj", "{623898D8-488F-474E-8D04-651FF75BC903}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "3. Sum of Even Divisors", "3. Sum of Even Divisors\3. Sum of Even Divisors.csproj", "{C0DB3716-7D82-4D85-936E-538B19A178B7}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{623898D8-488F-474E-8D04-651FF75BC903}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{623898D8-488F-474E-8D04-651FF75BC903}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{623898D8-488F-474E-8D04-651FF75BC903}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0DB3716-7D82-4D85-936E-538B19A178B7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0DB3716-7D82-4D85-936E-538B19A178B7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0DB3716-7D82-4D85-936E-538B19A178B7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0DB3716-7D82-4D85-936E-538B19A178B7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
