@@ -43,11 +43,28 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Problem_02.cs" />
+    <Compile Include="JumpJump.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Description\2. Jump, Jump_Description.html" />
+    <Content Include="Description\test.000.001.in.txt" />
+    <Content Include="Description\test.000.001.out.txt" />
+    <Content Include="Description\test.000.002.in.txt" />
+    <Content Include="Description\test.000.002.out.txt" />
+    <Content Include="Description\test.000.003.in.txt" />
+    <Content Include="Description\test.000.003.out.txt" />
+    <Content Include="Description\test.000.004.in.txt" />
+    <Content Include="Description\test.000.004.out.txt" />
+    <Content Include="Description\test.000.005.in.txt" />
+    <Content Include="Description\test.000.005.out.txt" />
+    <Content Include="Description\test.000.006.in.txt" />
+    <Content Include="Description\test.000.006.out.txt" />
+    <Content Include="Description\test.000.007.in.txt" />
+    <Content Include="Description\test.000.007.out.txt" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
