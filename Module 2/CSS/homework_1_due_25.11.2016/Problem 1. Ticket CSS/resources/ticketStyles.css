@@ -41,3 +41,16 @@ a.personal-details {
 .warning {
 	color: #ff0000;
 }
+
+.system-info {
+	color: #bcbcbc;
+}
+
+.status {
+	color: #e46b1d;
+}
+
+#user-name:before {
+    content: url('./dot.png');
+    color: #71b47a;
+}
