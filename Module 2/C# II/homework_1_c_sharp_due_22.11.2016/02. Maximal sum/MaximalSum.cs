@@ -3,7 +3,8 @@ Maximal sum
 
 Description
 
-Write a program that reads a rectangular matrix of size N x M and finds in it the square 3 x 3 that has maximal sum of its elements. Print that sum.
+Write a program that reads a rectangular matrix of size N x M and finds in it the square 3 x 3 that has maximal sum of its elements. 
+Print that sum.
 
 Input
 
@@ -20,17 +21,28 @@ Time limit: 0.1s
 Memory limit: 16MB
 Sample tests
 
-Input	Output
+
+Input
 3 3
 4 3 5
 2 6 4
-8 2 7	41
+8 2 7
+
+Output
+41
+
+
+Input
 5 5
 1 1 3 3 5
 -6 -7 2 -3 -1
 3 0 -4 5 9
 7 -7 0 1 0
--7 -6 -4 -4 9	19
+-7 -6 -4 -4 9	
+
+Output
+19
+
 */
 
 using System;
