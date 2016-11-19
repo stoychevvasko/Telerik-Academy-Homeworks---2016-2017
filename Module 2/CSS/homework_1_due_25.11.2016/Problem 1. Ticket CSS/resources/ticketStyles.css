@@ -1,0 +1,43 @@
+body {
+	background-image: url("./target_look.png");
+	background-repeat: no-repeat;
+	font-family: Arial, sans-serif;
+	padding: 0;
+	margin: 0;
+	opacity: 1;
+}
+
+table {	
+	background-color: #595959;
+	width: 305px;
+	height: 205px;
+	opacity: 0.6;
+}
+
+.ticket-id {
+	color: #bbbbbb;
+	font-weight: normal;
+	float: left;
+	padding-top: 6px;
+	font-size: 16px;
+}
+
+.labels {
+	font-style: italic;
+	font-size: 11px;
+	color: #ffffff;
+}
+
+.personal-details {
+	color: #fff2b2;
+	font-size: 11px;
+	font-weight: lighter;
+}
+
+a.personal-details {
+	text-decoration: none;
+}
+
+.warning {
+	color: #ff0000;
+}
