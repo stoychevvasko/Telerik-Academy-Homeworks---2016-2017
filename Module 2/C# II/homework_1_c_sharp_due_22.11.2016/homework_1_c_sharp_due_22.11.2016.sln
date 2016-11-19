@@ -5,6 +5,8 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "01. Fill the matrix", "01. Fill the matrix\01. Fill the matrix.csproj", "{B9EDACAF-3AB1-4F97-A4D7-F8275D61A60B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "02. Maximal sum", "02. Maximal sum\02. Maximal sum.csproj", "{247CC88E-211B-4AAE-8C91-72DC7D94DDFC}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +17,10 @@ Global
 		{B9EDACAF-3AB1-4F97-A4D7-F8275D61A60B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B9EDACAF-3AB1-4F97-A4D7-F8275D61A60B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B9EDACAF-3AB1-4F97-A4D7-F8275D61A60B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{247CC88E-211B-4AAE-8C91-72DC7D94DDFC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{247CC88E-211B-4AAE-8C91-72DC7D94DDFC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{247CC88E-211B-4AAE-8C91-72DC7D94DDFC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{247CC88E-211B-4AAE-8C91-72DC7D94DDFC}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
