@@ -1,22 +1,17 @@
 body {
-	background-image: url("./target_look.png");
-	background-repeat: no-repeat;
-	opacity: 1;	
 	padding: 0;
 	margin: 0;
 	font-family: Arial, sans-serif;	
 }
 
 table {	
-	background-color: #595959;	
-	opacity: 0.6;
-	width: 304px;
+	background-color: #595959;
+	width: 305px;
 	height: 205px;
 }
 
 .ticket-id {
-	color: #bbbbbb;
-	font-family: Helvetica;
+	color: #bbbbbb;	
 	font-weight: normal;
 	font-size: 16px;
 	text-align: left;	
@@ -26,9 +21,10 @@ table {
 .labels {
 	font-style: italic;
 	font-size: 11px;
-	color: #ffffff;
-	border: 1px solid white;
+	color: #ffffff;	
 	width: 90px;
+	height: 30px;
+	line-height: 30px;
 }
 
 .personal-details {
