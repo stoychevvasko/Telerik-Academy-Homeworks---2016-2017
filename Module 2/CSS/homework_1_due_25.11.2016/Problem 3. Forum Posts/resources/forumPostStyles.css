@@ -1,4 +1,43 @@
 body {
 	background-image: url('./target_look.png');
 	background-repeat: no-repeat;
+	font-family: serif;
+}
+
+h1 {
+	color: #fafad2;
+}
+
+body > header > h1 {
+	font-size: 50px;	
+	text-align: center;
+}
+
+body > header > nav > ul > li > a {
+	color: #ffffff;
+	text-decoration: none;
+}
+
+body > header > nav > ul > li > a:hover {
+	text-decoration: underline;
+}
+
+body > header > nav > ul {
+	font-size: 25px;
+	line-height: 30px;
+	font-weight: bold;
+	list-style-type: none;
+	text-align: center;
+}
+
+body > section > article > header > h1 {
+	font-size: 35px;
+} 
+
+body > section > article > p {
+	font-size: 20px;
+    height:20px;
+    line-height:20px;
+    overflow:hidden;
+	margin-bottom: 45px;
 }
