@@ -1,0 +1,91 @@
+body {
+	padding: 0;
+	margin: 0;	
+	background-image: url('./target_look.png');
+	background-repeat: no-repeat;
+    background-color: #808080;
+    font-family: Arial, sans-serif;
+    text-align: left;
+    font-size: 10px;
+}
+
+#contact-name {
+    width: 116px;
+    text-align: left;    
+}
+
+#city {
+    width: 88px;
+    text-align: left;
+}
+
+#country {
+    width: 104px;
+    text-align: left;
+}
+
+#is-promoted {
+    width: 60px;
+    text-align: left;
+}
+
+table {
+	margin: 0;
+	padding: 0;
+	border-collapse: collapse;
+	opacity: 0.5;
+}
+
+tr:nth-child(2n+1) {
+    background-color: #ffffff;
+}
+
+tr:nth-child(2n) {
+    background-color: #ececd8;
+}
+
+thead {    
+    font-size: 1em;
+    color: #ffffff;
+}
+
+th {
+    background-color: #57ba06;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    font-weight: normal;
+    border: solid;
+    border-width: 2px;
+    border-left-color: #2a7a05;
+    border-bottom-color: #2a7a05;
+    border-right-color: #83de3a;
+    border-top-color: #83de3a;
+}
+
+td {
+    padding: 10px;
+    border-color: #c5c3ab;
+    border-style: solid;
+    border-left-width: 1px;
+    border-right-width: 1px;
+    border-top-width: 0px;
+    border-bottom-width: 0px;
+    vertical-align: central;
+}
+
+.germany:before {
+    content: url('./german_flag.png');
+    padding: 5px;
+}
+
+.mexico:before {
+    content: url('./mexican_flag.png');
+    padding: 5px;
+}
+
+.uk:before {
+    content: url('./uk_flag.png');
+    padding: 5px;
+}
