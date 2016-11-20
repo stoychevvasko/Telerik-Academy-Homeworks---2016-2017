@@ -1,6 +1,5 @@
-body {
-	background-image: url('./target_look.png');
-	background-repeat: no-repeat;
+body {	
+	background-color: #a9a9a9;
 	font-family: serif;
 }
 
@@ -16,6 +15,10 @@ body > header > h1 {
 body > header > nav > ul > li > a {
 	color: #ffffff;
 	text-decoration: none;
+}
+
+body > header > nav > ul > li > a.current {
+	background-color: #d3d3d3;
 }
 
 body > header > nav > ul > li > a:hover {
@@ -37,7 +40,22 @@ body > section > article > header > h1 {
 body > section > article > p {
 	font-size: 20px;
     height:20px;
-    line-height:20px;
+    line-height:20px;	
     overflow:hidden;
 	margin-bottom: 45px;
+}
+
+body > section > article > footer > p {
+	font-size: 16px;
+	font-weight: 600;
+}
+
+body > section > article > footer > p > a {
+	text-decoration: none;
+	color: #000000;
+}
+
+body > footer {
+	font-size: 20px;
+	text-align: center;
 }
