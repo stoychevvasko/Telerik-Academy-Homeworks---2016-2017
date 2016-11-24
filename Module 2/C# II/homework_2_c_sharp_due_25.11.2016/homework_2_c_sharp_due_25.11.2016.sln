@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "10. N Factorial", "10. N Fa
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "11. Adding polynomials", "11. Adding polynomials\11. Adding polynomials.csproj", "{126D42BE-943E-49FF-ADB9-A2C3EF3D8491}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "14. Integer calculations", "14. Integer calculations\14. Integer calculations.csproj", "{B4C2B199-032A-45EE-8E6C-9FF3576BDFEF}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{126D42BE-943E-49FF-ADB9-A2C3EF3D8491}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{126D42BE-943E-49FF-ADB9-A2C3EF3D8491}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{126D42BE-943E-49FF-ADB9-A2C3EF3D8491}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B4C2B199-032A-45EE-8E6C-9FF3576BDFEF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B4C2B199-032A-45EE-8E6C-9FF3576BDFEF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B4C2B199-032A-45EE-8E6C-9FF3576BDFEF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B4C2B199-032A-45EE-8E6C-9FF3576BDFEF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
