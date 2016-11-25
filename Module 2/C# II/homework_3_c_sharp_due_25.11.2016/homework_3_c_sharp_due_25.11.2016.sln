@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "06. Binary to hexadecimal",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "07. One system to any other", "07. One system to any other\07. One system to any other.csproj", "{CE8D1014-162B-4B9A-ADBA-6CEAFF72F187}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "08. Binary short", "08. Binary short\08. Binary short.csproj", "{D2FDF07A-4C30-4166-B861-5C158043F4D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{CE8D1014-162B-4B9A-ADBA-6CEAFF72F187}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{CE8D1014-162B-4B9A-ADBA-6CEAFF72F187}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{CE8D1014-162B-4B9A-ADBA-6CEAFF72F187}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D2FDF07A-4C30-4166-B861-5C158043F4D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D2FDF07A-4C30-4166-B861-5C158043F4D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D2FDF07A-4C30-4166-B861-5C158043F4D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D2FDF07A-4C30-4166-B861-5C158043F4D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
