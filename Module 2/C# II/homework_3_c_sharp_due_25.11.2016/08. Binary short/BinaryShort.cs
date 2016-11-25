@@ -44,7 +44,7 @@ class BinaryShort
         short num = short.Parse(str);
         for (int i = 0; i < 16; i++)
         {
-            char bit = ((num & (1 << i)) != 0) ? '1' : '0';
+            int bit = num >> i & 1;
             binRepresentation.Insert(0, bit);
         }
 
