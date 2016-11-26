@@ -58,7 +58,7 @@ class ParseTags
             }
             else if (input[i].CompareTo('>') == 0)
             {
-                copyEnabled = true;                
+                copyEnabled = true;
             }
             else
             {
