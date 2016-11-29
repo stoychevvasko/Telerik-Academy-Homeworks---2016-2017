@@ -27,58 +27,32 @@ We are living in a yellow submarine. We will move out of it in 5 days.
 */
 
 using System;
-using System.Text;
-using System.Threading;
-
+using System.Linq;
 namespace FindWord
 {
     class ExtractSentences
     {
         static void Main()
         {
-            Thread.CurrentThread.CurrentCulture = System.Globalization.CultureInfo.InvariantCulture;
-            string word = Console.ReadLine();
-            string text = Console.ReadLine();
-            int startIndex = 0;
-            int endIndex = text.IndexOf('.');
-            StringBuilder result = new StringBuilder();
-            string temp;
-            while (endIndex > 0)
+            string inputWord = Console.ReadLine();
+            string inputStr = Console.ReadLine();
+            string[] inputSentences = inputStr.Split('.').ToArray();
+
+            char[] delimiters = inputStr.Where(x => !char.IsLetter(x))
+                .Distinct()
+                .ToArray();
+
+            for (int i = 0; i < inputSentences.Length; i++)
             {
-                temp = text.Substring(startIndex, endIndex - startIndex);
+                string[] sentenceWords = inputSentences[i]
+                    .Split(delimiters)
+                    .ToArray();
 
-                if (chechPrint(temp.Trim(), word))
+                if (sentenceWords.Contains(inputWord))
                 {
-                    result.Append(temp.Trim());
-                    result.Append(". ");
+                    Console.Write("{0}. ", inputSentences[i].Trim());
                 }
-
-                startIndex = endIndex + 1;
-                endIndex = text.IndexOf('.', startIndex);
             }
-            Console.WriteLine(result.ToString().Trim());
-        }
-
-        static bool chechPrint(string temp, string word)
-        {
-            int subStart = temp.IndexOf(word, 0);
-            bool print = false;
-            int checkStartIndex;
-            int checkEndIndex;
-            while (subStart >= 0 && print == false)
-            {
-                checkStartIndex = subStart - 1;
-                checkEndIndex = subStart + word.Length;
-                if (
-                  (checkStartIndex < 0 || !char.IsLetter(temp[checkStartIndex])) &&
-                  (checkEndIndex >= temp.Length || !char.IsLetter(temp[checkEndIndex]))
-                  )
-                {
-                    print = true;
-                }
-                subStart = temp.IndexOf(word, checkEndIndex);
-            }
-            return print;
         }
     }
 }
