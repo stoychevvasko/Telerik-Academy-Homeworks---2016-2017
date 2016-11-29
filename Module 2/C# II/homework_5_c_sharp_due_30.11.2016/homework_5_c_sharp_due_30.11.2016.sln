@@ -21,6 +21,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "12. Parse URL", "12. Parse 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "15. Replace tags", "15. Replace tags\15. Replace tags.csproj", "{748A9D3F-9C05-4B46-A587-6E6819BDDE3A}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "23. Series of letters", "23. Series of letters\23. Series of letters.csproj", "{273F8921-A75A-4261-84B2-BD733D0558D9}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -63,6 +65,10 @@ Global
 		{748A9D3F-9C05-4B46-A587-6E6819BDDE3A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{748A9D3F-9C05-4B46-A587-6E6819BDDE3A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{748A9D3F-9C05-4B46-A587-6E6819BDDE3A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{273F8921-A75A-4261-84B2-BD733D0558D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{273F8921-A75A-4261-84B2-BD733D0558D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{273F8921-A75A-4261-84B2-BD733D0558D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{273F8921-A75A-4261-84B2-BD733D0558D9}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
