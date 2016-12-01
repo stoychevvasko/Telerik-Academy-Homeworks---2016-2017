@@ -7,9 +7,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 01", "Problem 01\Pr
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 02", "Problem 02\Problem 02.csproj", "{459A375D-B80C-44C3-A78D-588311D857A0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 03", "Problem 03\Problem 03.csproj", "{AD63AA00-A2E8-4B0E-869F-F91A36E8D91F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 03. - Tron 3D", "Problem 03\Problem 03. - Tron 3D.csproj", "{AD63AA00-A2E8-4B0E-869F-F91A36E8D91F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 04 - Decode and Decrypt", "Problem 04\Problem 04 - Decode and Decrypt.csproj", "{A282DA71-C1AD-49BF-98C9-BE798E5A2DD5}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 04. - Decode and Decrypt", "Problem 04\Problem 04. - Decode and Decrypt.csproj", "{A282DA71-C1AD-49BF-98C9-BE798E5A2DD5}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 05. - Featuring with Grisko", "Problem 05. - Featuring with Grisko\Problem 05. - Featuring with Grisko.csproj", "{A3C6EE12-9961-4ACC-B401-0F747ECC05F1}"
 EndProject

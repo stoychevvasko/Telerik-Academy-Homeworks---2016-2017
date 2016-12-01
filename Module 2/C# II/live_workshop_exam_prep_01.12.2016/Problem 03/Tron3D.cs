@@ -4,7 +4,7 @@
 
 using System;
 
-class Program
+class Tron3D
 {
     static void Main()
     {

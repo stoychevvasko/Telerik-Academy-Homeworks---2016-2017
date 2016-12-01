@@ -37,15 +37,14 @@ using System.Linq;
 class FeaturingWithGrisko
 {
     static void Main()
-    { 
+    {
         string inputStr = Console.ReadLine();
-        List<string> allWords = new List<string>();
+        HashSet<string> allWords = new HashSet<string>();
         GenerateAllWords(inputStr, allWords);
         Console.WriteLine(allWords.Count);
     }
 
-
-    static void GenerateAllWords(string input, List<string> result)
+    static void GenerateAllWords(string input, HashSet<string> result)
     {
         var q = input.Select(x => x.ToString());
         int size = input.Length;
@@ -54,15 +53,16 @@ class FeaturingWithGrisko
 
         foreach (var item in q)
         {
-            if (!HasRepeatingLetters(item))
+            //if (!HasRepeatingLetters(item))
+            //{
+            //    if (HasUsedCorrectNumberOfLetters(item, input))
+            //    {                    
+            //            result.Add(item);                    
+            //    }
+            //}
+            if (EvaluatesGood(item, input))
             {
-                if (HasUsedCorrectNumberOfLetters(item, input))
-                {
-                    if (!AlreadyFound(item, result))
-                    {
-                        result.Add(item);
-                    }
-                }
+                result.Add(item);
             }
         }
     }
@@ -79,18 +79,6 @@ class FeaturingWithGrisko
         return true;
     }
 
-    private static bool AlreadyFound(string item, List<string> list)
-    {
-        foreach (var miniItem in list)
-        {
-            if (miniItem == item)
-            {
-                return true;
-            }
-        }
-        return false;
-    }
-
     private static bool HasRepeatingLetters(string str)
     {
         char previous = str[0];
@@ -103,5 +91,26 @@ class FeaturingWithGrisko
             previous = str[i];
         }
         return false;
+    }
+
+    private static bool EvaluatesGood(string str, string pattern)
+    {
+        foreach (var letter in pattern)
+        {
+            if (str.Count(x => x == letter) != pattern.Count(x => x == letter))
+            {
+                return false;
+            }
+        }
+        char previous = str[0];
+        for (int i = 1; i < str.Length; i++)
+        {
+            if (str[i] == previous)
+            {
+                return false;
+            }
+            previous = str[i];
+        }
+        return true;
     }
 }
