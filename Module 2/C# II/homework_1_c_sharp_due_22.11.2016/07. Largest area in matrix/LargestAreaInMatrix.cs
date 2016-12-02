@@ -17,6 +17,7 @@ Constraints
 3 <= N, M <= 1024
 Time limit: 0.35s
 Memory limit: 24MB
+
 Sample tests
 
 Input
