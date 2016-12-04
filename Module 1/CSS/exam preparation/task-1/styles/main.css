@@ -1,0 +1,18 @@
+* {
+	margin: 0px;
+	padding: 0px;
+}
+
+#root {
+  width: 960px;
+  height: 828px;
+  font-size: 18px;
+  background-color: #ccc;
+  display: block;
+  margin: 7px 6px 15px 6px;
+  padding: 0px;
+}
+
+img {
+	display: none;
+}
