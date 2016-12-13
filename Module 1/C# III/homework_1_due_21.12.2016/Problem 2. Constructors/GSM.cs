@@ -12,12 +12,12 @@ namespace Problem_2.Constructors
         /// <summary>
         /// Represents a default value for the <see cref="Problem_2.Constructors.GSM.Model"/> property.
         /// </summary>
-        private const string DEFAULT_MODEL = "default GSM model";
+        protected const string DEFAULT_MODEL = "DEFAULT_GSM_MODEL";
 
         /// <summary>
         /// Represents a default value for the <see cref="Problem_2.Constructors.GSM.Manufacturer"/> property.
         /// </summary>
-        private const string DEFAULT_MANUFACTURER = "default GSM manufacturer";
+        protected const string DEFAULT_MANUFACTURER = "DEFAULT_GSM_MANUFACTURER";
 
         // constructors
 

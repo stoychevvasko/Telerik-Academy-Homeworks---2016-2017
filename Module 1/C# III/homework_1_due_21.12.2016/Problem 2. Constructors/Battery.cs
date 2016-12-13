@@ -7,6 +7,10 @@ namespace Problem_2.Constructors
     /// </summary>
     public class Battery
     {
+        // constants
+
+        protected const string DEFAULT_BATTERY_MODEL = "DEFAULT_BATTERY_MODEL";
+
         // constructors
 
         /// <summary>
@@ -26,7 +30,7 @@ namespace Problem_2.Constructors
         /// Initializes a new instance of the <see cref="Problem_2.Constructors.Battery"/> class.
         /// </summary>
         public Battery()
-            : this(null, null, null)
+            : this(Battery.DEFAULT_BATTERY_MODEL, null, null)
         {
         }
 

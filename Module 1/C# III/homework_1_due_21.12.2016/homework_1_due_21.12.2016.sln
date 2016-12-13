@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 1. Define class", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 2. Constructors", "Problem 2. Constructors\Problem 2. Constructors.csproj", "{50A4DC0F-8F30-4993-906C-B1F724C9B669}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 3. Enumeration", "Problem 3. Enumeration\Problem 3. Enumeration.csproj", "{AE121C40-ED47-4D2E-B58A-C0D41D1CDD1A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{50A4DC0F-8F30-4993-906C-B1F724C9B669}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{50A4DC0F-8F30-4993-906C-B1F724C9B669}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{50A4DC0F-8F30-4993-906C-B1F724C9B669}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AE121C40-ED47-4D2E-B58A-C0D41D1CDD1A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AE121C40-ED47-4D2E-B58A-C0D41D1CDD1A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AE121C40-ED47-4D2E-B58A-C0D41D1CDD1A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AE121C40-ED47-4D2E-B58A-C0D41D1CDD1A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

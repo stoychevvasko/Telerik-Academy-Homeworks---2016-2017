@@ -11,9 +11,9 @@ using System;
 
 namespace Problem_2.Constructors
 {
-    class Constructors
+    public class Program
     {
-        static void Main()
+        private static void Main()
         {
             Console.WriteLine(new String('=', 55) + "\r\n");
             
