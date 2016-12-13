@@ -1,6 +1,4 @@
-﻿using System;
-
-namespace Problem_2.Constructors
+﻿namespace Problem_2
 {
     /// <summary>
     /// Represents a battery component.
@@ -14,11 +12,11 @@ namespace Problem_2.Constructors
         // constructors
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Problem_2.Constructors.Battery"/> class.
+        /// Initializes a new instance of the <see cref="Battery"/> class.
         /// </summary>
-        /// <param name="model">Represents <see cref="Problem_2.Constructors.Battery"/> device model or type.</param>
-        /// <param name="hoursIdle">Represents idle time for <see cref="Problem_2.Constructors.Battery"/> objects.</param>
-        /// <param name="hoursTalked">Represents time talked for <see cref="Problem_2.Constructors.Battery"/> objects.</param>
+        /// <param name="model">Represents <see cref="Battery"/> device model or type.</param>
+        /// <param name="hoursIdle">Represents idle time for <see cref="Battery"/> objects.</param>
+        /// <param name="hoursTalked">Represents time talked for <see cref="Battery"/> objects.</param>
         public Battery(string model, double? hoursIdle, double? hoursTalked)
         {
             this.Model = model;
@@ -27,27 +25,27 @@ namespace Problem_2.Constructors
         }
 
         /// <summary>
-        /// Initializes a new instance of the <see cref="Problem_2.Constructors.Battery"/> class.
+        /// Initializes a new instance of the <see cref="Battery"/> class.
         /// </summary>
         public Battery()
-            : this(Battery.DEFAULT_BATTERY_MODEL, null, null)
+            : this(DEFAULT_BATTERY_MODEL, null, null)
         {
         }
 
         // public properties
 
         /// <summary>
-        /// Represents <see cref="Problem_2.Constructors.Battery"/> device model or type.
+        /// Represents <see cref="Battery"/> device model or type.
         /// </summary>
         public string Model { get; set; }
 
         /// <summary>
-        /// Represents idle time for <see cref="Problem_2.Constructors.Battery"/> objects.
+        /// Represents idle time for <see cref="Battery"/> objects.
         /// </summary>
         public double? HoursIdle { get; set; }
 
         /// <summary>
-        /// Represents time talked for <see cref="Problem_2.Constructors.Battery"/> objects.
+        /// Represents time talked for <see cref="Battery"/> objects.
         /// </summary>
         public double? HoursTalked { get; set; }
     }

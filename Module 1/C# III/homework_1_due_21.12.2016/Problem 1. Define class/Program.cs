@@ -10,9 +10,9 @@ and display characteristics (size and number of colors).
 
 using System;
 
-namespace Problem_1.Define_class
+namespace Problem_1
 {
-    class DefineClass
+    class Program
     {
         static void Main()
         {

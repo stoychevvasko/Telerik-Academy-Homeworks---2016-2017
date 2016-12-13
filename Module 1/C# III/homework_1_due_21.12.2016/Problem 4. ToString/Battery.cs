@@ -1,23 +1,13 @@
-﻿namespace Problem_3
+﻿using System.Text;
+
+namespace Problem_4
 {
     /// <summary>
     /// Represents a battery component.
     /// </summary>
     public class Battery
-        : Problem_2.Battery
+        : Problem_3.Battery
     {
-        /// <summary>
-        /// Represents a set of allowed types of <see cref="Battery"/> components.
-        /// </summary>
-        public enum BatteryTypes { LiIon, NiMH, NiCd, MgIon, NiFe, KIon, AgZn, DEFAULT_BATTERY_TYPE };
-
-        // fields
-
-        /// <summary>
-        /// Holds the <see cref="Problem_3.BatteryType"/> value for <see cref="Battery"/> objects.
-        /// </summary>
-        private BatteryTypes batteryType;
-
         // constructors
 
         /// <summary>
@@ -28,9 +18,8 @@
         /// <param name="hoursTalked">Represents time talked for <see cref="Battery"/> objects.</param>
         /// <param name="batteryType">Represents a set of allowed types of <see cref="Battery"/> components.</param>
         public Battery(string model, double? hoursIdle, double? hoursTalked, BatteryTypes batteryType)
-            : base(model, hoursIdle, hoursTalked)
+            : base(model, hoursIdle, hoursTalked, batteryType)
         {
-            this.BatteryType = batteryType;
         }
 
         /// <summary>
@@ -52,15 +41,21 @@
         {
         }
 
-        // properties
+        // methods
 
         /// <summary>
-        /// Represents the <see cref="Problem_3.BatteryType"/> value for <see cref="Battery"/> objects.
+        /// Returns a <see cref="string"/> that represents the current object.
         /// </summary>
-        public BatteryTypes BatteryType
+        /// <returns>a <see cref="string"/> value</returns>
+        public override string ToString()
         {
-            get { return this.batteryType; }
-            set { this.batteryType = value; }
+            return new StringBuilder()
+                .AppendLine(string.Format("{0}{1}", " Battery object  ", this.GetType()))
+                .AppendLine(string.Format("{0} {1}", "   Model          ", this.Model))
+                .AppendLine(string.Format("{0} {1}", "   Type           ", this.BatteryType))
+                .AppendLine(string.Format("{0} {1}", "   Hours idle     ", this.HoursIdle))
+                .AppendLine(string.Format("{0} {1}", "   Hours talked   ", this.HoursTalked))
+                .ToString();
         }
     }
 }

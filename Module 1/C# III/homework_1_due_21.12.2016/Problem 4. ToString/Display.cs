@@ -1,10 +1,12 @@
-﻿namespace Problem_3
+﻿using System.Text;
+
+namespace Problem_4
 {
     /// <summary>
     /// Represents an electronic display screen.
     /// </summary>
     public class Display
-        : Problem_2.Display
+        : Problem_3.Display
     {
         // constructors
 
@@ -24,6 +26,19 @@
         public Display()
             : this(null, null)
         {
+        }
+
+        /// <summary>
+        /// Returns a <see cref="string"/> that represents the current object.
+        /// </summary>
+        /// <returns>a<see cref="string"/> value</returns>
+        public override string ToString()
+        {
+            return new StringBuilder()
+                .AppendLine(string.Format("{0}{1}", " Display object  ", this.GetType()))
+                .AppendLine(string.Format("{0} {1}", "   Size           ", this.Size))
+                .AppendLine(string.Format("{0} {1:N}", "   Colors         ", this.NumberOfColors))
+                .ToString();
         }
     }
 }

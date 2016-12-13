@@ -6,13 +6,13 @@ Add an enumeration BatteryType (Li-Ion, NiMH, NiCd, …) and use it as a new fie
 
 using System;
 
-namespace Problem_3.Enumeration
-{    
+namespace Problem_3
+{
     class Program
     {
         static void Main()
         {
-            Console.WriteLine(new String('=', 55) + "\r\n");
+            Console.WriteLine(new string('=', 55) + "\r\n");
 
             Battery testNewBatteryWithType = new Battery();
             PrintBattery(testNewBatteryWithType);
@@ -20,10 +20,10 @@ namespace Problem_3.Enumeration
             var test2 = new Battery("IPhone battery", 3, 12);
             PrintBattery(test2);
 
-            var test3 = new Battery("Huawei battery", 5, 6, BatteryType.NiCd);
+            var test3 = new Battery("Huawei battery", 5, 6, Battery.BatteryTypes.NiCd);
             PrintBattery(test3);
 
-            Console.WriteLine(new String('=', 55) + "\r\n");
+            Console.WriteLine(new string('=', 55) + "\r\n");
             Console.WriteLine("Press any key for more tests . . . \r\n");
             Console.ReadKey();
             Console.Clear();
@@ -31,16 +31,16 @@ namespace Problem_3.Enumeration
             var testGSMWithNewBatteryType = new GSM();
             PrintGSM(testGSMWithNewBatteryType);
 
-            var testGSMMore = new GSM("Blackberry", "Blackberry Ltd.", 9999.98, "Richard Sr.", test3, new Display("24k Mpx/over 9000",32000));
+            var testGSMMore = new GSM("Blackberry", "Blackberry Ltd.", 9999.98, "Richard Sr.", test3, new Display("24k Mpx/over 9000", 32000));
             PrintGSM(testGSMMore);
 
-            Console.WriteLine(new String('=', 55) + "\r\n");
+            Console.WriteLine(new string('=', 55) + "\r\n");
         }
 
         /// <summary>
-        /// Writes info about a <see cref="Problem_3.Enumeration.Battery"/> object on the <see cref="System.Console"/>.
+        /// Writes info about a <see cref="Battery"/> object on the <see cref="Console"/>.
         /// </summary>
-        /// <param name="battery">Represents an instance of the <see cref="Problem_3.Enumeration.Battery"/> class.</param>
+        /// <param name="battery">Represents an instance of the <see cref="Battery"/> class.</param>
         private static void PrintBattery(Battery battery)
         {
             Console.WriteLine("Device type:        {0}", battery);
@@ -52,9 +52,9 @@ namespace Problem_3.Enumeration
         }
 
         /// <summary>
-        /// Writes info about a <see cref="Problem_3.Enumeration.GSM"/> object on the <see cref="System.Console"/>.
+        /// Writes info about a <see cref="GSM"/> object on the <see cref="Console"/>.
         /// </summary>
-        /// <param name="gsm">Represents an instance of the <see cref="Problem_3.Enumeration.GSM"/> class.</param>
+        /// <param name="gsm">Represents an instance of the <see cref="GSM"/> class.</param>
         private static void PrintGSM(GSM gsm)
         {
             Console.WriteLine("GSM object          {0}", gsm);

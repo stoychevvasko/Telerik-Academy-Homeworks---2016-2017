@@ -9,13 +9,13 @@ Problem 2. Constructors
 
 using System;
 
-namespace Problem_2.Constructors
+namespace Problem_2
 {
     public class Program
     {
         private static void Main()
         {
-            Console.WriteLine(new String('=', 55) + "\r\n");
+            Console.WriteLine(new string('=', 55) + "\r\n");
             
             var testDisplayDefault = new Display();
             PrintDisplay(testDisplayDefault);
@@ -23,24 +23,24 @@ namespace Problem_2.Constructors
             var testDisplay = new Display("600x800px/72dpi", 256);
             PrintDisplay(testDisplay);
 
-            Console.WriteLine(new String('=', 55) + "\r\n");
+            Console.WriteLine(new string('=', 55) + "\r\n");
             Console.WriteLine("Press any key for more tests . . . \r\n");
             Console.ReadKey();
             Console.Clear();
 
-            Console.WriteLine(new String('=', 55) + "\r\n");
+            Console.WriteLine(new string('=', 55) + "\r\n");
             var testBatteryDefault = new Battery();
             PrintBattery(testBatteryDefault);
 
             var testBattery = new Battery("Toshiba", 120, 25);
             PrintBattery(testBattery);
 
-            Console.WriteLine(new String('=', 55) + "\r\n");
+            Console.WriteLine(new string('=', 55) + "\r\n");
             Console.WriteLine("Press any key for more tests . . . \r\n");
             Console.ReadKey();
             Console.Clear();
 
-            Console.WriteLine(new String('=', 55) + "\r\n");
+            Console.WriteLine(new string('=', 55) + "\r\n");
             var testGSMDefault = new GSM();
             PrintGSM(testGSMDefault);
 
@@ -49,13 +49,13 @@ namespace Problem_2.Constructors
 
             var testSamsung = new GSM("SAMSUNG Galaxy", "Samsung Electronics", 999.99, "Richie Rich", testBattery, testDisplay);
             PrintGSM(testSamsung);
-            Console.WriteLine(new String('=', 55) + "\r\n");
+            Console.WriteLine(new string('=', 55) + "\r\n");
         }
 
         /// <summary>
-        /// Writes info about a <see cref="Problem_2.Constructors.GSM"/> object on the <see cref="System.Console"/>.
+        /// Writes info about a <see cref="Problem_2.GSM"/> object on the <see cref="Console"/>.
         /// </summary>
-        /// <param name="gsm">Represents an instance of the <see cref="Problem_2.Constructors.GSM"/> class.</param>
+        /// <param name="gsm">Represents an instance of the <see cref="Problem_2.GSM"/> class.</param>
         private static void PrintGSM(GSM gsm)
         {
             Console.WriteLine("Device type:        {0}", gsm);
@@ -74,9 +74,9 @@ namespace Problem_2.Constructors
         }
 
         /// <summary>
-        /// Writes info about a <see cref="Problem_2.Constructors.Battery"/> object on the <see cref="System.Console"/>.
+        /// Writes info about a <see cref="Battery"/> object on the <see cref="Console"/>.
         /// </summary>
-        /// <param name="battery">Represents an instance of the <see cref="Problem_2.Constructors.Battery"/> class.</param>
+        /// <param name="battery">Represents an instance of the <see cref="Battery"/> class.</param>
         private static void PrintBattery(Battery battery)
         {
             Console.WriteLine("Device type:        {0}", battery);
@@ -87,9 +87,9 @@ namespace Problem_2.Constructors
         }
 
         /// <summary>
-        /// Writes info about a <see cref="Problem_2.Constructors.Display"/> object on the <see cref="System.Console"/>.
+        /// Writes info about a <see cref="Display"/> object on the <see cref="Console"/>.
         /// </summary>
-        /// <param name="display">instance of the <see cref="Problem_2.Constructors.Display"/> class</param>
+        /// <param name="display">instance of the <see cref="Display"/> class</param>
         private static void PrintDisplay(Display display)
         {
             Console.WriteLine("Device type:        {0}", display);
