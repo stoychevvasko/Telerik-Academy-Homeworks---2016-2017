@@ -1,17 +1,11 @@
-﻿namespace Problem_6
+﻿namespace Problem_7
 {
     /// <summary>
     /// Represents mobile phone device.
     /// </summary>
     public class GSM
-        : Problem_5.GSM
+        : Problem_6.GSM
     {
-        // fields
-        /// <summary>
-        /// Holds a static <see cref="GSM"/> object for the IPHone4S model.
-        /// </summary>
-        private static GSM iPhone4S;
-
         // constructors
         /// <summary>
         /// Initializes a new instance of the <see cref="GSM"/> class.
@@ -28,8 +22,8 @@
             this.Manufacturer = manufacturer;
             this.Price = price;
             this.Owner = owner;
-            this.Battery = battery;
-            this.Display = display;
+            this.Battery = new Battery(battery);
+            this.Display = new Display(display);
         }
         /// <summary>
         /// Initializes a new instance of the <see cref="GSM"/> class.
@@ -56,24 +50,6 @@
                   new Battery(gsm.Battery.Model, gsm.Battery.HoursIdle, gsm.Battery.HoursTalked, gsm.Battery.BatteryType),
                   new Display(gsm.Display.Size, gsm.Display.NumberOfColors))
         {
-        }
-        /// <summary>
-        /// Sets static <see cref="GSM"/> class values (static "constructor").
-        /// </summary>
-        static GSM()
-        {
-            iPhone4S = new GSM("iPhone 4S", "Apple Inc.", 450M, null,
-                           new Battery("Built-in rechargeable battery", null, null, Problem_3.Battery.BatteryTypes.LiIon),
-                           new Display("960/640 px multi-touch display", 16777216U));
-        }
-
-        // public properties
-        /// <summary>
-        /// Returns a new <see cref="GSM"/> object instance for the iPHone-4S model.
-        /// </summary>
-        public static GSM IPhone4s
-        {
-            get { return new GSM(GSM.iPhone4S); }
         }
     }
 }
