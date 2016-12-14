@@ -21,7 +21,6 @@ namespace Problem_4
             : base(model, hoursIdle, hoursTalked, batteryType)
         {
         }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Battery"/> class.
         /// </summary>
@@ -29,7 +28,6 @@ namespace Problem_4
             : this(DEFAULT_BATTERY_MODEL, null, null, BatteryTypes.DEFAULT_BATTERY_TYPE)
         {
         }
-
         /// <summary>
         /// Initializes a new instance of the <see cref="Battery"/> class.
         /// </summary>

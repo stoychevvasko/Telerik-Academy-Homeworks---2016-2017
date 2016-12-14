@@ -18,7 +18,6 @@ namespace Problem_4
         static void Main()
         {
             Console.OutputEncoding = Encoding.UTF8;
-
             if (Thread.CurrentThread.CurrentCulture.Name != "bg-BG")
             {
                 Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture("bg-BG");
