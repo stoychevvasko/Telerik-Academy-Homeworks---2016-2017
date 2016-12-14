@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 6. Static field", "
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 7. GSM test", "Problem 7. GSM test\Problem 7. GSM test.csproj", "{C8626FEF-E947-4088-96D9-A21B3EE0305F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 8. Calls", "Problem 8. Calls\Problem 8. Calls.csproj", "{857FA1D0-B770-4C1F-9C28-740155D9663A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{C8626FEF-E947-4088-96D9-A21B3EE0305F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C8626FEF-E947-4088-96D9-A21B3EE0305F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C8626FEF-E947-4088-96D9-A21B3EE0305F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{857FA1D0-B770-4C1F-9C28-740155D9663A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{857FA1D0-B770-4C1F-9C28-740155D9663A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{857FA1D0-B770-4C1F-9C28-740155D9663A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{857FA1D0-B770-4C1F-9C28-740155D9663A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

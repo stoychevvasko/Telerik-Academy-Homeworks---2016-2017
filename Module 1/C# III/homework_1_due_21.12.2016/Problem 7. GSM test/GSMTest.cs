@@ -5,7 +5,7 @@ namespace Problem_7
     /// <summary>
     /// Provides testing functionality for the <see cref="GSM"/> class.
     /// </summary>
-    static class GSMTest
+    static public class GSMTest
     {
         /// <summary>
         /// Creates a sample array of stock instances of <see cref="GSM"/> objects.

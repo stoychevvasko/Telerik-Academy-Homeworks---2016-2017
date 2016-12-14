@@ -8,8 +8,7 @@ namespace Problem_5
     public class GSM
         : Problem_4.GSM
     {
-        // private fields
-
+        // fields
         /// <summary>
         /// Holds device model spelling for <see cref="GSM"/> objects.
         /// </summary>
@@ -42,7 +41,6 @@ namespace Problem_5
 
 
         // constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="GSM"/> class.
         /// </summary>
@@ -98,8 +96,7 @@ namespace Problem_5
         }
 
 
-        // public properties
-
+        // properties
         /// <summary>
         /// Represents device model for <see cref="GSM"/> objects.
         /// </summary>
@@ -205,7 +202,6 @@ namespace Problem_5
 
 
         // methods
-
         /// <summary>
         /// Returns a <see cref="string"/> that represents the current object.
         /// </summary>
