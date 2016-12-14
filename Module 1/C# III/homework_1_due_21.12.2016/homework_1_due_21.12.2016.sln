@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 4. ToString", "Prob
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 5. Properties", "Problem 5. Properties\Problem 5. Properties.csproj", "{2620DA85-966A-4535-9051-44AD308D3404}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 6. Static field", "Problem 6. Static field\Problem 6. Static field.csproj", "{B9D35640-4E96-4FD9-B37E-6C902B6220F8}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{2620DA85-966A-4535-9051-44AD308D3404}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2620DA85-966A-4535-9051-44AD308D3404}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2620DA85-966A-4535-9051-44AD308D3404}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9D35640-4E96-4FD9-B37E-6C902B6220F8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9D35640-4E96-4FD9-B37E-6C902B6220F8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9D35640-4E96-4FD9-B37E-6C902B6220F8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9D35640-4E96-4FD9-B37E-6C902B6220F8}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

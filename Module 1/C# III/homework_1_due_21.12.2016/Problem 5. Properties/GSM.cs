@@ -13,32 +13,32 @@ namespace Problem_5
         /// <summary>
         /// Holds device model spelling for <see cref="GSM"/> objects.
         /// </summary>
-        private char[] model;
+        protected char[] model;
 
         /// <summary>
         /// Holds manufacturer spelling for <see cref="GSM"/> objects.
         /// </summary>
-        private char[] manufacturer;
+        protected char[] manufacturer;
 
         /// <summary>
         /// Holds retail price value for <see cref="GSM"/> objects.
         /// </summary>
-        private decimal? price;
+        protected decimal? price;
 
         /// <summary>
         /// Holds owner name spelling for <see cref="GSM"/> objects.
         /// </summary>
-        private char[] owner;
+        protected char[] owner;
 
         /// <summary>
         /// Holds <see cref="Battery"/> class component for <see cref="GSM"/> objects.
         /// </summary>
-        private Battery battery;
+        protected Battery battery;
 
         /// <summary>
         /// Holds a <see cref="Display"/> class component for <see cref="GSM"/> objects.
         /// </summary>
-        private Display display;
+        protected Display display;
 
 
         // constructors
@@ -66,6 +66,17 @@ namespace Problem_5
         /// </summary>
         /// <param name="model">Represents device model for <see cref="GSM"/> objects.</param>
         /// <param name="manufacturer">Represents manufacturer information for <see cref="GSM"/> objects.</param>
+        /// <param name="price">Represents price details for <see cref="GSM"/> objects.</param>
+        /// <param name="owner">Represents owner details for <see cref="GSM"/> objects.</param>
+        public GSM(string model, string manufacturer, decimal? price, string owner)
+            : this(model, manufacturer, price, owner, new Battery(), new Display())
+        {
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GSM"/> class.
+        /// </summary>
+        /// <param name="model">Represents device model for <see cref="GSM"/> objects.</param>
+        /// <param name="manufacturer">Represents manufacturer information for <see cref="GSM"/> objects.</param>
         public GSM(string model, string manufacturer)
                : this(model, manufacturer, null, null, new Battery(), new Display())
         {
@@ -85,6 +96,7 @@ namespace Problem_5
             : this(gsm.Model, gsm.Manufacturer, gsm.Price, gsm.Owner, gsm.Battery, gsm.Display)
         {
         }
+
 
         // public properties
 

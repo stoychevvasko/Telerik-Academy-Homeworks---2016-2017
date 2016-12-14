@@ -9,22 +9,22 @@ namespace Problem_5
     public class Battery
         : Problem_4.Battery
     {
-        // private properties
+        // fields
 
         /// <summary>
         /// Holds device model or type details of a <see cref="Battery"/> object.
         /// </summary>
-        private char[] model;
+        protected char[] model;
 
         /// <summary>
         /// Holds idle time value for <see cref="Battery"/> objects.
         /// </summary>
-        private TimeSpan? hoursIdle;
+        protected TimeSpan? hoursIdle;
 
         /// <summary>
         /// Holds idle time value for <see cref="Battery"/> objects.
         /// </summary>
-        private TimeSpan? hoursTalked;
+        protected TimeSpan? hoursTalked;
 
 
         // constructors
@@ -77,6 +77,7 @@ namespace Problem_5
             : this(battery.Model, battery.HoursIdle, battery.HoursTalked, battery.BatteryType)
         {
         }
+
 
         // public properties
 
