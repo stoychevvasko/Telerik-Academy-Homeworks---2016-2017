@@ -40,7 +40,14 @@ namespace Problem_5
             : this(null, null)
         {
         }
-
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Display"/> class.
+        /// </summary>
+        /// <param name="display">Represents an existing <see cref="Display"/> component.</param>
+        public Display(Display display)
+            : this(display.Size, display.NumberOfColors)
+        {
+        }
 
         // public properties
 
@@ -52,12 +59,13 @@ namespace Problem_5
             get
             {
                 if (this.size == null) return null;
-                else return string.Join("", this.size);
+                else if (string.Join(string.Empty, this.size) == string.Empty) return string.Empty;
+                else return string.Join(string.Empty, this.size);
             }
             set
             {
                 if (value == null) this.size = null;
-                else if (value == string.Empty) this.size = null;
+                else if (value == string.Empty) this.size = string.Empty.ToCharArray();
                 else this.size = value.ToCharArray();
             }
         }
@@ -67,8 +75,16 @@ namespace Problem_5
         /// </summary>
         new public uint? NumberOfColors
         {
-            get { return this.numberOfColors; }
-            set { this.numberOfColors = value; }
+            get
+            {
+                if (this.numberOfColors == null) return null;
+                else return this.numberOfColors;
+            }
+            set
+            {
+                if (value == null) this.numberOfColors = null;
+                else this.numberOfColors = value;
+            }
         }
 
         // methods
@@ -80,9 +96,9 @@ namespace Problem_5
         public override string ToString()
         {
             return new StringBuilder()
-                .AppendLine(string.Format("{0}{1}", " Display object  ", this.GetType()))
-                .AppendLine(string.Format("{0} {1}", "   Size           ", (this.size == null) ? "_null_reference" : this.Size))
-                .AppendLine(string.Format("{0} {1:N}", "   Colors         ", (this.numberOfColors == null) ? "_null_reference" : (this.numberOfColors==1||this.numberOfColors==2)?"monocrhome": this.NumberOfColors.ToString()))
+                .AppendLine(string.Format("{0}{1}", " Display object      ", this.GetType()))
+                .AppendLine(string.Format("{0} {1}", "   Size               ", ((this.Size == null) ? "_null_reference" : ((this.Size == string.Empty) ? "_empty_string" : this.Size))))
+                .AppendLine(string.Format("{0} {1}", "   Colors             ", ((this.NumberOfColors == null) ? "_null_reference" : ((this.NumberOfColors == 1 || this.numberOfColors == 2) ? "monocrhome" : ((uint)this.NumberOfColors).ToString("N0")))))
                 .ToString();
         }
     }

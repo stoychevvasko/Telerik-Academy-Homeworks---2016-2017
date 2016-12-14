@@ -27,6 +27,8 @@ namespace Problem_5
             // new Display class tests
 
             Console.WriteLine();
+            Console.WriteLine(" * Display class testing");
+            Console.WriteLine();
             Console.WriteLine(new string('=', 55) + "\r\n");
 
             var testDisplayDefault = new Display();
@@ -48,10 +50,12 @@ namespace Problem_5
             Console.WriteLine("Press any key for more tests . . . \r\n");
             Console.ReadKey();
             Console.Clear();
-            
+
 
             // new Battery class tests
 
+            Console.WriteLine();
+            Console.WriteLine(" * Battery class testing");
             Console.WriteLine();
             Console.WriteLine(new string('=', 55) + "\r\n");
 
@@ -61,10 +65,10 @@ namespace Problem_5
             var testBattery = new Battery("2550mAh Li-Ion Battery", Problem_3.Battery.BatteryTypes.LiIon);
             Console.WriteLine(testBattery);
 
-            var testBattery1 = new Battery("Timely Battery", 1.5, 4.687);
+            var testBattery1 = new Battery("Timely Battery", 1.5M, 4.687M);
             Console.WriteLine(testBattery1);
 
-            var testBattery2 = new Battery("Full model", 72.00, 168.56, Problem_3.Battery.BatteryTypes.AgZn);
+            var testBattery2 = new Battery("Full model", 72.00M, 168.56M, Problem_3.Battery.BatteryTypes.AgZn);
             Console.WriteLine(testBattery2);
 
             Console.WriteLine(new string('=', 55) + "\r\n");
@@ -76,10 +80,37 @@ namespace Problem_5
             // new GSM tests
 
             Console.WriteLine();
+            Console.WriteLine(" * GSM class testing");
+            Console.WriteLine();
             Console.WriteLine(new string('=', 55) + "\r\n");
 
             var gsmDefault = new GSM();
             Console.WriteLine(gsmDefault);
+
+            var testGSM1 = new GSM("Basic GSM", "Basic manufacturer");
+            Console.WriteLine(testGSM1);
+
+            var batteryParameter = new Battery("Custom battery", 26.45698M, 23.5M, Problem_3.Battery.BatteryTypes.LiIon);
+            var displayParameter = new Display("Custom display", 64000);
+            var testGSM2 = new GSM("GSM Complete", "Company Inc.", 123.4567M, "GSM person",
+                                  batteryParameter,
+                                  displayParameter);
+            batteryParameter = new Battery();
+            displayParameter = new Display();
+            var testGSM3 = new GSM(testGSM2);
+            testGSM2 = new GSM();
+            var extractedDisplay = testGSM3.Display;
+            extractedDisplay = new Display();
+            var extractedBattery = testGSM3.Battery;
+            extractedBattery = new Battery();
+            //testGSM3.Battery = extractedBattery;
+            //extractedBattery = new Battery("Custom battery", 26.45698M, 23.5M, Problem_3.Battery.BatteryTypes.LiIon);
+            Console.WriteLine(testGSM3);
+            //Console.WriteLine(testGSM2);
+            //Console.WriteLine(extractedDisplay);
+            //Console.WriteLine(extractedBattery);
+
+            Console.WriteLine(new string('=', 55) + "\r\n");
         }
     }
 }

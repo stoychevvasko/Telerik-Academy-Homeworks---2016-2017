@@ -16,7 +16,7 @@
         /// <summary>
         /// Holds the <see cref="Problem_3.BatteryType"/> value for <see cref="Battery"/> objects.
         /// </summary>
-        private BatteryTypes batteryType;
+        protected BatteryTypes batteryType;
 
         // constructors
 

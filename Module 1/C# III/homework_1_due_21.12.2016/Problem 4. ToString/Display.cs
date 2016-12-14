@@ -37,7 +37,7 @@ namespace Problem_4
             return new StringBuilder()
                 .AppendLine(string.Format("{0}{1}", " Display object  ", this.GetType()))
                 .AppendLine(string.Format("{0} {1}", "   Size           ", this.Size))
-                .AppendLine(string.Format("{0} {1:N}", "   Colors         ", this.NumberOfColors))
+                .AppendLine(string.Format("{0} {1}", "   Colors         ", this.NumberOfColors))
                 .ToString();
         }
     }

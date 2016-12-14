@@ -43,6 +43,48 @@ namespace Problem_5
 
         // constructors
 
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GSM"/> class.
+        /// </summary>
+        /// <param name="model">Represents device model for <see cref="GSM"/> objects.</param>
+        /// <param name="manufacturer">Represents manufacturer information for <see cref="GSM"/> objects.</param>
+        /// <param name="price">Represents price details for <see cref="GSM"/> objects.</param>
+        /// <param name="owner">Represents owner details for <see cref="GSM"/> objects.</param>
+        /// <param name="battery">Represents <see cref="Battery"/> component for <see cref="GSM"/> objects.</param>
+        /// <param name="display">Represents <see cref="Display"/> component for <see cref="GSM"/> objects.</param>
+        public GSM(string model, string manufacturer, decimal? price, string owner, Battery battery, Display display)
+        {
+            this.Model = model;
+            this.Manufacturer = manufacturer;
+            this.Price = price;
+            this.Owner = owner;
+            this.Battery = battery;
+            this.Display = display;
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GSM"/> class.
+        /// </summary>
+        /// <param name="model">Represents device model for <see cref="GSM"/> objects.</param>
+        /// <param name="manufacturer">Represents manufacturer information for <see cref="GSM"/> objects.</param>
+        public GSM(string model, string manufacturer)
+               : this(model, manufacturer, null, null, new Battery(), new Display())
+        {
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GSM"/> class.
+        /// </summary>
+        public GSM()
+            : this(DEFAULT_MODEL, DEFAULT_MANUFACTURER)
+        {
+        }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="GSM"/> class.
+        /// </summary>
+        /// <param name="gsm">Represents an existing <see cref="GSM"/> component.</param>
+        public GSM(GSM gsm)
+            : this(gsm.Model, gsm.Manufacturer, gsm.Price, gsm.Owner, gsm.Battery, gsm.Display)
+        {
+        }
 
         // public properties
 
@@ -106,7 +148,7 @@ namespace Problem_5
             get
             {
                 if (this.owner == null) return null;
-                else return this.owner.ToString();
+                else return string.Join("", this.owner);
             }
             set
             {
@@ -123,7 +165,7 @@ namespace Problem_5
             get
             {
                 if (this.battery == null) return null;
-                else return new Battery(this.battery.Model, this.battery.HoursIdle, this.battery.HoursTalked, this.battery.BatteryType);
+                else return this.battery;
             }
             set
             {
@@ -140,7 +182,7 @@ namespace Problem_5
             get
             {
                 if (this.display == null) return null;
-                else return new Display(this.display.Size, this.display.NumberOfColors);
+                else return this.display;
             }
             set
             {
@@ -148,6 +190,7 @@ namespace Problem_5
                 else this.display = value;
             }
         }
+
 
         // methods
 
@@ -158,11 +201,11 @@ namespace Problem_5
         public override string ToString()
         {
             return new StringBuilder()
-                .AppendLine(string.Format("{0} {1}", "GSM object      ", this.GetType()))
-                .AppendLine(string.Format("{0} {1}", " Model          ", (this.model == null) ? "_null_reference" : ((this.Model == string.Empty) ? "_empty_string" : this.Model)))
-                .AppendLine(string.Format("{0} {1}", " Manufacturer   ", (this.manufacturer == null) ? "_null_reference" : ((this.Manufacturer == string.Empty) ? "_empty_string" : this.Manufacturer)))
-                .AppendLine(string.Format("{0} {1}", " Owner          ", (this.owner == null) ? "_null_reference" : ((this.Owner == string.Empty) ? "_empty_string" : this.Owner)))
-                .AppendLine(string.Format("{0} {1:C2}", " Price          ", (this.Price == null) ? "_null_reference" : this.Price.ToString()))
+                .AppendLine(string.Format("{0} {1}", "GSM object         ", this.GetType()))
+                .AppendLine(string.Format("{0} {1}", " Model              ", (this.model == null) ? "_null_reference" : ((this.Model == string.Empty) ? "_empty_string" : this.Model)))
+                .AppendLine(string.Format("{0} {1}", " Manufacturer       ", (this.manufacturer == null) ? "_null_reference" : ((this.Manufacturer == string.Empty) ? "_empty_string" : this.Manufacturer)))
+                .AppendLine(string.Format("{0} {1}", " Owner              ", (this.owner == null) ? "_null_reference" : ((this.Owner == string.Empty) ? "_empty_string" : this.Owner)))
+                .AppendLine(string.Format("{0} {1}", " Price              ", (this.Price == null) ? "_null_reference" : ((decimal)this.Price).ToString("C2")))
                 .Append(string.Format(">{0}", (this.battery == null) ? " Battery object   _null_reference\r\n" : (((this.Battery.ToString() == string.Empty) ? "_empty_string" : this.Battery.ToString()))))
                 .Append(string.Format(">{0}", (this.display == null) ? " Display object   _null_reference\r\n" : (((this.Display.ToString() == string.Empty) ? "_empty_string" : this.Display.ToString()))))
                 .ToString();
