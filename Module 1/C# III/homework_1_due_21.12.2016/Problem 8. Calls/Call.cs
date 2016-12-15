@@ -37,6 +37,12 @@ namespace Problem_8
             this.DialledNumber = dialledNumber;
             this.Duration = duration;
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Call"/> class.
+        /// </summary>
+        public Call()
+        {
+        }
 
         // properties
         /// <summary>
@@ -45,7 +51,7 @@ namespace Problem_8
         public DateTime TimeStamp
         {
             get { return this.timeStamp; }
-            protected set { this.timeStamp = new DateTime(value.Ticks); }
+            set { this.timeStamp = value; }
         }
 
         /// <summary>
@@ -54,7 +60,7 @@ namespace Problem_8
         public string DialledNumber
         {
             get { return string.Join(string.Empty, this.dialledNumber); }
-            protected set { this.dialledNumber = value.ToCharArray(); }
+            set { this.dialledNumber = value.ToCharArray(); }
         }
 
         /// <summary>
@@ -63,7 +69,7 @@ namespace Problem_8
         public uint Duration
         {
             get { return (uint)Math.Floor(this.duration.TotalSeconds); }
-            protected set { this.duration = new TimeSpan(value * TimeSpan.TicksPerSecond); }
+            set { this.duration = new TimeSpan((long)value * TimeSpan.TicksPerSecond); }
         }
 
         // methods
