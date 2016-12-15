@@ -5,6 +5,8 @@ Problem 8. Calls
 * It should contain date, time, dialled phone number and duration (in seconds).
 */
 
+using System;
+
 namespace Problem_8
 {
     class Program
@@ -17,7 +19,8 @@ namespace Problem_8
             // 
             // System.Console.WriteLine(testGSM);
 
-
+            Call testCall = new Call(new DateTime(2016, 12, 31, 23, 59, 59), "123456789", 120);
+            Console.WriteLine(testCall);
         }
     }
 }
