@@ -59,8 +59,16 @@ namespace Problem_8
         /// </summary>
         public string DialledNumber
         {
-            get { return string.Join(string.Empty, this.dialledNumber); }
-            set { this.dialledNumber = value.ToCharArray(); }
+            get
+            {
+                if (this.dialledNumber == null) return null;
+                else return string.Join("", this.dialledNumber);
+            }
+            set
+            {
+                if (value == null) this.dialledNumber = null;
+                else this.dialledNumber = value.ToCharArray();
+            }
         }
 
         /// <summary>

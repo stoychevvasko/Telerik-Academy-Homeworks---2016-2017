@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 1. Define class", "Problem 1. Define class\Problem 1. Define class.csproj", "{B09E2234-91D4-4029-A0B8-13DD69164B07}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 01. Define class", "Problem 1. Define class\Problem 01. Define class.csproj", "{B09E2234-91D4-4029-A0B8-13DD69164B07}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 2. Constructors", "Problem 2. Constructors\Problem 2. Constructors.csproj", "{50A4DC0F-8F30-4993-906C-B1F724C9B669}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 02. Constructors", "Problem 2. Constructors\Problem 02. Constructors.csproj", "{50A4DC0F-8F30-4993-906C-B1F724C9B669}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 3. Enumeration", "Problem 3. Enumeration\Problem 3. Enumeration.csproj", "{AE121C40-ED47-4D2E-B58A-C0D41D1CDD1A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 03. Enumeration", "Problem 3. Enumeration\Problem 03. Enumeration.csproj", "{AE121C40-ED47-4D2E-B58A-C0D41D1CDD1A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 4. ToString", "Problem 4. ToString\Problem 4. ToString.csproj", "{B97879F2-D056-47C3-A50E-CFF04A8FDF3C}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 04. ToString", "Problem 4. ToString\Problem 04. ToString.csproj", "{B97879F2-D056-47C3-A50E-CFF04A8FDF3C}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 5. Properties", "Problem 5. Properties\Problem 5. Properties.csproj", "{2620DA85-966A-4535-9051-44AD308D3404}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 05. Properties", "Problem 5. Properties\Problem 05. Properties.csproj", "{2620DA85-966A-4535-9051-44AD308D3404}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 6. Static field", "Problem 6. Static field\Problem 6. Static field.csproj", "{B9D35640-4E96-4FD9-B37E-6C902B6220F8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 06. Static field", "Problem 6. Static field\Problem 06. Static field.csproj", "{B9D35640-4E96-4FD9-B37E-6C902B6220F8}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 7. GSM test", "Problem 7. GSM test\Problem 7. GSM test.csproj", "{C8626FEF-E947-4088-96D9-A21B3EE0305F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 07. GSM test", "Problem 7. GSM test\Problem 07. GSM test.csproj", "{C8626FEF-E947-4088-96D9-A21B3EE0305F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 8. Calls", "Problem 8. Calls\Problem 8. Calls.csproj", "{857FA1D0-B770-4C1F-9C28-740155D9663A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 08. Calls", "Problem 8. Calls\Problem 08. Calls.csproj", "{857FA1D0-B770-4C1F-9C28-740155D9663A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 9. Call history", "Problem 9. Call history\Problem 9. Call history.csproj", "{5165786C-D946-4A50-9D7D-B79F1DC57A5A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 09. Call history", "Problem 9. Call history\Problem 09. Call history.csproj", "{5165786C-D946-4A50-9D7D-B79F1DC57A5A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 10. Add and Delete calls", "Problem 10. Add and Delete calls\Problem 10. Add and Delete calls.csproj", "{634683B5-14B0-454A-B94F-EF55B563A827}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{5165786C-D946-4A50-9D7D-B79F1DC57A5A}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5165786C-D946-4A50-9D7D-B79F1DC57A5A}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5165786C-D946-4A50-9D7D-B79F1DC57A5A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{634683B5-14B0-454A-B94F-EF55B563A827}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{634683B5-14B0-454A-B94F-EF55B563A827}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{634683B5-14B0-454A-B94F-EF55B563A827}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{634683B5-14B0-454A-B94F-EF55B563A827}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

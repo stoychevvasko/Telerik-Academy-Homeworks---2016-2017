@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{AE121C40-ED47-4D2E-B58A-C0D41D1CDD1A}</ProjectGuid>
+    <ProjectGuid>{857FA1D0-B770-4C1F-9C28-740155D9663A}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Problem_3.Enumeration</RootNamespace>
-    <AssemblyName>Problem_3.Enumeration</AssemblyName>
+    <RootNamespace>Problem_8.Calls</RootNamespace>
+    <AssemblyName>Problem_8.Calls</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
@@ -44,6 +44,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Battery.cs" />
+    <Compile Include="Call.cs" />
     <Compile Include="Display.cs" />
     <Compile Include="GSM.cs" />
     <Compile Include="Program.cs" />
@@ -53,9 +54,33 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Problem 2. Constructors\Problem 2. Constructors.csproj">
+    <ProjectReference Include="..\Problem 1. Define class\Problem 01. Define class.csproj">
+      <Project>{b09e2234-91d4-4029-a0b8-13dd69164b07}</Project>
+      <Name>Problem 01. Define class</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Problem 2. Constructors\Problem 02. Constructors.csproj">
       <Project>{50a4dc0f-8f30-4993-906c-b1f724c9b669}</Project>
-      <Name>Problem 2. Constructors</Name>
+      <Name>Problem 02. Constructors</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Problem 3. Enumeration\Problem 03. Enumeration.csproj">
+      <Project>{ae121c40-ed47-4d2e-b58a-c0d41d1cdd1a}</Project>
+      <Name>Problem 03. Enumeration</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Problem 4. ToString\Problem 04. ToString.csproj">
+      <Project>{b97879f2-d056-47c3-a50e-cff04a8fdf3c}</Project>
+      <Name>Problem 04. ToString</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Problem 5. Properties\Problem 05. Properties.csproj">
+      <Project>{2620da85-966a-4535-9051-44ad308d3404}</Project>
+      <Name>Problem 05. Properties</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Problem 6. Static field\Problem 06. Static field.csproj">
+      <Project>{b9d35640-4e96-4fd9-b37e-6c902b6220f8}</Project>
+      <Name>Problem 06. Static field</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Problem 7. GSM test\Problem 07. GSM test.csproj">
+      <Project>{c8626fef-e947-4088-96d9-a21b3ee0305f}</Project>
+      <Name>Problem 07. GSM test</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

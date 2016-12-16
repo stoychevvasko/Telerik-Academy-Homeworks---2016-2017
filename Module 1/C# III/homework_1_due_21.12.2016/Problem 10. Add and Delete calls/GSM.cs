@@ -1,21 +1,20 @@
 ﻿using System.Collections.Generic;
 
-namespace Problem_9
+namespace Problem_10
 {
     /// <summary>
     /// Represents mobile phone device.
     /// </summary>
     public class GSM
-        : Problem_8.GSM
+        : Problem_9.GSM
     {
         // fields
         /// <summary>
         /// Holds a <see cref="List{Call}"/>, a list of all <see cref="Call"/> instances done by a mobile device of the <see cref="GSM"/> class.
         /// </summary>
-        protected List<Call> callHistory;
+        new protected List<Call> callHistory;
 
         // constructors
-
         /// <summary>
         /// Initializes a new instance of the <see cref="GSM"/> class.
         /// </summary>
@@ -80,10 +79,37 @@ namespace Problem_9
         /// <summary>
         /// Represents a <see cref="List{Call}"/>, a list of all <see cref="Call"/> instances done by a mobile device of the <see cref="GSM"/> class.
         /// </summary>
-        public List<Call> CallHistory
+        new public List<Call> CallHistory
         {
             get { return this.callHistory; }
             set { this.callHistory = value; }
+        }
+
+        // methods
+        /// <summary>
+        /// Adds a <see cref="Call"/> to the end of the <see cref="CallHistory"/>.
+        /// </summary>
+        /// <param name="call">Represents a telephone conversation.</param>
+        public void AddCall(Call call)
+        {
+            this.CallHistory.Add(call);
+        }
+
+        /// <summary>
+        /// Removes the first occurrence of a specific <see cref="Call"/> from the <see cref="CallHistory"/>.
+        /// </summary>
+        /// <param name="call">Represents a telephone conversation.</param>
+        public void DeleteCall(Call call)
+        {
+            this.CallHistory.Remove(call);
+        }
+        /// <summary>
+        /// Removes 
+        /// </summary>
+        public void ClearCallHistory()
+        {
+            this.CallHistory.Clear();
+            
         }
     }
 }

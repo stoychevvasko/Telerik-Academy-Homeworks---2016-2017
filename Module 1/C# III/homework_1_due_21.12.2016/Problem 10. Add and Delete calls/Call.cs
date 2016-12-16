@@ -1,13 +1,13 @@
 ﻿using System;
 using System.Text;
 
-namespace Problem_9
+namespace Problem_10
 {
     /// <summary>
     /// Represents a telephone conversation.
     /// </summary>
     public class Call
-        : Problem_8.Call
+        :Problem_9.Call
     {
         //constructors
         /// <summary>

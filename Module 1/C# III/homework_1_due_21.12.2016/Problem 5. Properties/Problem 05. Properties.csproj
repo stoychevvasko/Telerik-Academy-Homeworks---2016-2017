@@ -53,21 +53,21 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Problem 1. Define class\Problem 1. Define class.csproj">
+    <ProjectReference Include="..\Problem 1. Define class\Problem 01. Define class.csproj">
       <Project>{b09e2234-91d4-4029-a0b8-13dd69164b07}</Project>
-      <Name>Problem 1. Define class</Name>
+      <Name>Problem 01. Define class</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Problem 2. Constructors\Problem 2. Constructors.csproj">
+    <ProjectReference Include="..\Problem 2. Constructors\Problem 02. Constructors.csproj">
       <Project>{50a4dc0f-8f30-4993-906c-b1f724c9b669}</Project>
-      <Name>Problem 2. Constructors</Name>
+      <Name>Problem 02. Constructors</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Problem 3. Enumeration\Problem 3. Enumeration.csproj">
+    <ProjectReference Include="..\Problem 3. Enumeration\Problem 03. Enumeration.csproj">
       <Project>{ae121c40-ed47-4d2e-b58a-c0d41d1cdd1a}</Project>
-      <Name>Problem 3. Enumeration</Name>
+      <Name>Problem 03. Enumeration</Name>
     </ProjectReference>
-    <ProjectReference Include="..\Problem 4. ToString\Problem 4. ToString.csproj">
+    <ProjectReference Include="..\Problem 4. ToString\Problem 04. ToString.csproj">
       <Project>{b97879f2-d056-47c3-a50e-cff04a8fdf3c}</Project>
-      <Name>Problem 4. ToString</Name>
+      <Name>Problem 04. ToString</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

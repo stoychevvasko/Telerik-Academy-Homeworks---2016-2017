@@ -18,8 +18,8 @@ namespace Problem_9
                             new Display("Custom display", 64000));
             Console.WriteLine(testGSM);
             Call testCall = new Call(new DateTime(2016, 12, 31, 23, 59, 59), "123456789", 120);
-            testGSM.Calls.Add(testCall);
-            Console.WriteLine(testGSM.Calls[0]);
+            testGSM.CallHistory.Add(testCall);
+            Console.WriteLine(testGSM.CallHistory[0]);
         }
     }
 }
