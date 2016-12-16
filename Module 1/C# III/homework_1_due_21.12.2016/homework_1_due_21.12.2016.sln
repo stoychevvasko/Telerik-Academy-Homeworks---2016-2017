@@ -25,6 +25,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 10. Add and Delete 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 11. Call price", "Problem 11. Call price\Problem 11. Call price.csproj", "{8541D349-95CD-489A-8A0E-8AA774647544}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 12. Call history test", "Problem 12. Call history test\Problem 12. Call history test.csproj", "{3A390BE9-7688-46A9-92A0-32D96745E2EB}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -75,6 +77,10 @@ Global
 		{8541D349-95CD-489A-8A0E-8AA774647544}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8541D349-95CD-489A-8A0E-8AA774647544}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8541D349-95CD-489A-8A0E-8AA774647544}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A390BE9-7688-46A9-92A0-32D96745E2EB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A390BE9-7688-46A9-92A0-32D96745E2EB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A390BE9-7688-46A9-92A0-32D96745E2EB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A390BE9-7688-46A9-92A0-32D96745E2EB}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

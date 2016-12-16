@@ -105,6 +105,14 @@ namespace Problem_11
         }
 
         /// <summary>
+        /// Removes all elements from the <see cref="GSM.CallHistory"/>.
+        /// </summary>
+        new public void ClearCallHistory()
+        {
+            this.CallHistory.Clear();
+        }
+
+        /// <summary>
         /// Calculates the total <see cref="Call"/> cost of a <see cref="GSM"/> based on <see cref="GSM.CallHistory"/>.
         /// </summary>
         /// <param name="pricePerMinute">Represents charge rate per minute of <see cref="Call"/> as <see cref="decimal"/>.</param>

@@ -1,12 +1,12 @@
 ﻿using System.Collections.Generic;
 
-namespace Problem_10
+namespace Problem_12
 {
     /// <summary>
     /// Represents mobile phone device.
     /// </summary>
     public class GSM
-        : Problem_9.GSM
+        : Problem_11.GSM
     {
         // fields
         /// <summary>
@@ -107,9 +107,31 @@ namespace Problem_10
         /// <summary>
         /// Removes all elements from the <see cref="GSM.CallHistory"/>.
         /// </summary>
-        public void ClearCallHistory()
+        new public void ClearCallHistory()
         {
             this.CallHistory.Clear();
+        }
+
+        /// <summary>
+        /// Calculates the total <see cref="Call"/> cost of a <see cref="GSM"/> based on <see cref="GSM.CallHistory"/>.
+        /// </summary>
+        /// <param name="pricePerMinute">Represents charge rate per minute of <see cref="Call"/> as <see cref="decimal"/>.</param>
+        /// <returns>Returns total call costs as <see cref="decimal"/>.</returns>
+        new public decimal CalculateTotalCallCosts(decimal pricePerMinute)
+        {
+            if (this.CallHistory == null || this.CallHistory.Count == 0)
+            {
+                return 0M;
+            }
+            else
+            {
+                decimal result = 0;
+                foreach (var item in this.CallHistory)
+                {
+                    result += (item.Duration / 60M * pricePerMinute);
+                }
+                return result;
+            }
         }
     }
 }
