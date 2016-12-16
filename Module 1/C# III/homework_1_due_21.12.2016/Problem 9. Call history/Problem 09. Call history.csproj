@@ -52,6 +52,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Problem_09.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Problem 1. Define class\Problem 01. Define class.csproj">

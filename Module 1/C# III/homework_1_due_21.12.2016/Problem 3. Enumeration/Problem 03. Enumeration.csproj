@@ -51,6 +51,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="Problem_03.cd" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Problem 2. Constructors\Problem 02. Constructors.csproj">
