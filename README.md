@@ -1,2 +1,9 @@
 # Telerik-Academy-Homeworks---2016-2017
-Contains homework solutions for Telerik Academy's 2016-2017 courses
+
+* ## Module 1
+  1. C# I - Fundamentals
+  2. HTML
+  3. C# II - Advanced
+  4. CSS
+  5. C# III - Object Oriented Programming  
+  6. JavaScript I - Fundamentals
