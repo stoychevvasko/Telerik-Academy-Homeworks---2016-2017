@@ -8,11 +8,13 @@
   * *Conditional Statements*
   * *Loops*
   * *Arrays*
+
 ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/html_5_logo.png "HTML5")***[HTML](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%201/HTML "link to folder") - Complete Course***
   * *Intro to HTML5*
   * *Tables*
   * *Forms*
   * *Semantic HTML*
+
 ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/c_sharp_logo.png "C#")***[C# II](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%201/C%23%20II "link to folder") - Advanced***
   * *Multidimensional Arrays*
   * *Methods*
@@ -21,17 +23,20 @@
   * *Strings & Text Processing*
   * *Files*
   * *Exception Handling*
+
 ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/css_3_logo.png "CSS3")***[CSS](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%201/CSS "link to folder") - Complete Course***
   * *Intro to CSS Styling*
   * *CSS Overview*
   * *CSS Presentation*
   * *CSS Layout*
   *  *Preprocessors: SASS, LESS, Stylus*
+
 ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/c_sharp_logo.png "C#")***[C# III](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%201/C%23%20III "link to folder") - Object Oriented Programming***
   * *Defining Classes*
   * *Extension Methods, Delegates, Lambda Expressions, LINQ*
   * *Principles of Object Oriented Programming (OOP)*
   * *.NET Common Type System*
+
 ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/javascript_logo.png "JavaScript")***[JavaScript I]( "link to folder") - Fundamentals***
   * *Intro to JavaScript*
   * *Tools*
@@ -43,4 +48,4 @@
   * *Objects*
   * *Array & Object Methods*
   * *Regular Expressions*
-  
+
