@@ -1,4 +1,8 @@
 **/AssemblyInfo.cs linguist-documentation
 Module?1/C#?I/**/*.html linguist-documentation
 Module?1/C#?II/**/*.html linguist-documentation
-Module?1/CSS/exam?preparation/**/*.html
+Module?1/CSS/exam?preparation/**/*.html linguist-documentation
+Module?1/C#?III/homework?2?due?04.01.2017/Problem 1. Structure/Point3D.cs linguist-documentation
+Module?1/C#?III/homework?2?due?04.01.2017/Problem 3. Static class/Point3D.cs linguist-documentation
+Module?1/C#?III/homework?2?due?04.01.2017/Problem 4. Path/Point3D.cs linguist-documentation
+Module?1/C#?III/homework?2?due?04.01.2017/Problem 4. Path/Calculate.cs linguist-documentation
