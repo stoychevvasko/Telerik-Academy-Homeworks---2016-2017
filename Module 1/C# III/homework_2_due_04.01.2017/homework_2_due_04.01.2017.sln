@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 1. Structure", "Pro
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 2. Static read-only field", "Problem 2. Static read-only field\Problem 2. Static read-only field.csproj", "{C3E442AF-2C04-4870-93A6-39C83D81A57F}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 3. Static class", "Problem 3. Static class\Problem 3. Static class.csproj", "{EBD1D0B8-88E5-4BDD-A849-86A21DD8A56F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{C3E442AF-2C04-4870-93A6-39C83D81A57F}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C3E442AF-2C04-4870-93A6-39C83D81A57F}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C3E442AF-2C04-4870-93A6-39C83D81A57F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EBD1D0B8-88E5-4BDD-A849-86A21DD8A56F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EBD1D0B8-88E5-4BDD-A849-86A21DD8A56F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EBD1D0B8-88E5-4BDD-A849-86A21DD8A56F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EBD1D0B8-88E5-4BDD-A849-86A21DD8A56F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
