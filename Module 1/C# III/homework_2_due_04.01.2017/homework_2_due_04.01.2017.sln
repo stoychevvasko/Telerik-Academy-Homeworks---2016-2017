@@ -13,6 +13,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 4. Path", "Problem 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 5. Generic class", "Problem 5. Generic class\Problem 5. Generic class.csproj", "{72445E26-D8B9-4AFF-BE01-9B13ACE8D8F0}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 6. Auto-grow", "Problem 6. Auto-grow\Problem 6. Auto-grow.csproj", "{6BF6F21E-55AF-4881-BF44-45B6B468965F}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,10 @@ Global
 		{72445E26-D8B9-4AFF-BE01-9B13ACE8D8F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72445E26-D8B9-4AFF-BE01-9B13ACE8D8F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72445E26-D8B9-4AFF-BE01-9B13ACE8D8F0}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6BF6F21E-55AF-4881-BF44-45B6B468965F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6BF6F21E-55AF-4881-BF44-45B6B468965F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6BF6F21E-55AF-4881-BF44-45B6B468965F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6BF6F21E-55AF-4881-BF44-45B6B468965F}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
