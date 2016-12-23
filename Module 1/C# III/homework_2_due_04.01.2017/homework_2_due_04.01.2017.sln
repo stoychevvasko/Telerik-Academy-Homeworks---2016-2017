@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 1. Structure", "Problem 1. Structure\Problem 1. Structure.csproj", "{587C09C3-6A2D-4F74-BB3F-F464000749B3}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 01. Structure", "Problem 1. Structure\Problem 01. Structure.csproj", "{587C09C3-6A2D-4F74-BB3F-F464000749B3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 2. Static read-only field", "Problem 2. Static read-only field\Problem 2. Static read-only field.csproj", "{C3E442AF-2C04-4870-93A6-39C83D81A57F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 02. Static read-only field", "Problem 2. Static read-only field\Problem 02. Static read-only field.csproj", "{C3E442AF-2C04-4870-93A6-39C83D81A57F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 3. Static class", "Problem 3. Static class\Problem 3. Static class.csproj", "{EBD1D0B8-88E5-4BDD-A849-86A21DD8A56F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 03. Static class", "Problem 3. Static class\Problem 03. Static class.csproj", "{EBD1D0B8-88E5-4BDD-A849-86A21DD8A56F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 4. Path", "Problem 4. Path\Problem 4. Path.csproj", "{18764059-595C-4DAC-AFDF-4FD68F18AB62}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 04. Path", "Problem 4. Path\Problem 04. Path.csproj", "{18764059-595C-4DAC-AFDF-4FD68F18AB62}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 5. Generic class", "Problem 5. Generic class\Problem 5. Generic class.csproj", "{72445E26-D8B9-4AFF-BE01-9B13ACE8D8F0}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 05. Generic class", "Problem 5. Generic class\Problem 05. Generic class.csproj", "{72445E26-D8B9-4AFF-BE01-9B13ACE8D8F0}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 6. Auto-grow", "Problem 6. Auto-grow\Problem 6. Auto-grow.csproj", "{6BF6F21E-55AF-4881-BF44-45B6B468965F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 06. Auto-grow", "Problem 6. Auto-grow\Problem 06. Auto-grow.csproj", "{6BF6F21E-55AF-4881-BF44-45B6B468965F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 7. Min and Max", "Problem 7. Min and Max\Problem 7. Min and Max.csproj", "{785FA661-85BB-40BA-BABE-59727947ECF7}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 07. Min and Max", "Problem 7. Min and Max\Problem 07. Min and Max.csproj", "{785FA661-85BB-40BA-BABE-59727947ECF7}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 8. Matrix", "Problem 8. Matrix\Problem 8. Matrix.csproj", "{35E09030-7A07-4CBE-BDE4-810BEB0CC7FC}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 08. Matrix", "Problem 8. Matrix\Problem 08. Matrix.csproj", "{35E09030-7A07-4CBE-BDE4-810BEB0CC7FC}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 9. Matrix indexer", "Problem 9. Matrix indexer\Problem 9. Matrix indexer.csproj", "{72788CE1-EDB7-4469-A624-98F93F7A3069}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 09. Matrix indexer", "Problem 9. Matrix indexer\Problem 09. Matrix indexer.csproj", "{72788CE1-EDB7-4469-A624-98F93F7A3069}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 10. Matrix operations", "Problem 10. Matrix operations\Problem 10. Matrix operations.csproj", "{5119D337-E356-47FC-BD09-B630AE6C75F4}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{72788CE1-EDB7-4469-A624-98F93F7A3069}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{72788CE1-EDB7-4469-A624-98F93F7A3069}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{72788CE1-EDB7-4469-A624-98F93F7A3069}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5119D337-E356-47FC-BD09-B630AE6C75F4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5119D337-E356-47FC-BD09-B630AE6C75F4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5119D337-E356-47FC-BD09-B630AE6C75F4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5119D337-E356-47FC-BD09-B630AE6C75F4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
