@@ -19,6 +19,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 7. Min and Max", "P
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 8. Matrix", "Problem 8. Matrix\Problem 8. Matrix.csproj", "{35E09030-7A07-4CBE-BDE4-810BEB0CC7FC}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 9. Matrix indexer", "Problem 9. Matrix indexer\Problem 9. Matrix indexer.csproj", "{72788CE1-EDB7-4469-A624-98F93F7A3069}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -57,6 +59,10 @@ Global
 		{35E09030-7A07-4CBE-BDE4-810BEB0CC7FC}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{35E09030-7A07-4CBE-BDE4-810BEB0CC7FC}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{35E09030-7A07-4CBE-BDE4-810BEB0CC7FC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72788CE1-EDB7-4469-A624-98F93F7A3069}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72788CE1-EDB7-4469-A624-98F93F7A3069}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72788CE1-EDB7-4469-A624-98F93F7A3069}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72788CE1-EDB7-4469-A624-98F93F7A3069}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
