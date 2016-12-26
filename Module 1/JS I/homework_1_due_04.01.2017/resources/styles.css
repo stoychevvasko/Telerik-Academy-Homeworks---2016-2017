@@ -13,3 +13,18 @@ h1 {
 	color: white;
 	padding: 0.5em;
 }
+
+h2 {
+	font-family: Monospace, Sans-Serif;
+	font-size: 1.75em;
+	color: white;	
+}
+
+article {
+	font-family: Monospace, Sans-Serif;
+	font-size: 0.67em;
+	color: #afafaf;
+	padding: 4em;
+	padding-top: 0.67em;
+	padding-bottom: 0.67em;
+}

@@ -37,7 +37,7 @@
   * *Principles of Object Oriented Programming (OOP)*
   * *.NET Common Type System*
 
-![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/javascript_logo.png "JavaScript")***[JavaScript I]( "link to folder") - Fundamentals***
+![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/javascript_logo.png "JavaScript")***[JavaScript I](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%201/JS%20I "link to folder") - Fundamentals***
   * *Intro to JavaScript*
   * *Tools*
   * *Primitive Types & Variables*
