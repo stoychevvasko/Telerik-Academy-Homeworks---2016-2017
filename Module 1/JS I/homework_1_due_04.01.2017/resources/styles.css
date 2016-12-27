@@ -5,39 +5,39 @@
 
 body {
 	background-color: black;
-	font-size: 123%;
+	font-size: 100%;
 }
 
 h1 {
-	font-family: Monospace;
+	font-family: Sans-Serif;
 	font-size: 2em;
 	color: LightGoldenRodYellow;
 	padding: 0.5em;
 }
 
 h2 {
-	font-family: Monospace;
+	font-family: Sans-Serif;
 	font-size: 1.75em;
 	color: LightYellow;
 	padding: 0.2em;
 }
 
 h3 {
-	font-family: Monospace;	
+	font-family: Sans-Serif;	
 	font-size: 1.44em;
 	color: PaleGoldenRod;
 	padding: 0.6em;
 }
 
 h4 {
-	font-family: Monospace;	
+	font-family: Sans-Serif;	
 	font-size: 1.11em;
 	color: GoldenRod;
 	padding-left: 1em;
 }
 
 h5 {
-	font-family: Monospace;	
+	font-family: Sans-Serif;	
 	font-size: 1em;
 	color: Gold;	
 	padding-left: 2em;
@@ -53,7 +53,7 @@ h5 + span.javascript-code {
 }
 
 article {
-	font-family: Monospace;
+	font-family: Sans-Serif;
 	font-size: 0.67em;
 	color: Silver;
 	padding: 4em;
@@ -74,7 +74,7 @@ article > ul {
 strong {	
 	font-size: 1.1em;
 	font-weight: bold;
-	color: white;
+	color: Orange;
 }
 
 .javascript-code {
