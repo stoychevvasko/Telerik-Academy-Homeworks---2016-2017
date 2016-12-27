@@ -5,26 +5,100 @@
 
 body {
 	background-color: black;
+	font-size: 123%;
 }
 
 h1 {
-	font-family: Monospace, Sans-Serif;
+	font-family: Monospace;
 	font-size: 2em;
-	color: white;
+	color: LightGoldenRodYellow;
 	padding: 0.5em;
 }
 
 h2 {
-	font-family: Monospace, Sans-Serif;
+	font-family: Monospace;
 	font-size: 1.75em;
-	color: white;	
+	color: LightYellow;
+	padding: 0.2em;
+}
+
+h3 {
+	font-family: Monospace;	
+	font-size: 1.44em;
+	color: PaleGoldenRod;
+	padding: 0.6em;
+}
+
+h4 {
+	font-family: Monospace;	
+	font-size: 1.11em;
+	color: GoldenRod;
+	padding-left: 1em;
+}
+
+h5 {
+	font-family: Monospace;	
+	font-size: 1em;
+	color: Gold;	
+	padding-left: 2em;
+}
+
+h5 + span.javascript-code {
+	font-size: smaller;
+	display: inline-block;
+	margin-left: 3em;
+	margin-top: 0.11em;
+	margin-bottom: 0.11em;
+	
 }
 
 article {
-	font-family: Monospace, Sans-Serif;
+	font-family: Monospace;
 	font-size: 0.67em;
-	color: #afafaf;
+	color: Silver;
 	padding: 4em;
 	padding-top: 0.67em;
 	padding-bottom: 0.67em;
+}
+
+article > p {
+	padding-left: 1em;
+}
+
+article > ul {
+	padding-left: 3em;
+	padding-top: 0.33em;
+	Padding-bottom: 0.33em;
+}
+
+strong {	
+	font-size: 1.1em;
+	font-weight: bold;
+	color: white;
+}
+
+.javascript-code {
+	display: inline-block;
+	font-family: "Lucida Console", Monaco, Monospace;
+	background-color: #0e2a1b;
+	font-size: 0.80em;	
+	color: PaleGreen;
+	padding: 0.33em;
+	padding-left: 0.67em;
+	padding-right: 1.33em;
+	margin: 0.33em;
+	margin-left: 2em;	
+}
+
+span.javascript-code {	
+	margin: 0.67em 0 0 0;	
+	padding-left: 0.67em;
+	padding-right: 1.33em;	
+}
+
+div.test-item {
+	display: inline-block;
+	margin: 1em;
+	padding: 1em;
+	background-color: #0f0f0f;
 }
