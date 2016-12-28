@@ -1,4 +1,4 @@
-// // Problem 3: Rectangles
+// Problem 3: Rectangles
 
 function solve(args) {
 	var a = +args[0],

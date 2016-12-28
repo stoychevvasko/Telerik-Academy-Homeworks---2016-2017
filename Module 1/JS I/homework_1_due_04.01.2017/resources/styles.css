@@ -32,8 +32,11 @@ h3 {
 
 h4 {	
 	font-size: 1.11em;
-	color: GoldenRod;
-	padding-left: 1em;
+	color: #0f0f0f;
+	background-color: GoldenRod;
+	padding: 0.25em 0.25em 0.25em 0.5em;
+	margin-bottom: 1em;
+	border-radius: 0.2em 0.2em 0 0;	
 }
 
 h5 {	
@@ -104,7 +107,7 @@ span.javascript-code {
 div.test-item {
 	display: inline-block;
 	margin: 1em;
-	padding: 1em;
+	padding: 0.5em;	
 	background-color: #0f0f0f;	
 	border-radius: 0.5em;	
 }
