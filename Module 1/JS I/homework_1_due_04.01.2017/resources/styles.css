@@ -14,7 +14,8 @@ h1, h2, h3, h4, h5, h6 {
 
 h1 {	
 	font-size: 2em;
-	color: LightGoldenRodYellow;
+	background-color: #0f0f0f;
+	color: GoldenRod;
 	padding: 0.5em;
 }
 
@@ -36,7 +37,9 @@ h4 {
 	background-color: GoldenRod;
 	padding: 0.25em 0.25em 0.25em 0.5em;
 	margin-bottom: 1em;
-	border-radius: 0.2em 0.2em 0 0;	
+	border-radius: 0.33em;	
+	border-bottom: 1px solid Chocolate;
+	border-right: 1px solid SaddleBrown;	
 }
 
 h5 {	
@@ -48,9 +51,9 @@ h5 {
 h5 + span.javascript-code {
 	font-size: smaller;
 	display: inline-block;
-	margin-left: 3em;
-	margin-top: 0.11em;
-	margin-bottom: 0.11em;
+	margin-left: 2.75em;
+	margin-top: 1em;
+	margin-bottom: 1em;
 	
 }
 
@@ -86,6 +89,9 @@ strong {
 
 .javascript-code {
 	display: inline-block;
+	border-radius: 0.33em;
+	border-bottom: 1px solid Chartreuse;
+	border-right: 1px solid Green;
 	font-family: "Lucida Console", Monaco, Monospace;
 	background-color: #0e2a1b;
 	font-size: 1em;	
@@ -99,15 +105,17 @@ strong {
 }
 
 span.javascript-code {	
-	margin: 0.67em 0 0 0;	
+	margin: 0.67em 0.67em 0em 0;	
 	padding-left: 0.67em;
-	padding-right: 1.33em;	
+	padding-right: 1.33em;
 }
 
 div.test-item {
 	display: inline-block;
 	margin: 1em;
 	padding: 0.5em;	
+	border-radius: 0.5em;
+	border-bottom: 1px solid Orange;
+	border-right: 1px solid DarkOrange;	
 	background-color: #0f0f0f;	
-	border-radius: 0.5em;	
 }
