@@ -1,5 +1,4 @@
-// Problem 7: Prime Check
-
+// Problem 7: Prime Check - BGCoder format
 function solve(args) {
     var n = +args[0];
     var isPrime = (n > 1);

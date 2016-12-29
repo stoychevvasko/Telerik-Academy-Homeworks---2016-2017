@@ -1,5 +1,4 @@
-// Problem 9: Point, Circle, Rectangle
-
+// Problem 9: Point, Circle, Rectangle - BGCoder format
 function solve(args) {
     var x = +args[0];
     var y = +args[1];    

@@ -1,5 +1,4 @@
-// Problem 3: Rectangles
-
+// Problem 3: Rectangles - BGCoder format
 function solve(args) {
 	var a = +args[0],
         b = +args[1];

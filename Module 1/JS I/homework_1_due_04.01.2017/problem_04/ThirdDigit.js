@@ -1,5 +1,4 @@
-// Problem 4. Third Digit
-
+// Problem 4. Third Digit - BGCoder format
 function solve(args) {
 	var n = args[0];
     var thirdDigit = (n.slice(-3, -2) === '') ? '0' : n.slice(-3, -2);

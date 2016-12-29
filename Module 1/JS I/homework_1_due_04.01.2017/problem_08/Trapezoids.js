@@ -1,5 +1,4 @@
-// Problem 8: Trapezoids
-
+// Problem 8: Trapezoids - BGCoder format
 function solve(args) {
 	var a = +args[0];
 	var b = +args[1];

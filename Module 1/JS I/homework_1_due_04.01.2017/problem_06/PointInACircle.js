@@ -1,5 +1,4 @@
-// Problem 6. Point In A Circle
-
+// Problem 6. Point In A Circle - BGCoder format
 function solve(args) {
 var x = +args[0],
     y = +args[1],

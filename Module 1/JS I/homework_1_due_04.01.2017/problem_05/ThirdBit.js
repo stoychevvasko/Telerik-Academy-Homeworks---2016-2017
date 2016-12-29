@@ -1,5 +1,4 @@
-// Problem 5. Third Bit
-
+// Problem 5. Third Bit - BGCoder format
 function solve(args) {
 	var n = +args[0];
     var nBase2 = '000' + n.toString(2);
