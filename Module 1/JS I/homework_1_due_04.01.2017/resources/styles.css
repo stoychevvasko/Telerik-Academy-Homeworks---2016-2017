@@ -10,7 +10,7 @@ body {
 
 h2, h3, h4, h6 {
 	font-family: Sans-Serif;
-	text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.33);
+	// text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.33);
 }
 
 h1 {
@@ -19,7 +19,7 @@ h1 {
 	background-color: #0f0f0f;
 	color: GoldenRod;
 	padding: 0.5em;	
-	text-shadow: 4px 4px 5px rgba(218, 165, 32, 0.44);
+	// text-shadow: 4px 4px 5px rgba(218, 165, 32, 0.44);
 }
 
 h2 {	
@@ -37,7 +37,7 @@ h3 {
 h4 {	
 	font-size: 1.11em;
 	color: #0f0f0f;
-	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.33);
+	// text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.33);
 	background-color: GoldenRod;
 	padding: 0.25em 0.25em 0.25em 0.5em;
 	margin-bottom: 1em;
@@ -90,7 +90,7 @@ strong {
 	font-size: 1.1em;
 	font-weight: bold;
 	color: Orange;
-	text-shadow: 2px 2px 1px rgba(218, 165, 32, 0.55);
+	// text-shadow: 2px 2px 1px rgba(218, 165, 32, 0.55);
 }
 
 .javascript-code {
@@ -103,7 +103,7 @@ strong {
 	font-size: 1em;	
 	letter-spacing: 0.15em;
 	color: PaleGreen;
-	text-shadow: 2px 2px 1px rgba(152, 251, 152, 0.33);
+	// text-shadow: 2px 2px 1px rgba(152, 251, 152, 0.33);
 	padding: 0.33em;
 	padding-left: 0.67em;
 	padding-right: 1.33em;
@@ -135,7 +135,7 @@ div.test-item {
 	border-bottom: 1px solid Orange;
 	border-right: 1px solid DarkOrange;	
 	background-color: #0f0f0f;
-	-webkit-box-shadow: 5px 5px 9px 0px rgba(218,165,32,0.22);
-	-moz-box-shadow: 5px 5px 9px 0px rgba(218,165,32,0.22);
-	box-shadow: 5px 5px 9px 0px rgba(218,165,32,0.22);
+	-webkit-box-shadow: 3px 3px 3px 0px rgba(218,165,32,0.22);
+	-moz-box-shadow: 3px 3px 3px 0px rgba(218,165,32,0.22);
+	box-shadow: 3px 3px 3px 0px rgba(218,165,32,0.22);
 }
