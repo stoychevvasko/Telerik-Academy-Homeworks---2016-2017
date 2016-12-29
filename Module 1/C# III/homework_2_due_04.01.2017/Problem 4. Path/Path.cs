@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.Text;
 
 namespace Problem_04
@@ -38,6 +39,30 @@ namespace Problem_04
         {
             this.AddPoint(element);
         }
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Path"/> class.
+        /// </summary>
+        /// <param name="reverseToString">A <see cref="string"/> parameter in the format of <see cref="Path.ToString"/>.</param>
+        public Path(string reverseToString)
+        {
+            string[] splits = reverseToString.Split('}');
+            List<Point3D> result = new List<Point3D>();
+            string[] separators = { "{", " ", ",", "}" };
+            for (int i = 0; i < 3; i++)
+            {
+                var item = splits[i];
+                var items = item.Split(separators, StringSplitOptions.RemoveEmptyEntries);
+                var itemX = items[0];
+                var itemY = items[1];
+                var itemZ = items[2];
+                decimal x = decimal.Parse(itemX);
+                decimal y = decimal.Parse(itemY);
+                decimal z = decimal.Parse(itemZ);
+                Point3D point = new Point3D(x, y, z);
+                result.Add(point);
+            }
+            this.Sequence = result;
+        }
 
         /// <summary>
         /// Adds a <see cref="Path"/> object to the end of the <see cref="Path"/>.
@@ -51,9 +76,9 @@ namespace Problem_04
         }
 
         /// <summary>
-        /// Returns a <see cref="string"/> representation of a <see cref="Path"/> object
+        /// Returns a <see cref="string"/> representation of a <see cref="Path"/> object.
         /// </summary>
-        /// <returns>a <see cref="string"/></returns>
+        /// <returns>A <see cref="string"/>.</returns>
         public override string ToString()
         {
             StringBuilder result = new StringBuilder();
@@ -67,7 +92,7 @@ namespace Problem_04
                     result.Append(", ");
                 }
             }
-            result.Insert(0, '{').Insert(1, ' ').Append("} ");
+            result.Insert(0, '{').Insert(1, ' ').Append(" }");
             return result.ToString();
         }
     }
