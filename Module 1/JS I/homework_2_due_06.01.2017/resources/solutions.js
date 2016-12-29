@@ -17,6 +17,14 @@ function runScript() {
 	runTestsolveTheBiggestOfThree('P03_I04', 'P03_O04', 'P03_A04');
 	runTestsolveTheBiggestOfThree('P03_I05', 'P03_O05', 'P03_A05');
 	console.log('===============================================');
+	runTestsolveSortThreeNumbers('P04_I01', 'P04_O01', 'P04_A01');
+	runTestsolveSortThreeNumbers('P04_I02', 'P04_O02', 'P04_A02');
+	runTestsolveSortThreeNumbers('P04_I03', 'P04_O03', 'P04_A03');
+	runTestsolveSortThreeNumbers('P04_I04', 'P04_O04', 'P04_A04');
+	runTestsolveSortThreeNumbers('P04_I05', 'P04_O05', 'P04_A05');
+	runTestsolveSortThreeNumbers('P04_I06', 'P04_O06', 'P04_A06');
+	runTestsolveSortThreeNumbers('P04_I07', 'P04_O07', 'P04_A07');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -137,3 +145,51 @@ function runTestsolveTheBiggestOfThree(input, output, actual) {
 		document.getElementById(actual).className += ' correct';
 	}
 }
+
+// Problem 4: Sort Three Numbers
+function solveSortThreeNumbers(args) {	
+	var a = +convertToJSON(args)[0][0],
+		b = +convertToJSON(args)[0][1],
+		c = +convertToJSON(args)[0][2];
+	
+	if (a > b && a > c) {
+		if (b > c) {
+			console.log('Problem 04:   ' + a + ' ' + b + ' ' + c);
+			return (a + ' ' + b + ' ' + c);
+		}
+		else {
+			console.log('Problem 04:   ' + a + ' ' + c + ' ' + b);
+			return (a + ' ' + c + ' ' + b);
+		}	
+	}
+	else if (b > a && b > c) {
+		if (a > c) {
+			console.log('Problem 04:   ' + b + ' ' + a + ' ' + c);
+			return (b + ' ' + a + ' ' + c);
+		}
+		else {
+			console.log('Problem 04:   ' + b + ' ' + c + ' ' + a);
+			return (b + ' ' + c + ' ' + a);
+		}
+	}
+	else {
+		if (a > b) {
+			console.log('Problem 04:   ' + c + ' ' + a + ' ' + b);
+			return (c + ' ' + a + ' ' + b);
+		}
+		else {
+			console.log('Problem 04:   ' + c + ' ' + b + ' ' + a);
+			return (c + ' ' + b + ' ' + a);
+		}
+	}
+}
+
+function runTestsolveSortThreeNumbers(input, output, actual) {
+	document.getElementById(actual).innerHTML = solveSortThreeNumbers(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
