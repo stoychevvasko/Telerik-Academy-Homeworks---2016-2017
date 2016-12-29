@@ -110,6 +110,13 @@ span.javascript-code {
 	padding-right: 1.33em;
 }
 
+.incorrect {
+	border-bottom: 1px solid Red;
+	border-right: 1px solid FireBrick;
+	background-color: Maroon;
+	color: Tomato;
+}
+
 div.test-item {
 	display: inline-block;
 	margin: 1em;

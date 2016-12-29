@@ -4,8 +4,9 @@
         <meta charset="utf-8" />
         <title>JavaScript Homework: Operators and Expressions</title>
         <link rel="stylesheet" href="./resources/styles.css" />
+		<script src="./resources/solutions.js" type="text/javascript"></script>
     </head>
-    <body>        
+    <body onload="runScript()">        
 		<section>			
 			<h1>JavaScript Homework: Operators and Expressions</h1>
 			<article>
@@ -44,37 +45,47 @@
 						<div class="test-item">
 							<h4>Sample Test 1</h4>
 								<h5>Input</h5>
-									<span class="javascript-code">['3']</span>
+									<span class="javascript-code" id="P01_I01">['3']</span>
 								<h5>Output</h5>
-									<span class="javascript-code">odd 3</span>
+									<span class="javascript-code" id="P01_O01">odd 3</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P01_A01"></span>
 						</div>		
 						<div class="test-item">
 							<h4>Sample Test 2</h4>
 								<h5>Input</h5>
-									<span class="javascript-code">['2']</span>
+									<span class="javascript-code" id="P01_I02">['2']</span>
 								<h5>Output</h5>
-									<span class="javascript-code">even 2</span>
+									<span class="javascript-code" id="P01_O02">even 2</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P01_A02"></span>
 						</div>		
 						<div class="test-item">
 							<h4>Sample Test 3</h4>
 								<h5>Input</h5>
-									<span class="javascript-code">['-2']</span>
+									<span class="javascript-code" id="P01_I03">['-2']</span>
 								<h5>Output</h5>
-									<span class="javascript-code">even -2</span>
+									<span class="javascript-code" id="P01_O03">even -2</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P01_A03"></span>
 						</div>		
 						<div class="test-item">
 							<h4>Sample Test 4</h4>
 								<h5>Input</h5>
-									<span class="javascript-code">['-1']</span>
+									<span class="javascript-code" id="P01_I04">['-1']</span>
 								<h5>Output</h5>
-									<span class="javascript-code">odd -1</span>
+									<span class="javascript-code" id="P01_O04">odd -1</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P01_A04"></span>
 						</div>		
 						<div class="test-item">
 							<h4>Sample Test 5</h4>
 								<h5>Input</h5>
-									<span class="javascript-code">['0']</span>
+									<span class="javascript-code" id="P01_I05">['0']</span>
 								<h5>Output</h5>
-									<span class="javascript-code">even 0</span>
+									<span class="javascript-code" id="P01_O05">even 0</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P01_A05"></span>
 						</div>
 			</article>			
 			<article>
@@ -562,7 +573,6 @@
 									<span class="javascript-code">inside circle outside rectangle</span>
 					</div>
 			</article>
-		</section>
-        <script src="solutions.js" type="text/javascript"></script>
+		</section>        
     </body>
 </html>
