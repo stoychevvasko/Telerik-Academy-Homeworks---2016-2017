@@ -456,88 +456,62 @@
 			</article>
 			<article>
 				<h2>Problem 8: Trapezoids</h2>
-## Description
-Implement a javascript function that calculates trapezoid's area by given sides **a** and **b** and height **h**. 
-The three values should be read from the console in the order shown below. All three value will be floating-point numbers.
-
-## Input
-- The input will consist of an array with exactly **3** numbers as elements: **a**, **b** and **h**, all as strings.
-
-## Output
-- Output a single line containing a single value - the area of the trapezoid. Output the area with exactly _7-digit precision_ after the floating point.
-- You can use `console.log` to print the results or you can use `return` to return the answer. Both are correct.
-
-## Constraints
-- All numbers will always be valid floating-point numbers in the range `[-500, 500]`.
-- Time limit: **0.1s**
-- Memory limit: **16MB**
-
-## Sample Tests
-
-### Sample Test 1
-
-#### Input
-```js
-['5', '7', '12']
-```
-
-#### Output
-```
-72.0000000
-```
-
-### Sample Test 2
-
-#### Input
-```js
-['2', '1', '33']
-```
-
-#### Output
-```
-49.5000000
-```
-
-### Sample Test 3
-
-#### Input
-```js
-['8.5', '4.3', '2.7']
-```
-
-#### Output
-```
-17.2800000
-```
-
-### Sample Test 4
-
-#### Input
-```js
-['100', '200', '300']
-```
-
-#### Output
-```
-45000.0000000
-```
-
-### Sample Test 5
-
-#### Input
-```js
-['0.222', '0.333', '0.555']
-```
-
-#### Output
-```
-0.1540125
-```
-		</article>
-		<article>
+				<h3>Description</h3>
+					<p>Implement a javascript function that calculates trapezoid's area by given sides <strong>a</strong> and <strong>b</strong> and height <strong>h</strong>. The three values should be read from the console in the order shown below. All three value will be floating-point numbers.</p>					
+				<h3>Input</h3>
+					<ul>
+						<li>The input will consist of an array with exactly <strong>3</strong> numbers as elements: <strong>a</strong>, <strong>b</strong> and <strong>h</strong>, all as strings.</li>
+					</ul>
+				<h3>Output</h3>
+					<ul>
+						<li>Output a single line containing a single value - the area of the trapezoid. Output the area with exactly <em>7-digit precision</em> after the floating point.</li>
+						<li>You can use <span class="javascript-code">console.log</span> to print the results or you can use <span class="javascript-code">return</span> to return the answer. Both are correct.</li>
+					</ul>
+				<h3>Constraints</h3>
+					<ul>
+						<li>All numbers will always be valid floating-point numbers in the range `[-500, 500]`.</li>
+						<li>Time limit: <strong>0.1s</strong></li>
+						<li>Memory limit: <strong>16MB</strong></li>
+					</ul>
+				<h3>Sample Tests</h3>
+					<div class="test-item">
+							<h4>Sample Test 1</h4>
+								<h5>Input</h5>
+									<span class="javascript-code">['5', '7', '12']</span>
+								<h5>Output</h5>
+									<span class="javascript-code">72.0000000</span>
+					</div>
+					<div class="test-item">
+							<h4>Sample Test 2</h4>
+								<h5>Input</h5>
+									<span class="javascript-code">['2', '1', '33']</span>
+								<h5>Output</h5>
+									<span class="javascript-code">49.5000000</span>
+					</div>
+					<div class="test-item">
+							<h4>Sample Test 3</h4>
+								<h5>Input</h5>
+									<span class="javascript-code">['8.5', '4.3', '2.7']</span>
+								<h5>Output</h5>
+									<span class="javascript-code">17.2800000</span>
+					</div>
+					<div class="test-item">
+							<h4>Sample Test 4</h4>
+								<h5>Input</h5>
+									<span class="javascript-code">['100', '200', '300']</span>
+								<h5>Output</h5>
+									<span class="javascript-code">45000.0000000</span>
+					</div>
+					<div class="test-item">
+							<h4>Sample Test 5</h4>
+								<h5>Input</h5>
+									<span class="javascript-code">['0.222', '0.333', '0.555']</span>
+								<h5>Output</h5>
+									<span class="javascript-code">0.1540125</span>
+					</div>
+			</article>
+			<article>
 				<h2>Problem 9: Point, Circle, Rectangle</h2>
-# Point, Circle, Rectangle
-
 ## Description
 Implement a javascript function that accepts an array with a pair of coordinates **x** and **y** and uses an expression to checks for given point **(x, y)**
  if it is within the circle `K({1, 1}, 1.5)` and out of the rectangle `R(top=1, left=-1, width=6, height=2)`.
