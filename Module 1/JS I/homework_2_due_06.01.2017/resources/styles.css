@@ -37,20 +37,23 @@ h3 {
 h4 {	
 	font-size: 1.11em;
 	color: #0f0f0f;
-	// text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.33);
+	text-shadow: 2px 2px 1px rgba(0, 0, 0, 0.33);
 	background-color: GoldenRod;
 	padding: 0.25em 0.25em 0.25em 0.5em;
 	margin-bottom: 1em;
 	border-radius: 0.33em;	
 	border-bottom: 1px solid Chocolate;
-	border-right: 1px solid SaddleBrown;	
+	border-right: 1px solid SaddleBrown;
+	-webkit-box-shadow: 2px 2px 1px 0px rgba(139, 69, 19, 0.55);
+	-moz-box-shadow: 2px 2px 1px 0px rgba(139, 69, 19, 0.55);
+	box-shadow: 2px 2px 1px 0px rgba(139, 69, 19, 0.55);
 }
 
 h5 {	
 	font-size: 1em;
 	color: Gold;	
 	padding-left: 2em;
-	text-shadow: 2px 2px 1px rgba(247, 215, 0, 0.33)
+	// text-shadow: 2px 2px 1px rgba(247, 215, 0, 0.33)
 }
 
 h5 + span.javascript-code {
@@ -96,14 +99,14 @@ strong {
 .javascript-code {
 	display: inline-block;
 	border-radius: 0.33em;
-	border-bottom: 1px solid Chartreuse;
-	border-right: 1px solid Green;
+	border-bottom: 1px solid DarkGrey;
+	border-right: 1px solid Grey;
 	font-family: "Lucida Console", Monaco, Monospace;
-	background-color: #0e2a1b;
+	background-color: #1d2230;
 	font-size: 1em;	
 	letter-spacing: 0.15em;
-	color: PaleGreen;
-	// text-shadow: 2px 2px 1px rgba(152, 251, 152, 0.33);
+	color: LightGrey;
+	text-shadow: 2px 2px 2px rgba(0, 0, 0, 0.55);
 	padding: 0.33em;
 	padding-left: 0.67em;
 	padding-right: 1.33em;
@@ -127,13 +130,21 @@ span.javascript-code {
 	color: Tomato;
 }
 
+.correct {
+	border-bottom: 1px solid Chartreuse;
+	border-right: 1px solid Green;
+	background-color: #0e2a1b;
+	color: PaleGreen;
+}
+
 div.test-item {
 	display: inline-block;
+	width: 20em;
 	margin: 1em;
 	padding: 0.5em;	
 	border-radius: 0.5em;
 	border-bottom: 1px solid Orange;
-	border-right: 1px solid DarkOrange;	
+	border-right: 1px solid Chocolate;	
 	background-color: #0f0f0f;
 	-webkit-box-shadow: 3px 3px 3px 0px rgba(218,165,32,0.22);
 	-moz-box-shadow: 3px 3px 3px 0px rgba(218,165,32,0.22);
