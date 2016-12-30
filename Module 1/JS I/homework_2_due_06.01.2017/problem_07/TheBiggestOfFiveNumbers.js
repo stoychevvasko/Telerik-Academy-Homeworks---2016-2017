@@ -1,4 +1,4 @@
-// Problem 07: The Biggest of Five Numbers
+// Problem 07: The Biggest of Five Numbers - BGCoder format
 function solve(args) {
 	var a = +args[0],
 		b = +args[1],

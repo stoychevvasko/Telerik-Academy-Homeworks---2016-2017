@@ -46,6 +46,20 @@ function runScript() {
 	runTestsolveTheBiggestOfFiveNumbers('P07_I04', 'P07_O04', 'P07_A04');
 	runTestsolveTheBiggestOfFiveNumbers('P07_I05', 'P07_O05', 'P07_A05');
 	console.log('===============================================');
+	runTestsolveNumberAsWords('P08_I01', 'P08_O01', 'P08_A01');
+	runTestsolveNumberAsWords('P08_I02', 'P08_O02', 'P08_A02');
+	runTestsolveNumberAsWords('P08_I03', 'P08_O03', 'P08_A03');
+	runTestsolveNumberAsWords('P08_I04', 'P08_O04', 'P08_A04');
+	runTestsolveNumberAsWords('P08_I05', 'P08_O05', 'P08_A05');
+	runTestsolveNumberAsWords('P08_I06', 'P08_O06', 'P08_A06');
+	runTestsolveNumberAsWords('P08_I07', 'P08_O07', 'P08_A07');
+	runTestsolveNumberAsWords('P08_I08', 'P08_O08', 'P08_A08');
+	runTestsolveNumberAsWords('P08_I09', 'P08_O09', 'P08_A09');
+	runTestsolveNumberAsWords('P08_I10', 'P08_O10', 'P08_A10');
+	runTestsolveNumberAsWords('P08_I11', 'P08_O11', 'P08_A11');
+	runTestsolveNumberAsWords('P08_I12', 'P08_O12', 'P08_A12');
+	runTestsolveNumberAsWords('P08_I13', 'P08_O13', 'P08_A13');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -360,6 +374,139 @@ function solveTheBiggestOfFiveNumbers(args) {
 
 function runTestsolveTheBiggestOfFiveNumbers(input, output, actual) {
 	document.getElementById(actual).innerHTML = solveTheBiggestOfFiveNumbers(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 08: Number as Words
+function solveNumberAsWords(args) {
+	var num = +convertToJSON(args)[0][0];
+	var result = ''; 
+
+    // for numbers with hundreds
+    if ((num - (num % 100)) != 0) {
+        switch (num - (num % 100)) {
+            case 100: result = 'one hundred'; break;
+            case 200: result = 'two hundred'; break;
+            case 300: result = 'three hundred'; break;
+            case 400: result = 'four hundred'; break;
+            case 500: result = 'five hundred'; break;
+            case 600: result = 'six hundred'; break;
+            case 700: result = 'seven hundred'; break;
+            case 800: result = 'eight hundred'; break;
+            case 900: result = 'nine hundred'; break;
+        }
+
+        // for 101-119, 201-219, 301-319, etc.
+        if (num % 100 < 20) {
+            switch (num % 100) {
+                case 1: result += ' and one'; break;
+                case 2: result += ' and two'; break;
+                case 3: result += ' and three'; break;
+                case 4: result += ' and four'; break;
+                case 5: result += ' and five'; break;
+                case 6: result += ' and six'; break;
+                case 7: result += ' and seven'; break;
+                case 8: result += ' and eight'; break;
+                case 9: result += ' and nine'; break;
+                case 10: result += ' and ten'; break;
+                case 11: result += ' and eleven'; break;
+                case 12: result += ' and twelve'; break;
+                case 13: result += ' and thirteen'; break;
+                case 14: result += ' and fourteen'; break;
+                case 15: result += ' and fifteen'; break;
+                case 16: result += ' and sixteen'; break;
+                case 17: result += ' and seventeen'; break;
+                case 18: result += ' and eighteen'; break;
+                case 19: result += ' and nineteen'; break;
+            }
+        } else { 
+			// for 120-199, 220-299, 320-399, etc.
+            switch ((num % 100) - ((num % 100) % 10)) {
+                case 20: result += ' and twenty'; break;
+                case 30: result += ' and thirty'; break;
+                case 40: result += ' and forty'; break;
+                case 50: result += ' and fifty'; break;
+                case 60: result += ' and sixty'; break;
+                case 70: result += ' and seventy'; break;
+                case 80: result += ' and eighty'; break;
+                case 90: result += ' and ninety'; break;
+            }
+
+            switch (num % 10) {
+                case 1: result += ' one'; break;
+                case 2: result += ' two'; break;
+                case 3: result += ' three'; break;
+                case 4: result += ' four'; break;
+                case 5: result += ' five'; break;
+                case 6: result += ' six'; break;
+                case 7: result += ' seven'; break;
+                case 8: result += ' eight'; break;
+                case 9: result += ' nine'; break;
+            }
+        }
+    } else { 
+		// for numbers without hundreds
+        if (num < 20) {
+			// for 0-19
+            switch (num) {
+                case 0: result += 'zero'; break;
+                case 1: result += 'one'; break;
+                case 2: result += 'two'; break;
+                case 3: result += 'three'; break;
+                case 4: result += 'four'; break;
+                case 5: result += 'five'; break;
+                case 6: result += 'six'; break;
+                case 7: result += 'seven'; break;
+                case 8: result += 'eight'; break;
+                case 9: result += 'nine'; break;
+                case 10: result += 'ten'; break;
+                case 11: result += 'eleven'; break;
+                case 12: result += 'twelve'; break;
+                case 13: result += 'thirteen'; break;
+                case 14: result += 'fourteen'; break;
+                case 15: result += 'fifteen'; break;
+                case 16: result += 'sixteen'; break;
+                case 17: result += 'seventeen'; break;
+                case 18: result += 'eighteen'; break;
+                case 19: result += 'nineteen'; break;
+            }
+        } else { 
+			// for 20-99
+            switch ((num - (num % 10))/10) {
+                case 2: result = 'twenty'; break;
+                case 3: result = 'thirty'; break;
+                case 4: result = 'forty'; break;
+                case 5: result = 'fifty'; break;
+                case 6: result = 'sixty'; break;
+                case 7: result = 'seventy'; break;
+                case 8: result = 'eighty'; break;
+                case 9: result = 'ninety'; break;
+            }
+
+            switch (num % 10) {
+                case 1: result += ' one'; break;
+                case 2: result += ' two'; break;
+                case 3: result += ' three'; break;
+                case 4: result += ' four'; break;
+                case 5: result += ' five'; break;
+                case 6: result += ' six'; break;
+                case 7: result += ' seven'; break;
+                case 8: result += ' eight'; break;
+                case 9: result += ' nine'; break;
+            }
+        }
+    }
+	result = (result.charAt(0).toUpperCase() + result.slice(1));
+	console.log('Problem 08:   ' + result);
+    return result;
+}
+
+function runTestsolveNumberAsWords(input, output, actual) {
+	document.getElementById(actual).innerHTML = solveNumberAsWords(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
