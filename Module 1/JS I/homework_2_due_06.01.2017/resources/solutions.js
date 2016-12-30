@@ -25,6 +25,15 @@ function runScript() {
 	runTestsolveSortThreeNumbers('P04_I06', 'P04_O06', 'P04_A06');
 	runTestsolveSortThreeNumbers('P04_I07', 'P04_O07', 'P04_A07');
 	console.log('===============================================');
+	runTestsolveDigitAsWord('P05_I01', 'P05_O01', 'P05_A01');
+	runTestsolveDigitAsWord('P05_I02', 'P05_O02', 'P05_A02');
+	runTestsolveDigitAsWord('P05_I03', 'P05_O03', 'P05_A03');
+	runTestsolveDigitAsWord('P05_I04', 'P05_O04', 'P05_A04');
+	runTestsolveDigitAsWord('P05_I05', 'P05_O05', 'P05_A05');
+	runTestsolveDigitAsWord('P05_I06', 'P05_O06', 'P05_A06');
+	runTestsolveDigitAsWord('P05_I07', 'P05_O07', 'P05_A07');
+	runTestsolveDigitAsWord('P05_I08', 'P05_O08', 'P05_A08');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -59,7 +68,7 @@ function runTestsolveExchangeIfGreater(input, output, actual) {
 function solveMultiplicationSign(args) {
 	var firstValue = convertToJSON(args)[0][0], 
 		secondValue = convertToJSON(args)[0][1], 
-		thirdValue = convertToJSON(args)[0][2];
+		thirdValue = convertToJSON(args)[0][2];	
 	
     if (firstValue == 0 || secondValue == 0 || thirdValue == 0) {
 		console.log('Problem 02:   ' + '0');
@@ -193,3 +202,62 @@ function runTestsolveSortThreeNumbers(input, output, actual) {
 	}
 }
 
+// Problem 5: Digit As Word
+function solveDigitAsWord(args) {
+	var currentValue = +convertToJSON(args)[0][0];	
+	switch(currentValue) {
+    case 0:
+		var result = ('zero');
+		console.log('Problem 05:   ' + result);
+        return result;        
+    case 1:
+		var result = ('one');
+		console.log('Problem 05:   ' + result);
+        return result;        
+	case 2:
+		var result = ('two');
+		console.log('Problem 05:   ' + result);
+        return result;        
+	case 3:
+		var result = ('three');
+		console.log('Problem 05:   ' + result);
+        return result;        
+	case 4:
+		var result = ('four');
+		console.log('Problem 05:   ' + result);
+        return result;        
+	case 5:
+		var result = ('five');
+		console.log('Problem 05:   ' + result);
+        return result;        
+	case 6:
+		var result = ('six');
+		console.log('Problem 05:   ' + result);
+        return result;        
+	case 7:
+		var result = ('seven');
+		console.log('Problem 05:   ' + result);
+        return result;        
+	case 8:
+		var result = ('eight');
+		console.log('Problem 05:   ' + result);
+        return result;        
+	case 9:
+		var result = ('nine');
+		console.log('Problem 05:   ' + result);
+        return result;        
+    default:
+        var result = ('not a digit');
+		console.log('Problem 05:   ' + result);
+        return result;        
+	}
+}
+
+function runTestsolveDigitAsWord(input, output, actual) {
+	document.getElementById(actual).innerHTML = solveDigitAsWord(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
