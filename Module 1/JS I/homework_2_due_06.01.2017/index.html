@@ -282,7 +282,7 @@
 					<ul>
 						<li>Time limit: <strong>0.2s</strong></li>
 						<li>Memory limit: <strong>16MB</strong></li>
-						</ul>
+					</ul>
 					<h3>Sample tests</h3>
 						<div class="test-item">
 							<h4>Sample Test 1</h4>
@@ -356,7 +356,77 @@
 								<h5>Actual</h5>
 									<span class="javascript-code" id="P05_A08">actual eval value</span>
 						</div>
-				</article>			
+				</article>
+				<article>
+				<h2>Problem 6: Quadratic Equation</h2>
+					<h3>Description</h3>
+					<p>Write a script that reads the coefficients <span class="javascript-code">a</span>, <span class="javascript-code">b</span> and <span class="javascript-code">c</span> of a quadratic equation <span class="javascript-code">ax<sup>2</sup> + bx + c = 0</span> and solves it (prints its real roots). Calculates and prints its real roots.</p>
+					<p><em>Note: Quadratic equations may have 0, 1 or 2 real roots.</em></p>
+					<h3>Input</h3>
+					<ul>
+						<li>The input will consist of an array containing three values - <span class="javascript-code">a</span>, <span class="javascript-code">b</span> and <span class="javascript-code">c</span> represented as strings</li>
+					</ul>
+					<h3>Output</h3>
+					<ul>
+						<li>The output should be a single line containing the real roots (see sample tests)
+							<ul>
+								<li>Print numbers with <strong>two digits of precision</strong> after the floating point</li>
+								<li>If there are two roots then <span class="javascript-code">x1 &lt; x2</span></li>
+							</ul>
+						</li>
+					</ul>
+					<h3>Constraints</h3>
+					<ul>
+						<li>Time limit: <strong>0.2s</strong></li>
+								<li>Memory limit: <strong>16MB</strong></li>
+					</ul>
+					<h3>Sample tests</h3>
+						<div class="test-item">
+							<h4>Sample Test 1</h4>
+								<h5>Input</h5>
+									<span class="javascript-code" id="P06_I01">['2', '5', '-3']</span>
+								<h5>Output</h5>
+									<span class="javascript-code" id="P06_O01">x1=-3.00; x2=0.50</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P06_A01">actual eval value</span>
+						</div>
+						<div class="test-item">
+							<h4>Sample Test 2</h4>
+								<h5>Input</h5>
+									<span class="javascript-code" id="P06_I02">['-1', '3', '0']</span>
+								<h5>Output</h5>
+									<span class="javascript-code" id="P06_O02">x1=0.00; x2=3.00</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P06_A02">actual eval value</span>
+						</div>
+						<div class="test-item">
+							<h4>Sample Test 3</h4>
+								<h5>Input</h5>
+									<span class="javascript-code" id="P06_I03">['-0.5', '4', '-8']</span>
+								<h5>Output</h5>
+									<span class="javascript-code" id="P06_O03">x1=x2=4.00</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P06_A03">actual eval value</span>
+						</div>
+						<div class="test-item">
+							<h4>Sample Test 4</h4>
+								<h5>Input</h5>
+									<span class="javascript-code" id="P06_I04">['5', '2', '8']</span>
+								<h5>Output</h5>
+									<span class="javascript-code" id="P06_O04">no real roots</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P06_A04">actual eval value</span>
+						</div>
+						<div class="test-item">
+							<h4>Sample Test 5</h4>
+								<h5>Input</h5>
+									<span class="javascript-code" id="P06_I05">['0.2', '9.572', '0.2']</span>
+								<h5>Output</h5>
+									<span class="javascript-code" id="P06_O05">x1=-47.84; x2=-0.02</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P06_A05">actual eval value</span>
+						</div>
+				</article>
 		</section>        
     </body>
 </html>

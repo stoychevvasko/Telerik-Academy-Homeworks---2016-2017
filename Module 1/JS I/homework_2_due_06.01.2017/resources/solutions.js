@@ -34,6 +34,12 @@ function runScript() {
 	runTestsolveDigitAsWord('P05_I07', 'P05_O07', 'P05_A07');
 	runTestsolveDigitAsWord('P05_I08', 'P05_O08', 'P05_A08');
 	console.log('===============================================');
+	runTestsolveQuadraticEquation('P06_I01', 'P06_O01', 'P06_A01');
+	runTestsolveQuadraticEquation('P06_I02', 'P06_O02', 'P06_A02');
+	runTestsolveQuadraticEquation('P06_I03', 'P06_O03', 'P06_A03');
+	runTestsolveQuadraticEquation('P06_I04', 'P06_O04', 'P06_A04');
+	runTestsolveQuadraticEquation('P06_I05', 'P06_O05', 'P06_A05');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -123,7 +129,7 @@ function runTestsolveMultiplicationSign(input, output, actual) {
 	}
 }
 
-// Problem 3: The Biggest of Three
+// Problem 03: The Biggest of Three
 function solveTheBiggestOfThree(args) {	
     var first = parseFloat(convertToJSON(args)[0][0]),
         second = parseFloat(convertToJSON(args)[0][1]),
@@ -155,7 +161,7 @@ function runTestsolveTheBiggestOfThree(input, output, actual) {
 	}
 }
 
-// Problem 4: Sort Three Numbers
+// Problem 04: Sort Three Numbers
 function solveSortThreeNumbers(args) {	
 	var a = +convertToJSON(args)[0][0],
 		b = +convertToJSON(args)[0][1],
@@ -202,7 +208,7 @@ function runTestsolveSortThreeNumbers(input, output, actual) {
 	}
 }
 
-// Problem 5: Digit As Word
+// Problem 05: Digit As Word
 function solveDigitAsWord(args) {
 	var currentValue = +convertToJSON(args)[0][0];	
 	switch(currentValue) {
@@ -255,6 +261,58 @@ function solveDigitAsWord(args) {
 
 function runTestsolveDigitAsWord(input, output, actual) {
 	document.getElementById(actual).innerHTML = solveDigitAsWord(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 06: Quadratic Equation
+function solveQuadraticEquation(args) {
+	var a = +convertToJSON(args)[0][0],
+		b = +convertToJSON(args)[0][1],
+		c = +convertToJSON(args)[0][2],
+		determinant = +(b * b - 4 * a * c);		
+		
+	if (determinant < 0) {
+		var result = ('no real roots');
+		console.log('Problem 06:   ' + result);
+		return result;
+	}
+	
+	if (determinant == 0) {
+		var result = ('x1=x2=' + (-b / (2 * a)).toFixed(2));
+		console.log('Problem 06:   ' + result);
+		return result;
+	}
+	
+	if (determinant > 0) {
+		var x1 = (((Math.sqrt(determinant)) - b) / (2 * a)).toFixed(2),
+			x2 = (((-Math.sqrt(determinant)) - b) / (2 * a)).toFixed(2);
+				
+		if (x1 > x2) {
+			if ((x1 > 0) || (x2 > 0)) {
+				var temp = x1,
+					x1 = x2,
+					x2 = temp;
+			}
+		}
+		
+		if ((x1 < 0) && (x2 < 0)) {
+			var temp1 = x1,
+				x1 = x2,
+				x2 = temp1;
+		}
+		
+		var result = ('x1=' + x1 + '; x2=' + x2);
+		console.log('Problem 06:   ' + result);
+		return result;
+	}
+}
+
+function runTestsolveQuadraticEquation(input, output, actual) {
+	document.getElementById(actual).innerHTML = solveQuadraticEquation(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
