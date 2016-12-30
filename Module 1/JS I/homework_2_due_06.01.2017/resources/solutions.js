@@ -40,6 +40,12 @@ function runScript() {
 	runTestsolveQuadraticEquation('P06_I04', 'P06_O04', 'P06_A04');
 	runTestsolveQuadraticEquation('P06_I05', 'P06_O05', 'P06_A05');
 	console.log('===============================================');
+	runTestsolveTheBiggestOfFiveNumbers('P07_I01', 'P07_O01', 'P07_A01');
+	runTestsolveTheBiggestOfFiveNumbers('P07_I02', 'P07_O02', 'P07_A02');
+	runTestsolveTheBiggestOfFiveNumbers('P07_I03', 'P07_O03', 'P07_A03');
+	runTestsolveTheBiggestOfFiveNumbers('P07_I04', 'P07_O04', 'P07_A04');
+	runTestsolveTheBiggestOfFiveNumbers('P07_I05', 'P07_O05', 'P07_A05');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -313,6 +319,47 @@ function solveQuadraticEquation(args) {
 
 function runTestsolveQuadraticEquation(input, output, actual) {
 	document.getElementById(actual).innerHTML = solveQuadraticEquation(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 07: The Biggest of Five Numbers
+function solveTheBiggestOfFiveNumbers(args) {
+	var a = +convertToJSON(args)[0][0],
+		b = +convertToJSON(args)[0][1],
+		c = +convertToJSON(args)[0][2],
+		d = +convertToJSON(args)[0][3],
+		e = +convertToJSON(args)[0][4];
+		
+	if ((a >= b) && (a >= c) && (a >= d) && (a >= e)) {		
+		console.log('Problem 07:   ' + a);
+		return a;
+	} else {	
+		if ((b >= a) && (b >= c) && (b >= d) && (b >= e)) {		
+			console.log('Problem 07:   ' + b);
+			return b;
+		} else {
+			if ((c >= a) && (c >= b) && (c >= d) && (c >= e)) {
+				console.log('Problem 07:   ' + c);
+				return c;
+			} else {
+				if ((d >= a) && (d >= b) && (d >= c) && (d >= e)) {
+					console.log('Problem 07:   ' + d);
+					return d;	
+				} else {
+					console.log('Problem 07:   ' + e);
+					return e;	
+				}
+			}
+		}
+	}	
+}
+
+function runTestsolveTheBiggestOfFiveNumbers(input, output, actual) {
+	document.getElementById(actual).innerHTML = solveTheBiggestOfFiveNumbers(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
