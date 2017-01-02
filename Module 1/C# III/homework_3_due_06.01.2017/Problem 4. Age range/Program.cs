@@ -33,7 +33,7 @@ namespace Problem_04
         /// <summary>
         /// From an array of <see cref="Student"/>s finds all students whose age is within a given range.
         /// </summary>
-        /// <param name="initialArray">A <see cref="Student"/> <see cref="Array"/>.</param>        
+        /// <param name="initialArray">A <see cref="Student"/> <see cref="Array"/>.</param>
         /// <param name="minAge">The lower end of the age range.</param>
         /// <param name="maxAge">The higher end of the age range.</param>
         /// <returns>A <see cref="Student"/> <see cref="Array"/> as result.</returns>
