@@ -15,6 +15,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 5. Order students",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 6. Divisible by 7 and 3", "Problem 6. Divisible by 7 and 3\Problem 6. Divisible by 7 and 3.csproj", "{3C91CCBB-A1A5-400E-8DC0-B1A2016C7875}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 7. Timer", "Problem 7. Timer\Problem 7. Timer.csproj", "{C0D8657B-13FA-4044-A801-129717ED0A03}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -45,6 +47,10 @@ Global
 		{3C91CCBB-A1A5-400E-8DC0-B1A2016C7875}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3C91CCBB-A1A5-400E-8DC0-B1A2016C7875}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{3C91CCBB-A1A5-400E-8DC0-B1A2016C7875}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D8657B-13FA-4044-A801-129717ED0A03}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D8657B-13FA-4044-A801-129717ED0A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D8657B-13FA-4044-A801-129717ED0A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D8657B-13FA-4044-A801-129717ED0A03}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
