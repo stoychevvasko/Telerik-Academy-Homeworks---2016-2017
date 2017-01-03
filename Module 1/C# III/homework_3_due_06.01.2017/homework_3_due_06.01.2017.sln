@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 6. Divisible by 7 a
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 7. Timer", "Problem 7. Timer\Problem 7. Timer.csproj", "{C0D8657B-13FA-4044-A801-129717ED0A03}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 8. Events", "Problem 8. Events\Problem 8. Events.csproj", "{EA6841AC-B416-4588-A977-57FD4643F84A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{C0D8657B-13FA-4044-A801-129717ED0A03}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C0D8657B-13FA-4044-A801-129717ED0A03}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C0D8657B-13FA-4044-A801-129717ED0A03}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EA6841AC-B416-4588-A977-57FD4643F84A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EA6841AC-B416-4588-A977-57FD4643F84A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EA6841AC-B416-4588-A977-57FD4643F84A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EA6841AC-B416-4588-A977-57FD4643F84A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
