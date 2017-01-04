@@ -3,23 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 1. StringBuilder.Substring", "Problem 1. StringBuilder.Substring\Problem 1. StringBuilder.Substring.csproj", "{F7BB0B0F-363C-4182-8E7F-F5C4192C09B2}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 01. StringBuilder.Substring", "Problem 1. StringBuilder.Substring\Problem 01. StringBuilder.Substring.csproj", "{F7BB0B0F-363C-4182-8E7F-F5C4192C09B2}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 2. IEnumerable extensions", "Problem 2. IEnumerable extensions\Problem 2. IEnumerable extensions.csproj", "{B05F57A1-88BE-49EB-9EC1-695A4B1CC879}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 02. IEnumerable extensions", "Problem 2. IEnumerable extensions\Problem 02. IEnumerable extensions.csproj", "{B05F57A1-88BE-49EB-9EC1-695A4B1CC879}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 3. First before last", "Problem 3. First before last\Problem 3. First before last.csproj", "{33FC5115-8304-4A7A-9994-47FBC8E541E6}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 03. First before last", "Problem 3. First before last\Problem 03. First before last.csproj", "{33FC5115-8304-4A7A-9994-47FBC8E541E6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 4. Age range", "Problem 4. Age range\Problem 4. Age range.csproj", "{A667848D-C345-42B3-9E4F-4F8F8C0FBC6E}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 04. Age range", "Problem 4. Age range\Problem 04. Age range.csproj", "{A667848D-C345-42B3-9E4F-4F8F8C0FBC6E}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 5. Order students", "Problem 5. Order students\Problem 5. Order students.csproj", "{7BABEBD8-8853-40DB-A37C-64B75035B500}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 05. Order students", "Problem 5. Order students\Problem 05. Order students.csproj", "{7BABEBD8-8853-40DB-A37C-64B75035B500}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 6. Divisible by 7 and 3", "Problem 6. Divisible by 7 and 3\Problem 6. Divisible by 7 and 3.csproj", "{3C91CCBB-A1A5-400E-8DC0-B1A2016C7875}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 06. Divisible by 7 and 3", "Problem 6. Divisible by 7 and 3\Problem 06. Divisible by 7 and 3.csproj", "{3C91CCBB-A1A5-400E-8DC0-B1A2016C7875}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 7. Timer", "Problem 7. Timer\Problem 7. Timer.csproj", "{C0D8657B-13FA-4044-A801-129717ED0A03}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 07. Timer", "Problem 7. Timer\Problem 07. Timer.csproj", "{C0D8657B-13FA-4044-A801-129717ED0A03}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 8. Events", "Problem 8. Events\Problem 8. Events.csproj", "{EA6841AC-B416-4588-A977-57FD4643F84A}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 08. Events", "Problem 8. Events\Problem 08. Events.csproj", "{EA6841AC-B416-4588-A977-57FD4643F84A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 9. Student groups", "Problem 9. Student groups\Problem 9. Student groups.csproj", "{F68A85B5-A240-4E91-B1F7-7A1DAEAE6673}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 09. Student groups", "Problem 9. Student groups\Problem 09. Student groups.csproj", "{F68A85B5-A240-4E91-B1F7-7A1DAEAE6673}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 10. Student groups extensions", "Problem 10. Student groups extensions\Problem 10. Student groups extensions.csproj", "{0107D87A-AC9F-4D10-9EC7-60E8DA9918F7}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -63,6 +65,10 @@ Global
 		{F68A85B5-A240-4E91-B1F7-7A1DAEAE6673}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{F68A85B5-A240-4E91-B1F7-7A1DAEAE6673}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{F68A85B5-A240-4E91-B1F7-7A1DAEAE6673}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0107D87A-AC9F-4D10-9EC7-60E8DA9918F7}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0107D87A-AC9F-4D10-9EC7-60E8DA9918F7}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0107D87A-AC9F-4D10-9EC7-60E8DA9918F7}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0107D87A-AC9F-4D10-9EC7-60E8DA9918F7}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
