@@ -31,6 +31,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 13. Extract student
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 14. Extract with 2 marks", "Problem 14. Extract with 2 marks\Problem 14. Extract with 2 marks.csproj", "{9F494694-1202-4235-ABAF-30AA83DBEBE8}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 15. Extract marks", "Problem 15. Extract marks\Problem 15. Extract marks.csproj", "{80290D74-239E-4FAF-AE87-2E462BFE8BE0}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -93,6 +95,10 @@ Global
 		{9F494694-1202-4235-ABAF-30AA83DBEBE8}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{9F494694-1202-4235-ABAF-30AA83DBEBE8}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{9F494694-1202-4235-ABAF-30AA83DBEBE8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{80290D74-239E-4FAF-AE87-2E462BFE8BE0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{80290D74-239E-4FAF-AE87-2E462BFE8BE0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{80290D74-239E-4FAF-AE87-2E462BFE8BE0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{80290D74-239E-4FAF-AE87-2E462BFE8BE0}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
