@@ -41,6 +41,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 18. Grouped by Grou
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 19. By GroupName extensions", "Problem 19. By GroupName extensions\Problem 19. By GroupName extensions.csproj", "{2CAEBB4F-0455-4544-97DA-FBAF6EDA3015}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 20. Infinite convergent series", "Problem 20. Infinite convergent series\Problem 20. Infinite convergent series.csproj", "{64DEDD7D-4556-4A1F-850B-5E82DBB5FE62}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -123,6 +125,10 @@ Global
 		{2CAEBB4F-0455-4544-97DA-FBAF6EDA3015}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{2CAEBB4F-0455-4544-97DA-FBAF6EDA3015}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{2CAEBB4F-0455-4544-97DA-FBAF6EDA3015}.Release|Any CPU.Build.0 = Release|Any CPU
+		{64DEDD7D-4556-4A1F-850B-5E82DBB5FE62}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{64DEDD7D-4556-4A1F-850B-5E82DBB5FE62}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{64DEDD7D-4556-4A1F-850B-5E82DBB5FE62}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{64DEDD7D-4556-4A1F-850B-5E82DBB5FE62}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
