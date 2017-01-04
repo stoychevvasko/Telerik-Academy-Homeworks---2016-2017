@@ -35,6 +35,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 15. Extract marks",
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 16. Groups", "Problem 16. Groups\Problem 16. Groups.csproj", "{B2BFD0D2-12AF-4C51-910A-79D916BFB004}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 17. Longest string", "Problem 17. Longest string\Problem 17. Longest string.csproj", "{8F2EB448-460D-4F74-93BC-933C4FC3FCBA}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -105,6 +107,10 @@ Global
 		{B2BFD0D2-12AF-4C51-910A-79D916BFB004}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B2BFD0D2-12AF-4C51-910A-79D916BFB004}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B2BFD0D2-12AF-4C51-910A-79D916BFB004}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8F2EB448-460D-4F74-93BC-933C4FC3FCBA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8F2EB448-460D-4F74-93BC-933C4FC3FCBA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8F2EB448-460D-4F74-93BC-933C4FC3FCBA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8F2EB448-460D-4F74-93BC-933C4FC3FCBA}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
