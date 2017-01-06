@@ -7,6 +7,10 @@ function runScript() {
 	runTestmMSA('P02_I01', 'P02_O01', 'P02_A01');
 	runTestmMSA('P02_I02', 'P02_O02', 'P02_A02');
 	console.log('===============================================');
+	runTestmatrixOfNumbers('P03_I01', 'P03_O01', 'P03_A01');
+	runTestmatrixOfNumbers('P03_I02', 'P03_O02', 'P03_A02');
+	runTestmatrixOfNumbers('P03_I03', 'P03_O03', 'P03_A03');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -64,10 +68,10 @@ function mMSA(args) {
 				 "<p>sum=" + sum.toFixed(2) + "</p>" + 
 				 "<p>avg=" + avg.toFixed(2) + "</p>",
 				 
-		resultForConsole = "min=" + min.toFixed(2) + "   " + 
-						   "max=" + max.toFixed(2) + "   " + 
-						   "sum=" + sum.toFixed(2) + "   " + 
-						   "avg=" + avg.toFixed(2) + "   ";
+		resultForConsole = "\nmin=" + min.toFixed(2) + "\n" + 
+						   "max=" + max.toFixed(2) + "\n" + 
+						   "sum=" + sum.toFixed(2) + "\n" + 
+						   "avg=" + avg.toFixed(2) + "\n\n";
 	
 	console.log('Problem 02:   ' + resultForConsole);
 	return result;
@@ -75,6 +79,39 @@ function mMSA(args) {
 
 function runTestmMSA(input, output, actual) {
 	document.getElementById(actual).innerHTML = mMSA(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 03: Matrix of Numbers
+function matrixOfNumbers(args) {
+    var n = +convertToJSON(args)[0],
+		i,
+		j,
+		row,
+		result = '',
+		resultForConsole = '';    
+	
+    for (i = 0; i < n; i += 1) {
+        row = '<p>';
+        for (j = i + 1; j < n + i + 1; j += 1) {
+            row = row + j + ' ';
+			resultForConsole = resultForConsole + j + ' ';
+        }
+        row = row.trim() + '</p>';
+		result += row;
+		resultForConsole = resultForConsole.trim() + '\n';
+    }
+	
+	console.log('Problem 03:   \n' + resultForConsole + '\n');
+	return result;
+}
+
+function runTestmatrixOfNumbers(input, output, actual) {
+	document.getElementById(actual).innerHTML = matrixOfNumbers(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
