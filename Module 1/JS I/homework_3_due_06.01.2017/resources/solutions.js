@@ -11,6 +11,10 @@ function runScript() {
 	runTestmatrixOfNumbers('P03_I02', 'P03_O02', 'P03_A02');
 	runTestmatrixOfNumbers('P03_I03', 'P03_O03', 'P03_A03');
 	console.log('===============================================');
+	runTesthexToDectimal('P05_I01', 'P05_O01', 'P05_A01');
+	runTesthexToDectimal('P05_I02', 'P05_O02', 'P05_A02');
+	runTesthexToDectimal('P05_I03', 'P05_O03', 'P05_A03');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -112,6 +116,24 @@ function matrixOfNumbers(args) {
 
 function runTestmatrixOfNumbers(input, output, actual) {
 	document.getElementById(actual).innerHTML = matrixOfNumbers(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 05: Hex to Decimal
+function hexToDectimal(args) {
+	var n = convertToJSON(args)[0][0],
+		result = parseInt(n, 16);
+	
+	console.log('Problem 05:   ' + result);
+    return (result);
+}
+
+function runTesthexToDectimal(input, output, actual) {
+	document.getElementById(actual).innerHTML = hexToDectimal(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
