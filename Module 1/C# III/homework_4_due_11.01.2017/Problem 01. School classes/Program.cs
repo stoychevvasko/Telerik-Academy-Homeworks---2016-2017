@@ -10,7 +10,7 @@ students are people. Students, classes, teachers and disciplines could have opti
 define the class hierarchy and create a class diagram with Visual Studio.
 */
 
-using System.Collections;
+using System;
 
 namespace Problem_01
 {
@@ -18,7 +18,39 @@ namespace Problem_01
     {
         static void Main()
         {
-            
+            // testing Student.cs
+
+            var defaultStudent = new Student();
+            Console.WriteLine(defaultStudent);
+
+            var validStudent = new Student("Isaac Newton", 42);
+            Console.WriteLine(validStudent);
+
+            // var invalidStudent = new Student("invalidName", 13);
+            // Console.WriteLine(invalidStudent);
+
+            Console.WriteLine();
+            // testing Discipline.cs
+
+            var defaultDiscipline = new Discipline();
+            Console.WriteLine(defaultDiscipline);
+
+            var validDiscipline = new Discipline("Math", 1001, 9001);
+            Console.WriteLine(validDiscipline);
+
+            // var invalidDiscipline_01 = new Discipline(null, 1, 1);
+            // Console.WriteLine(invalidDiscipline_01);
+
+            // var invalidDiscipline_02 = new Discipline(string.Empty, 1, 1);
+            // Console.WriteLine(invalidDiscipline_02);
+
+            // var invalidDiscipline_03 = new Discipline("Physics", -1, 1);
+            // Console.WriteLine(invalidDiscipline_03);
+
+            // var invalidDiscipline_04 = new Discipline("Chemistry", 1, -1337);
+            // Console.WriteLine(invalidDiscipline_04);
+
+
         }
     }
 }

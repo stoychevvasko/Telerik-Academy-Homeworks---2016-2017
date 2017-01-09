@@ -3,12 +3,12 @@
     /// <summary>
     /// Exposes the unique class number property.
     /// </summary>
-    interface IClassNumber
+    public interface IClassNumber
     {
         /// <summary>
         /// Represents the unique class number within a school model.
         /// </summary>
-        uint ClassNumber
+        int ClassNumber
         {
             get;
             set;
