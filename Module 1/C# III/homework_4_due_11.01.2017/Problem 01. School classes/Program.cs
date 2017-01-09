@@ -11,6 +11,7 @@ define the class hierarchy and create a class diagram with Visual Studio.
 */
 
 using System;
+using System.Collections.Generic;
 
 namespace Problem_01
 {
@@ -38,7 +39,7 @@ namespace Problem_01
             var validDiscipline_01 = new Discipline("Math", 1001, 9001);
             Console.WriteLine(validDiscipline_01);
 
-            var validDiscipline_02 = new Discipline("Magic", 666, 123456789);
+            var validDiscipline_02 = new Discipline("Magic", 666, int.MaxValue);
             //Console.WriteLine(validDiscipline_02);
 
             // var invalidDiscipline_01 = new Discipline(null, 1, 1);
@@ -54,16 +55,16 @@ namespace Problem_01
             // Console.WriteLine(invalidDiscipline_04);
 
             Console.WriteLine();
-            // testing Discipline.cs
+            // testing Teacher.cs
 
             var defaultTeacher = new Teacher();
             Console.WriteLine(defaultTeacher);
 
             var validTeacher_01 = new Teacher("Plato ");
             Console.WriteLine(validTeacher_01);
-
-
-            var validTeacher_02 = new Teacher("Albus Dumpledore", validDiscipline_02);
+                        
+            var validTeacher_02 = new Teacher("Albus Dumpledore");
+            validTeacher_02.Disciplines.Add(validDiscipline_02);            
             Console.WriteLine(validTeacher_02);
 
             // var invalidTeacher_01 = new Teacher("Cicero");

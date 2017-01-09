@@ -10,21 +10,10 @@ namespace Problem_01
         /// <summary>
         /// Returns the set of disciplines taught by a teacher.
         /// </summary>
-        ICollection<Discipline> Disciplines
+        HashSet<Discipline> Disciplines
         {
             get;
-        }
-
-        /// <summary>
-        /// Adds a new discipline.
-        /// </summary>
-        /// <param name="discipline">A <see cref="string"/>.</param>
-        void AddDiscipline(Discipline discipline);
-
-        /// <summary>
-        /// Removes a discipline.
-        /// </summary>
-        /// <param name="discipline"></param>
-        void RemoveDiscipline(Discipline discipline);        
+            set;
+        }  
     }
 }

@@ -32,35 +32,16 @@ namespace Problem_01
         /// <summary>
         /// Holds the set of disciplines taught by a <see cref="Teacher"/>.
         /// </summary>
-        private HashSet<Discipline> disciplinesTaught;
+        private HashSet<Discipline> disciplines;
 
-        /// <summary>
-        /// Initiates a new instance of the <see cref="Teacher"/> class.
-        /// </summary>
-        /// <param name="name">A <see cref="string"/>.</param>
-        /// <param name="discipline">A single <see cref="Discipline"/> object.</param>
-        public Teacher(string name, Discipline discipline)
-            : this(name)
-        {
-            this.Disciplines.Add(discipline);
-        }
-        /// <summary>
-        /// Initiates a new instance of the <see cref="Teacher"/> class.
-        /// </summary>
-        /// <param name="name">A <see cref="string"/>.</param>
-        /// <param name="disciplines">An <see cref="IEnumerable{T}"/> set of <see cref="Discipline"/> objects.</param>
-        public Teacher(string name, ICollection<Discipline> disciplines)
-        {
-            this.Name = name;
-            this.Disciplines = (HashSet<Discipline>)disciplines;
-        }
         /// <summary>
         /// Initiates a new instance of the <see cref="Teacher"/> class.
         /// </summary>
         /// <param name="name">A <see cref="string"/></param>
         public Teacher(string name)
-            : this(name, new HashSet<Discipline>())
         {
+            this.Name = name;
+            this.Disciplines = new HashSet<Discipline>();
         }
         /// <summary>
         /// Initiates a new instance of the <see cref="Teacher"/> class with default values.
@@ -100,40 +81,17 @@ namespace Problem_01
         /// <summary>
         /// Represents the set of disciplines taught by a <see cref="Teacher"/>.
         /// </summary>
-        public ICollection<Discipline> Disciplines
+        public HashSet<Discipline> Disciplines
         {
             get
             {
-                return this.disciplinesTaught;
+                return this.disciplines;
             }
 
-            private set
+            set
             {
-                this.disciplinesTaught = new HashSet<Discipline>();
-                foreach (Discipline discipline in value)
-                {
-                    this.AddDiscipline(discipline);
-                    //this.disciplinesTaught.Add(discipline);
-                }
+                this.disciplines = value;
             }
-        }
-
-        /// <summary>
-        /// Adds a new discipline to the set of disciplines taught by a teacher.
-        /// </summary>
-        /// <param name="discipline">A <see cref="Discipline"/>.</param>
-        public void AddDiscipline(Discipline discipline)
-        {
-            throw new NotImplementedException();
-        }
-
-        /// <summary>
-        /// Adds a new discipline to the set of disciplines taught by a teacher.
-        /// </summary>
-        /// <param name="discipline">A <see cref="Discipline"/>.</param>
-        public void RemoveDiscipline(Discipline discipline)
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -147,20 +105,17 @@ namespace Problem_01
                                             base.ToString().Split('.')[1],
                                             this.Name));
 
-            if (this.Disciplines != null && this.disciplinesTaught.Count > 0)
-            {
-                result.Append(", Teaches: ");
+            if (this.Disciplines.Count > 0)
+            {                
+                result = result.Append(", Teaches: ");
 
-                for (int i = 0; i < this.disciplinesTaught.Count; i++)
+                foreach (var item in this.Disciplines)
                 {
-                    result.Append(this);
-                    if (i < this.disciplinesTaught.Count - 1)
-                    {
-                        result.Append(',');
-                    }
+                    result = result.Append(item.Name)
+                             .Append(", ");
                 }
 
-
+                result.Length -= 2;
             }
 
             return result.ToString();
