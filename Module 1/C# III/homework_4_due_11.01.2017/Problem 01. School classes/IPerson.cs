@@ -1,12 +1,12 @@
 ﻿namespace Problem_01
 {
     /// <summary>
-    /// Exposes the individual name of a person as a property.
+    /// Exposes an individual's personal details, attributes and public behaviours.
     /// </summary>
-    public interface IPerson
+    interface IPerson
     {
         /// <summary>
-        /// Represents a personal name within a school model.
+        /// Represents a person's full name.
         /// </summary>
         string Name
         {

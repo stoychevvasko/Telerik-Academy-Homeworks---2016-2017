@@ -3,7 +3,7 @@
   <Class Name="Problem_01.Discipline" Collapsed="true">
     <Position X="4.75" Y="1.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAAAAAAAAAAAABAEAIEBAASAAAQEAAAAABAAAAAAAAA=</HashCode>
       <FileName>Discipline.cs</FileName>
     </TypeIdentifier>
   </Class>
@@ -24,7 +24,7 @@
   <Class Name="Problem_01.Student" BaseTypeListCollapsed="true">
     <Position X="0.5" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAEQAAABEAAAAAAAEAAQAAAAAAAAAAACEAAAAAAA=</HashCode>
+      <HashCode>AAACAEQAAAAEAAAEAAAEAAQAAAAAAAAAAACEAAAAAAA=</HashCode>
       <FileName>Student.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" Collapsed="true" />
@@ -32,9 +32,10 @@
   <Class Name="Problem_01.Teacher">
     <Position X="2.25" Y="0.5" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>Teacher.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Interface Name="Problem_01.IClassNumber">
     <Position X="8.25" Y="1.75" Width="1.5" />
@@ -43,11 +44,11 @@
       <FileName>IClassNumber.cs</FileName>
     </TypeIdentifier>
   </Interface>
-  <Interface Name="Problem_01.ICommentable">
+  <Interface Name="Problem_01.IComment">
     <Position X="8.25" Y="3" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>ICommentable.cs</FileName>
+      <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAA=</HashCode>
+      <FileName>IComment.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Problem_01.IPerson">

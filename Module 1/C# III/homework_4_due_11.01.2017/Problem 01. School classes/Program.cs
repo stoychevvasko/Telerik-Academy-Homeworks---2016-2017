@@ -35,8 +35,11 @@ namespace Problem_01
             var defaultDiscipline = new Discipline();
             Console.WriteLine(defaultDiscipline);
 
-            var validDiscipline = new Discipline("Math", 1001, 9001);
-            Console.WriteLine(validDiscipline);
+            var validDiscipline_01 = new Discipline("Math", 1001, 9001);
+            Console.WriteLine(validDiscipline_01);
+
+            var validDiscipline_02 = new Discipline("Magic", 666, 123456789);
+            //Console.WriteLine(validDiscipline_02);
 
             // var invalidDiscipline_01 = new Discipline(null, 1, 1);
             // Console.WriteLine(invalidDiscipline_01);
@@ -50,7 +53,21 @@ namespace Problem_01
             // var invalidDiscipline_04 = new Discipline("Chemistry", 1, -1337);
             // Console.WriteLine(invalidDiscipline_04);
 
+            Console.WriteLine();
+            // testing Discipline.cs
 
+            var defaultTeacher = new Teacher();
+            Console.WriteLine(defaultTeacher);
+
+            var validTeacher_01 = new Teacher("Plato ");
+            Console.WriteLine(validTeacher_01);
+
+
+            var validTeacher_02 = new Teacher("Albus Dumpledore", validDiscipline_02);
+            Console.WriteLine(validTeacher_02);
+
+            // var invalidTeacher_01 = new Teacher("Cicero");
+            // Console.WriteLine(invalidTeacher_01);
         }
     }
 }

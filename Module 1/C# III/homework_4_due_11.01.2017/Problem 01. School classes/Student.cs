@@ -11,12 +11,12 @@ namespace Problem_01
         /// <summary>
         /// Holds the default value for a <see cref="Student"/>'s first name.
         /// </summary>
-        private const string DEFAULT_FIRST_NAME = "unspecified_fname";
+        private const string DEFAULT_FIRST_NAME = "Default_Student_Name";
 
         /// <summary>
         /// Holds the default value for a <see cref="Student"/>'s surname.
         /// </summary>
-        private const string DEFAULT_SURNAME = "unspecified_surname";
+        private const string DEFAULT_SURNAME = "Default_Student_Surname";
 
         /// <summary>
         /// Holds the default value for a <see cref="Student"/>'s unique class number.
@@ -26,7 +26,7 @@ namespace Problem_01
         /// <summary>
         /// Holds the first name of a <see cref="Student"/>.
         /// </summary>
-        private string firstName;
+        private string givenName;
 
         /// <summary>
         /// Holds the surname of a <see cref="Student"/>.
@@ -49,7 +49,7 @@ namespace Problem_01
             this.ClassNumber = classNumber;
         }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Student"/> class.
+        /// Initializes a new instance of the <see cref="Student"/> class with default values.
         /// </summary>
         public Student()
             : this(Student.DEFAULT_FIRST_NAME + ' ' + Student.DEFAULT_SURNAME, Student.DEFAULT_CLASS_NUMBER)
@@ -64,7 +64,7 @@ namespace Problem_01
             get
             {
                 return new StringBuilder()
-                           .Append(this.firstName)
+                           .Append(this.givenName)
                            .Append(' ')
                            .Append(this.surname)
                            .ToString();
@@ -78,7 +78,7 @@ namespace Problem_01
                 }
 
                 string[] twoNames = value.Split(' ');
-                this.firstName = twoNames[0];
+                this.givenName = twoNames[0];
                 this.surname = twoNames[1];
             }
         }
