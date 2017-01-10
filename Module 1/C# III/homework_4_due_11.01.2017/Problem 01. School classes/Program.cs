@@ -70,7 +70,7 @@ namespace Problem_01
             var defaultTeacher = new Teacher();
             Console.WriteLine(defaultTeacher);
 
-            var validTeacher_01 = new Teacher("Plato ");
+            var validTeacher_01 = new Teacher("Gandalf ");
             Console.WriteLine(validTeacher_01);
 
             var validTeacher_02 = new Teacher("Albus Dumbledore");
@@ -93,6 +93,39 @@ namespace Problem_01
             validSchoolClass_02.Teachers.Add(validTeacher_02);
             validSchoolClass_02.Students.Add(validStudent_01);
             Console.WriteLine(validSchoolClass_02);
+
+            Console.WriteLine();
+            //// testing School.cs
+
+            var defaultSchool = new School();
+            Console.WriteLine(defaultSchool);
+
+            var totallyValidSchool = new School("Hogwarts");
+            totallyValidSchool.Classes.Add(validSchoolClass_01);
+            totallyValidSchool.Classes.Add(validSchoolClass_02);
+            Console.WriteLine(totallyValidSchool);
+
+            Console.WriteLine();
+            //// testing IComment.cs
+
+            validStudent_01.AddComment(" - You're a wizard, Harry!");
+            validStudent_01.AddComment(" - Never trust anything that can think for itself if you can’t see where it keeps its brain.");
+            Console.WriteLine(validStudent_01.Comments);
+            validStudent_01.ClearComments();
+            Console.WriteLine(validStudent_01.Comments == null ? "(no more comments)" : validStudent_01.Comments);
+            validSchoolClass_02.AddComment(" - It is our choices, Harry, that show what we truly are, far more than our abilities.");
+            Console.WriteLine(validSchoolClass_02.Comments == null ? "(no more comments)" : validSchoolClass_02.Comments);
+            validSchoolClass_01.AddComment(" - All we have to decide is what to do with the time that is given us.");
+            Console.WriteLine(validSchoolClass_01.Comments == null ? "(no more comments)" : validSchoolClass_01.Comments);
+            validTeacher_01.AddComment("The treacherous are ever distrustfu.");
+            Console.WriteLine(validTeacher_01.Comments == null ? "(no more comments)" : validTeacher_01.Comments);
+            validTeacher_01.ClearComments();
+            Console.WriteLine(validTeacher_01.Comments == null ? "(no more comments)" : validTeacher_01.Comments);
+            validDiscipline_02.AddComment("There is a real magic in enthusiasm. It spells the difference between mediocrity and accomplishment.");
+            Console.WriteLine(validDiscipline_02.Comments == null ? "(no more comments)" : validDiscipline_02.Comments);
+            validDiscipline_02.ClearComments();
+            Console.WriteLine(validDiscipline_02.Comments == null ? "(no more comments)" : validDiscipline_02.Comments);
+            Console.WriteLine();
         }
     }
 }

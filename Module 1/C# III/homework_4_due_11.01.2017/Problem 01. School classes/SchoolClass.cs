@@ -5,13 +5,14 @@
 ////-----------------------------------------------------------------------
 namespace Problem_01
 {
+    using System;
     using System.Collections.Generic;
     using System.Text;
 
     /// <summary>
     /// Represents a class of students within a school model.
     /// </summary>
-    public class SchoolClass : ISchoolClass
+    public class SchoolClass : ISchoolClass, IComment
     {
         /// <summary>
         /// Holds the default value for the unique class identifier field.
@@ -105,6 +106,15 @@ namespace Problem_01
         }
 
         /// <summary>
+        /// Gets all comments as a single <see cref="string"/>.
+        /// </summary>
+        public string Comments
+        {
+            get;
+            private set;
+        }
+
+        /// <summary>
         /// Returns a string that represents the current object.
         /// </summary>
         /// <returns>A <see cref="string"/> value.</returns>
@@ -142,6 +152,28 @@ namespace Problem_01
             }
 
             return result.ToString();
+        }
+
+        /// <summary>
+        /// Clears all comments.
+        /// </summary>
+        public void ClearComments()
+        {
+            this.Comments = null;
+        }
+
+        /// <summary>
+        /// Adds a new comment.
+        /// </summary>
+        /// <param name="comment">A <see cref="string"/>.</param>
+        public void AddComment(string comment)
+        {
+            if (this.Comments == null)
+            {
+                this.Comments = string.Empty;
+            }
+
+            this.Comments += string.Format("\n\n-[new {0} comment @{1}]---\n{2}\n-----", this.GetType().ToString().Split('.')[1], DateTime.Now, comment);
         }
     }
 }

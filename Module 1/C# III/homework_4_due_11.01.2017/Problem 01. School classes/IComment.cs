@@ -19,14 +19,14 @@ namespace Problem_01
         }
 
         /// <summary>
-        /// Removes all comments.
+        /// Clears all comments.
         /// </summary>
-        void Clear();
+        void ClearComments();
 
         /// <summary>
         /// Adds a new comment.
         /// </summary>
         /// <param name="comment">A <see cref="string"/>.</param>
-        void Add(string comment);
+        void AddComment(string comment);
     }
 }
