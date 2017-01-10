@@ -1,5 +1,8 @@
-﻿using System.Collections.Generic;
-
+﻿////-----------------------------------------------------------------------
+//// <copyright file="IComment.cs" company="indepentent developer">
+////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
+//// </copyright>
+////-----------------------------------------------------------------------
 namespace Problem_01
 {
     /// <summary>
@@ -8,7 +11,7 @@ namespace Problem_01
     public interface IComment
     {
         /// <summary>
-        /// Returns a all comments as a single <see cref="string"/>.
+        /// Gets all comments as a single <see cref="string"/>.
         /// </summary>
         string Comments
         {

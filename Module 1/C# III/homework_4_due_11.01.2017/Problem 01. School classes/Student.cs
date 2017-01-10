@@ -1,8 +1,13 @@
-﻿using System;
-using System.Text;
-
+﻿////-----------------------------------------------------------------------
+//// <copyright file="Student.cs" company="indepentent developer">
+////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
+//// </copyright>
+////-----------------------------------------------------------------------
 namespace Problem_01
 {
+    using System;
+    using System.Text;
+
     /// <summary>
     /// Represents a student within a school model.
     /// </summary>
@@ -11,17 +16,17 @@ namespace Problem_01
         /// <summary>
         /// Holds the default value for a <see cref="Student"/>'s first name.
         /// </summary>
-        private const string DEFAULT_FIRST_NAME = "Default_Student_Name";
+        private const string DefaultFirstName = "Default_Student_Name";
 
         /// <summary>
         /// Holds the default value for a <see cref="Student"/>'s surname.
         /// </summary>
-        private const string DEFAULT_SURNAME = "Default_Student_Surname";
+        private const string DefaultSurname = "Default_Student_Surname";
 
         /// <summary>
         /// Holds the default value for a <see cref="Student"/>'s unique class number.
         /// </summary>
-        private const int DEFAULT_CLASS_NUMBER = -1;
+        private const int DefaultClassIDNumber = -1;
 
         /// <summary>
         /// Holds the first name of a <see cref="Student"/>.
@@ -34,7 +39,7 @@ namespace Problem_01
         private string surname;
 
         /// <summary>
-        /// Holds the unique class numb4er of a <see cref="Student"/>.
+        /// Holds the unique class number of a <see cref="Student"/>.
         /// </summary>
         private int classNumber;
 
@@ -48,16 +53,17 @@ namespace Problem_01
             this.Name = fullName;
             this.ClassNumber = classNumber;
         }
+
         /// <summary>
         /// Initializes a new instance of the <see cref="Student"/> class .
         /// </summary>
         public Student()
-            : this(Student.DEFAULT_FIRST_NAME + ' ' + Student.DEFAULT_SURNAME, Student.DEFAULT_CLASS_NUMBER)
+            : this(Student.DefaultFirstName + ' ' + Student.DefaultSurname, Student.DefaultClassIDNumber)
         {
         }
 
         /// <summary>
-        /// Represents the individual name of a <see cref="Student"/>.
+        /// Gets or sets the individual name of a <see cref="Student"/>.
         /// </summary>
         public string Name
         {
@@ -84,7 +90,7 @@ namespace Problem_01
         }
 
         /// <summary>
-        /// Represents the unique class number of a <see cref="Student"/>.
+        /// Gets or sets the unique class number of a <see cref="Student"/>.
         /// </summary>
         public int ClassNumber
         {
@@ -105,12 +111,12 @@ namespace Problem_01
         /// <returns>A <see cref="string"/> value.</returns>
         public override string ToString()
         {
-            return new StringBuilder()
-                       .Append(string.Format("Type: {0},  Name: {1},  Class number: {2}",
-                                            base.ToString().Split('.')[1],
-                                            this.Name,
-                                            this.ClassNumber))
-                       .ToString();
+            return new StringBuilder().Append(string.Format(
+                                                    "Type: {0},  Name: {1},  Class number: {2}",
+                                                    base.ToString().Split('.')[1],
+                                                    this.Name,
+                                                    this.ClassNumber))
+                                       .ToString();
         }
     }
 }

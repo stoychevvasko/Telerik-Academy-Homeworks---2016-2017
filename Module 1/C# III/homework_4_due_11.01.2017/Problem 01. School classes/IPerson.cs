@@ -1,12 +1,17 @@
-﻿namespace Problem_01
+﻿////-----------------------------------------------------------------------
+//// <copyright file="IPerson.cs" company="indepentent developer">
+////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
+//// </copyright>
+////-----------------------------------------------------------------------
+namespace Problem_01
 {
     /// <summary>
-    /// Exposes an individual's personal details, attributes and public behaviours.
+    /// Exposes an individual's personal details, attributes and public behaviors.
     /// </summary>
-    interface IPerson
+    public interface IPerson
     {
         /// <summary>
-        /// Represents a person's full name.
+        /// Gets or sets a person's full name.
         /// </summary>
         string Name
         {

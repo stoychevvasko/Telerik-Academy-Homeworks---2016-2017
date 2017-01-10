@@ -1,9 +1,14 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿////-----------------------------------------------------------------------
+//// <copyright file="Teacher.cs" company="indepentent developer">
+////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
+//// </copyright>
+////-----------------------------------------------------------------------
 namespace Problem_01
 {
+    using System;
+    using System.Collections.Generic;
+    using System.Text;
+
     /// <summary>
     /// Represents a teacher within a school model.
     /// </summary>
@@ -12,12 +17,12 @@ namespace Problem_01
         /// <summary>
         /// Holds the default value for the first name of a <see cref="Teacher"/>.
         /// </summary>
-        private const string DEFAULT_GIVEN_NAME = "Default_Teacher_Name";
+        private const string DefaultFirstName = "Default_Teacher_Name";
 
         /// <summary>
         /// Holds the default value for the surname of a <see cref="Teacher"/>.
         /// </summary>
-        private const string DEFAULT_SURNAME = "Default_Teacher_Surname";
+        private const string DefaultSurname = "Default_Teacher_Surname";
 
         /// <summary>
         /// Holds the first name of a <see cref="Teacher"/>.
@@ -35,7 +40,7 @@ namespace Problem_01
         private HashSet<Discipline> disciplines;
 
         /// <summary>
-        /// Initiates a new instance of the <see cref="Teacher"/> class.
+        /// Initializes a new instance of the <see cref="Teacher"/> class.
         /// </summary>
         /// <param name="name">A <see cref="string"/></param>
         public Teacher(string name)
@@ -43,16 +48,17 @@ namespace Problem_01
             this.Name = name;
             this.Disciplines = new HashSet<Discipline>();
         }
+
         /// <summary>
-        /// Initiates a new instance of the <see cref="Teacher"/> class with default values.
+        /// Initializes a new instance of the <see cref="Teacher"/> class with default values.
         /// </summary>
         public Teacher()
-            : this(Teacher.DEFAULT_GIVEN_NAME + ' ' + Teacher.DEFAULT_SURNAME)
+            : this(Teacher.DefaultFirstName + ' ' + Teacher.DefaultSurname)
         {
         }
 
         /// <summary>
-        /// Represents the individual name of a <see cref="Teacher"/>.
+        /// Gets or sets the individual name of a <see cref="Teacher"/>.
         /// </summary>
         public string Name
         {
@@ -79,7 +85,7 @@ namespace Problem_01
         }
 
         /// <summary>
-        /// Represents the set of disciplines taught by a <see cref="Teacher"/>.
+        /// Gets or sets the set of disciplines taught by a <see cref="Teacher"/>.
         /// </summary>
         public ICollection<Discipline> Disciplines
         {
@@ -100,13 +106,13 @@ namespace Problem_01
         /// <returns>A <see cref="string"/> value.</returns>
         public override string ToString()
         {
-            var result = new StringBuilder()
-                       .Append(string.Format("Type: {0},  Name: {1}",
-                                            base.ToString().Split('.')[1],
-                                            this.Name));
+            var result = new StringBuilder().Append(string.Format(
+                                                        "Type: {0},  Name: {1}",
+                                                        base.ToString().Split('.')[1],
+                                                        this.Name));
 
             if (this.Disciplines.Count > 0)
-            {                
+            {
                 result = result.Append(", Teaches: ");
 
                 foreach (var item in this.Disciplines)
@@ -122,4 +128,3 @@ namespace Problem_01
         }
     }
 }
-

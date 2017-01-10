@@ -1,9 +1,13 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
+﻿////-----------------------------------------------------------------------
+//// <copyright file="SchoolClass.cs" company="indepentent developer">
+////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
+//// </copyright>
+////-----------------------------------------------------------------------
 namespace Problem_01
 {
+    using System.Collections.Generic;
+    using System.Text;
+
     /// <summary>
     /// Represents a class of students within a school model.
     /// </summary>
@@ -12,7 +16,7 @@ namespace Problem_01
         /// <summary>
         /// Holds the default value for the unique class identifier field.
         /// </summary>
-        private const int DEFAULT_CLASS_ID = -1;
+        private const int DefaultClassID = -1;
 
         /// <summary>
         /// Holds a set of students assigned to a class.
@@ -30,7 +34,7 @@ namespace Problem_01
         private int classID;
 
         /// <summary>
-        /// Initiates a new instance of the <see cref="SchoolClass"/> class.
+        /// Initializes a new instance of the <see cref="SchoolClass"/> class.
         /// </summary>
         /// <param name="classID">A unique school class identifier.</param>
         public SchoolClass(int classID)
@@ -39,24 +43,26 @@ namespace Problem_01
             this.Students = new HashSet<Student>();
             this.Teachers = new HashSet<Teacher>();
         }
+
         /// <summary>
-        /// Initiates a new instance of the <see cref="SchoolClass"/> class.
+        /// Initializes a new instance of the <see cref="SchoolClass"/> class.
         /// </summary>
         /// <param name="classIDString">A unique school class identifier.</param>
         public SchoolClass(string classIDString)
             : this(int.Parse(classIDString.Split(' ')[1]))
         {
         }
+
         /// <summary>
-        /// Initiates a new instance of the <see cref="SchoolClass"/> class.
+        /// Initializes a new instance of the <see cref="SchoolClass"/> class.
         /// </summary>
         public SchoolClass()
-            : this(SchoolClass.DEFAULT_CLASS_ID)
+            : this(SchoolClass.DefaultClassID)
         {
         }
 
         /// <summary>
-        /// Represents the set of students assigned to a class.
+        /// Gets or sets the set of students assigned to a class.
         /// </summary>
         public ICollection<Student> Students
         {
@@ -72,7 +78,7 @@ namespace Problem_01
         }
 
         /// <summary>
-        /// Represents the set of teachers assigned to a class.
+        /// Gets or sets the set of teachers assigned to a class.
         /// </summary>
         public ICollection<Teacher> Teachers
         {
@@ -88,7 +94,7 @@ namespace Problem_01
         }
 
         /// <summary>
-        /// Represents the unique text identifier of a school class.
+        /// Gets the unique text identifier of a school class.
         /// </summary>
         public string UniqueID
         {
@@ -99,15 +105,15 @@ namespace Problem_01
         }
 
         /// <summary>
-        /// 
+        /// Returns a string that represents the current object.
         /// </summary>
-        /// <returns></returns>
+        /// <returns>A <see cref="string"/> value.</returns>
         public override string ToString()
         {
-            var result = new StringBuilder()
-                       .Append(string.Format("Type: {0},  UniqueID: {1}",
-                                            base.ToString().Split('.')[1],
-                                            this.UniqueID));
+            var result = new StringBuilder().Append(string.Format(
+                                                        "Type: {0},  UniqueID: {1}",
+                                                        base.ToString().Split('.')[1],
+                                                        this.UniqueID));
 
             if (this.Teachers.Count > 0)
             {

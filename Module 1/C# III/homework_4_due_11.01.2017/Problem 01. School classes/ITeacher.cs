@@ -1,14 +1,19 @@
-﻿using System.Collections.Generic;
-
+﻿////-----------------------------------------------------------------------
+//// <copyright file="ITeacher.cs" company="indepentent developer">
+////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
+//// </copyright>
+////-----------------------------------------------------------------------
 namespace Problem_01
 {
+    using System.Collections.Generic;
+
     /// <summary>
     /// Reveals, expands or limits a teacher's set of disciplines taught.
     /// </summary>
-    interface ITeacher
+    public interface ITeacher
     {
         /// <summary>
-        /// Returns the set of disciplines taught by a teacher.
+        /// Gets or sets the set of disciplines taught by a teacher.
         /// </summary>
         ICollection<Discipline> Disciplines
         {
