@@ -1,28 +1,29 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <ClassDiagram MajorVersion="1" MinorVersion="1">
-  <Class Name="Problem_01.Discipline" Collapsed="true">
-    <Position X="4.75" Y="1.5" Width="1.5" />
+  <Class Name="Problem_01.Discipline">
+    <Position X="4" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAABAEAIEBAASAAAQEAAAAABAAAAAAAAA=</HashCode>
       <FileName>Discipline.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Problem_01.School" Collapsed="true">
-    <Position X="5.75" Y="0.5" Width="1.5" />
+  <Class Name="Problem_01.School">
+    <Position X="7.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>School.cs</FileName>
     </TypeIdentifier>
   </Class>
-  <Class Name="Problem_01.SchoolClass" Collapsed="true">
-    <Position X="4" Y="0.5" Width="1.5" />
+  <Class Name="Problem_01.SchoolClass">
+    <Position X="5.75" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAIAAAAACAAAAAAEACQAAAAAAAAAAAAAAAAAAgACAAI=</HashCode>
       <FileName>SchoolClass.cs</FileName>
     </TypeIdentifier>
+    <Lollipop Position="0.2" />
   </Class>
   <Class Name="Problem_01.Student" BaseTypeListCollapsed="true">
-    <Position X="0.5" Y="0.5" Width="1.5" />
+    <Position X="0.5" Y="4.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAACAEQAAAAEAAAEAAAEAAQAAAAAAAAAAACEAAAAAAA=</HashCode>
       <FileName>Student.cs</FileName>
@@ -30,32 +31,46 @@
     <Lollipop Position="0.2" Collapsed="true" />
   </Class>
   <Class Name="Problem_01.Teacher">
-    <Position X="2.25" Y="0.5" Width="1.5" />
+    <Position X="2.25" Y="4.25" Width="1.5" />
     <TypeIdentifier>
-      <HashCode>AAACAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <HashCode>AAACAAAAAAEAAAAEQAAEAEQAAAAAAAAAAACAAAAAAAA=</HashCode>
       <FileName>Teacher.cs</FileName>
     </TypeIdentifier>
     <Lollipop Position="0.2" />
   </Class>
-  <Interface Name="Problem_01.IClassNumber">
-    <Position X="8.25" Y="1.75" Width="1.5" />
-    <TypeIdentifier>
-      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
-      <FileName>IClassNumber.cs</FileName>
-    </TypeIdentifier>
-  </Interface>
   <Interface Name="Problem_01.IComment">
-    <Position X="8.25" Y="3" Width="1.5" />
+    <Position X="4" Y="2" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABAIAA=</HashCode>
       <FileName>IComment.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Interface Name="Problem_01.IPerson">
-    <Position X="8.25" Y="0.5" Width="1.5" />
+    <Position X="1.5" Y="1.25" Width="1.5" />
     <TypeIdentifier>
       <HashCode>AAAAAAAAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAA=</HashCode>
       <FileName>IPerson.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Problem_01.IClassNumber">
+    <Position X="0.5" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>IClassNumber.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Problem_01.ISchoolClass">
+    <Position X="5.75" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAIAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAgAAAAA=</HashCode>
+      <FileName>ISchoolClass.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Problem_01.ITeacher">
+    <Position X="2.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>ITeacher.cs</FileName>
     </TypeIdentifier>
   </Interface>
   <Font Name="Segoe UI" Size="9" />

@@ -11,7 +11,7 @@ namespace Problem_01
         /// <summary>
         /// Holds the default name for the <see cref="Discipline"/> class.
         /// </summary>
-        private const string DEFAULT_NAME = "unspecified_discipline_name";
+        private const string DEFAULT_NAME = "Default_Discipline";
 
         /// <summary>
         /// Holds the default number of lectures value for the <see cref="Discipline"/> class.

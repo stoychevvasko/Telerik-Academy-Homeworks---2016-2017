@@ -49,7 +49,7 @@ namespace Problem_01
             this.ClassNumber = classNumber;
         }
         /// <summary>
-        /// Initializes a new instance of the <see cref="Student"/> class with default values.
+        /// Initializes a new instance of the <see cref="Student"/> class .
         /// </summary>
         public Student()
             : this(Student.DEFAULT_FIRST_NAME + ' ' + Student.DEFAULT_SURNAME, Student.DEFAULT_CLASS_NUMBER)

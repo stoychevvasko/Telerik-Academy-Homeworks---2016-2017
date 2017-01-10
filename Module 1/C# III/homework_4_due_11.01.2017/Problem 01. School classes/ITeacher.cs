@@ -10,7 +10,7 @@ namespace Problem_01
         /// <summary>
         /// Returns the set of disciplines taught by a teacher.
         /// </summary>
-        HashSet<Discipline> Disciplines
+        ICollection<Discipline> Disciplines
         {
             get;
             set;

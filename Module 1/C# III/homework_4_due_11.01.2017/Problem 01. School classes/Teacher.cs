@@ -81,7 +81,7 @@ namespace Problem_01
         /// <summary>
         /// Represents the set of disciplines taught by a <see cref="Teacher"/>.
         /// </summary>
-        public HashSet<Discipline> Disciplines
+        public ICollection<Discipline> Disciplines
         {
             get
             {
@@ -90,7 +90,7 @@ namespace Problem_01
 
             set
             {
-                this.disciplines = value;
+                this.disciplines = new HashSet<Discipline>(value);
             }
         }
 
