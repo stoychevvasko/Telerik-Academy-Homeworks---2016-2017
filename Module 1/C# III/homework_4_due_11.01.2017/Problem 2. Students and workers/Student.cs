@@ -73,7 +73,7 @@ namespace Problem_02
         public override string ToString()
         {
             return string.Format(
-                "{0}\n   Grade: {1:D2}\n",
+                "{0}\n   Grade: {1:F2}\n",
                 base.ToString(),
                 (this.Grade == null) ? "(no grade)" : this.Grade.ToString());
         }

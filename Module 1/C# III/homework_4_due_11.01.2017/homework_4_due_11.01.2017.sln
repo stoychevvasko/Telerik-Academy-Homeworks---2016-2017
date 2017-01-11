@@ -3,9 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 01. School classes", "Problem 01. School classes\Problem 01. School classes.csproj", "{C3E98DDE-F2E9-46E0-8F83-0AA3FBD57A43}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 1. School classes", "Problem 01. School classes\Problem 1. School classes.csproj", "{C3E98DDE-F2E9-46E0-8F83-0AA3FBD57A43}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 2. Students and workers", "Problem 2. Students and workers\Problem 2. Students and workers.csproj", "{0714E242-B63C-45BC-95E3-A4CDDA2A4215}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Problem 3. Animal hierarchy", "Problem 3. Animal hierarchy\Problem 3. Animal hierarchy.csproj", "{46145EED-F2B9-4CA8-B842-614BE198750E}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +23,10 @@ Global
 		{0714E242-B63C-45BC-95E3-A4CDDA2A4215}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{0714E242-B63C-45BC-95E3-A4CDDA2A4215}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{0714E242-B63C-45BC-95E3-A4CDDA2A4215}.Release|Any CPU.Build.0 = Release|Any CPU
+		{46145EED-F2B9-4CA8-B842-614BE198750E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{46145EED-F2B9-4CA8-B842-614BE198750E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{46145EED-F2B9-4CA8-B842-614BE198750E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{46145EED-F2B9-4CA8-B842-614BE198750E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
