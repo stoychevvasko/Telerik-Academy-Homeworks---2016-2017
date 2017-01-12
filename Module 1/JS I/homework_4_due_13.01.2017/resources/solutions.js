@@ -15,6 +15,8 @@ function runScript() {
 	console.log('===============================================');
 	runTestFrequentNumber('P06_I01', 'P06_O01', 'P06_A01');
 	console.log('===============================================');
+	runTestBinarySearch('P07_I01', 'P07_O01', 'P07_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -269,7 +271,7 @@ function runTestSelectionSort(input, output, actual) {
 // Problem 06. Frequent Number
 function frequentNumber(args) {
 	var result = "";	
-	let arr = convertToJSON(args)[0].map(Number);    
+	let arr = convertToJSON(args)[0].map(Number);
     arr.shift();
 
     let frequency = {};
@@ -291,6 +293,59 @@ function frequentNumber(args) {
 
 function runTestFrequentNumber(input, output, actual) {
 	document.getElementById(actual).innerHTML = frequentNumber(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 07. Binary Search
+function binarySearch(args) {
+	var result = "";	
+	let arr = convertToJSON(args)[0].map(Number);
+    arr.shift();
+    
+    let soughtNum = arr.pop();
+
+    arr.sort(function(a, b) {return a-b;});
+
+    var isExisting = false;
+
+    for (let i = 0; i < arr.length; i += 1) {
+        if (arr[i] == soughtNum) {
+            isExisting = true;
+        }
+    }
+
+    if (!isExisting) {
+        result = ("-1");
+    } else {
+        let imin = 0;
+        let imax = arr.length;
+
+        while (imax >= imin) {
+            let imid = imin + Math.floor((imax - imin) / 2);
+
+            if (arr[imid] === soughtNum) {
+                result = (imid);
+                break;
+            }
+            else if (arr[imid] < soughtNum) {
+                imin = imid + 1;
+            }
+            else {
+                imax = imid - 1;
+            }
+        }
+    }	
+	
+	console.log('Problem 07:\n' + result);
+	return result;
+}
+
+function runTestBinarySearch(input, output, actual) {
+	document.getElementById(actual).innerHTML = binarySearch(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
