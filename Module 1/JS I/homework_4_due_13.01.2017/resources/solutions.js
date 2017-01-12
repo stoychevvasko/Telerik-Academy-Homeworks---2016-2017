@@ -10,6 +10,9 @@ function runScript() {
 	console.log('===============================================');
 	runTestMaximalIncreasingSequence('P04_I01', 'P04_O01', 'P04_A01');
 	console.log('===============================================');
+	runTestSelectionSort('P05_I01', 'P05_O01', 'P05_A01');
+	runTestSelectionSort('P05_I02', 'P05_O02', 'P05_A02');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -210,6 +213,50 @@ function maximalIncreasingSequence(args) {
 
 function runTestMaximalIncreasingSequence(input, output, actual) {
 	document.getElementById(actual).innerHTML = maximalIncreasingSequence(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 05. Selection Sort
+function selectionSort(args) {
+	var arr = convertToJSON(args)[0],
+	result = "",
+	resultForConsole = "",
+	resultHTML = "";	
+	
+	var min,
+        minIndex,
+        swapNumber;
+
+    for (var i = 0; i < arr.length; i++) {
+        min = arr[i];
+        minIndex = i;
+
+        for (var j = i; j < arr.length; j++) {
+            if (parseFloat(min) > parseFloat(arr[j])) {
+                min = arr[j];
+                minIndex = j;
+            }
+        }
+		
+        swapNumber = arr[minIndex];
+        arr[minIndex] = arr[i];
+        arr[i] = swapNumber;
+    }	
+	
+	result = arr;
+	resultForConsole = arr.join("\n");
+	resultHTML = "<p>" + (arr.join("</p><p>")) + "</p>"
+	
+	console.log('Problem 05:\n' + resultForConsole);
+	return resultHTML;
+}
+
+function runTestSelectionSort(input, output, actual) {
+	document.getElementById(actual).innerHTML = selectionSort(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
