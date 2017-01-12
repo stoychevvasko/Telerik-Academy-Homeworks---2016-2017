@@ -1,5 +1,5 @@
 ﻿////-----------------------------------------------------------------------
-//// <copyright file="Program.cs" company="indepentent developer">
+//// <copyright file="Program.cs" company="independent developer">
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-----------------------------------------------------------------------
