@@ -6,6 +6,8 @@ function runScript() {
 	runTestLexicographicallyCompare('P02_I01', 'P02_O01', 'P02_A01');
 	runTestLexicographicallyCompare('P02_I02', 'P02_O02', 'P02_A02');
 	console.log('===============================================');
+	runTestMaximalSequence('P03_I01', 'P03_O01', 'P03_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -96,6 +98,61 @@ function lexicographicallyCompare(args) {
 
 function runTestLexicographicallyCompare(input, output, actual) {
 	document.getElementById(actual).innerHTML = lexicographicallyCompare(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 03. Maximal Sequence
+function maximalSequence(args) {
+	var arr = convertToJSON(args)[0].map(Number),
+		result = "",		
+		len = arr.length,	
+	    repeatsArray = [], 
+        sequenceFound = [];
+
+    // recursive method that returns the number of consecutive
+    // equal elements from an array starting from a position "index"
+    function lengthOfSequence(arr, index, arrayLength) {
+        if (index + 1 >= arrayLength) {
+            return 1;
+            //   array exhausted, last element - sequence of 1 element
+        }
+        else if (arr[index] != arr[index + 1]) {
+            return 1;
+            //     next element is not equal - sequence of 1 element
+        }
+        else {
+            return (1 + lengthOfSequence(arr, index + 1, arrayLength));
+            //     next element is equal to current element - 1 is added to the next recursive instance            
+        }
+    }
+
+    for (var i = 0; i < len; i++) {
+        repeatsArray[i] = lengthOfSequence(arr, i, len);
+    }
+
+    var maxSequenceIndex = 0;
+
+    for (var i = 0; i < len; i++) {
+        if (repeatsArray[i] >= repeatsArray[maxSequenceIndex]) {
+            maxSequenceIndex = i;
+        }
+    }
+
+    for (var i = maxSequenceIndex; i < maxSequenceIndex + repeatsArray[maxSequenceIndex]; i++) {
+        sequenceFound.push(arr[i]);
+    }
+
+	result = sequenceFound.length;
+	console.log('Problem 03:\n' + result);
+	return result;
+}
+
+function runTestMaximalSequence(input, output, actual) {
+	document.getElementById(actual).innerHTML = maximalSequence(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
