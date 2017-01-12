@@ -17,6 +17,10 @@ function runScript() {
 	console.log('===============================================');
 	runTestBinarySearch('P07_I01', 'P07_O01', 'P07_A01');
 	console.log('===============================================');
+	runTestPrimeNumbers('P08_I01', 'P08_O01', 'P08_A01');
+	runTestPrimeNumbers('P08_I02', 'P08_O02', 'P08_A02');
+	runTestPrimeNumbers('P08_I03', 'P08_O03', 'P08_A03');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -346,6 +350,40 @@ function binarySearch(args) {
 
 function runTestBinarySearch(input, output, actual) {
 	document.getElementById(actual).innerHTML = binarySearch(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 08. Prime Numbers
+function primeNumbers(args) {	
+	var n = +convertToJSON(args)[0],
+		result = (n);	
+
+    for (let i = n; i >= 0; i -= 1) {
+        let isPrime = true;
+
+        for (j = 2; j <= Math.sqrt(i); j += 1) {
+            if (i % j === 0) {
+                isPrime = false;
+                break;
+            }
+        }
+
+        if (isPrime === true) {
+            result = (i);			
+            break;
+        }
+    }    
+	
+	console.log('Problem 08:\n' + result);
+	return result;
+}
+
+function runTestPrimeNumbers(input, output, actual) {
+	document.getElementById(actual).innerHTML = primeNumbers(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {

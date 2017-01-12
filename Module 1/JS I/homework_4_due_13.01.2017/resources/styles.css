@@ -8,6 +8,17 @@ body {
 	font-size: 104%;	
 }
 
+a {
+	font-family: Sans-Serif;
+	font-size: 1.5em;
+	font-weight: bold;
+	color: Orange;
+}
+
+a:hover {
+	color: Gold;
+}
+
 h2, h3, h4, h6 {
 	font-family: Sans-Serif;
 	// text-shadow: 2px 2px 1px rgba(255, 255, 255, 0.33);
