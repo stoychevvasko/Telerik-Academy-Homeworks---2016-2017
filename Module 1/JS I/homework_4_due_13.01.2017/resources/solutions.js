@@ -13,6 +13,8 @@ function runScript() {
 	runTestSelectionSort('P05_I01', 'P05_O01', 'P05_A01');
 	runTestSelectionSort('P05_I02', 'P05_O02', 'P05_A02');
 	console.log('===============================================');
+	runTestFrequentNumber('P06_I01', 'P06_O01', 'P06_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -257,6 +259,38 @@ function selectionSort(args) {
 
 function runTestSelectionSort(input, output, actual) {
 	document.getElementById(actual).innerHTML = selectionSort(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 06. Frequent Number
+function frequentNumber(args) {
+	var result = "";	
+	let arr = convertToJSON(args)[0].map(Number);    
+    arr.shift();
+
+    let frequency = {};
+    let maxFrequency = 0;
+    let maxElement; 
+
+    for (let num in arr) {        
+        frequency[arr[num]] = (frequency[arr[num]] || 0) + 1;
+        if (frequency[arr[num]] > maxFrequency) {
+            maxFrequency = frequency[arr[num]];
+            maxElement = arr[num];
+        }
+    }
+    
+	result = (maxElement + ' (' + maxFrequency + ' times)');	
+	console.log('Problem 06:\n' + result);
+	return result;
+}
+
+function runTestFrequentNumber(input, output, actual) {
+	document.getElementById(actual).innerHTML = frequentNumber(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
