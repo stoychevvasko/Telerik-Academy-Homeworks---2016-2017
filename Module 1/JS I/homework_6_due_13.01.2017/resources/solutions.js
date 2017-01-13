@@ -3,6 +3,10 @@ function runScript() {
 	console.log('===============================================');
 	runTestPlanarCoordinates('P01_I01', 'P01_O01', 'P01_A01');
 	runTestPlanarCoordinates('P01_I02', 'P01_O02', 'P01_A02');
+	console.log('===============================================');
+	runTestRemoveElements('P02_I01', 'P02_O01', 'P02_A01');
+	runTestRemoveElements('P02_I02', 'P02_O02', 'P02_A02');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -72,8 +76,11 @@ function planarCoordinates(args) {
 		((isTrianglePossible(firstLine, secondLine, thirdLine)) ? 'Triangle can be built' : 'Triangle can not be built')
 	];
 	
-	result = '<p>' + result.join('</p><p>') + '</p>';	
-	console.log('Problem 01:\n', result);
+	let resultForConsole = result.join('\n');
+	
+	result = '<p>' + result.join('</p><p>') + '</p>';
+	
+	console.log('Problem 01:\n' + resultForConsole);
 	return result;
 }
 
@@ -86,3 +93,35 @@ function runTestPlanarCoordinates(input, output, actual) {
 	}
 }
 
+// Problem 02. Remove elements
+function removeElements(args) {
+	let arr = convertToJSON(args)[0],
+		result = '';	
+	
+	Array.prototype.removeElement = function(element) {
+        var index = this.indexOf(element);
+		
+        while(index > -1) {
+            this.splice(index, 1);
+            index = this.indexOf(element);
+        }
+		
+        return this;
+    };
+
+    result = arr.removeElement(arr[0]);
+	let resultForConsole = result.join('\n');
+	
+	console.log('Problem 02:\n' + resultForConsole);
+	result = '<p>' + result.join('</p><p>') + '</p>';
+	return result;
+}
+
+function runTestRemoveElements(input, output, actual) {
+	document.getElementById(actual).innerHTML = removeElements(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
