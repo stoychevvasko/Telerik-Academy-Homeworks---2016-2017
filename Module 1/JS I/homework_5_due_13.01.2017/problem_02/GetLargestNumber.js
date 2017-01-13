@@ -1,8 +1,8 @@
 // Problem 02: Get Largest Number - BGCoder format
 function solve(args) {
-	let numbers = args.split(' ').map(Number);
+	let numbers = args[0].split(' ').map(Number);
 	
-	function greatestOfThree(first, second, third) {
+	function GetMax(first, second, third) {
 		if ((first >= second) && (first >= third)) {
 			return first;
 		} else if ((second >= first) && (second >= third)) {
@@ -14,6 +14,6 @@ function solve(args) {
 		}
 	}
 	
-	let result = greatestOfThree(numbers[0], numbers[1], numbers[2]);		
+	let result = GetMax(numbers[0], numbers[1], numbers[2]);		
 	return (result);
 }
