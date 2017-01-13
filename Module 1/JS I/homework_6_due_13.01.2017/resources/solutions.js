@@ -1,0 +1,88 @@
+function runScript() {
+	console.log('SAMPLE TEST RESULTS');
+	console.log('===============================================');
+	runTestPlanarCoordinates('P01_I01', 'P01_O01', 'P01_A01');
+	runTestPlanarCoordinates('P01_I02', 'P01_O02', 'P01_A02');
+}
+
+function convertToJSON(args) {	
+	var input = args;
+    var rawJSON = '[' + input.replace(/'/g, "\"") + ']';
+    var arr = JSON.parse(rawJSON);
+	return arr;
+}
+
+// Problem 01: Planar Coordinates
+function planarCoordinates(args) {
+	let arr = convertToJSON(args)[0].map(Number),
+		result = '';
+	
+	function createPoint(x, y) {
+		return {
+			X : x,
+			Y : y
+		}
+	}
+	
+	function createLine(start, end) {
+		return {
+			Start : start,
+			End : end,
+			calculateLength : function() {
+				let result = Math.sqrt(
+								Math.pow((this.End.X - this.Start.X), 2) + 
+								Math.pow((this.End.Y - this.Start.Y), 2)
+							);
+				return result.toFixed(2);
+			}
+		}
+	}
+	
+	function isTrianglePossible(lineOne, lineTwo, lineThree) {
+		let lengthOne = lineOne.calculateLength(),
+			lengthTwo = lineTwo.calculateLength(),
+			lengthThree = lineThree.calculateLength();
+		
+		return (
+			(lengthOne + lengthTwo > lengthThree) && 
+			(lengthOne + lengthThree > lengthTwo) && 
+			(lengthTwo + lengthThree > lengthOne)
+		);
+	}
+	
+	let startFirstLine = createPoint(arr[0], arr[1]),
+		endFirstLine = createPoint(arr[2], arr[3]),
+		startSecondLine = createPoint(arr[4], arr[5]),
+		endSecondLine = createPoint(arr[6], arr[7]),
+		startThirdLine = createPoint(arr[8], arr[9]),
+		endThirdLine = createPoint(arr[10], arr[11]);
+	
+	let firstLine = createLine(startFirstLine, endFirstLine),
+		secondLine = createLine(startSecondLine, endSecondLine),
+		thirdLine = createLine(startThirdLine, endThirdLine);
+	
+	let firstLength = firstLine.calculateLength(),
+		secondLength = secondLine.calculateLength(),
+		thirdLength = thirdLine.calculateLength();
+	
+	result = [
+		firstLength, 
+		secondLength, 
+		thirdLength, 
+		((isTrianglePossible(firstLine, secondLine, thirdLine)) ? 'Triangle can be built' : 'Triangle can not be built')
+	];
+	
+	result = '<p>' + result.join('</p><p>') + '</p>';	
+	console.log('Problem 01:\n', result);
+	return result;
+}
+
+function runTestPlanarCoordinates(input, output, actual) {
+	document.getElementById(actual).innerHTML = planarCoordinates(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
