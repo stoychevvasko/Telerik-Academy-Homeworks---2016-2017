@@ -8,6 +8,8 @@ function runScript() {
 	console.log('===============================================');
 	runTestEnglishDigit('P03_I01', 'P03_O01', 'P03_A01');
 	console.log('===============================================');
+	runTestAppearanceCount('P04_I01', 'P04_O01', 'P04_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -119,3 +121,41 @@ function runTestEnglishDigit(input, output, actual) {
 		document.getElementById(actual).className += ' correct';
 	}
 }
+
+// Problem 04. Appearance Count
+function appearanceCount(args) {
+	let lines = args.split('<br>'),
+		count = +lines[0],
+		arr = lines[1].split(' ').map(Number),
+		element = +lines[2],
+		result = ``;
+	
+	function CountAppearances(arr, val) {
+		let result = 0,
+			len = arr.length;
+		
+		for (let i = 0; i < len; i += 1) {
+			if (arr[i] === element) {
+				result += 1;
+			}
+		}
+		
+		return result;
+	}
+	
+	result = CountAppearances(arr, element);
+	
+	console.log('Problem 04:\n' + result);
+	return (result);
+}
+
+function runTestAppearanceCount(input, output, actual) {
+	document.getElementById(actual).innerHTML = appearanceCount(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+
