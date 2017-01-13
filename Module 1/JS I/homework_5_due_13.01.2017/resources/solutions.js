@@ -14,6 +14,9 @@ function runScript() {
 	console.log('===============================================');
 	runTestFirstLargerThanNeighbours('P06_I01', 'P06_O01', 'P06_A01');
 	console.log('===============================================');
+	runTestSortingArray('P07_I01', 'P07_O01', 'P07_A01');
+	runTestSortingArray('P07_I02', 'P07_O02', 'P07_A02');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -168,11 +171,15 @@ function largerThanNeighbours(args) {
 		count = +lines[0],
 		arr = lines[1].split(' ').map(Number);
 	
+	function LargerThanNeighbours(arr, i) {
+		return ((arr[i] > arr[i - 1]) && (arr[i] > arr[i + 1]));
+	}
+	
 	function CountAppearances(arr, len) {
 		let result = 0;
 		
 		for (let i = 1; i < count; i += 1) {
-			if ((arr[i] > arr[i - 1]) && (arr[i] > arr[i + 1])) {
+			if (LargerThanNeighbours(arr, i)) {
 				result += 1;
 			}
 		}
@@ -200,9 +207,13 @@ function firstLargerThanNeighbours(args) {
 		count = +lines[0],
 		arr = lines[1].split(' ').map(Number);
 	
+	function LargerThanNeighbours(arr, i) {		
+		return ((arr[i] > arr[i - 1]) && (arr[i] > arr[i + 1]));
+	}
+	
 	function FirstAppearance(arr, len) {
 		for (let i = 1; i < count; i += 1) {
-			if ((arr[i] > arr[i - 1]) && (arr[i] > arr[i + 1])) {
+			if (LargerThanNeighbours(arr, i)) {
 				return i;
 			}
 		}
@@ -217,6 +228,65 @@ function firstLargerThanNeighbours(args) {
 
 function runTestFirstLargerThanNeighbours(input, output, actual) {
 	document.getElementById(actual).innerHTML = firstLargerThanNeighbours(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 07. Sorting array
+function sortingArray(args) {
+	let lines = args.split('<br>'),
+		count = +lines[0],
+		arr = lines[1].split(' ').map(Number);
+	
+	function MaximalElement(arr, startIndex) {
+        let maxElement = arr[startIndex],
+			maxElementIndex;
+			
+        for (let i = startIndex + 1; i < arr.length; i += 1) {
+            if (arr[i] > maxElement) {
+                maxElement = arr[i];
+                maxElementIndex = i;
+            }
+        }
+        return maxElementIndex;
+    }
+
+    function SortDescending(arr) {
+        for (let i = 0; i < arr.length - 1; i += 1) {
+            let tmp = arr[i],
+				largestNumIndex = MaximalElement(arr, i);
+
+            if (largestNumIndex > 0) {
+                arr[i] = arr[largestNumIndex];
+                arr[largestNumIndex] = tmp;
+            }
+        }
+
+        return arr;
+    }
+
+    function SortAscending(arr) {
+        SortDescending(arr);
+		
+        for (let i = 0; i < Math.floor(arr.length / 2); i += 1) {
+            let tmp = arr[i];
+            arr[i] = arr[arr.length - 1 - i];
+            arr[arr.length - 1- i] = tmp;
+        }
+		
+        return arr;
+    }
+
+	let result = SortAscending(arr).join(' ');
+	console.log('Problem 07:\n' + result);
+	return (result);
+}
+
+function runTestSortingArray(input, output, actual) {
+	document.getElementById(actual).innerHTML = sortingArray(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
