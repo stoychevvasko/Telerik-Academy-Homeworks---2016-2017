@@ -10,6 +10,8 @@ function runScript() {
 	console.log('===============================================');
 	runTestAppearanceCount('P04_I01', 'P04_O01', 'P04_A01');
 	console.log('===============================================');
+	runTestLargerThanNeighbours('P05_I01', 'P05_O01', 'P05_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -158,4 +160,34 @@ function runTestAppearanceCount(input, output, actual) {
 	}
 }
 
+// Problem 05. Larger than Neighbours
+function largerThanNeighbours(args) {
+	let lines = args.split('<br>'),
+		count = +lines[0],
+		arr = lines[1].split(' ').map(Number);
+	
+	function CountAppearances(arr, len) {
+		let result = 0;
+		
+		for (let i = 1; i < count; i += 1) {
+			if ((arr[i] > arr[i - 1]) && (arr[i] > arr[i + 1])) {
+				result += 1;
+			}
+		}
+		
+		return (result);
+	}
+	
+	let result = CountAppearances(arr, count);
+	console.log('Problem 05:\n' + result);
+	return (result);
+}
 
+function runTestLargerThanNeighbours(input, output, actual) {
+	document.getElementById(actual).innerHTML = largerThanNeighbours(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
