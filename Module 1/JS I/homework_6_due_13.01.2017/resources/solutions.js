@@ -7,6 +7,9 @@ function runScript() {
 	runTestRemoveElements('P02_I01', 'P02_O01', 'P02_A01');
 	runTestRemoveElements('P02_I02', 'P02_O02', 'P02_A02');
 	console.log('===============================================');
+	runTestYoungestPerson('P03_I01', 'P03_O01', 'P03_A01');
+	runTestYoungestPerson('P03_I02', 'P03_O02', 'P03_A02');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -119,6 +122,52 @@ function removeElements(args) {
 
 function runTestRemoveElements(input, output, actual) {
 	document.getElementById(actual).innerHTML = removeElements(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 03. Youngest person
+function getYoungestPerson(args) {	
+    var input = convertToJSON(args)[0];
+    var people = [];
+	var result = '';
+  
+    function constructPerson(firstName, lastName, age) {
+        return {
+            firstname: firstName,
+            lastname: lastName,
+            age: parseInt(age)
+        };
+    }
+  
+    function getYoungest(people) {
+        var youngestPerson = people[0];
+        for (var i = 1; i < people.length; i += 1) {
+            if (people[i].age < youngestPerson.age) {
+                youngestPerson = people[i];
+            }
+        }
+        return youngestPerson;
+    }
+     
+    while(input.length > 0) {
+        var person = constructPerson.apply(this, (input.slice(0, 3)));
+        people.push(person);
+        input.splice(0, 3);
+    }
+ 
+    youngestPerson = getYoungest(people);
+	result = youngestPerson.firstname + ' ' + youngestPerson.lastname
+    
+	console.log('Problem 03:\n' + result);
+	return result;
+}
+
+function runTestYoungestPerson(input, output, actual) {
+	document.getElementById(actual).innerHTML = getYoungestPerson(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
