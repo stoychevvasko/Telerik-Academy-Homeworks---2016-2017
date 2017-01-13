@@ -12,6 +12,8 @@ function runScript() {
 	console.log('===============================================');
 	runTestLargerThanNeighbours('P05_I01', 'P05_O01', 'P05_A01');
 	console.log('===============================================');
+	runTestFirstLargerThanNeighbours('P06_I01', 'P06_O01', 'P06_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -185,6 +187,36 @@ function largerThanNeighbours(args) {
 
 function runTestLargerThanNeighbours(input, output, actual) {
 	document.getElementById(actual).innerHTML = largerThanNeighbours(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 06. First larger than neighbours
+function firstLargerThanNeighbours(args) {
+	let lines = args.split('<br>'),
+		count = +lines[0],
+		arr = lines[1].split(' ').map(Number);
+	
+	function FirstAppearance(arr, len) {
+		for (let i = 1; i < count; i += 1) {
+			if ((arr[i] > arr[i - 1]) && (arr[i] > arr[i + 1])) {
+				return i;
+			}
+		}
+		
+		return -1;
+	}
+	
+	let result = FirstAppearance(arr, count);
+	console.log('Problem 06:\n' + result);
+	return (result);
+}
+
+function runTestFirstLargerThanNeighbours(input, output, actual) {
+	document.getElementById(actual).innerHTML = firstLargerThanNeighbours(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
