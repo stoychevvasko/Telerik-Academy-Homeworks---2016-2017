@@ -9,6 +9,8 @@ function runScript() {
 	console.log('===============================================');
 	runTestSubsctringInText('P03_I01', 'P03_O01', 'P03_A01');
 	console.log('===============================================');
+	runTestParseTags('P04_I01', 'P04_O01', 'P04_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -86,6 +88,99 @@ function subsctringInText(args) {
 
 function runTestSubsctringInText(input, output, actual) {
 	document.getElementById(actual).innerHTML = subsctringInText(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 04: Parse tags
+function parseTags(args) {
+	let text = args.substr(3, args.length - 6),
+		len = text.length,
+		toUpperEnabled = false,
+		toLowerEnabled = false,
+		insideTag = false,
+		thisTag = '',
+		result = [];
+	
+	for (let i = 0; i < len; i += 1) {
+		if (text[i] === '<') {
+			insideTag = true;
+			i += 1;
+		}
+		
+		if (insideTag) {						
+			switch (text.substr(i).split('>')[0]) {
+				case 'orgcase': {
+					thisTag = 'orgcase';					
+					toUpperEnabled = false;
+					toLowerEnabled = false;					
+					i += thisTag.length;
+					insideTag = false;										
+					continue;
+				}
+				case '/orgcase': {
+					thisTag = '/orgcase';					
+					i += thisTag.length;
+					insideTag = false;										
+					continue;
+				}
+				case 'upcase': {
+					thisTag = 'upcase';					
+					toUpperEnabled = true;
+					i += thisTag.length;
+					insideTag = false;										
+					continue;
+				}
+				case '/upcase': {
+					thisTag = '/upcase';					
+					toUpperEnabled = false;
+					i += thisTag.length;
+					insideTag = false;										
+					continue;
+				}
+				case 'lowcase': {
+					thisTag = 'lowcase';					
+					toLowerEnabled = true;
+					i += thisTag.length;
+					insideTag = false;										
+					continue;
+				}
+				case '/lowcase': {
+					thisTag = '/lowcase';					
+					toLowerEnabled = false;
+					i += thisTag.length;
+					insideTag = false;										
+					continue;
+				}
+			}
+		} 
+		
+		if (!insideTag) {
+			if (toUpperEnabled) {
+				result.push(text[i].toUpperCase());				
+				continue;
+			}
+			
+			if (toLowerEnabled) {
+				result.push(text[i].toLowerCase());				
+				continue;
+			}
+			
+			result.push(text[i]);			
+		}
+	}
+	
+	result = result.join('');
+	
+	console.log('Problem 04:\n' + result);
+	return result;
+}
+
+function runTestParseTags(input, output, actual) {
+	document.getElementById(actual).innerHTML = parseTags(document.getElementById(input).value);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
