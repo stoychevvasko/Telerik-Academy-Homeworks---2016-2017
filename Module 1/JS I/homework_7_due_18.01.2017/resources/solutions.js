@@ -7,6 +7,8 @@ function runScript() {
 	runTestCorrectBrackets('P02_I01', 'P02_O01', 'P02_A01');
 	runTestCorrectBrackets('P02_I02', 'P02_O02', 'P02_A02');
 	console.log('===============================================');
+	runTestSubsctringInText('P03_I01', 'P03_O01', 'P03_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -61,6 +63,29 @@ function correctBrackets(args) {
 
 function runTestCorrectBrackets(input, output, actual) {
 	document.getElementById(actual).innerHTML = correctBrackets(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 03: Sub-string in text
+function subsctringInText(args) {
+	let item = convertToJSON(args)[0][0].toLowerCase(),
+		text = convertToJSON(args)[0][1].toLowerCase(),
+		result = text.split(item).length - 1;
+	
+	if (result < 0) {
+		result = 0;
+	}
+	
+	console.log('Problem 03:\n' + result);
+	return result;
+}
+
+function runTestSubsctringInText(input, output, actual) {
+	document.getElementById(actual).innerHTML = subsctringInText(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
