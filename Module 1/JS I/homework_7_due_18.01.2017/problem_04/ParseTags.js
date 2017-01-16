@@ -1,85 +1,40 @@
 // Problem 04: Parse tags - BGCoder format
 function solve(args) {
-	let text = args[0],
-		len = text.length,
-		toUpperEnabled = false,
-		toLowerEnabled = false,
-		insideTag = false,
-		thisTag = '',
-		result = [];
-	
-	for (let i = 0; i < len; i += 1) {
-		if (text[i] === '<') {
-			insideTag = true;
-			i += 1;
-		}
-		
-		if (insideTag) {						
-			switch (text.substr(i).split('>')[0]) {
-				case 'orgcase': {
-					thisTag = 'orgcase';					
-					// toUpperEnabled = false;
-					// toLowerEnabled = false;					
-					i += thisTag.length;
-					insideTag = false;										
-					continue;
-				}
-				case '/orgcase': {
-					thisTag = '/orgcase';					
-					i += thisTag.length;
-					insideTag = false;										
-					continue;
-				}
-				case 'upcase': {
-					thisTag = 'upcase';
-					if (!toLowerEnabled) {
-						toUpperEnabled = true;
-					}					
-					i += thisTag.length;
-					insideTag = false;										
-					continue;
-				}
-				case '/upcase': {
-					thisTag = '/upcase';					
-					toUpperEnabled = false;
-					i += thisTag.length;
-					insideTag = false;										
-					continue;
-				}
-				case 'lowcase': {
-					thisTag = 'lowcase';
-					if (!toUpperEnabled) {
-						toLowerEnabled = true;
-					}
-					i += thisTag.length;
-					insideTag = false;										
-					continue;
-				}
-				case '/lowcase': {
-					thisTag = '/lowcase';					
-					toLowerEnabled = false;
-					i += thisTag.length;
-					insideTag = false;										
-					continue;
-				}
-			}
-		} 
-		
-		if (!insideTag) {
-			if (toUpperEnabled) {
-				result.push(text[i].toUpperCase());				
-				continue;
-			}
-			
-			if (toLowerEnabled) {
-				result.push(text[i].toLowerCase());				
-				continue;
-			}
-			
-			result.push(text[i]);			
-		}
-	}
-	
-	result = result.join('');	
-	return result;
+    var text = args[0],
+        inTag = false,
+        currentTag = '',
+        tags = [],
+        result = [];
+
+    for (var i = 0; i < text.length; i++) {
+        if (text[i] === '<') {
+            inTag = true;
+        } else if (text[i] === '>' && inTag) {
+            inTag = false;
+            currentTag += text[i];
+            tags.push(currentTag);
+            currentTag = '';
+        } else if (!inTag) {
+            if (tags.length === 0) {
+                result.push(text[i]);
+            } else if (tags[tags.length - 1].indexOf('upcase') !== -1) {
+                result.push(text[i].toUpperCase());
+            } else if (tags[tags.length - 1].indexOf('lowcase') !== -1) {
+                result.push(text[i].toLowerCase());
+            } else {
+                result.push(text[i]);
+            }
+        }
+
+        if (inTag || text[i] === '>') {
+            currentTag += text[i];
+        }
+
+        if (tags.length !== 0 && tags[tags.length - 1].indexOf('</') !== -1) {
+            tags.pop();
+            tags.pop();
+        }
+    }
+
+    return (result.join(''));    
 }
