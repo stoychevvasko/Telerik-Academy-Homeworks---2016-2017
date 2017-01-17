@@ -14,6 +14,8 @@ function runScript() {
 	runTestNBSP('P05_I01', 'P05_O01', 'P05_A01');
 	runTestNBSP('P05_I02', 'P05_O02', 'P05_A02');
 	console.log('===============================================');
+	runTestExtractTextFromHTML('P06_I01', 'P06_O01', 'P06_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -202,6 +204,29 @@ function nbsp(args) {
 
 function runTestNBSP(input, output, actual) {
 	document.getElementById(actual).innerHTML = nbsp(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 06. Extract text from HTML
+function extractTextFromHTML(args) {
+	let input = convertToJSON(args)[0],
+		matchTags = /<.*?>/ig,
+		result = '';	
+
+    for (let line of input) {
+        result += line.replace(matchTags, '').trim();
+    }
+	
+	console.log('Problem 06:\n' + result);
+	return result;
+}
+
+function runTestExtractTextFromHTML(input, output, actual) {
+	document.getElementById(actual).innerHTML = extractTextFromHTML(document.getElementById(input).value);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {

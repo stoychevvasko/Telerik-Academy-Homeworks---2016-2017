@@ -187,5 +187,33 @@
 						</div>
 			</article>
 		</section>
+		<article>
+				<h2>Problem 06. Extract text from HTML</h2>
+					<h3>Description</h3>
+					<p>Write a function that extracts the content of a html page given as text. The function should return anything that is in a tag, without the tags.</p>	
+					<h3>Input</h3>
+					<ul>
+						<li>The input will consist of an array of strings</li>
+					</ul>
+					<h3>Output</h3>
+					<ul>
+						<li>The output should be consisted of one line - text inside tags</li>
+					</ul>	
+					<h3>Constraints</h3>
+						<ul>							
+							<li>Time limit: <strong>0.2s</strong></li>
+							<li>Memory limit: <strong>16MB</strong></li>
+						</ul>
+					<h3>Sample Tests</h3>
+						<div class="test-item">
+							<h4>Sample Test 1</h4>
+								<h5>Input</h5>
+									<textarea class="javascript-code" id="P06_I01">[ '<html>', '  <head>', '    <title>Sample site</title>', '  </head>', '  <body>', '    <div>text', '      <div>more text</div>', '      and more...', '    </div>', '    in body', '  </body>', '</html>' ]</textarea>
+								<h5>Output</h5>
+									<span class="javascript-code" id="P06_O01">Sample sitetextmore textand more...in body</span>
+								<h5>Actual</h5>
+									<span class="javascript-code" id="P06_A01">actual eval value</span>
+						</div>
+			</article>
     </body>
 </html>
