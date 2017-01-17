@@ -16,6 +16,8 @@ function runScript() {
 	console.log('===============================================');
 	runTestExtractTextFromHTML('P06_I01', 'P06_O01', 'P06_A01');
 	console.log('===============================================');
+	runTestParseUrl('P07_I01', 'P07_O01', 'P07_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -227,6 +229,31 @@ function extractTextFromHTML(args) {
 
 function runTestExtractTextFromHTML(input, output, actual) {
 	document.getElementById(actual).innerHTML = extractTextFromHTML(document.getElementById(input).value);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 07. Parse URL
+function parseUrl(args) {
+	let input = convertToJSON(args)[0][0],
+		protocol = input.split(':')[0],		
+		server = input.split('/')[2],
+		resource = input.split(server)[1],
+		result = '';
+	
+	result += ('<p>protocol: ' + protocol + '</p>');
+	result += ('<p>server: ' + server + '</p>');
+	result += ('<p>resource: ' + resource + '</p>');
+	
+	console.log('Problem 07:\n' + result);
+	return result;
+}
+
+function runTestParseUrl(input, output, actual) {
+	document.getElementById(actual).innerHTML = parseUrl(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
