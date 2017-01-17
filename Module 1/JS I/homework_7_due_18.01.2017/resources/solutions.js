@@ -18,6 +18,8 @@ function runScript() {
 	console.log('===============================================');
 	runTestParseUrl('P07_I01', 'P07_O01', 'P07_A01');
 	console.log('===============================================');
+	runTestReplaceTags('P08_I01', 'P08_O01', 'P08_A01');
+	console.log('===============================================');
 }
 
 function convertToJSON(args) {	
@@ -254,6 +256,40 @@ function parseUrl(args) {
 
 function runTestParseUrl(input, output, actual) {
 	document.getElementById(actual).innerHTML = parseUrl(document.getElementById(input).innerHTML);
+	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
+		document.getElementById(actual).className += ' incorrect';
+	} else {
+		document.getElementById(actual).className += ' correct';
+	}
+}
+
+// Problem 08. Replace tags
+function replaceTags(args) {
+	let input =  args.split('<a href='),
+		result = '';
+	
+	for (let i = 0; i < input.length; i += 1) {
+		
+		let part = input[i];
+		if (part[0] === '"') {
+			let url = ('(' + part.split('</a>')[0].split('>')[0].split('"')[1] + ')'),
+				linkText = ('[' + part.split('</a>')[0].split('>')[1] + ']'),
+				ending = part.split('</a>')[1];
+			
+			part = (linkText + url + ending);
+		}
+		
+		result += (part);
+	}
+		
+	result = result.split("[ '")[1].split("' ]")[0];
+		
+	console.log('Problem 08:\n' + result);
+	return result;
+}
+
+function runTestReplaceTags(input, output, actual) {
+	document.getElementById(actual).innerHTML = replaceTags(document.getElementById(input).innerHTML);
 	if (!((document.getElementById(actual).innerHTML) === (document.getElementById(output).innerHTML))) {
 		document.getElementById(actual).className += ' incorrect';
 	} else {
