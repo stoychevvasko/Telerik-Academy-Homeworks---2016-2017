@@ -1,6 +1,8 @@
 **/AssemblyInfo.cs linguist-documentation
 Module?1/C#?I/**/*.html linguist-documentation
 Module?1/C#?II/**/*.html linguist-documentation
+Module?1/JS?I/exam?18.01.2017/**/*.html linguist-documentation
+Module?1/JS?I/exam?18.01.2017/**/**/*.png linguist-documentation
 Module?1/CSS/exam?preparation/**/*.html linguist-documentation
 Module?1/C#?III/homework?2?due?04.01.2017/Problem?1.?Structure/Point3D.cs linguist-documentation
 Module?1/C#?III/homework?2?due?04.01.2017/Problem?3.?Static?class/Point3D.cs linguist-documentation
@@ -17,4 +19,3 @@ Module?1/JS?I/homework?5?due?13.01.2017/resources/styles.css linguist-documentat
 Module?1/JS?I/homework?6?due?13.01.2017/resources/styles.css linguist-documentation
 Module?1/JS?I/homework?7?due?18.01.2017/resources/styles.css linguist-documentation
 Module?1/C#?III/exam?OOP?16.01.2016/task_description.html linguist-documentation
-Module?1/JS?I/homework?8?due?18.01.2017/resources/styles.css linguist-documentation
