@@ -7,7 +7,30 @@
 */
 
 function solve() {
+	function isPrime(number) {
+			for (let i = 2; i < number; i += 1) {
+				if ((number % i) === 0) {					
+					return false;
+				}
+			}
+
+			return true;
+		}
+
 	return function findPrimes() {
+		if (arguments === null || arguments.length < 2) {
+			throw "Error";
+		}
+
+		let primes = [];
+
+		for (let j = (+arguments[0][0]); j <= (+arguments[0][1]); j += 1) {
+			if (isPrime(j)) {
+				primes.push(j);
+			}
+		}
+
+		return primes;
 	}
 }
 
