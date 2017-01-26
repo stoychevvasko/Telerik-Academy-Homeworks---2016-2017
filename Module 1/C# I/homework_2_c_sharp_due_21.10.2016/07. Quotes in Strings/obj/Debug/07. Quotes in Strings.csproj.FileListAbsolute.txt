@@ -1,6 +1,0 @@
-C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\07. Quotes in Strings\bin\Debug\_07.Quotes_in_Strings.exe.config
-C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\07. Quotes in Strings\obj\Debug\07. Quotes in Strings.csprojResolveAssemblyReference.cache
-C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\07. Quotes in Strings\bin\Debug\_07.Quotes_in_Strings.exe
-C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\07. Quotes in Strings\bin\Debug\_07.Quotes_in_Strings.pdb
-C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\07. Quotes in Strings\obj\Debug\_07.Quotes_in_Strings.exe
-C:\VASKO\2016\Module 1\C# I\homework_2_c_sharp_due_21.10.2016\07. Quotes in Strings\obj\Debug\_07.Quotes_in_Strings.pdb

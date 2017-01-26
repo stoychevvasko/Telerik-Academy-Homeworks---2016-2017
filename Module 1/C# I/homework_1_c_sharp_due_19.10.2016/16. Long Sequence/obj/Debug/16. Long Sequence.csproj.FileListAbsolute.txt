@@ -1,6 +1,0 @@
-C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\16. Long Sequence\bin\Debug\_16.Long_Sequence.exe.config
-C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\16. Long Sequence\bin\Debug\_16.Long_Sequence.exe
-C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\16. Long Sequence\bin\Debug\_16.Long_Sequence.pdb
-C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\16. Long Sequence\obj\Debug\16. Long Sequence.csprojResolveAssemblyReference.cache
-C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\16. Long Sequence\obj\Debug\_16.Long_Sequence.exe
-C:\VASKO\2016\Module 1\C# I\homework_1_c_sharp_due_19.10.2016\16. Long Sequence\obj\Debug\_16.Long_Sequence.pdb
