@@ -8,8 +8,12 @@
 
 function solve() {
 	function isPrime(number) {
+			if (number <= 1) {
+				return false;
+			}
+			
 			for (let i = 2; i < number; i += 1) {
-				if ((number % i) === 0) {					
+				if (number % i === 0) {					
 					return false;
 				}
 			}
@@ -24,7 +28,7 @@ function solve() {
 
 		let primes = [];
 
-		for (let j = (+arguments[0][0]); j <= (+arguments[0][1]); j += 1) {
+		for (let j = (+arguments[0]); j <= (+arguments[1]); j += 1) {
 			if (isPrime(j)) {
 				primes.push(j);
 			}
