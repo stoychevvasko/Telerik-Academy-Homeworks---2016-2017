@@ -21,30 +21,37 @@
 			*	If something is not valid - throw Error
 */
 function solve() {
-	var library = (function () {
-		function validate(assertion, errorMessage) {
-			if (assertion === true) {
-				throw Error(errorMessage.toString());
+	function generateRules() {	
+		var logic = (function () {
+			const errorMessages = {
+				existingCategory: "it's OK", 
+				existingISBN: "duplicate isbn", 
+				existingTitle: "duplicate title", 
+				titleTooShort: "book title too short",                 
+				titleTooLong: "book title too long", 
+				authorIsNullOrEmpty: "author is null or empty", 
+				badISBN: "bad isbn", 
+				categoryIsNullOrEmpty: "default_category (auto-generated)",
+			};	
+				
+			function validate(assertion, errorMessage) {
+				if (assertion === true) {					
+					throw Error(errorMessages[errorMessage.toString()]);
+				}
 			}
-		}
-	
-		let errorMessages = {
-			existingCategory: "it's OK", 
-			existingISBN: "duplicate isbn", 
-			existingTitle: "duplicate title", 
-			titleTooShort: "book title too short",                 
-			titleTooLong: "book title too long", 
-			authorIsNullOrEmpty: "author is null or empty", 
-			badISBN: "bad isbn", 
-			categoryIsNullOrEmpty: "default_category (auto-generated)",
-		};
-	
-		function getErrorMessage(assertion) {
-			return errorMessages[assertion.toString()];
-		}
+			
+			return {
+				validate: validate,
+			};
+		} ());
 		
+		return logic;
+	}
+	
+	var library = (function () {
         let books = [],
-		    categories = [];
+		    categories = [],
+			activeLogic = generateRules();
 		
 		function addBook(book) {
 			let existingCategory = books && books.some(b => b.category && b.category === book.category),
@@ -56,12 +63,12 @@ function solve() {
 			    badISBN = book && book.isbn && !/[0-9]{10,13}/.test(book.isbn),
 			    categoryIsNullOrEmpty = book && (!book.category || book.category.length === 0);
 
-            validate(existingISBN, errorMessages.existingISBN);
-            validate(existingTitle, errorMessages.existingTitle);
-            validate(titleTooShort, errorMessages.titleTooShort);
-            validate(titleTooLong, errorMessages.titleTooLong);
-            validate(authorIsNullOrEmpty, errorMessages.authorIsNullOrEmpty);
-            validate(badISBN, errorMessages.badISBN);
+            activeLogic.validate(existingISBN, "existingISBN");
+            activeLogic.validate(existingTitle, "existingTitle");
+            activeLogic.validate(titleTooShort, "titleTooShort");
+            activeLogic.validate(titleTooLong, "titleTooLong");
+            activeLogic.validate(authorIsNullOrEmpty, "authorIsNullOrEmpty");
+            activeLogic.validate(badISBN, "badISBN");
 
 			if (categoryIsNullOrEmpty) {
 				book.category = "default_category (auto-generated)";
@@ -72,57 +79,58 @@ function solve() {
 
 			if (!existingCategory) {
 				categories.push(book.category);
-			}
+			}			
 			
 			return book;
 		}
 
 		function listBooks(preferred) {
-		if (!books || books.length === 0) {
-			return [];
-		}
-
-		let result = books.slice();
-
-		if (preferred) {
-			let categoryFound = books.some(b => b.hasOwnProperty('category') && b.category === preferred.category),
-			    authorFound = books.some(b => b.hasOwnProperty('author') && b.author === preferred.author);
-
-			if ((preferred.category && !categoryFound) || (preferred.author && !authorFound)) {
+			if (!books || books.length === 0) {
 				return [];
 			}
-			
-			if (preferred.hasOwnProperty('category') && categoryFound) {
-				if (preferred.hasOwnProperty('author') && authorFound) {
-					result = books.filter(b => b.category === preferred.category && b.author === preferred.author);
+	
+			let result = books.slice();
+	
+			if (preferred) {
+				let categoryFound = books.some(b => b.hasOwnProperty('category') && b.category === preferred.category),
+					authorFound = books.some(b => b.hasOwnProperty('author') && b.author === preferred.author);
+	
+				if ((preferred.category && !categoryFound) || (preferred.author && !authorFound)) {
+					return [];
 				}
 				
-				result = books.filter(b => b.category === preferred.category);
+				if (preferred.hasOwnProperty('category') && categoryFound) {
+					if (preferred.hasOwnProperty('author') && authorFound) {
+						result = books.filter(b => b.category === preferred.category && b.author === preferred.author);
+					}
+					
+					result = books.filter(b => b.category === preferred.category);
+				}
+	
+				if (preferred.hasOwnProperty('author') && authorFound && !preferred.hasOwnProperty('category')) {
+					result = books.filter(b => b.author === preferred.author);
+				}
 			}
-
-			if (preferred.hasOwnProperty('author') && authorFound && !preferred.hasOwnProperty('category')) {
-				result = books.filter(b => b.author === preferred.author);
-			}
+			
+			return result;
 		}
 
-		return result;
-		}
-
-		function listCategories() {
+		function listCategories() {			
 			return categories.slice();
 		}
 
 		return {
 			books: {
 				list: listBooks,
-				add: addBook
+				add: addBook,
+				push: addBook
 			},
 			categories: {
 				list: listCategories
 			}
 		};
 	} ());
-
+	
 	return library;
 }
 
