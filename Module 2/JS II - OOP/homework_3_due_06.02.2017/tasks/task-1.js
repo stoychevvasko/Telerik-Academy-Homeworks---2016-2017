@@ -45,42 +45,65 @@
 */
 
 function solve() {
-    class Specs {
-        static ValidateTitle(titleString) {
-            if (!titleString || titleString.length === 0 || /(^[ ])|([ ]$)/.test(titleString)) {
-                throw new Error('empty or missing course title');
+    class Rules {
+        static validateTitle(titleString) {
+            if (!titleString || (typeof titleString) != 'string') {
+                throw new Error('null or non-string title' + titleString);
+            }
+
+            if (/(^[ \[])|( $)|( {2})|(^.?$)/.test(titleString)) {
+                throw new Error('invalid title ' + titleString);
             }
 
             return titleString;
         }
+
+        static validatePresentations(arrayOfPresentations) {
+            if (arrayOfPresentations === null) {
+                throw new Error('missing presentations');
+            }
+
+            if (arrayOfPresentations.length === 0) {
+
+                throw new Error('not array');
+            }
+
+            let newArray = [];
+            arrayOfPresentations.filter(x => Rules.validatePresentations(x) === x)
+                                .forEach(x => (function(){newArray.push(x);}()))
+
+            return newArray;
+        }
     }
 
-    class _Course {
-        constructor(courseTitle, presentations) {
+    class course {
+        constructor(courseTitle, coursePresentations) {
             this.title = courseTitle;
-            this.presentations = presentations;
+            this.presentations = coursePresentations;
         }
 
         get title() {
-            return Specs.ValidateTitle(this._title);
+            return Rules.validateTitle(this._title);
         }
 
         set title(titleValue) {
-            this._title = Specs.ValidateTitle(titleValue);
+            this._title = Rules.validateTitle(titleValue);
         }
 
         get presentations() {
-            return this._presentations;
+            return Rules.validatePresentations(this._presentations);
         }
 
-        set presentations(presentationsValue) {
-            this._presentations = presentationsValue.slice();
+        set presentations(presentationsValue) { 
+            this._presentations = Rules.validatePresentations(presentationsValue);
         }
     }
 
     var Course = {
-        init: function(title, presentationsArray) {
-            return new _Course(title, presentationsArray);
+        init: function(courseTitle, presentationsArray) {
+            let thisCourse = new course(courseTitle, presentationsArray);
+            console.log(thisCourse);
+            return thisCourse;
         },
         addStudent: function(name) {
         },
