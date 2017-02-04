@@ -45,8 +45,42 @@
 */
 
 function solve() {
+    class Specs {
+        static ValidateTitle(titleString) {
+            if (!titleString || titleString.length === 0 || /(^[ ])|([ ]$)/.test(titleString)) {
+                throw new Error('empty or missing course title');
+            }
+
+            return titleString;
+        }
+    }
+
+    class _Course {
+        constructor(courseTitle, presentations) {
+            this.title = courseTitle;
+            this.presentations = presentations;
+        }
+
+        get title() {
+            return Specs.ValidateTitle(this._title);
+        }
+
+        set title(titleValue) {
+            this._title = Specs.ValidateTitle(titleValue);
+        }
+
+        get presentations() {
+            return this._presentations;
+        }
+
+        set presentations(presentationsValue) {
+            this._presentations = presentationsValue.slice();
+        }
+    }
+
     var Course = {
-        init: function(title, presentations) {
+        init: function(title, presentationsArray) {
+            return new _Course(title, presentationsArray);
         },
         addStudent: function(name) {
         },
@@ -60,8 +94,8 @@ function solve() {
         }
     };
 
-	return Course;
-}
+    return Course;
+};
 
 
 module.exports = solve;
