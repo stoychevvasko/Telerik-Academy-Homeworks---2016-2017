@@ -71,8 +71,40 @@ function solve() {
 
                 arrayOfPresentations.forEach(p => Rules.validateTitle(p));
                 return arrayOfPresentations.slice();
+            },
+            validateFullPersonalName: function(name) {
+                if (!name || (typeof name) != 'string') {
+                    throw new Error('null or non-string name');
+                }
+
+                if (!/^[A-Z][a-z]*( )[A-Z][a-z]*$/.test(name)) {
+                    throw new Error('invalid name');
+                }
+
+                return name;
             }
         }
+    }();
+
+    var Student = function() {
+        var lastId = 0,
+            student = {
+                init: function(name) {
+                    this.id = lastId += 1;
+                    this.name = name;
+                    return this;
+                },
+                get name() {
+                    return Rules.validateFullPersonalName(this._givenName + ' ' + this._surname);
+                },
+                set name(nameValue) {
+                    var names = Rules.validateFullPersonalName(nameValue).split(' ');
+                    this._givenName = names[0];
+                    this._surname = names[1];
+                }
+            };
+
+        return student;
     }();
 
     var Course = {
@@ -94,6 +126,8 @@ function solve() {
             this._presentations = Rules.validatePresentations(presentationsValue);
         },
         addStudent: function(name) {
+            var studentForAdding = Object.create(Student).init(name);
+            return studentForAdding.id;
         },
         getAllStudents: function() {
         },
