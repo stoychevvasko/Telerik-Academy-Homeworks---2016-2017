@@ -77,7 +77,18 @@ function solve() {
                     throw new Error('null or non-string name');
                 }
 
-                if (!/^[A-Z][a-z]*( )[A-Z][a-z]*$/.test(name)) {
+                if (!/^[A-Z][a-z]*( {1})[A-Z][a-z]*$/.test(name)) {
+                    throw new Error('invalid name');
+                }
+
+                return name;
+            },
+            validateSinglePersonalName: function(name) {
+                if (!name || (typeof name) != 'string') {
+                    throw new Error('null or non-string name');
+                }
+
+                if (!/^[A-Z][a-z]*$/.test(name)) {
                     throw new Error('invalid name');
                 }
 
@@ -105,7 +116,7 @@ function solve() {
             };
 
         return student;
-    }();
+    };
 
     var Course = {
         init: function(courseTitle, coursePresentations) {
