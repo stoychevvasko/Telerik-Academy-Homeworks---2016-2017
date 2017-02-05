@@ -45,65 +45,53 @@
 */
 
 function solve() {
-    class Rules {
-        static validateTitle(titleString) {
-            if (!titleString || (typeof titleString) != 'string') {
-                throw new Error('null or non-string title' + titleString);
+    var Rules = function() {
+        return {
+            validateTitle: function(titleString) {
+                if (!titleString || (typeof titleString) != 'string') {
+                    throw new Error('null or non-string title' + titleString);
+                }
+
+                if (/(^[ \[])|( $)|( {2})|(^.?$)/.test(titleString)) {
+                    throw new Error('invalid title ' + titleString);
+                }
+                return titleString;
+            },
+            isValidTitle: function(titleArg) {
+                return !/(^[ \[])|( $)|( {2})|(^.?$)/.test(titleArg);
+            },
+            validatePresentations: function(arrayOfPresentations) { 
+                if (arrayOfPresentations === null) {
+                    throw new Error('missing presentations');
+                }
+
+                if (arrayOfPresentations.length === 0) {
+                    throw new Error('empty array');
+                }
+
+                arrayOfPresentations.forEach(p => Rules.validateTitle(p));
+                return arrayOfPresentations.slice();
             }
-
-            if (/(^[ \[])|( $)|( {2})|(^.?$)/.test(titleString)) {
-                throw new Error('invalid title ' + titleString);
-            }
-
-            return titleString;
         }
-
-        static validatePresentations(arrayOfPresentations) {
-            if (arrayOfPresentations === null) {
-                throw new Error('missing presentations');
-            }
-
-            if (arrayOfPresentations.length === 0) {
-
-                throw new Error('not array');
-            }
-
-            let newArray = [];
-            arrayOfPresentations.filter(x => Rules.validatePresentations(x) === x)
-                                .forEach(x => (function(){newArray.push(x);}()))
-
-            return newArray;
-        }
-    }
-
-    class course {
-        constructor(courseTitle, coursePresentations) {
-            this.title = courseTitle;
-            this.presentations = coursePresentations;
-        }
-
-        get title() {
-            return Rules.validateTitle(this._title);
-        }
-
-        set title(titleValue) {
-            this._title = Rules.validateTitle(titleValue);
-        }
-
-        get presentations() {
-            return Rules.validatePresentations(this._presentations);
-        }
-
-        set presentations(presentationsValue) { 
-            this._presentations = Rules.validatePresentations(presentationsValue);
-        }
-    }
+    }();
 
     var Course = {
-        init: function(courseTitle, presentationsArray) {
-            let thisCourse = new course(courseTitle, presentationsArray);
-            console.log(thisCourse);
-            return thisCourse;
+        init: function(courseTitle, coursePresentations) {
+            this.title = courseTitle;
+            this.presentations = coursePresentations;
+            return this;
+        },
+        get title() {
+            return Rules.validateTitle(this._title);
+        },
+        set title(titleValue) {
+            this._title = Rules.validateTitle(titleValue);
+        },
+        get presentations() {
+            return Rules.validatePresentations(this._presentations);
+        },
+        set presentations(presentationsValue) {
+            this._presentations = Rules.validatePresentations(presentationsValue);
         },
         addStudent: function(name) {
         },
