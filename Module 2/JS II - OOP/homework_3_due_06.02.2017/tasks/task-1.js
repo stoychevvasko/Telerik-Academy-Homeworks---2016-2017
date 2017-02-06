@@ -45,7 +45,7 @@
 */
 
 function solve() {
-    var Rules = function() {
+    var Rules = function(parent) {
         return {
             validateTitle: function(titleString) {
                 if (!titleString || (typeof titleString) != 'string') {
@@ -77,7 +77,7 @@ function solve() {
                     throw new Error('null or non-string name');
                 }
 
-                if (!/^[A-Z][a-z]*( {1})[A-Z][a-z]*$/.test(name)) {
+                if (!/^[A-Z][a-z]*( )[A-Z][a-z]*$/.test(name)) {
                     throw new Error('invalid name');
                 }
 
@@ -95,33 +95,37 @@ function solve() {
                 return name;
             }
         }
-    }();
+    }({});
 
-    var Student = function() {
+    var Student = function(parent) {
         var lastId = 0,
-            student = {
-                init: function(name) {
-                    this.id = lastId += 1;
-                    this.name = name;
-                    return this;
-                },
-                get name() {
-                    return Rules.validateFullPersonalName(this._givenName + ' ' + this._surname);
-                },
-                set name(nameValue) {
-                    var names = Rules.validateFullPersonalName(nameValue).split(' ');
-                    this._givenName = names[0];
-                    this._surname = names[1];
+            student = Object.create(parent, {
+                name: {
+                    get: function() {
+                        return Rules.validateFullPersonalName(this._givenName + ' ' + this._surname);
+                    },
+                    set: function(nameValue) {
+                        var names = Rules.validateFullPersonalName(nameValue).split(' ');
+                        this._givenName = names[0];
+                        this._surname = names[1];
+                    }
                 }
-            };
+            });
+
+        student.init = function(name) {
+            this.id = lastId += 1;
+            this.name = name;
+            return this;
+        }
 
         return student;
-    };
+    }({});
 
     var Course = {
         init: function(courseTitle, coursePresentations) {
             this.title = courseTitle;
             this.presentations = coursePresentations;
+            this.students = [];
             return this;
         },
         get title() {
@@ -131,16 +135,26 @@ function solve() {
             this._title = Rules.validateTitle(titleValue);
         },
         get presentations() {
-            return Rules.validatePresentations(this._presentations);
+            return this._presentations.slice();
         },
         set presentations(presentationsValue) {
             this._presentations = Rules.validatePresentations(presentationsValue);
         },
+        get students() {
+            return this._students;
+        },
+        set students(studentsValue) {
+            this._students = studentsValue.slice();
+        },
         addStudent: function(name) {
-            var studentForAdding = Object.create(Student).init(name);
+            var studentForAdding = Object.create(Student).init(name);            
+            this.students.push(studentForAdding);
             return studentForAdding.id;
         },
         getAllStudents: function() {
+            var studentArray = [];
+            this._students.forEach(s => studentArray.push({firstname: s._givenName, lastname: s._surname, id: s.id}));          
+            return studentArray;
         },
         submitHomework: function(studentID, homeworkID) {
         },
@@ -152,6 +166,5 @@ function solve() {
 
     return Course;
 };
-
 
 module.exports = solve;
