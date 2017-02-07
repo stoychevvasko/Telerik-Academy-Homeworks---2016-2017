@@ -45,7 +45,7 @@
 */
 
 function solve() {
-    var Rules = function(parent) {
+    var Rules = function() {
         return {
             validateTitle: function(titleString) {
                 if (!titleString || (typeof titleString) != 'string') {
@@ -99,7 +99,6 @@ function solve() {
                     throw new Error('student id is not a number');
                 }
 
-
                 if (!courseParameter._students.some(s => s.id === studentID)) {
                     throw new Error('student not subscribed to course');
                 }
@@ -107,7 +106,6 @@ function solve() {
                 return studentID ;
             },
             validateHomeworkID: function(homeworkID, courseParameter) {
-
                 if (!homeworkID || !courseParameter || (typeof homeworkID) != 'number') {
                     throw new Error('homework id is not a number');
                 }
@@ -119,7 +117,7 @@ function solve() {
                 return homeworkID;
             }
         }
-    }({});
+    }();
 
     var Student = function(parent) {
         var lastId = 0,
