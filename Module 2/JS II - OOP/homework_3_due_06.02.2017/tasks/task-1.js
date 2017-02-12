@@ -189,6 +189,13 @@ function solve() {
             this._homeworks.push({sID: Rules.validateStudentIDInCourse(studentID, this), hwID: Rules.validateHomeworkID(homeworkID, this)});
         },
         pushExamResults: function(results) {
+            if (!results) {
+                throw new Error("cannot push null exam results");
+            }
+            
+            if (!results.all(r => r.StudentID) || (results.some(r => typeof r.StudentID != 'number')) || !results.all.score || (typeof results.some.score != 'number')) {
+                throw new Error("cannot push exam results unexpected format");
+            }
         },
         getTopStudents: function() {
         }
