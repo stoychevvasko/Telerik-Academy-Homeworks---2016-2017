@@ -7,7 +7,7 @@ namespace Problem_01.Tests
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    
+
     /// <summary>
     /// Contains testing functionality for the <see cref="Student"/> class.
     /// </summary>
@@ -100,6 +100,54 @@ namespace Problem_01.Tests
 
             // Assert
             Assert.AreEqual(stu.UniqueNumber, 10500);
+        }
+
+        /// <summary>
+        /// Test method.
+        /// </summary>
+        [TestMethod]
+        public void GetCorrectName_WhenGetterUsed()
+        {
+            // Arrange
+            var expectedName = "John Doe";
+            var stu = new Student(expectedName, 10000);
+
+            // Act
+            var actualName = stu.Name;
+
+            // Assert
+            Assert.AreEqual(expectedName, actualName);
+        }
+
+        /// <summary>
+        /// Test method.
+        /// </summary>
+        [TestMethod]
+        public void GetCorrectID_WhenGetterUsed()
+        {
+            // Arrange
+            var expectedID = 10000;
+            var stu = new Student("John Doe", expectedID);
+
+            // Act
+            var actualID = stu.UniqueNumber;
+
+            // Assert
+            Assert.AreEqual(expectedID, actualID);
+        }
+
+        /// <summary>
+        /// Test method.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ThrowArgumentOutOfRangeException_WhenSetInvalidStudentIDNegative()
+        {
+            // Arrange            
+            var stu = new Student("John Doe", 10000);
+
+            // Act & Assert
+            stu.UniqueNumber = -200;
         }
     }
 }

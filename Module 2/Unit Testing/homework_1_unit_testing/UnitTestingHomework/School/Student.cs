@@ -6,11 +6,12 @@
 namespace Problem_01
 {
     using System;
+    using Interfaces;
 
     /// <summary>
     /// Represents a student.
     /// </summary>
-    public class Student
+    public class Student : IStudent
     {
         /// <summary>
         /// Holds a student's name.
