@@ -7,8 +7,8 @@
     <ProjectGuid>{72C9A3AE-D662-41FB-9007-63BC27FEB090}</ProjectGuid>
     <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Students_and_courses</RootNamespace>
-    <AssemblyName>Students and courses</AssemblyName>
+    <RootNamespace>School</RootNamespace>
+    <AssemblyName>School</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
