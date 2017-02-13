@@ -51,7 +51,7 @@ Unit testing works to expose defects in a single component of a given module. Un
 Use mocking in order to ensure that you're doing unit testing. Without mocking many unit tests become integration tests instead, so you end up testing the wrong things even with the best intentions. Use mocking.
 
 - NUnit
-- MSTest
+- MSTest/Visual Studio Team Test (VSTT) - integrated in Visual Studio - ***Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll***
 
 Test all public classes/interfaces. Private functionality can remain untested as long as public members have sufficient testing code coverage. 
 
@@ -61,4 +61,72 @@ Ideally, all unit tests should pass before check-in into the source control repo
 
 Dependency injection (technique) - inversion of control (principle) - use interfaces to isolate dependencies so we make sure to perform a unit test and not an integration test.
 
+
+
+
+## 03. Unit Testing
+
+OpenCover - free open source code coverage analyzer
+
+***Test code is annotated using custom attributes:***
+- [TestClass] - denotes a class holding unit tests
+- [TestMethod] - denotes a unit test method
+- [ExpectedException] - test causes an exception - MSTest version 1 only - depricated
+- [Timeout] - sets a timeout for test execution
+- [Ignore] - temporary ignored test case
+- [ClassInitialize], [ClassCleanup] - setup / cleanup logic for the testing class
+- [TestInitialize], [TestCleanup] - setup / cleanup logic for each test case
+
+In Visual Studio - right-click on solution -> Add -> find Unit Test Project.
+
+Right-click on solution again -> Manage NuGet packages -> Browse check pre-release - install NUnit or MSTest.TestFramework V2
+
+Some versions of Visual Studio may require MSTest.Adapter and/or MSTestExtensions as well.
+
+Conventions - use `public class UnitName_Should` as test class, and then test method names can be like `public void TakeActionOrDescribeWhatOccurs_WhenConditionDescribed()`
+
+MSTest version 2 supports test cases, so avoid using version 1 (XML hell).
+
+Do not use [ExpectedException] in MSTest V2 - instead, use Assert.ThrowsException<ExceptionType>(() => MockedObject.MethodCall(args));
+
+`
+[TestInitialize]
+public void TestInit()
+{
+    // logic to be repeated before each test run
+}
+`
+
+TestInitialize - also discouraged as it does not fit with the triple A pattern (3A), see below.
+
+### The 3A Pattern
+
+- **Arrange** all necessary preconditions and inputs
+- **Act** on the object or method under test
+- **Assert** that the expected results have occurred
+
+***Make sure to write a comment for each of the A's - best practice***
+
+Sometimes the Act & Assert phases may be conflated within one. That is okay, as long as comments reflect that so there is no doubt.
+
+### Code Coverage
+
+Code coverage of ***70-80%*** is excellent. Do not strive for 100% coverage, coverage is just a guide, not necessary in all cases.
+
+dotCover - JetBrains' free trial - can use, no MSTest V2 support though
+
+OpenCover - try through the NuGet package manager integrated in VS
+
+#### NUnit
+
+***[TextFixture]*** instead of [TestClass]    
+
+***[Test]*** instead of [TestMethod]    
+
+***Assert.Throws<TypeOfException>(() => UnitUnderTest.MethodCall(args));*** - _NUnit syntax_ for an assertion expecting an exception throw - delegate used (lambda expression)
+
+**NUnit3TestAdapter** - may be required for date-related issues - use V3
+
+Use long descriptive names for test methods - expected input or state, expected result or state, name of tested method or class - all part of the test name. They tend to get very
+long and it is okay. Separate parts using an underscore \_.
 
