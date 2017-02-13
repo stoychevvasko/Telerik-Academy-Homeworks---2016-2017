@@ -5,7 +5,7 @@
 ////-------------------------------------------------------------------------------------------------
 namespace School.Tests
 {
-    using System;    
+    using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
     using School;
 
@@ -57,6 +57,50 @@ namespace School.Tests
 
             // Assert
             Assert.AreEqual(stu.Name, "Valid");
+        }
+
+        /// <summary>
+        /// Test method.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ThrowArgumentOutOfRangeException_WhenSetInvalidStudentIDTooLow()
+        {
+            // Arrange
+            var stu = new Student("John Doe", 10000);
+
+            // Act & Assert
+            stu.UniqueNumber = 1;
+        }
+
+        /// <summary>
+        /// Test method.
+        /// </summary>
+        [TestMethod]
+        [ExpectedException(typeof(ArgumentOutOfRangeException))]
+        public void ThrowArgumentOutOfRangeException_WhenSetInvalidStudentIDTooHigh()
+        {
+            // Arrange
+            var stu = new Student("John Doe", 10000);
+
+            // Act & Assert
+            stu.UniqueNumber = 100000;
+        }
+
+        /// <summary>
+        /// Test method.
+        /// </summary>
+        [TestMethod]
+        public void SetCorrectID_WhenSetValidStudentIDWithinAllowedRange()
+        {
+            // Arrange
+            var stu = new Student("John Doe", 10000);
+
+            // Act
+            stu.UniqueNumber = 10500;
+
+            // Assert
+            Assert.AreEqual(stu.UniqueNumber, 10500);
         }
     }
 }

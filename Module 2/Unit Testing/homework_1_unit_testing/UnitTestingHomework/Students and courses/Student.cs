@@ -71,6 +71,11 @@ namespace School
 
             set
             {
+                if (value < 10000 || value > 99999)
+                {
+                    throw new ArgumentOutOfRangeException(string.Format("Student ID cannot be outside the range [10000, 99999]! Actual - {0}", value));
+                }
+
                 this.uniqueNumber = value;
             }
         }
