@@ -51,3 +51,18 @@
 
 ### Module II
 ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/javascript_logo.png "JavaScript")***[JavaScript II](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/JS%20II%20-%20OOP) - OOP***
+  * *Intro to JavaScript OOP*
+  * *Functions declarions, expressions and IIFEs*
+  * *Closures and Scope*
+  * *Modules and Patterns*
+  * *Classes and Constructors*
+  * *Methods, Properties*
+  * *Inheritance*
+  * *ES6 Features*
+
+![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/unit_testing_logo.png "Unit Testing")***[Unit Testing](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/Unit%20Testing)***
+  * *Intro to Software Engineering*
+  * *Intro to Unit Testing*
+  * *Isolation Techniques*
+  * *Test-Driven Development (TDD)*
+
