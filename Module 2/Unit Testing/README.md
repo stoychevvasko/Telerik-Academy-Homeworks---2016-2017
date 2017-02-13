@@ -8,7 +8,7 @@ Course literature:
 
 ## 01. Introduction to Software Engineering
 
-_Software Engineering is the application of a systematic, disciplined, quantifiable approach to the development, operation, and maintenance of software._ -- ISO/IEEE, 2010
+*Software Engineering is the application of a systematic, disciplined, quantifiable approach to the development, operation, and maintenance of software.* -- ISO/IEEE, 2010
 
 Dev Ops - a hybrid position - developer + system
 administrator/releases/patches - [wiki article](https://en.wikipedia.org/wiki/DevOps)
@@ -33,10 +33,10 @@ Software development consists of the following elements:
 
 ***1988*** - Dave Gelperin and William C. Hetzel classified the phases and goals in software testing    
 
-***1994*** - Kent Beck (author of The Art of Unit Testing)releases the first version of SUnit, the first unit testing framework, designed for the language Smalltalk    
+***1994*** - Kent Beck (author of The Art of Unit Testing) releases the first version of SUnit, the first unit testing framework, designed for the language Smalltalk    
 
 
-_Software testing can provide objective and independent information about the quality of software, as well as the risks of its failure to users._ - Cem Kaner, 2006
+*Software testing can provide objective and independent information about the quality of software, as well as the risks of its failure to users.* - Cem Kaner, 2006
 
 System testing covers a completely integrated system of modules ti verify that the system meets its requirements. It is an end-to-end type of testing.
 
@@ -59,7 +59,7 @@ Ideally, all unit tests should pass before check-in into the source control repo
 
 ***No test should depend upon another test - each unit test must be completely independent and isolated from other tests.***
 
-Dependency injection (technique) - inversion of control (principle) - use interfaces to isolate dependencies so we make sure to perform a unit test and not an integration test.
+Dependency injection (*technique*) - inversion of control (*principle*) - use interfaces to isolate dependencies so we make sure to perform a unit test and not an integration test.
 
 
 
@@ -71,7 +71,7 @@ OpenCover - free open source code coverage analyzer
 ***Test code is annotated using custom attributes:***
 - [TestClass] - denotes a class holding unit tests
 - [TestMethod] - denotes a unit test method
-- [ExpectedException] - test causes an exception - MSTest version 1 only - depricated
+- [ExpectedException] - test causes an exception - MSTest version 1 only - deprecated
 - [Timeout] - sets a timeout for test execution
 - [Ignore] - temporary ignored test case
 - [ClassInitialize], [ClassCleanup] - setup / cleanup logic for the testing class
@@ -87,7 +87,7 @@ Conventions - use `public class UnitName_Should` as test class, and then test me
 
 MSTest version 2 supports test cases, so avoid using version 1 (XML hell).
 
-Do not use [ExpectedException] in MSTest V2 - instead, use Assert.ThrowsException<ExceptionType>(() => MockedObject.MethodCall(args));
+Do not use `[ExpectedException]` in MSTest V2 - instead, use `Assert.ThrowsException<ExceptionType>(() => MockedObject.MethodCall(args));`
 
 `
 [TestInitialize]
@@ -97,7 +97,7 @@ public void TestInit()
 }
 `
 
-TestInitialize - also discouraged as it does not fit with the triple A pattern (3A), see below.
+`[TestInitialize]` - also discouraged as it does not fit with the triple A pattern (3A), see below.
 
 ### The 3A Pattern
 
@@ -119,14 +119,14 @@ OpenCover - try through the NuGet package manager integrated in VS
 
 #### NUnit
 
-***[TextFixture]*** instead of [TestClass]    
+***`[TextFixture]`*** instead of `[TestClass]`    
 
-***[Test]*** instead of [TestMethod]    
+***`[Test]`*** instead of `[TestMethod]`    
 
-***Assert.Throws<TypeOfException>(() => UnitUnderTest.MethodCall(args));*** - _NUnit syntax_ for an assertion expecting an exception throw - delegate used (lambda expression)
+***`Assert.Throws<TypeOfException>(() => UnitUnderTest.MethodCall(args));`*** - _NUnit syntax_ for an assertion expecting an exception throw - delegate used (lambda expression)
 
 **NUnit3TestAdapter** - may be required for date-related issues - use V3
 
 Use long descriptive names for test methods - expected input or state, expected result or state, name of tested method or class - all part of the test name. They tend to get very
-long and it is okay. Separate parts using an underscore \_.
+long and it is okay. Separate parts using an underscore ( `\_` ).
 
