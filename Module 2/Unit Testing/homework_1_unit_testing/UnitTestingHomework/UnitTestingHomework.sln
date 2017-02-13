@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School", "Students and courses\School.csproj", "{72C9A3AE-D662-41FB-9007-63BC27FEB090}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School.Tests", "School.Tests\School.Tests.csproj", "{B4FEC9F9-98BF-461A-BB09-482FE3B9DC16}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "School", "School\School.csproj", "{66BA2E85-D36B-4AEE-B203-7097AAE01F5D}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -13,14 +13,14 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{72C9A3AE-D662-41FB-9007-63BC27FEB090}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{72C9A3AE-D662-41FB-9007-63BC27FEB090}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{72C9A3AE-D662-41FB-9007-63BC27FEB090}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{72C9A3AE-D662-41FB-9007-63BC27FEB090}.Release|Any CPU.Build.0 = Release|Any CPU
 		{B4FEC9F9-98BF-461A-BB09-482FE3B9DC16}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{B4FEC9F9-98BF-461A-BB09-482FE3B9DC16}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{B4FEC9F9-98BF-461A-BB09-482FE3B9DC16}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{B4FEC9F9-98BF-461A-BB09-482FE3B9DC16}.Release|Any CPU.Build.0 = Release|Any CPU
+		{66BA2E85-D36B-4AEE-B203-7097AAE01F5D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{66BA2E85-D36B-4AEE-B203-7097AAE01F5D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{66BA2E85-D36B-4AEE-B203-7097AAE01F5D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{66BA2E85-D36B-4AEE-B203-7097AAE01F5D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

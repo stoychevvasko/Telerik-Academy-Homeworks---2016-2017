@@ -3,7 +3,7 @@
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace School
+namespace Problem_01
 {
     using System;
 

@@ -1,5 +1,5 @@
 ﻿////-------------------------------------------------------------------------------------------------
-//// <copyright file="Startup.cs" company="indepentent developer">
+//// <copyright file="School.cs" company="indepentent developer">
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
@@ -13,18 +13,12 @@
 ////  *   Write VSTT tests
 ////    * Use 2 class library projects in Visual Studio: `School.csproj` and `School.Tests.csproj`
 ////  * Execute the tests using Visual Studio and check the code coverage.Ensure it is at least 90%.
-namespace School
+namespace Problem_01
 {
     /// <summary>
-    /// Contains Main() method.
+    /// Represents a school.
     /// </summary>
-    public class Startup
+    public class School
     {
-        /// <summary>
-        /// Main exe.
-        /// </summary>
-        public static void Main()
-        {
-        }
     }
 }

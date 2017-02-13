@@ -53,13 +53,13 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Students and courses\School.csproj">
-      <Project>{72c9a3ae-d662-41fb-9007-63bc27feb090}</Project>
-      <Name>School</Name>
-    </ProjectReference>
+    <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <None Include="packages.config" />
+    <ProjectReference Include="..\School\School.csproj">
+      <Project>{66ba2e85-d36b-4aee-b203-7097aae01f5d}</Project>
+      <Name>School</Name>
+    </ProjectReference>
   </ItemGroup>
   <Choose>
     <When Condition="'$(VisualStudioVersion)' == '10.0' And '$(IsCodedUITest)' == 'True'">

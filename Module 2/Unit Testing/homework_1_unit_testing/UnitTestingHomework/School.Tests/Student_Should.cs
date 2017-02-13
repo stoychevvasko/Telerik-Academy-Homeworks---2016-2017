@@ -3,12 +3,11 @@
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace School.Tests
+namespace Problem_01.Tests
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    using School;
-
+    
     /// <summary>
     /// Contains testing functionality for the <see cref="Student"/> class.
     /// </summary>
