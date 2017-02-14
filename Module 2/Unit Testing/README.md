@@ -119,14 +119,37 @@ OpenCover - try through the NuGet package manager integrated in VS
 
 #### NUnit
 
-***`[TextFixture]`*** instead of `[TestClass]`    
+`[TextFixture]` instead of `[TestClass]`    
 
-***`[Test]`*** instead of `[TestMethod]`    
+`[Test]` instead of `[TestMethod]`    
 
-***`Assert.Throws<TypeOfException>(() => UnitUnderTest.MethodCall(args));`*** - _NUnit syntax_ for an assertion expecting an exception throw - delegate used (lambda expression)
+`Assert.Throws<TypeOfException>(() => UnitUnderTest.MethodCall(args));` - _NUnit syntax_ for an assertion expecting an exception throw - delegate used (lambda expression)
 
 **NUnit3TestAdapter** - may be required for date-related issues - use V3
 
 Use long descriptive names for test methods - expected input or state, expected result or state, name of tested method or class - all part of the test name. They tend to get very
-long and it is okay. Separate parts using an underscore ( `\_` ).
+long and it is okay. Separate parts using an underscore ( `_` ).
+
+
+
+## 04. Isolation Techniques
+
+### Inversion of control pattern
+
+Execution of a certain task is decoupled from the implementation. Every module can focus on what it is designed for, do not go by assumptions of what other modules do but rely on
+public contracts. Replacing modules has no side effects on other components. [wiki article](https://en.wikipedia.org/wiki/Inversion_of_control)
+
+IoC (Inversion of Control) containers - Ninject and Unity. An injector, sometimes called provider or container), creates instances of classes that implement a given dependency
+interface on request.
+
+- ***Fake*** - objects actually have working implementations but with limited capabilities    
+- ***Stub*** - provide canned answers to calls made during the test. May record information about calls.
+- ***Mock*** - objects pre-programmed with expectations against we assert
+
+`collection.SingleOrDefault(x => x.Id == id);` - return single `x` element with matching `id`, or `null` if no or more than 1 matches
+`collection.FirstOrDefault(x => x.Id == id);` - return `x` if found at least once, or null if no match
+
+
+
+
 

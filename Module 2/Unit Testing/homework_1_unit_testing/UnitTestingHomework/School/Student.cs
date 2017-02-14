@@ -6,13 +6,19 @@
 namespace Problem_01
 {
     using System;
-    using Interfaces;
+    using Contracts;
+    using Problem_01.Providers;
 
     /// <summary>
     /// Represents a student.
     /// </summary>
     public class Student : IStudent
     {
+        /// <summary>
+        /// Student unique number provider.
+        /// </summary>
+        private IdProvider idProvider;
+
         /// <summary>
         /// Holds a student's name.
         /// </summary>
@@ -32,6 +38,7 @@ namespace Problem_01
         {
             this.Name = name;
             this.UniqueNumber = id;
+            this.idProvider = new IdProvider();
         }
 
         /// <summary>

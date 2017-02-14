@@ -1,25 +1,27 @@
 ﻿////-------------------------------------------------------------------------------------------------
-//// <copyright file="ICourse.cs" company="indepentent developer">
+//// <copyright file="IdProvider.cs" company="indepentent developer">
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace Problem_01.Interfaces
+namespace Problem_01.Providers
 {
-    using System.Collections.Generic;
-
     /// <summary>
-    /// Provides course-related functionality.
+    /// Providers unique ids.
     /// </summary>
-    public interface ICourse
+    public class IdProvider
     {
         /// <summary>
-        /// Gets or sets the name of a course.
+        /// Holds the current id value;
         /// </summary>
-        string Name { get; set; }
+        private static int currentId = 10000;
 
         /// <summary>
-        /// Gets or sets an IList collection of IStudent-compliant objects.
+        /// Returns the next unique id integer.
         /// </summary>
-        IList<IStudent> Students { get; set; }
+        /// <returns>An integer value</returns>
+        public int NextId()
+        {
+            return currentId++;
+        }
     }
 }

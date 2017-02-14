@@ -7,7 +7,7 @@ namespace Problem_01
 {
     using System;
     using System.Collections.Generic;
-    using Interfaces;
+    using Contracts;
 
     /// <summary>
     /// Represents a course.
@@ -22,7 +22,7 @@ namespace Problem_01
         /// <summary>
         /// Holds a set of students currently subscribed to this course.
         /// </summary>
-        private HashSet<Student> students;
+        private ICollection<Student> students;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Course"/> class.
@@ -63,11 +63,11 @@ namespace Problem_01
         /// <summary>
         /// Gets or sets the students currently subscribed to this course.
         /// </summary>
-        public IList<IStudent> Students
+        public ICollection<IStudent> Students
         {
             get
             {
-                return (IList<IStudent>)this.students;
+                return (ICollection<IStudent>)this.students;
             }
 
             set
