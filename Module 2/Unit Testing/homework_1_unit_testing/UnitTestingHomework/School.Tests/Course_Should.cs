@@ -6,8 +6,9 @@
 namespace SchoolSystem.Tests
 {
     using System;
+    using Core.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
-    
+
     /// <summary>
     /// Contains testing functionality for the <see cref="Course"/> class.
     /// </summary>

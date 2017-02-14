@@ -3,7 +3,7 @@
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace SchoolSystem
+namespace SchoolSystem.Core.Models
 {
     using System;
     using Core.Contracts;

@@ -6,6 +6,7 @@
 namespace SchoolSystem.Tests
 {
     using System;
+    using Core.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
 
     /// <summary>

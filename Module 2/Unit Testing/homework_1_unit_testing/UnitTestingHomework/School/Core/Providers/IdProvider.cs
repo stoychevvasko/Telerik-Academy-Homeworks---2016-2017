@@ -5,10 +5,12 @@
 ////-------------------------------------------------------------------------------------------------
 namespace SchoolSystem.Core.Providers
 {
+    using SchoolSystem.Core.Contracts;
+
     /// <summary>
     /// Providers unique ids.
     /// </summary>
-    public class IdProvider
+    public class IdProvider : IIdProvider
     {
         /// <summary>
         /// Holds the current id value;
