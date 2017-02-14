@@ -3,7 +3,7 @@
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace Problem_01.Contracts
+namespace SchoolSystem.Core.Contracts
 {
     using System.Collections.Generic;
 

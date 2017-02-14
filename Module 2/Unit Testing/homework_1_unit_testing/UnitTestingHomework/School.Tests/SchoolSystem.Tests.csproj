@@ -57,9 +57,9 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\School\School.csproj">
+    <ProjectReference Include="..\School\SchoolSystem.csproj">
       <Project>{66ba2e85-d36b-4aee-b203-7097aae01f5d}</Project>
-      <Name>School</Name>
+      <Name>SchoolSystem</Name>
     </ProjectReference>
   </ItemGroup>
   <Choose>

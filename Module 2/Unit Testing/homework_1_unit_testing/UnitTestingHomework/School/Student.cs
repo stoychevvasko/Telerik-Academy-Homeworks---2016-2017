@@ -3,22 +3,16 @@
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace Problem_01
+namespace SchoolSystem
 {
     using System;
-    using Contracts;
-    using Problem_01.Providers;
+    using Core.Contracts;
 
     /// <summary>
     /// Represents a student.
     /// </summary>
     public class Student : IStudent
     {
-        /// <summary>
-        /// Student unique number provider.
-        /// </summary>
-        private IdProvider idProvider;
-
         /// <summary>
         /// Holds a student's name.
         /// </summary>
@@ -38,7 +32,6 @@ namespace Problem_01
         {
             this.Name = name;
             this.UniqueNumber = id;
-            this.idProvider = new IdProvider();
         }
 
         /// <summary>

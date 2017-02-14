@@ -3,7 +3,7 @@
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace Problem_01.Tests
+namespace SchoolSystem.Tests
 {
     using System;
     using Microsoft.VisualStudio.TestTools.UnitTesting;

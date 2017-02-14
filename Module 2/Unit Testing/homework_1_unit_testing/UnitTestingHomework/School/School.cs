@@ -13,7 +13,7 @@
 ////  *   Write VSTT tests
 ////    * Use 2 class library projects in Visual Studio: `School.csproj` and `School.Tests.csproj`
 ////  * Execute the tests using Visual Studio and check the code coverage.Ensure it is at least 90%.
-namespace Problem_01
+namespace SchoolSystem
 {
     /// <summary>
     /// Represents a school.

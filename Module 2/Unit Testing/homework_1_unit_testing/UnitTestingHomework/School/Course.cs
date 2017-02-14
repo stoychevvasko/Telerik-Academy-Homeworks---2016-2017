@@ -3,11 +3,11 @@
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace Problem_01
+namespace SchoolSystem
 {
     using System;
     using System.Collections.Generic;
-    using Contracts;
+    using Core.Contracts;
 
     /// <summary>
     /// Represents a course.

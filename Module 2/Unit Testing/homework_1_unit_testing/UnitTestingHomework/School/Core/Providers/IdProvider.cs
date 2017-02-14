@@ -3,7 +3,7 @@
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace Problem_01.Providers
+namespace SchoolSystem.Core.Providers
 {
     /// <summary>
     /// Providers unique ids.
