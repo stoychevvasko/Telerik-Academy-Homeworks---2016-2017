@@ -8,6 +8,7 @@ namespace SchoolSystem.Tests
     using System;
     using Core.Models;
     using Microsoft.VisualStudio.TestTools.UnitTesting;
+    using School.Tests.Core.Fakes;
 
     /// <summary>
     /// Contains testing functionality for the <see cref="Student"/> class.
@@ -23,7 +24,7 @@ namespace SchoolSystem.Tests
         public void ThrowArgumentNullException_WhenSetNullStudentName()
         {
             // Arrange
-            var stu = new Student("John Doe", 10000);
+            var stu = new FakeStudent("John Doe", 10000);
 
             // Act & Assert
             stu.Name = null;
@@ -37,7 +38,7 @@ namespace SchoolSystem.Tests
         public void ThrowArgumentException_WhenSetStringEmptyStudentName()
         {
             // Arrange
-            var stu = new Student("John Doe", 10000);
+            var stu = new FakeStudent("John Doe", 10000);
 
             // Act & Assert
             stu.Name = string.Empty;
@@ -50,7 +51,7 @@ namespace SchoolSystem.Tests
         public void SetCorrectName_WhenSetValidStudentName()
         {
             // Arrange
-            var stu = new Student("John Doe", 10000);
+            var stu = new FakeStudent("John Doe", 10000);
 
             // Act
             stu.Name = "Valid";
@@ -67,7 +68,7 @@ namespace SchoolSystem.Tests
         public void ThrowArgumentOutOfRangeException_WhenSetInvalidStudentIDTooLow()
         {
             // Arrange
-            var stu = new Student("John Doe", 10000);
+            var stu = new FakeStudent("John Doe", 10000);
 
             // Act & Assert
             stu.UniqueNumber = 1;
@@ -81,7 +82,7 @@ namespace SchoolSystem.Tests
         public void ThrowArgumentOutOfRangeException_WhenSetInvalidStudentIDTooHigh()
         {
             // Arrange
-            var stu = new Student("John Doe", 10000);
+            var stu = new FakeStudent("John Doe", 10000);
 
             // Act & Assert
             stu.UniqueNumber = 100000;
@@ -94,7 +95,7 @@ namespace SchoolSystem.Tests
         public void SetCorrectID_WhenSetValidStudentIDWithinAllowedRange()
         {
             // Arrange
-            var stu = new Student("John Doe", 10000);
+            var stu = new FakeStudent("John Doe", 10000);
 
             // Act
             stu.UniqueNumber = 10500;
@@ -111,7 +112,7 @@ namespace SchoolSystem.Tests
         {
             // Arrange
             var expectedName = "John Doe";
-            var stu = new Student(expectedName, 10000);
+            var stu = new FakeStudent(expectedName, 10000);
 
             // Act
             var actualName = stu.Name;
@@ -128,7 +129,7 @@ namespace SchoolSystem.Tests
         {
             // Arrange
             var expectedID = 10000;
-            var stu = new Student("John Doe", expectedID);
+            var stu = new FakeStudent("John Doe", expectedID);
 
             // Act
             var actualID = stu.UniqueNumber;
@@ -145,7 +146,7 @@ namespace SchoolSystem.Tests
         public void ThrowArgumentOutOfRangeException_WhenSetInvalidStudentIDNegative()
         {
             // Arrange            
-            var stu = new Student("John Doe", 10000);
+            var stu = new FakeStudent("John Doe", 10000);
 
             // Act & Assert
             stu.UniqueNumber = -200;

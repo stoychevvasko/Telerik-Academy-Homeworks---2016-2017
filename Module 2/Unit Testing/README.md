@@ -149,7 +149,16 @@ interface on request.
 `collection.SingleOrDefault(x => x.Id == id);` - return single `x` element with matching `id`, or `null` if no or more than 1 matches
 `collection.FirstOrDefault(x => x.Id == id);` - return `x` if found at least once, or null if no match
 
+#### Constrained frameworks
 
+Constrained testing frameworks usually generate code at runtime that inherits and overrides interfaces or base classes. In .NET they are unable to fake static methods, nonvirtual
+methods, and nonpublic methods.
+
+#### Unconstrained frameworks
+
+They cover all functionality of constrained frameworks, but also cover previously untestable code and can fake third-party systems that you cannot control.
+
+##### Moq & JustMock
 
 
 

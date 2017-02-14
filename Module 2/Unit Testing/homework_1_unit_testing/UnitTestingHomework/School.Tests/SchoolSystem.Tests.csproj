@@ -49,6 +49,8 @@
     <Otherwise />
   </Choose>
   <ItemGroup>
+    <Compile Include="Core\Fakes\FakeCourse.cs" />
+    <Compile Include="Core\Fakes\FakeStudent.cs" />
     <Compile Include="Course_Should.cs" />
     <Compile Include="Student_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
