@@ -10,24 +10,11 @@ Course literature:
 
 *Software Engineering is the application of a systematic, disciplined, quantifiable approach to the development, operation, and maintenance of software.* -- ISO/IEEE, 2010
 
-Dev Ops - a hybrid position - developer + system
-administrator/releases/patches - [wiki article](https://en.wikipedia.org/wiki/DevOps)
-
 Software development consists of the following elements:
 - requirement analysis
 - design
 - construction
 - testing
-
-***1940s*** - first digital computers - split between hardware and software    
-
-***1950s*** - first programming languages - Fortran, ALGOL, COBOL    
-
-***1968*** - David Parnas introduces the concept of modularity    
-
-***1972*** - David Parnas introduces the concept of information hiding    
-
-***1968*** - first Software Engineering conference, sponsored and hosted by NATO - first conventions and design patterns introduced    
 
 ***1979*** - Glenford J. Myers introduces the separation of debugging from testing    
 
@@ -38,29 +25,26 @@ Software development consists of the following elements:
 
 *Software testing can provide objective and independent information about the quality of software, as well as the risks of its failure to users.* - Cem Kaner, 2006
 
-System testing covers a completely integrated system of modules ti verify that the system meets its requirements. It is an end-to-end type of testing.
+- **System testing** covers a completely integrated system of modules to verify that the system meets its requirements. It is an end-to-end type of testing.
 
-Integration testing works to expose defects in the interaction between integrated components of a given module. 
+- **Integration testing** works to expose defects in the interaction between integrated components of a given module. 
 
-Unit testing works to expose defects in a single component of a given module. Unit tests focus on the single smallest unit of code.
+- **Unit testing** works to expose defects in a *single component* of a given module. Unit tests focus on the single smallest unit of code.
 
 
 
 ## 02. Introduction to Unit Testing
 
-Use mocking in order to ensure that you're doing unit testing. Without mocking many unit tests become integration tests instead, so you end up testing the wrong things even with the best intentions. Use mocking.
+The *mocking* technique is used to ensure proper isolation of components so the test can truly be a unit test and not an integration test. Without mocking many unit tests become integration tests instead, due to exposure to additional failure points within multiple other dependencies. With proper mocking the test minimizes the possibility of side-effect interactions.
 
 - NUnit
 - MSTest/Visual Studio Team Test (VSTT) - integrated in Visual Studio - ***Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll***
 
 Test all public classes/interfaces. Private functionality can remain untested as long as public members have sufficient testing code coverage. 
 
-Ideally, all unit tests should pass before check-in into the source control repository.
-
 ***No test should depend upon another test - each unit test must be completely independent and isolated from other tests.***
 
-Dependency injection (*technique*) - inversion of control (*principle*) - use interfaces to isolate dependencies so we make sure to perform a unit test and not an integration test.
-
+Dependency injection (*technique*) - inversion of control (*principle*) - use interfaces to isolate dependencies for the purposes of independent unit testing
 
 
 
@@ -89,15 +73,11 @@ MSTest version 2 supports test cases, so avoid using version 1 (XML hell).
 
 Do not use `[ExpectedException]` in MSTest V2 - instead, use `Assert.ThrowsException<ExceptionType>(() => MockedObject.MethodCall(args));`
 
-`
-[TestInitialize]
+`[TestInitialize]
 public void TestInit()
-{
-    // logic to be repeated before each test run
-}
-`
-
-`[TestInitialize]` - also discouraged as it does not fit with the triple A pattern (3A), see below.
+{    
+    // logic to be repeated before each test run    
+}` - also discouraged as it does not fit with the triple A pattern (3A), see below.
 
 ### The 3A Pattern
 
@@ -119,11 +99,11 @@ OpenCover - try through the NuGet package manager integrated in VS
 
 #### NUnit
 
-`[TextFixture]` instead of `[TestClass]`    
+- `[TextFixture]` instead of `[TestClass]`
 
-`[Test]` instead of `[TestMethod]`    
+- `[Test]` instead of `[TestMethod]`    
 
-`Assert.Throws<TypeOfException>(() => UnitUnderTest.MethodCall(args));` - _NUnit syntax_ for an assertion expecting an exception throw - delegate used (lambda expression)
+- `Assert.Throws<TypeOfException>(() => UnitUnderTest.MethodCall(args));` - _NUnit syntax_ for an assertion expecting an exception throw - delegate used (lambda expression)
 
 **NUnit3TestAdapter** - may be required for date-related issues - use V3
 
@@ -146,8 +126,12 @@ interface on request.
 - ***Stub*** - provide canned answers to calls made during the test. May record information about calls.
 - ***Mock*** - objects pre-programmed with expectations against we assert
 
-- `collection.SingleOrDefault(x => x.Id == id);` - return single `x` element with matching `id`, or `null` if no or more than 1 matches
-- `collection.FirstOrDefault(x => x.Id == id);` - return `x` if found at least once, or null if no match
+`collection.SingleOrDefault(x => x.Id == id);` - return single `x` element with matching `id`, or `null` if no or more than 1 matches    
+
+`collection.FirstOrDefault(x => x.Id == id);` - return `x` if found at least once, or null if no match    
+
+To test an abstract class in C#, manually create a mock class that inherits the sut directly. Maybe do a separate folder.
+
 
 #### Constrained frameworks
 
@@ -166,6 +150,8 @@ They cover all functionality of constrained frameworks, but also cover previousl
 - `lectureMock.Setup(x => x.ToString());` - setting up the mock to call `.ToString()` method. Necessary so we can assert for calls on the mock.
 - `lectureMock.Verify(x => x.ToString(), Times.Once);` - asserts that the mock has called the `.ToString()` method exactly one time.
 - `StringAssert.Containst("string for checking", itemToCheckAgainst);` - use for checking string values
+- `var studentStub = new Mock<IStudent>();    
+   studentStub.SetupGet(x => x.Username).Returns("Pesho");` - creates a student stub and sets up itse Username property getter to return fixed string "Pesho"
 
 
 ##### Telerik JustMock syntax:
@@ -189,3 +175,13 @@ Create a new test class for each property/method being tested (convention). Name
 - `Assert.Throws<ArgumentNullException>(() => item = null);` - checks of `item` throws `ArgumentNullException` when we attempt to ascribe `null` value to `item`, lambda expressions
 are used typically
 
+
+#### Exposing internal members for testing
+
+Edit *AssemblyInfo.cs* of SUT-project with these attributes:
+
+`[assembly: InternalsVisibleTo("Namespace.With.Tests")]`    
+
+`[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]` - exposes internals to the Moq framework - necessary for allowing mocks    
+
+If you absolutely must test a `private` member, you can change it to `protected` so it is revealed to descendants safely.
