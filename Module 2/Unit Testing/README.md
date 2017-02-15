@@ -158,7 +158,37 @@ methods, and nonpublic methods.
 
 They cover all functionality of constrained frameworks, but also cover previously untestable code and can fake third-party systems that you cannot control.
 
-##### Moq & JustMock
+#### Moq & JustMock
+
+##### Moq syntax:
+`var lectureMock = new Mock<ILecture>();` - creates a new mock for assertions
+`course.Lectures.Add(lectureMock.Object);` - adds the mock to an existing course. **Do not forget the .Object** part.
+`lectureMock.Setup(x => x.ToString());` - setting up the mock to call `.ToString()` method. Necessary so we can assert for calls on the mock.
+`lectureMock.Verify(x => x.ToString(), Times.Once);` - asserts that the mock has called the `.ToString()` method exactly one time.
+
+##### Telerik JustMock syntax:
+`var lectureMock = Telerik.JustMock.Mock.Create<ILecture>();` - to create a new mock
+`Telerik.JustMock.Mock.Arrange(() => lectureMock.ToString());` - setup syntax for JustMock
+`course.Lectures.Add(lectureMock);` - adds the mock to an existing course. **No .Object** part necessary here.
+`Telerik.JustMock.Mock.Assert(() => lectureMock.ToString(), Telerik.JustMock.Occurs.Once());` - tests for a single call of `.ToString()` method
+***If testing for method calls doesn't work properly with JustMock, see if method is part of the interface.*** One workaround would be to create mocks from the class itself, not the
+interface, for example when using `Telerik.JustMock.Mock.Create<ClassNameHereNotInterface>();`. The difference comes from being an unconstrained framework, as opposed to Moq being a
+constrained framework. JustMock can mock statics, abstract classes etc.
+
+
+#### Tips for Nunit    
+
+Create a new test class for each property/method being tested (convention). Name should be `ElementTested_Should`.
+
+`Assert.IsInstanceOf(typeof(List<InnerType>), item);` - checks if `item` is a `List of Inner Type`-like object
+`Assert.IsNotNull(item);` - checks if item is null
+`Assert.AreSame(item, anotherItem)` - checks for equality by reference (same object)
+`Assert.Throws<ArgumentNullException>(() => item = null);` - checks of `item` throws `ArgumentNullException` when we attempt to ascribe `null` value to `item`, lambda expressions
+are used typically
+
+
+
+
 
 
 
