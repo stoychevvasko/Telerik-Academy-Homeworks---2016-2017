@@ -38,7 +38,7 @@ Software development consists of the following elements:
 The *mocking* technique is used to ensure proper isolation of components so the test can truly be a unit test and not an integration test. Without mocking many unit tests become integration tests instead, due to exposure to additional failure points within multiple other dependencies. With proper mocking the test minimizes the possibility of side-effect interactions.
 
 - NUnit
-- MSTest/Visual Studio Team Test (VSTT) - integrated in Visual Studio - ***Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll***
+- MSTest/Visual Studio Team Test (VSTT) - integrated in Visual Studio - Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll.
 
 Test all public classes/interfaces. Private functionality can remain untested as long as public members have sufficient testing code coverage. 
 
@@ -185,3 +185,7 @@ Edit *AssemblyInfo.cs* of SUT-project with these attributes:
 `[assembly: InternalsVisibleTo("DynamicProxyGenAssembly2")]` - exposes internals to the Moq framework - necessary for allowing mocks    
 
 If you absolutely must test a `private` member, you can change it to `protected` so it is revealed to descendants safely.
+
+### Additional Resources
+
+[NUnit V3 documentation](https://github.com/nunit/docs/wiki/Constraints)
