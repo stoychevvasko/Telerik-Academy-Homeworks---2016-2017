@@ -77,6 +77,7 @@
     <Compile Include="ResourcesFactoryTests\GetResources_Should.cs" />
     <Compile Include="TeleportStationTests\Constructor_Should.cs" />
     <Compile Include="TeleportStationTests\TeleportStation_Fake.cs" />
+    <Compile Include="TeleportStationTests\TeleportUnit_Should.cs" />
     <Compile Include="UnitsFactoryTests\GetUnit_Should.cs" />
   </ItemGroup>
   <ItemGroup>
