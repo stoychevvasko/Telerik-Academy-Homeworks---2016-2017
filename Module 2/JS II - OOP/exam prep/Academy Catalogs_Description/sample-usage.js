@@ -1,18 +1,51 @@
 function solve(){            
-	return {
-		getBook: function (name, isbn, genre, description) {
-			//return a book instance
-		},
-		getMedia: function (name, rating, duration, description) {
-			//return a media instance
-		}
-		getBookCatalog: function (name) {
-			//return a book catalog instance
-		},
-		getMediaCatalog: function (name) {
-			//return a media catalog instance
-		}
-	};
+    return {
+        getBook: function (name, isbn, genre, description) {
+            //return a book instance
+        },
+        getMedia: function (name, rating, duration, description) {
+            //return a media instance
+        }
+        getBookCatalog: function (name) {
+            //return a book catalog instance
+        },
+        getMediaCatalog: function (name) {
+            //return a media catalog instance
+        }
+    };
+
+    var Item = function(parent){
+        var lastId = 0,
+            item = Object.create(parent, {
+                id: {
+                    get: function(){
+                    },
+                    set: function(){
+                    }
+                },
+                description: {
+                    get: function(){
+                    },
+                    set: function(){
+                    }
+                },
+                name: {
+                    get: function(){
+                    },
+                    set: function(){
+                    }
+                }
+            });
+
+        item.init = function(description, name) {
+            this.id = lastId += 1;
+            this.description = description;
+            this.name = name;
+            return this;
+        }
+
+        return item;
+    }({});
 }
 
 var module = solve();
