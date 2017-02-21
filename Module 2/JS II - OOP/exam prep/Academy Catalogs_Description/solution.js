@@ -1,4 +1,7 @@
-function solve(){            
+function solve(){
+    var Item,
+        Book;
+
     return {
         getBook: function (name, isbn, genre, description) {
             //return a book instance
@@ -14,7 +17,7 @@ function solve(){
         }
     };
 
-    var Item = function(parent){
+    Item = function(parent){
         var lastId = 0,
             item = Object.create(parent, {
                 id: {
@@ -46,6 +49,10 @@ function solve(){
 
         return item;
     }({});
+
+    Book = function(parent){
+        
+    }(Item);
 }
 
 var module = solve();
