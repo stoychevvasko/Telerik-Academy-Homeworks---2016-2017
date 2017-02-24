@@ -1,6 +1,7 @@
 function solve(){
     var Item,
-        Book;
+        Book,
+        Media;
 
     return {
         getBook: function (name, isbn, genre, description) {
@@ -10,12 +11,18 @@ function solve(){
         },
         getMedia: function (name, rating, duration, description) {
             //return a media instance
-        }
+            let newMedia = new Media(name, rating, duration, description);
+            return newMedia;
+        },
         getBookCatalog: function (name) {
             //return a book catalog instance
+            let newBookCatalog = new BookCatalog(name, []);
+            return newBookCatalog;
         },
         getMediaCatalog: function (name) {
             //return a media catalog instance
+            let newMediaCatalog = new MediaCatalog(name, []);
+            return newMediaCatalog;
         }
     };
 
@@ -84,6 +91,124 @@ function solve(){
 
         return Book;
     })(Item);
+
+    Media = (function(Parent) {
+        function Media(description, name, duration, rating) {
+            Parent.call(this, description, name);
+
+            this.duration = duration;
+            this.rating = rating;
+        }
+        Media.prototype = Object.create(Parent.prototype);
+
+        Object.defineProperty(Media.prototype, '_duration', {
+            get: function() {
+                return this.duration;
+            },
+            set: function(d) {
+                this.duration = d;
+            }
+        });
+
+        Object.defineProperty(Media.prototype, '_rating', {
+            get: function() {
+                return this.rating;
+            },
+            set: function(r) {
+                this.rating = r;
+            }
+        });
+
+        return Media;
+    })(Item);
+
+    Catalog = (function(Parent) {
+        var lastId = 0;
+        function Catalog(name, items) {
+            this.id = lastId += 1;
+            this.name = name;
+            this.items = items;
+        }
+        Catalog.prototype = Object.create(Parent.prototype);
+
+        Object.defineProperty(Catalog.prototype, '_id', {
+            get: function() {
+                return this.id;
+            }
+        });
+
+        Object.defineProperty(Catalog.prototype, '_name', {
+            get: function() {
+                return this.name;
+            },
+            set: function(n) {
+                this.name = n;
+            }
+        });
+
+        Object.defineProperty(Catalog.prototype, '_items', {
+            get: function() {
+                return this.items;
+            }
+        });
+
+        Catalog.prototype.add = function(itemOrItems) {
+            // TODO - Complete method definition
+            return this;
+        }
+
+        Catalog.prototype.find = function(idOrOptions) {
+            // TODO - Complete method definition
+        }
+
+        Catalog.prototype.search = function(pattern) {
+            // TODO - Complete method definition
+        }
+
+        return Catalog;
+    })(function(){});
+    
+    BookCatalog = (function(Parent) {
+        function BookCatalog(name, items) {
+            Parent.call(this, name, items);
+        }
+        BookCatalog.prototype = Object.create(Parent.prototype);
+
+        BookCatalog.prototype.add = function(bookOrBooksArray) {
+            // TODO - Complete method definition
+        }
+
+        BookCatalog.prototype.getGenres = function() {
+            // TODO - Complete method definition
+        }
+
+        BookCatalog.prototype.find = function(options) {
+            // TODO - Complete method definition
+        }
+
+        return BookCatalog;
+    })(Catalog);
+
+    MediaCatalog = (function(Parent) {
+        function MediaCatalog(name, items) {
+            Parent.call(this, name, items);
+        }
+        MediaCatalog.prototype = Object.create(Parent.prototype);
+
+        MediaCatalog.prototype.add = function(mediaOrMediaArray) {
+            // TODO - Complete method definition
+        }
+
+        MediaCatalog.prototype.getTop = function(count) {
+            // TODO - Complete method definition
+        }
+
+        MediaCatalog.prototype.getSortedByDuration = function() {
+            // TODO - Complete method definition
+        }
+
+        return MediaCatalog;
+    })(Catalog);
 }
 
 var module = solve();
