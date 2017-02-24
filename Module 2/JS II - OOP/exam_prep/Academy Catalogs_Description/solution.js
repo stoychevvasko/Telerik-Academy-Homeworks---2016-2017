@@ -5,6 +5,8 @@ function solve(){
     return {
         getBook: function (name, isbn, genre, description) {
             //return a book instance
+            let newBook = new Book(name, description, isbn, genre);
+            return newBook;
         },
         getMedia: function (name, rating, duration, description) {
             //return a media instance
@@ -17,42 +19,71 @@ function solve(){
         }
     };
 
-    Item = function(parent){
-        var lastId = 0,
-            item = Object.create(parent, {
-                id: {
-                    get: function(){
-                    },
-                    set: function(){
-                    }
-                },
-                description: {
-                    get: function(){
-                    },
-                    set: function(){
-                    }
-                },
-                name: {
-                    get: function(){
-                    },
-                    set: function(){
-                    }
-                }
-            });
-
-        item.init = function(description, name) {
+    Item = (function(Parent){
+        var lastId = 0;
+        function Item(description, name) {
             this.id = lastId += 1;
             this.description = description;
             this.name = name;
-            return this;
         }
+        Item.prototype = Object.create(Parent.prototype);
 
-        return item;
-    }({});
+        Object.defineProperty(Item.prototype, '_id', {
+            get: function() {
+                return this.id;
+            }
+        });
 
-    Book = function(parent){
-        
-    }(Item);
+        Object.defineProperty(Item.prototype, '_description', {
+            get: function() {
+                return this.description;
+            },
+            set: function(d) {
+                this.description = d;
+            }
+        });
+
+        Object.defineProperty(Item.prototype, '_name', {
+            get: function() {
+                return this.name;
+            },
+            set: function (n) {
+                this.name = n;
+            }
+        });
+
+        return Item;
+    })(function(){});
+
+    Book = (function(Parent){
+        function Book(description, name, isbn, genre) {
+            Parent.call(this, description, name);
+
+            this.isbn = isbn;
+            this.genre = genre;
+        }
+        Book.prototype = Object.create(Parent.prototype);
+
+        Object.defineProperty(Book.prototype, '_isbn', {
+            get: function() {
+                return this.isbn;
+            },
+            set: function (i) {
+                this.isbn = i;
+            }
+        });
+
+        Object.defineProperty(Book.prototype, '_genre', {
+            get: function() {
+                return this.genre;
+            },
+            set: function(g) {
+                this.genre = g;
+            }
+        });
+
+        return Book;
+    })(Item);
 }
 
 var module = solve();
