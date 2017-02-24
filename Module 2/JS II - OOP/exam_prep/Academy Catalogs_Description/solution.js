@@ -1,30 +1,10 @@
 function solve(){
     var Item,
         Book,
-        Media;
-
-    return {
-        getBook: function (name, isbn, genre, description) {
-            //return a book instance
-            let newBook = new Book(name, description, isbn, genre);
-            return newBook;
-        },
-        getMedia: function (name, rating, duration, description) {
-            //return a media instance
-            let newMedia = new Media(name, rating, duration, description);
-            return newMedia;
-        },
-        getBookCatalog: function (name) {
-            //return a book catalog instance
-            let newBookCatalog = new BookCatalog(name, []);
-            return newBookCatalog;
-        },
-        getMediaCatalog: function (name) {
-            //return a media catalog instance
-            let newMediaCatalog = new MediaCatalog(name, []);
-            return newMediaCatalog;
-        }
-    };
+        Media,
+        Catalog,
+        BookCatalog,
+        MediaCatalog;
 
     Item = (function(Parent){
         var lastId = 0;
@@ -38,6 +18,9 @@ function solve(){
         Object.defineProperty(Item.prototype, '_id', {
             get: function() {
                 return this.id;
+            },
+            set: function(i) {
+                this.id = i;
             }
         });
 
@@ -123,32 +106,19 @@ function solve(){
     })(Item);
 
     Catalog = (function(Parent) {
-        var lastId = 0;
         function Catalog(name, items) {
-            this.id = lastId += 1;
-            this.name = name;
+            Parent.call(this, 'Catalog-like item', name);
+
             this.items = items;
         }
         Catalog.prototype = Object.create(Parent.prototype);
 
-        Object.defineProperty(Catalog.prototype, '_id', {
-            get: function() {
-                return this.id;
-            }
-        });
-
-        Object.defineProperty(Catalog.prototype, '_name', {
-            get: function() {
-                return this.name;
-            },
-            set: function(n) {
-                this.name = n;
-            }
-        });
-
         Object.defineProperty(Catalog.prototype, '_items', {
             get: function() {
                 return this.items;
+            },
+            set: function(i) {
+                this.items = i;
             }
         });
 
@@ -166,8 +136,8 @@ function solve(){
         }
 
         return Catalog;
-    })(function(){});
-    
+    })(Item);
+
     BookCatalog = (function(Parent) {
         function BookCatalog(name, items) {
             Parent.call(this, name, items);
@@ -209,6 +179,29 @@ function solve(){
 
         return MediaCatalog;
     })(Catalog);
+
+    return {
+        getBook: function(name, isbn, genre, description) {
+            //return a book instance
+            let newBook = new Book(name, description, isbn, genre);
+            return newBook;
+        },
+        getMedia: function(name, rating, duration, description) {
+            //return a media instance
+            let newMedia = new Media(name, rating, duration, description);
+            return newMedia;
+        },
+        getBookCatalog: function(name) {
+            //return a book catalog instance
+            let newBookCatalog = new BookCatalog(name, []);
+            return newBookCatalog;
+        },
+        getMediaCatalog: function(name) {
+            //return a media catalog instance
+            let newMediaCatalog = new MediaCatalog(name, []);
+            return newMediaCatalog;
+        }
+    };
 }
 
 var module = solve();
@@ -216,20 +209,20 @@ var catalog = module.getBookCatalog('John\'s catalog');
 
 var book1 = module.getBook('The secrets of the JavaScript Ninja', '1234567890', 'IT', 'A book about JavaScript');
 var book2 = module.getBook('JavaScript: The Good Parts', '0123456789', 'IT', 'A good book about JS');
-catalog.add(book1);
-catalog.add(book2);
+// catalog.add(book1);
+// catalog.add(book2);
 
-console.log(catalog.find(book1.id));
+// console.log(catalog.find(book1.id));
 //returns book1
 
-console.log(catalog.find({id: book2.id, genre: 'IT'}));
+// console.log(catalog.find({id: book2.id, genre: 'IT'}));
 //returns book2
 
-console.log(catalog.search('js')); 
+// console.log(catalog.search('js')); 
 // returns book2
 
-console.log(catalog.search('javascript'));
+// console.log(catalog.search('javascript'));
 //returns book1 and book2
 
-console.log(catalog.search('Te sa zeleni'))
+// console.log(catalog.search('Te sa zeleni'))
 //returns []
