@@ -14,18 +14,62 @@ function solve(){
             }
         }
 
-        function _validateThat_StringIsBetween2And40CharactersLong(str) {
+        function _validateThat_stringIsFrom2To40CharsLongIncl(str) {
             if (!str || typeof str !== 'string' || str.length < 2 || str.length > 40) {
-                throw new Error(str + ' is not a string between 2 and 40 characters long!');
+                throw new Error(str + ' is not a string from 2 to 40 characters long!');
             }
         }
 
+        function _validateThat_stringIsEither10Or13CharsLong(str) {
+            if (!str || typeof str !== 'string' || (str.length !== 10 && str.length !== 13)) {
+                throw new Error(str + ' is not a string either 10 or 13 characters long!');
+            }
+        }
+
+        function _validateThat_stringContainsDigitsOnly(str) {
+            if (!str || typeof str !== 'string' || !/[0-9]/.test(str)) {
+                throw new Error(str + ' is not a string containing digits only!');
+            }
+        }
+        
+        function _validateThat_stringIsFrom2To20CharsLongIncl(str) {
+            if (!str || typeof str !== 'string' || str.length < 2 || str.length > 20) {
+                throw new Error(str + ' is not a string from 2 to 20 characters long!');
+            }
+        }
+
+        function _validateThat_numberIsGreaterThanZero(num) {
+            if (!num || typeof num !== 'number' || num < 0) {
+                throw new Error(num + ' is not a number greater than zero!');
+            }
+        }
+
+        function _validateThat_numberIsBetween1And5Incl(num) {
+            if (!num || typeof num !== 'number' || num < 1 || num > 5) {
+                throw new Error(num + ' is not a number between 1 and 5!');
+            }
+        }
         return {
             validateThat_StringIsNotEmpty: function(str) {
                 _validateThat_StringIsNotEmpty(str);
             },
-            validateThat_StringIsBetween2And40CharactersLong: function(str) {
-                _validateThat_StringIsBetween2And40CharactersLong(str);
+            validateThat_stringIsFrom2To40CharsLongIncl: function(str) {
+                _validateThat_stringIsFrom2To40CharsLongIncl(str);
+            },
+            validateThat_stringIsEither10Or13CharsLong: function(str) {
+                _validateThat_stringIsEither10Or13CharsLong(str);
+            },
+            validateThat_stringContainsDigitsOnly: function(str) {
+                _validateThat_stringContainsDigitsOnly(str);
+            },
+            validateThat_stringIsFrom2To20CharsLongIncl: function(str) {
+                _validateThat_stringIsFrom2To20CharsLongIncl(str);
+            },
+            validateThat_numberIsGreaterThanZero: function(num) {
+                _validateThat_numberIsGreaterThanZero(num)
+            },
+            validateThat_numberIsBetween1And5Incl: function(num) {
+                _validateThat_numberIsBetween1And5Incl(num);
             }
         };
     })();
@@ -53,7 +97,7 @@ function solve(){
                 return this.description;
             },
             set: function(d) {
-                Validator.validateThat_StringIsBetween2And40CharactersLong(d);
+                Validator.validateThat_stringIsFrom2To40CharsLongIncl(d);
                 this.description = d;
             }
         });
@@ -85,6 +129,8 @@ function solve(){
                 return this.isbn;
             },
             set: function (i) {
+                Validator.validateThat_stringIsEither10Or13CharsLong(i);
+                Validator.validateThat_stringContainsDigitsOnly(i);
                 this.isbn = i;
             }
         });
@@ -94,6 +140,7 @@ function solve(){
                 return this.genre;
             },
             set: function(g) {
+                Validator.validateThat_stringIsFrom2To20CharsLongIncl(g);
                 this.genre = g;
             }
         });
@@ -115,6 +162,7 @@ function solve(){
                 return this.duration;
             },
             set: function(d) {
+                Validator.validateThat_numberIsGreaterThanZero(d);
                 this.duration = d;
             }
         });
@@ -124,6 +172,7 @@ function solve(){
                 return this.rating;
             },
             set: function(r) {
+                Validator.validateThat_numberIsBetween1And5Incl(r);
                 this.rating = r;
             }
         });
