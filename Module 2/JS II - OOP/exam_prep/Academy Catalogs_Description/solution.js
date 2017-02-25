@@ -1,21 +1,45 @@
 function solve(){
-    var Item,
+    var Validator,
+        Item,
         Book,
         Media,
         Catalog,
         BookCatalog,
         MediaCatalog;
 
+    Validator = (function(Parent) {
+        function _validateThat_StringIsNotEmpty(str) {
+            if (!str || typeof str !== 'string') {
+                throw new Error(str + ' is not a non-empty string!');
+            }
+        }
+
+        function _validateThat_StringIsBetween2And40CharactersLong(str) {
+            if (!str || typeof str !== 'string' || str.length < 2 || str.length > 40) {
+                throw new Error(str + ' is not a string between 2 and 40 characters long!');
+            }
+        }
+
+        return {
+            validateThat_StringIsNotEmpty: function(str) {
+                _validateThat_StringIsNotEmpty(str);
+            },
+            validateThat_StringIsBetween2And40CharactersLong: function(str) {
+                _validateThat_StringIsBetween2And40CharactersLong(str);
+            }
+        };
+    })();
+
     Item = (function(Parent){
         var lastId = 0;
         function Item(description, name) {
-            this.id = lastId += 1;
-            this.description = description;
-            this.name = name;
+            this.Id = lastId += 1;
+            this.Description = description;
+            this.Name = name;
         }
         Item.prototype = Object.create(Parent.prototype);
 
-        Object.defineProperty(Item.prototype, '_id', {
+        Object.defineProperty(Item.prototype, 'Id', {
             get: function() {
                 return this.id;
             },
@@ -24,20 +48,22 @@ function solve(){
             }
         });
 
-        Object.defineProperty(Item.prototype, '_description', {
+        Object.defineProperty(Item.prototype, 'Description', {
             get: function() {
                 return this.description;
             },
             set: function(d) {
+                Validator.validateThat_StringIsBetween2And40CharactersLong(d);
                 this.description = d;
             }
         });
 
-        Object.defineProperty(Item.prototype, '_name', {
+        Object.defineProperty(Item.prototype, 'Name', {
             get: function() {
                 return this.name;
             },
             set: function (n) {
+                Validator.validateThat_StringIsNotEmpty(n);
                 this.name = n;
             }
         });
@@ -49,12 +75,12 @@ function solve(){
         function Book(description, name, isbn, genre) {
             Parent.call(this, description, name);
 
-            this.isbn = isbn;
-            this.genre = genre;
+            this.Isbn = isbn;
+            this.Genre = genre;
         }
         Book.prototype = Object.create(Parent.prototype);
 
-        Object.defineProperty(Book.prototype, '_isbn', {
+        Object.defineProperty(Book.prototype, 'Isbn', {
             get: function() {
                 return this.isbn;
             },
@@ -63,7 +89,7 @@ function solve(){
             }
         });
 
-        Object.defineProperty(Book.prototype, '_genre', {
+        Object.defineProperty(Book.prototype, 'Genre', {
             get: function() {
                 return this.genre;
             },
@@ -79,12 +105,12 @@ function solve(){
         function Media(description, name, duration, rating) {
             Parent.call(this, description, name);
 
-            this.duration = duration;
-            this.rating = rating;
+            this.Duration = duration;
+            this.Rating = rating;
         }
         Media.prototype = Object.create(Parent.prototype);
 
-        Object.defineProperty(Media.prototype, '_duration', {
+        Object.defineProperty(Media.prototype, 'Duration', {
             get: function() {
                 return this.duration;
             },
@@ -93,7 +119,7 @@ function solve(){
             }
         });
 
-        Object.defineProperty(Media.prototype, '_rating', {
+        Object.defineProperty(Media.prototype, 'Rating', {
             get: function() {
                 return this.rating;
             },
@@ -107,13 +133,13 @@ function solve(){
 
     Catalog = (function(Parent) {
         function Catalog(name, items) {
-            Parent.call(this, 'Catalog-like item', name);
+            Parent.call(this, 'catalog', name);
 
-            this.items = items;
+            this.Items = items;
         }
         Catalog.prototype = Object.create(Parent.prototype);
 
-        Object.defineProperty(Catalog.prototype, '_items', {
+        Object.defineProperty(Catalog.prototype, 'Items', {
             get: function() {
                 return this.items;
             },
@@ -206,11 +232,26 @@ function solve(){
 
 var module = solve();
 var catalog = module.getBookCatalog('John\'s catalog');
+// var catalog = module.getBookCatalog('');
+// var catalog = module.getBookCatalog();
+
+// catalog.Name = ''; // empty string NOK Expect throw
+// catalog.Name = null; // null NOK, Expect throw
+// catalog.Name = 'valid_name'; // OK
+// console.log(catalog);
+
+// catalog.Description = ''; // empty string NOK, Expect throw
+// catalog.Description = null; // null NOK
+// catalog.Description = new Array(2).join( '*' ); // 1 char NOK, Expect throw
+// catalog.Description = new Array(3).join( '*' ); // 2 chars OK
+// catalog.Description = new Array(41).join( '*' ); // 40 chars OK
+// catalog.Description = new Array(42).join( '*' ); // 41 chars OK
 
 var book1 = module.getBook('The secrets of the JavaScript Ninja', '1234567890', 'IT', 'A book about JavaScript');
 var book2 = module.getBook('JavaScript: The Good Parts', '0123456789', 'IT', 'A good book about JS');
-// catalog.add(book1);
-// catalog.add(book2);
+catalog.add(book1);
+catalog.add(book2);
+console.log(catalog);
 
 // console.log(catalog.find(book1.id));
 //returns book1
