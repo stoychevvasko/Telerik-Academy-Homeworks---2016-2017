@@ -31,7 +31,7 @@ function solve(){
                 throw new Error(str + ' is not a string containing digits only!');
             }
         }
-        
+
         function _validateThat_stringIsFrom2To20CharsLongIncl(str) {
             if (!str || typeof str !== 'string' || str.length < 2 || str.length > 20) {
                 throw new Error(str + ' is not a string from 2 to 20 characters long!');
@@ -49,6 +49,19 @@ function solve(){
                 throw new Error(num + ' is not a number between 1 and 5!');
             }
         }
+
+        function _validateThat_itemOrItemsAreValid(itemOrItems) {
+            if (!itemOrItems) {
+                throw new Error('Missing item(s)!');
+            }
+        }
+
+        function _validateThat_bookOrBooksArrayAreValid(bookOrBooksArray) {
+            if (!bookOrBooksArray) {
+                throw new Error('Missing book(s)!');
+            }
+        }
+
         return {
             validateThat_StringIsNotEmpty: function(str) {
                 _validateThat_StringIsNotEmpty(str);
@@ -70,6 +83,12 @@ function solve(){
             },
             validateThat_numberIsBetween1And5Incl: function(num) {
                 _validateThat_numberIsBetween1And5Incl(num);
+            },
+            validateThat_itemOrItemsAreValid: function(itemOrItems) {
+                _validateThat_itemOrItemsAreValid(itemOrItems);
+            },
+            validateThat_bookOrBooksArrayAreValid: function(bookOrBooksArray) {
+                _validateThat_bookOrBooksArrayAreValid(bookOrBooksArray);
             }
         };
     })();
@@ -77,38 +96,38 @@ function solve(){
     Item = (function(Parent){
         var lastId = 0;
         function Item(description, name) {
-            this.Id = lastId += 1;
-            this.Description = description;
-            this.Name = name;
+            this.id = lastId += 1;
+            this.description = description;
+            this.name = name;
         }
         Item.prototype = Object.create(Parent.prototype);
 
-        Object.defineProperty(Item.prototype, 'Id', {
+        Object.defineProperty(Item.prototype, 'id', {
             get: function() {
-                return this.id;
+                return this._id;
             },
             set: function(i) {
-                this.id = i;
+                this._id = i;
             }
         });
 
-        Object.defineProperty(Item.prototype, 'Description', {
+        Object.defineProperty(Item.prototype, 'description', {
             get: function() {
-                return this.description;
+                return this._description;
             },
             set: function(d) {
                 Validator.validateThat_stringIsFrom2To40CharsLongIncl(d);
-                this.description = d;
+                this._description = d;
             }
         });
 
-        Object.defineProperty(Item.prototype, 'Name', {
+        Object.defineProperty(Item.prototype, 'name', {
             get: function() {
-                return this.name;
+                return this._name;
             },
             set: function (n) {
                 Validator.validateThat_StringIsNotEmpty(n);
-                this.name = n;
+                this._name = n;
             }
         });
 
@@ -119,29 +138,29 @@ function solve(){
         function Book(description, name, isbn, genre) {
             Parent.call(this, description, name);
 
-            this.Isbn = isbn;
-            this.Genre = genre;
+            this.isbn = isbn;
+            this.genre = genre;
         }
         Book.prototype = Object.create(Parent.prototype);
 
-        Object.defineProperty(Book.prototype, 'Isbn', {
+        Object.defineProperty(Book.prototype, 'isbn', {
             get: function() {
-                return this.isbn;
+                return this._isbn;
             },
             set: function (i) {
                 Validator.validateThat_stringIsEither10Or13CharsLong(i);
                 Validator.validateThat_stringContainsDigitsOnly(i);
-                this.isbn = i;
+                this._isbn = i;
             }
         });
 
-        Object.defineProperty(Book.prototype, 'Genre', {
+        Object.defineProperty(Book.prototype, 'genre', {
             get: function() {
-                return this.genre;
+                return this._genre;
             },
             set: function(g) {
                 Validator.validateThat_stringIsFrom2To20CharsLongIncl(g);
-                this.genre = g;
+                this._genre = g;
             }
         });
 
@@ -152,28 +171,28 @@ function solve(){
         function Media(description, name, duration, rating) {
             Parent.call(this, description, name);
 
-            this.Duration = duration;
-            this.Rating = rating;
+            this.duration = duration;
+            this.rating = rating;
         }
         Media.prototype = Object.create(Parent.prototype);
 
-        Object.defineProperty(Media.prototype, 'Duration', {
+        Object.defineProperty(Media.prototype, 'duration', {
             get: function() {
-                return this.duration;
+                return this._duration;
             },
             set: function(d) {
                 Validator.validateThat_numberIsGreaterThanZero(d);
-                this.duration = d;
+                this._duration = d;
             }
         });
 
-        Object.defineProperty(Media.prototype, 'Rating', {
+        Object.defineProperty(Media.prototype, 'rating', {
             get: function() {
-                return this.rating;
+                return this._rating;
             },
             set: function(r) {
                 Validator.validateThat_numberIsBetween1And5Incl(r);
-                this.rating = r;
+                this._rating = r;
             }
         });
 
@@ -184,21 +203,25 @@ function solve(){
         function Catalog(name, items) {
             Parent.call(this, 'catalog', name);
 
-            this.Items = items;
+            this.items = items;
         }
         Catalog.prototype = Object.create(Parent.prototype);
 
-        Object.defineProperty(Catalog.prototype, 'Items', {
+        Object.defineProperty(Catalog.prototype, 'items', {
             get: function() {
-                return this.items;
+                return this._items;
             },
-            set: function(i) {
-                this.items = i;
-            }
+            set: function(i) {                
+                this._items = i;
+            }   
         });
-
         Catalog.prototype.add = function(itemOrItems) {
             // TODO - Complete method definition
+            if (!arguments) {
+                throw new Error('Cannot add missing item(s)!');
+            }
+            Validator.validateThat_itemOrItemsAreValid(itemOrItems);
+            this._items.push(itemOrItems);
             return this;
         }
 
@@ -221,6 +244,12 @@ function solve(){
 
         BookCatalog.prototype.add = function(bookOrBooksArray) {
             // TODO - Complete method definition
+            if (!arguments) {
+                throw new Error('Cannot add missing book(s)!');
+            }
+            Validator.validateThat_bookOrBooksArrayAreValid(bookOrBooksArray);
+            this._items.push(bookOrBooksArray);
+            return this;
         }
 
         BookCatalog.prototype.getGenres = function() {
@@ -300,6 +329,8 @@ var book1 = module.getBook('The secrets of the JavaScript Ninja', '1234567890', 
 var book2 = module.getBook('JavaScript: The Good Parts', '0123456789', 'IT', 'A good book about JS');
 catalog.add(book1);
 catalog.add(book2);
+// catalog.add(); // missing parameter NOK, Expect throw
+// catalog.add(null); // null param NOK, Expect throw
 console.log(catalog);
 
 // console.log(catalog.find(book1.id));
