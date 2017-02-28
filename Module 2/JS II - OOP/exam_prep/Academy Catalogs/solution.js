@@ -50,16 +50,38 @@ function solve(){
             }
         }
 
-        function _validateThat_itemOrItemsAreValid(itemOrItems) {
-            if (!itemOrItems) {
-                throw new Error('Missing item(s)!');
+        function _evaluateThat_itemsAreValid(item) {
+            if (!item.hasOwnProperty('_id') ||
+                !item.hasOwnProperty('_description') ||
+                !item.hasOwnProperty('_name')) {
+                     
+                     return false;
             }
+
+            return true;
         }
 
-        function _validateThat_bookOrBooksArrayAreValid(bookOrBooksArray) {
-            if (!bookOrBooksArray) {
-                throw new Error('Missing book(s)!');
+        function _validateThat_itemsAreValid(...items) {
+
+            var itemArray = [ ...items ];
+
+            if (itemArray.length === 1 && itemArray[0] === undefined || !itemArray[0]) {
+                throw new Error('Invalid item(s)!');
             }
+
+            if(!catalog._items.every(item => Validator.evaluateThat_itemsAreValid(item))) {
+                throw new Error('Invalid item(s)!');   
+            };
+        }
+
+        function _validateThat_bookOrBooksArrayAreValid(...books) {
+            var bookArray = [ ...books ];
+
+            if (bookArray.length === 1 && bookArray[0] === undefined || !bookArray[0]) {
+                throw new Error('Invalid book(s)!');
+            }
+
+            Validator.validateThat_itemsAreValid(bookArray);
         }
 
         return {
@@ -84,8 +106,11 @@ function solve(){
             validateThat_numberIsBetween1And5Incl: function(num) {
                 _validateThat_numberIsBetween1And5Incl(num);
             },
-            validateThat_itemOrItemsAreValid: function(itemOrItems) {
-                _validateThat_itemOrItemsAreValid(itemOrItems);
+            evaluateThat_itemsAreValid: function(item) {
+                return _evaluateThat_itemsAreValid(item);
+            },
+            validateThat_itemsAreValid: function(...items) {
+                _validateThat_itemsAreValid(...items);
             },
             validateThat_bookOrBooksArrayAreValid: function(bookOrBooksArray) {
                 _validateThat_bookOrBooksArrayAreValid(bookOrBooksArray);
@@ -215,14 +240,24 @@ function solve(){
                 this._items = i;
             }   
         });
-        Catalog.prototype.add = function(itemOrItems) {
-            // TODO - Complete method definition
-            if (!arguments) {
+        Catalog.prototype.add = function(...items) {            
+            let itemArray = [ ...items ];            
+            if (itemArray === undefined) {
                 throw new Error('Cannot add missing item(s)!');
             }
-            Validator.validateThat_itemOrItemsAreValid(itemOrItems);
-            this._items.push(itemOrItems);
+
+            itemArray.forEach(x => {
+                console.log(x);
+                if (Validator.evaluateThat_itemsAreValid(x)) { 
+                    throw new Error('Object not item-like'); 
+                }  
+            });
+
+            Validator.validateThat_itemsAreValid(itemArray);
+            this._items.push(...items);
             return this;
+
+            // TODO - Finish method definition
         }
 
         Catalog.prototype.find = function(idOrOptions) {
@@ -242,14 +277,19 @@ function solve(){
         }
         BookCatalog.prototype = Object.create(Parent.prototype);
 
-        BookCatalog.prototype.add = function(bookOrBooksArray) {
-            // TODO - Complete method definition
-            if (!arguments) {
-                throw new Error('Cannot add missing book(s)!');
+        BookCatalog.prototype.add = function(...books) {
+            let bookArray = [ ...books ];
+
+            for (let i = 0; i < bookArray.length; i += 1) {
+                if (!Validator.evaluateThat_itemsAreValid(bookArray[i])) {
+                    throw new Error('Object not item-like'); 
+                }
             }
-            Validator.validateThat_bookOrBooksArrayAreValid(bookOrBooksArray);
-            this._items.push(bookOrBooksArray);
+
+            this._items.push(...bookArray);
             return this;
+
+            // TODO - Complete method definition
         }
 
         BookCatalog.prototype.getGenres = function() {
@@ -304,11 +344,13 @@ function solve(){
             //return a media catalog instance
             let newMediaCatalog = new MediaCatalog(name, []);
             return newMediaCatalog;
-        }
+        },
+        validator: Validator
     };
 }
 
 var module = solve();
+var validator = module.validator;
 var catalog = module.getBookCatalog('John\'s catalog');
 // var catalog = module.getBookCatalog('');
 // var catalog = module.getBookCatalog();
@@ -325,13 +367,28 @@ var catalog = module.getBookCatalog('John\'s catalog');
 // catalog.Description = new Array(41).join( '*' ); // 40 chars OK
 // catalog.Description = new Array(42).join( '*' ); // 41 chars OK
 
-var book1 = module.getBook('The secrets of the JavaScript Ninja', '1234567890', 'IT', 'A book about JavaScript');
-var book2 = module.getBook('JavaScript: The Good Parts', '0123456789', 'IT', 'A good book about JS');
-catalog.add(book1);
-catalog.add(book2);
+let book1 = module.getBook('The secrets of the JavaScript Ninja', '1234567890', 'IT', 'A book about JavaScript');
+let book2 = module.getBook('JavaScript: The Good Parts', '0123456789', 'IT', 'A good book about JS');
+// catalog.add(book1);
+// catalog.add(book2);
 // catalog.add(); // missing parameter NOK, Expect throw
 // catalog.add(null); // null param NOK, Expect throw
+
+// let bookArray = [ book1, book2 ]; // OK
+// catalog.add(bookArray); // array of valid books OK
+
+catalog.add(book1, book2); // OK valid books comma-separated
+
+// let notABook = "not_book"; // NOK - Expect throw
+// catalog.add(notABook);
+
+// let result = validator.evaluateThat_itemsAreValid(catalog._items[0]); OK false - not item-like
+// console.log(result);
+
+// catalog.add(book1, book2, "this_is_not_a_book_yo"); // NOK, Expect throw
+
 console.log(catalog);
+// catalog.items.forEach(item => console.log(item)); // for wrapped only
 
 // console.log(catalog.find(book1.id));
 //returns book1
