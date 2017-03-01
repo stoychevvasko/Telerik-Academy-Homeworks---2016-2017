@@ -240,24 +240,25 @@ function solve(){
                 this._items = i;
             }   
         });
-        Catalog.prototype.add = function(...items) {            
-            let itemArray = [ ...items ];            
-            if (itemArray === undefined) {
-                throw new Error('Cannot add missing item(s)!');
+        Catalog.prototype.add = function(context, ...items) {
+            if (context === undefined && Validator.evaluateThat_itemsAreValid(items[0])) {
+                context._items.push(...items[0]);
+                return context;
             }
 
-            itemArray.forEach(x => {
-                console.log(x);
-                if (Validator.evaluateThat_itemsAreValid(x)) { 
+            let itemArray = [ ...items[0] ];
+            if (context === undefined && Array.isArray(items[0]) ) {
+                itemArray = [ ...items[0][0] ];
+            }
+
+            itemArray.forEach( element => {
+                if (!Validator.evaluateThat_itemsAreValid(element)) {
                     throw new Error('Object not item-like'); 
-                }  
+                }
             });
 
-            Validator.validateThat_itemsAreValid(itemArray);
-            this._items.push(...items);
-            return this;
-
-            // TODO - Finish method definition
+            context._items.push(...itemArray);
+            return context;
         }
 
         Catalog.prototype.find = function(idOrOptions) {
@@ -277,19 +278,20 @@ function solve(){
         }
         BookCatalog.prototype = Object.create(Parent.prototype);
 
-        BookCatalog.prototype.add = function(...books) {
-            let bookArray = [ ...books ];
-
-            for (let i = 0; i < bookArray.length; i += 1) {
-                if (!Validator.evaluateThat_itemsAreValid(bookArray[i])) {
-                    throw new Error('Object not item-like'); 
-                }
+        BookCatalog.prototype.add = function(context, ...books) {
+            if (context === undefined && Validator.evaluateThat_itemsAreValid(arguments[0])) {
+                Parent.prototype.add.call(this, arguments[0]);
+                return this;
             }
 
-            this._items.push(...bookArray);
-            return this;
+            let bookArray = [ ...books ];
+            if (context === undefined && Array.isArray(arguments[0]) ) {
+                bookArray = [ ...arguments[0][0] ];
+            }
 
-            // TODO - Complete method definition
+            console.log(bookArray, '===============');
+            Parent.prototype.add(this, bookArray);
+            return this;
         }
 
         BookCatalog.prototype.getGenres = function() {
@@ -369,7 +371,7 @@ var catalog = module.getBookCatalog('John\'s catalog');
 
 let book1 = module.getBook('The secrets of the JavaScript Ninja', '1234567890', 'IT', 'A book about JavaScript');
 let book2 = module.getBook('JavaScript: The Good Parts', '0123456789', 'IT', 'A good book about JS');
-// catalog.add(book1);
+catalog.add(book1);
 // catalog.add(book2);
 // catalog.add(); // missing parameter NOK, Expect throw
 // catalog.add(null); // null param NOK, Expect throw
@@ -377,13 +379,10 @@ let book2 = module.getBook('JavaScript: The Good Parts', '0123456789', 'IT', 'A 
 // let bookArray = [ book1, book2 ]; // OK
 // catalog.add(bookArray); // array of valid books OK
 
-catalog.add(book1, book2); // OK valid books comma-separated
+// catalog.add(book1, book2); // OK valid books comma-separated
 
 // let notABook = "not_book"; // NOK - Expect throw
-// catalog.add(notABook);
-
-// let result = validator.evaluateThat_itemsAreValid(catalog._items[0]); OK false - not item-like
-// console.log(result);
+// catalog.add(notABook); // NOK
 
 // catalog.add(book1, book2, "this_is_not_a_book_yo"); // NOK, Expect throw
 
