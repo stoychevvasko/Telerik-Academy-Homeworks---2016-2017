@@ -5,6 +5,10 @@ VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BunniesFormattingTask", "BunniesFormattingTask\BunniesFormattingTask.csproj", "{058807BD-12DB-43CF-9F66-37FF668FA3D4}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsFormattingTask", "EventsFormattingTask\EventsFormattingTask.csproj", "{70E8543C-D16C-4728-AAD6-C212C7729F72}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerCollections", "Dependencies\PowerCollections\PowerCollections.csproj", "{5821977D-AC2C-4912-BCD0-6E6B1A756167}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -15,6 +19,14 @@ Global
 		{058807BD-12DB-43CF-9F66-37FF668FA3D4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{058807BD-12DB-43CF-9F66-37FF668FA3D4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{058807BD-12DB-43CF-9F66-37FF668FA3D4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{70E8543C-D16C-4728-AAD6-C212C7729F72}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{70E8543C-D16C-4728-AAD6-C212C7729F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{70E8543C-D16C-4728-AAD6-C212C7729F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{70E8543C-D16C-4728-AAD6-C212C7729F72}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5821977D-AC2C-4912-BCD0-6E6B1A756167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5821977D-AC2C-4912-BCD0-6E6B1A756167}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5821977D-AC2C-4912-BCD0-6E6B1A756167}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5821977D-AC2C-4912-BCD0-6E6B1A756167}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

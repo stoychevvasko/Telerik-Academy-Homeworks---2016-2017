@@ -66,3 +66,6 @@
   * *Isolation Techniques*
   * *Test-Driven Development (TDD)*
 
+![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/high_quality_code.png "High Quality Code I")***[High Quality Code I](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/High%20Quality%20Code%20I)***
+  * *Code Formatting*
+  
