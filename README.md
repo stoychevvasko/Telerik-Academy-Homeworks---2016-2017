@@ -66,6 +66,22 @@
   * *Isolation Techniques*
   * *Test-Driven Development (TDD)*
 
+![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/javascript_logo.png "JavaScript")***[JavaScript III](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/JS%20III%20-%20UI%20&%20DOM) - UI & DOM***
+  * *Document Object Model*
+  * *DOM Operations*
+  * *Event Model*
+  * *jQuery Overview*
+  * *jQuery Plugins*
+  * *HTML Templates with Handlebars.js*
+  * *DOM Performance*
+
 ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/high_quality_code.png "High Quality Code I")***[High Quality Code I](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/High%20Quality%20Code%20I)***
   * *Code Formatting*
-  
+  * *Naming Identifiers* 
+  * *Code Documentation and Comments in the Program*
+  * *Correct Use of Variables, Data, Expressions and Constants*
+  * *Control Flow, Conditional Statements and Loops*
+  * *High-Quality Methods*
+  * *High-Quality Classes and Class Hierarchies*
+
+

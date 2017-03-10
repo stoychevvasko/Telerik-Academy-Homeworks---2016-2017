@@ -252,7 +252,10 @@ namespace EventsFormattingTask
             /// <param name="count">Count parameter.</param>
             public void ListEvents(DateTime date, int count)
             {
-                OrderedBag<Event>.View eventsToShow = this.selectedByDate.RangeFrom(new Event(date, string.Empty, string.Empty), true);
+                OrderedBag<Event>.View eventsToShow = this.selectedByDate.RangeFrom(
+                                                          new Event(date, string.Empty, string.Empty),
+                                                          true);
+
                 int showed = 0;
 
                 foreach (var eventToShow in eventsToShow)
