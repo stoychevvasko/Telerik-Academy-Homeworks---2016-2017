@@ -109,3 +109,6 @@ UpgradeLog*.htm
 *.bim_*.settings
 *.un~
 FakesAssemblies/
+node_modules/
+tests/
+package.json
