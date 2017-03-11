@@ -18,10 +18,30 @@ Create a function that takes an id or DOM element and an array of contents
 */
 
 module.exports = function () {
-
   return function (element, contents) {
-    if (typeof element != 'string') {
-      throw new Error('element must be string!');
+    let selectedElement,
+        fragment;
+    if (typeof element != 'string' && typeof element != 'object') {
+      throw new Error('element must be string or object!');
     }
+
+    if (typeof contents != 'object' || !contents) {
+      throw new Error('contents must be object!'); 
+    };
+
+    if (typeof element === 'string') {
+      selectedElement = document.getElementById(element);
+    } else if (typeof element === 'object') {
+      selectedElement = element;
+    }
+    
+    if (typeof selectedElement === 'undefined' || !selectedElement) {
+      throw new Error('cannot select element!');
+    }
+
+    fragment = document.createDocumentFragment();
+    contents.forEach(c => fragment.appendChild(document.createElement('div').cloneNode(true).innerHTML = c));
+
+    selectedElement.appendChild(fragment);
   };
 };
