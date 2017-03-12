@@ -1,47 +1,33 @@
-/* globals $ */
-
-/* 
-
-Create a function that takes an id or DOM element and an array of contents
-
-* if an id is provided, select the element
-* Add divs to the element
-  * Each div's content must be one of the items from the contents array
-* The function must remove all previous content from the DOM element provided
-* Throws if:
-  * The provided first parameter is neither string or existing DOM element
-  * The provided id does not select anything (there is no element that has such an id)
-  * Any of the function params is missing
-  * Any of the function params is not as described
-  * Any of the contents is neight `string` or `number`
-    * In that case, the content of the element **must not be** changed   
-*/
-
-module.exports = function () {
+module.exports = function solve() {
   return function (element, contents) {
-    let selectedElement,
-        fragment;
-    if (typeof element != 'string' && typeof element != 'object') {
-      throw new Error('element must be string or object!');
-    }
-
-    if (typeof contents != 'object' || !contents) {
-      throw new Error('contents must be object!'); 
-    };
+    var contentCount,        
+      div,
+      fragment,
+      selection;
 
     if (typeof element === 'string') {
-      selectedElement = document.getElementById(element);
-    } else if (typeof element === 'object') {
-      selectedElement = element;
-    }
-    
-    if (typeof selectedElement === 'undefined' || !selectedElement) {
-      throw new Error('cannot select element!');
+      selection = document.getElementById(element);
+    } else if (element instanceof HTMLElement) {
+      selection = element;
+    } else {
+      throw Error('invalid element!');
     }
 
     fragment = document.createDocumentFragment();
-    contents.forEach(c => fragment.appendChild(document.createElement('div').cloneNode(true).innerHTML = c));
 
-    selectedElement.appendChild(fragment);
+    for (var i = 0, contentCount = contents.length; i < contentCount; i += 1) {
+      var item = contents[i];
+
+      if (typeof item !== 'string' && typeof item !== 'number') {
+        throw Error('invalid content item!');
+      }
+
+      div = document.createElement('div');
+      div.innerHTML = item;
+      fragment.appendChild(div);
+    }
+
+    selection.innerHTML = '';
+    selection.appendChild(fragment);
   };
 };
