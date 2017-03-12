@@ -7,8 +7,7 @@ namespace EventsFormattingTask
 {
     using System;
     using System.Text;
-    using Models;
-    using Wintellect.PowerCollections;
+    using Core.Models;
 
     /// <summary>
     /// Contains main program executable.
@@ -16,14 +15,14 @@ namespace EventsFormattingTask
     public class StartUp
     {
         /// <summary>
-        /// A <see cref="StringBuilder"/> item to contain all outputs.
-        /// </summary>
-        private static StringBuilder output = new StringBuilder();
-
-        /// <summary>
         /// Holds all event items.
         /// </summary>
         private static EventHolder events = new EventHolder();
+
+        /// <summary>
+        /// Holds program output.
+        /// </summary>
+        private static StringBuilder output = new StringBuilder();
 
         /// <summary>
         /// Main program executable.
@@ -145,135 +144,6 @@ namespace EventsFormattingTask
         {
             DateTime date = DateTime.Parse(command.Substring(commandType.Length + 1, 20));
             return date;
-        }
-
-        /// <summary>
-        /// Contains event-related messages.
-        /// </summary>
-        private static class Messages
-        {
-            /// <summary>
-            /// Logs an event added.
-            /// </summary>
-            public static void EventAdded()
-            {
-                output.Append("Event added\n");
-            }
-
-            /// <summary>
-            /// Logs and event deleted.
-            /// </summary>
-            /// <param name="x">Parameter x apparently :).</param>
-            public static void EventDeleted(int x)
-            {
-                if (x == 0)
-                {
-                    NoEventsFound();
-                }
-                else
-                {
-                    output.AppendFormat("{0} events deleted\n", x);
-                }
-            }
-
-            /// <summary>
-            /// Logs no events added.
-            /// </summary>
-            public static void NoEventsFound()
-            {
-                output.Append("No events found\n");
-            }
-
-            /// <summary>
-            /// Prints an event.
-            /// </summary>
-            /// <param name="eventToPrint">Event to print parameter.</param>
-            public static void PrintEvent(Event eventToPrint)
-            {
-                if (eventToPrint != null)
-                {
-                    output.Append(eventToPrint + "\n");
-                }
-            }
-        }
-
-        /// <summary>
-        /// Represents an event holder model.
-        /// </summary>
-        private class EventHolder
-        {
-            /// <summary>
-            /// Holds an event selection by title.
-            /// </summary>
-            private MultiDictionary<string, Event> selectedByTitle = new MultiDictionary<string, Event>(true);
-
-            /// <summary>
-            /// Holds an event selection by date.
-            /// </summary>
-            private OrderedBag<Event> selectedByDate = new OrderedBag<Event>();
-
-            /// <summary>
-            /// Adds a new event.
-            /// </summary>
-            /// <param name="date">Event date.</param>
-            /// <param name="title">Event title.</param>
-            /// <param name="location">Event location.</param>
-            public void AddEvent(DateTime date, string title, string location)
-            {
-                Event newEvent = new Event(date, title, location);
-                this.selectedByTitle.Add(title.ToLower(), newEvent);
-                this.selectedByDate.Add(newEvent);
-                Messages.EventAdded();
-            }
-
-            /// <summary>
-            /// Deletes events by title.
-            /// </summary>
-            /// <param name="titleToDelete">Event title.</param>
-            public void DeleteEvents(string titleToDelete)
-            {
-                string title = titleToDelete.ToLower();
-                int removed = 0;
-
-                foreach (var eventToRemove in this.selectedByTitle[title])
-                {
-                    removed++;
-                    this.selectedByDate.Remove(eventToRemove);
-                }
-
-                this.selectedByTitle.Remove(title);
-                Messages.EventDeleted(removed);
-            }
-
-            /// <summary>
-            /// Lists all events.
-            /// </summary>
-            /// <param name="date">Date parameter.</param>
-            /// <param name="count">Count parameter.</param>
-            public void ListEvents(DateTime date, int count)
-            {
-                OrderedBag<Event>.View eventsToShow = this.selectedByDate.RangeFrom(
-                                                          new Event(date, string.Empty, string.Empty),
-                                                          true);
-
-                int showed = 0;
-
-                foreach (var eventToShow in eventsToShow)
-                {
-                    if (showed == count)
-                    {
-                        break;
-                    }
-
-                    Messages.PrintEvent(eventToShow);
-                    showed++;
-                }
-
-                if (showed == 0)
-                {
-                    Messages.NoEventsFound();
-                }
-            }
-        }
+        }        
     }
 }

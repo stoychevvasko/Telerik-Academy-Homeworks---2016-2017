@@ -7,8 +7,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "BunniesFormattingTask", "Bu
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EventsFormattingTask", "EventsFormattingTask\EventsFormattingTask.csproj", "{70E8543C-D16C-4728-AAD6-C212C7729F72}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "PowerCollections", "Dependencies\PowerCollections\PowerCollections.csproj", "{5821977D-AC2C-4912-BCD0-6E6B1A756167}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "CodeJSFormattingTask", "CodeJSFormattingTask\CodeJSFormattingTask.csproj", "{74AA809A-5A15-472A-A8D5-8F81A386C300}"
 EndProject
 Global
@@ -25,10 +23,6 @@ Global
 		{70E8543C-D16C-4728-AAD6-C212C7729F72}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{70E8543C-D16C-4728-AAD6-C212C7729F72}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{70E8543C-D16C-4728-AAD6-C212C7729F72}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5821977D-AC2C-4912-BCD0-6E6B1A756167}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5821977D-AC2C-4912-BCD0-6E6B1A756167}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5821977D-AC2C-4912-BCD0-6E6B1A756167}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5821977D-AC2C-4912-BCD0-6E6B1A756167}.Release|Any CPU.Build.0 = Release|Any CPU
 		{74AA809A-5A15-472A-A8D5-8F81A386C300}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{74AA809A-5A15-472A-A8D5-8F81A386C300}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{74AA809A-5A15-472A-A8D5-8F81A386C300}.Release|Any CPU.ActiveCfg = Release|Any CPU

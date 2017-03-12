@@ -3,7 +3,7 @@
 ////     Copyright (c) Vassil Stoychev 2017. All rights reserved.
 //// </copyright>
 ////-------------------------------------------------------------------------------------------------
-namespace EventsFormattingTask.Models
+namespace EventsFormattingTask.Core.Models
 {
     using System;
     using System.Text;
