@@ -6,13 +6,14 @@
 namespace EventsFormattingTask.Core
 {
     using System;
-    using System.Text;
+    using System.Collections.Generic;
+    using System.Text;    
     using Core.Assets;
     using Core.Contracts.Interfaces;
     using Core.Contracts.Providers;
     using Core.Factories;
     using Core.Models;
-
+    
     /// <summary>
     /// Engine for command line execution.
     /// </summary>
@@ -83,7 +84,7 @@ namespace EventsFormattingTask.Core
 
         /// <summary>
         /// Sets the engine in motion.
-        /// </summary>
+        /// </summary>        
         public void Start()
         {
             while (Engine.ExecuteNextCommand())

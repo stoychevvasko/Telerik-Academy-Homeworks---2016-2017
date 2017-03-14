@@ -6,6 +6,7 @@
 namespace EventsFormattingTask.Core.Contracts.Interfaces
 {
     using System;
+    using System.Collections.Generic;
 
     /// <summary>
     /// Provides engine-related capabilities.
@@ -29,7 +30,7 @@ namespace EventsFormattingTask.Core.Contracts.Interfaces
 
         /// <summary>
         /// Sets the engine in motion.
-        /// </summary>
+        /// </summary>        
         void Start();
 
         /// <summary>
@@ -38,7 +39,7 @@ namespace EventsFormattingTask.Core.Contracts.Interfaces
         /// <param name="date">Event date.</param>
         /// <param name="count">Number of events.</param>
         void ListEvents(DateTime date, int count);
-        
+
         /// <summary>
         /// Adds a new event.
         /// </summary>
