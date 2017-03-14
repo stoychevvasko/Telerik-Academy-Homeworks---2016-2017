@@ -7,11 +7,12 @@ namespace EventsFormattingTask.Core.Models
 {
     using System;
     using System.Text;
+    using Core.Contracts.Interfaces;
 
     /// <summary>
     /// Represents a model of an event-type object.
     /// </summary>
-    public class Event : IComparable
+    public class Event : IComparable, IEvent
     {
         /// <summary>
         /// Represents the date of the event.

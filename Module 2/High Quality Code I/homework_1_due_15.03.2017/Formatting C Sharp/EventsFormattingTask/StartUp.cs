@@ -6,8 +6,7 @@
 namespace EventsFormattingTask
 {
     using System;
-    using System.Text;
-    using Core.Models;
+    using Core;
 
     /// <summary>
     /// Contains main program executable.
@@ -15,135 +14,23 @@ namespace EventsFormattingTask
     public class StartUp
     {
         /// <summary>
-        /// Holds all event items.
-        /// </summary>
-        private static EventHolder events = new EventHolder();
-
-        /// <summary>
-        /// Holds program output.
-        /// </summary>
-        private static StringBuilder output = new StringBuilder();
-
-        /// <summary>
         /// Main program executable.
         /// </summary>        
         public static void Main()
         {
-            while (ExecuteNextCommand())
-            {
-            }
+            //// Singleton design pattern
+            //// Ensures that there is only 
+            //// one instance of Engine in existance
+            var engine = Engine.Instance;
+            engine.Start();
 
-            Console.WriteLine(output);
+            // Some commands to test the code below:
+            // AddEvent 2017-03-14 13:43:30 | MyTestEvent Number 1
+            // AddEvent 2017-03-14 14:20:00 | MyTestEvent Number 2
+            // AddEvent 2017-03-14 14:20:00 | MyTestEventWithLocation Number 3 | Sofia, Bulgaria
+            // DeleteEvents MyTestEvent Number 1
+            // ListEvents 2017-01-01 13:43:30 | 10
+            // end            
         }
-
-        /// <summary>
-        /// Executes the next command.
-        /// </summary>
-        /// <returns>A <see cref="bool"/> result indicating command execution status.</returns>
-        private static bool ExecuteNextCommand()
-        {
-            string command = Console.ReadLine();
-            if (command[0] == 'A')
-            {
-                AddEvent(command);
-                return true;
-            }
-
-            if (command[0] == 'D')
-            {
-                DeleteEvents(command);
-                return true;
-            }
-
-            if (command[0] == 'L')
-            {
-                ListEvents(command);
-                return true;
-            }
-
-            if (command[0] == 'E')
-            {
-                return false;
-            }
-
-            return false;
-        }
-
-        /// <summary>
-        /// Lists all events.
-        /// </summary>
-        /// <param name="command">Command to execute.</param>
-        private static void ListEvents(string command)
-        {
-            int pipeIndex = command.IndexOf('|');
-
-            DateTime date = GetDate(command, "ListEvents");
-
-            string countString = command.Substring(pipeIndex + 1);
-
-            int count = int.Parse(countString);
-            events.ListEvents(date, count);
-        }
-
-        /// <summary>
-        /// Deletes a command.
-        /// </summary>
-        /// <param name="command">Command to delete.</param>
-        private static void DeleteEvents(string command)
-        {
-            string title = command.Substring("DeleteEvents".Length + 1);
-            events.DeleteEvents(title);
-        }
-
-        /// <summary>
-        /// Adds a new event.
-        /// </summary>
-        /// <param name="command">Command to execute.</param>
-        private static void AddEvent(string command)
-        {
-            DateTime date;
-            string title;
-            string location;
-            GetParameters(command, "AddEvent", out date, out title, out location);
-            events.AddEvent(date, title, location);
-        }
-
-        /// <summary>
-        /// Gets all parameters.
-        /// </summary>
-        /// <param name="commandForExecution">Command for execution.</param>
-        /// <param name="commandType">Command type.</param>
-        /// <param name="dateAndTime">Date and time.</param>
-        /// <param name="eventTitle">Event title.</param>
-        /// <param name="eventLocation">Event location.</param>
-        private static void GetParameters(string commandForExecution, string commandType, out DateTime dateAndTime, out string eventTitle, out string eventLocation)
-        {
-            dateAndTime = GetDate(commandForExecution, commandType);
-            int firstPipeIndex = commandForExecution.IndexOf('|');
-
-            int lastPipeIndex = commandForExecution.LastIndexOf('|');
-            if (firstPipeIndex == lastPipeIndex)
-            {
-                eventTitle = commandForExecution.Substring(firstPipeIndex + 1).Trim();
-                eventLocation = string.Empty;
-            }
-            else
-            {
-                eventTitle = commandForExecution.Substring(firstPipeIndex + 1, lastPipeIndex - firstPipeIndex - 1).Trim();
-                eventLocation = commandForExecution.Substring(lastPipeIndex + 1).Trim();
-            }
-        }
-
-        /// <summary>
-        /// Gets a new <see cref="DateTime"/> object.
-        /// </summary>
-        /// <param name="command">Command to execute.</param>
-        /// <param name="commandType">Command type.</param>
-        /// <returns>A new <see cref="DateTime"/> object.</returns>
-        private static DateTime GetDate(string command, string commandType)
-        {
-            DateTime date = DateTime.Parse(command.Substring(commandType.Length + 1, 20));
-            return date;
-        }        
     }
 }

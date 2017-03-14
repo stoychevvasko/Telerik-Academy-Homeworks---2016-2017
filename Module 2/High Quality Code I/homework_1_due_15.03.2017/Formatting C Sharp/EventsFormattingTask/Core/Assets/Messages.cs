@@ -16,7 +16,7 @@ namespace EventsFormattingTask.Core.Assets
         /// <summary>
         /// Holds an output buffer.
         /// </summary>
-        private static StringBuilder output;
+        private static StringBuilder output = new StringBuilder();
 
         /// <summary>
         /// Initializes static members of the <see cref="Messages"/> class.
@@ -24,6 +24,17 @@ namespace EventsFormattingTask.Core.Assets
         static Messages()
         {
             Messages.output = new StringBuilder();
+        }
+
+        /// <summary>
+        /// Gets the output value as string from Messages.
+        /// </summary>
+        public static string Output
+        {
+            get
+            {
+                return Messages.output.ToString();
+            }
         }
 
         /// <summary>
@@ -68,6 +79,6 @@ namespace EventsFormattingTask.Core.Assets
             {
                 Messages.output.Append(eventToPrint + "\n");
             }
-        }
+        }        
     }
 }

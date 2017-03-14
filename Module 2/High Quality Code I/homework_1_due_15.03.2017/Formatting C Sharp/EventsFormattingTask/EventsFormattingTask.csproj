@@ -48,6 +48,22 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Core\Assets\Messages.cs" />
+    <Compile Include="Core\Commands\AddEventCommand.cs" />
+    <Compile Include="Core\Commands\DeleteEventsCommand.cs" />
+    <Compile Include="Core\Commands\ListEventsCommand.cs" />
+    <Compile Include="Core\Contracts\Interfaces\ICommand.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IEngine.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IEvent.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IFactory.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IParser.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IReader.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IWriter.cs" />
+    <Compile Include="Core\Contracts\Providers\CommandParser.cs" />
+    <Compile Include="Core\Contracts\Providers\ConsoleReader.cs" />
+    <Compile Include="Core\Contracts\Providers\ConsoleWriter.cs" />
+    <Compile Include="Core\Contracts\Providers\ParameterExtractor.cs" />
+    <Compile Include="Core\Engine.cs" />
+    <Compile Include="Core\Factories\CoreFactory.cs" />
     <Compile Include="Core\Models\Event.cs" />
     <Compile Include="Core\Models\EventHolder.cs" />
     <Compile Include="StartUp.cs" />
@@ -57,10 +73,7 @@
     <None Include="App.config" />
     <None Include="packages.config" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Core\Contracts\Interfaces\" />
-    <Folder Include="Core\Contracts\Providers\" />
-  </ItemGroup>
+  <ItemGroup />
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
