@@ -76,7 +76,10 @@
     </BootstrapperPackage>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Program.cs" />
+    <Compile Include="Common\Constants\Constants.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IScore.cs" />
+    <Compile Include="Core\Models\Score.cs" />
+    <Compile Include="StartUp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
