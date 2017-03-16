@@ -12,5 +12,19 @@ namespace Minesweeper.Core.Providers
         {
             Console.WriteLine(message);
         }
+
+        /// <summary>Writes a new blank line of text to the console.</summary>
+        public void WriteLine()
+        {
+            this.WriteLine(string.Empty);
+        }
+
+        /// <summary>Writes to the same line of text on the console.</summary><param name="message">A literal string.</param>
+        public void Write(string message)
+        {
+            Console.Write(message);
+        }
+
+        
     }
 }

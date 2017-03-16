@@ -7,27 +7,17 @@ namespace Minesweeper.Core.Models
     /// <summary>Represents the standard game board in the Minesweeper game.</summary>
     public class Minefield : IMinefield
     {
-        /// <summary>Holds Minesweeper game board matrix.</summary>
-        private char[,] board;
-
         /// <summary>Initializes a new instance of the <see cref="Minefield"/> class.</summary>
         public Minefield()
         {
-            this.Board = MinefieldConstants.BlankGameBoardCellMatrix();
+            this.Cells = MinefieldConstants.GetNewBlankGameBoard();
         }
 
         /// <summary>Gets or sets Minesweeper game board matrix.</summary>
-        public char[,] Board
+        public char[,] Cells
         {
-            get
-            {
-                return this.board;
-            }
-
-            set
-            {
-                this.board = value;
-            }
+            get;
+            set;
         }
     }
 }

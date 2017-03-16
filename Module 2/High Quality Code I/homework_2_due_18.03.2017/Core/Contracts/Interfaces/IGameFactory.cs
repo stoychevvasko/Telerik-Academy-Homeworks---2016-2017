@@ -5,6 +5,6 @@ namespace Minesweeper.Core.Contracts.Interfaces
     public interface IGameFactory
     {
         /// <summary>Create a new instance of the <see cref="Minefield"/> game class.</summary><returns>A new <seealso cref="Minefield"/> instance.</returns>
-        IMinefield CreateNewBlankGameBoard();
+        IMinefield CreateNewMinefield();
     }
 }

@@ -12,5 +12,14 @@ namespace Minesweeper.Core.Providers
         {
             return Console.ReadLine();
         }
+
+        /// <summary>
+        /// 
+        /// </summary>
+        /// <returns></returns>
+        public ConsoleKeyInfo ReadKey()
+        {
+            return Console.ReadKey();
+        }
     }
 }
