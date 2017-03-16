@@ -78,7 +78,9 @@
   <ItemGroup>
     <Compile Include="Common\Constants\Constants.cs" />
     <Compile Include="Core\Contracts\Interfaces\IScore.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IWriter.cs" />
     <Compile Include="Core\Models\Score.cs" />
+    <Compile Include="Core\Providers\ConsoleWriter.cs" />
     <Compile Include="StartUp.cs" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

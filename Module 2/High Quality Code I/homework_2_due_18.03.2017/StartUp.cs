@@ -3,13 +3,14 @@ namespace Mocksweeper
 {
     using System;
     using System.Collections.Generic;
-    using Minesweeper.Core.Models;
+    using Minesweeper.Common.Constants;
+    using Minesweeper.Core.Models;    
 
     /// <summary>Main executable.</summary>
     public class StartUp
     {
         /// <summary>Starts here.</summary>
-        static void Main()
+        public static void Main()
         {
             string command = string.Empty;
             char[,] minefield = create_igralno_pole();
@@ -27,12 +28,11 @@ namespace Mocksweeper
             {
                 if (flag)
                 {
-                    Console.WriteLine("Hajde da igraem na “Mini4KI”. Probvaj si kasmeta da otkriesh poleteta bez mini4ki." +
-                    " Komanda 'top' pokazva klasiraneto, 'restart' po4va nova igra, 'exit' izliza i hajde 4ao!");
+                    Console.WriteLine(Constants.Game.Message.TitleLine);
                     dumpp(minefield);
                     flag = false;
                 }
-                Console.Write("Daj red i kolona : ");
+                Console.Write(Constants.Game.Message.PromptNextPlayerTurn);
                 command = Console.ReadLine().Trim();
                 if (command.Length >= 3)
                 {
