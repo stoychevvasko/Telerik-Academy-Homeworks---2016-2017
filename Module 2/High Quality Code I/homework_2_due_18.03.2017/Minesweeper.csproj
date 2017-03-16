@@ -77,9 +77,17 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Common\Constants\Constants.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IEngine.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IGameFactory.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IMinefield.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IReader.cs" />
     <Compile Include="Core\Contracts\Interfaces\IScore.cs" />
     <Compile Include="Core\Contracts\Interfaces\IWriter.cs" />
+    <Compile Include="Core\MinesweeperFactory.cs" />
+    <Compile Include="Core\Models\Engine.cs" />
+    <Compile Include="Core\Models\Minefield.cs" />
     <Compile Include="Core\Models\Score.cs" />
+    <Compile Include="Core\Providers\ConsoleReader.cs" />
     <Compile Include="Core\Providers\ConsoleWriter.cs" />
     <Compile Include="StartUp.cs" />
   </ItemGroup>

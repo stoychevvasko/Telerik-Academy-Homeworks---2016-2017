@@ -3,8 +3,10 @@ namespace Mocksweeper
 {
     using System;
     using System.Collections.Generic;
-    using Minesweeper.Common.Constants;
-    using Minesweeper.Core.Models;    
+    using MinefieldConstants = Minesweeper.Common.Constants.Constants.Game.Minefield;
+    using Minesweeper.Common.Constants;    
+    using Minesweeper.Core.Models;
+    using Minesweeper.Core.Contracts.Interfaces;
 
     /// <summary>Main executable.</summary>
     public class StartUp
@@ -12,9 +14,13 @@ namespace Mocksweeper
         /// <summary>Starts here.</summary>
         public static void Main()
         {
-            string command = string.Empty;
+            var engine = Engine.Instance;
+            
+
+
+            string command = Constants.Game.Command.DefaultCommand;
             char[,] minefield = create_igralno_pole();
-            char[,] mines = slojibombite();
+            char[,] mines = getNewRandomGameBoard();
             int counter = 0;
             bool grum = false;
             List<Score> topPlayers = new List<Score>(6);
@@ -50,7 +56,7 @@ namespace Mocksweeper
                         break;
                     case "restart":
                         minefield = create_igralno_pole();
-                        mines = slojibombite();
+                        mines = getNewRandomGameBoard();
                         dumpp(minefield);
                         grum = false;
                         flag = false;
@@ -81,16 +87,16 @@ namespace Mocksweeper
                         }
                         break;
                     default:
-                        Console.WriteLine("\nGreshka! nevalidna Komanda\n");
+                        Console.WriteLine(Constants.Game.Message.InvalidCommand);
                         break;
                 }
+
                 if (grum)
                 {
                     dumpp(mines);
-                    Console.Write("\nHrrrrrr! Umria gerojski s {0} to4ki. " +
-                        "Daj si niknejm: ", counter);
-                    string niknejm = Console.ReadLine();
-                    Score t = new Score(niknejm, counter);
+                    Console.Write(Constants.Game.Message.GameOverLine(counter));
+                    string playerNickname = Console.ReadLine();
+                    Score t = new Score(playerNickname, counter);
                     if (topPlayers.Count < 5)
                     {
                         topPlayers.Add(t);
@@ -112,11 +118,12 @@ namespace Mocksweeper
                     klasacia(topPlayers);
 
                     minefield = create_igralno_pole();
-                    mines = slojibombite();
+                    mines = getNewRandomGameBoard();
                     counter = 0;
                     grum = false;
                     flag = true;
                 }
+
                 if (flag2)
                 {
                     Console.WriteLine("\nBRAVOOOS! Otvri 35 kletki bez kapka kryv.");
@@ -127,7 +134,7 @@ namespace Mocksweeper
                     topPlayers.Add(to4kii);
                     klasacia(topPlayers);
                     minefield = create_igralno_pole();
-                    mines = slojibombite();
+                    mines = getNewRandomGameBoard();
                     counter = 0;
                     flag2 = false;
                     flag = true;
@@ -141,7 +148,7 @@ namespace Mocksweeper
 
         private static void klasacia(List<Score> to4kii)
         {
-            Console.WriteLine("\nTo4KI:");
+            Console.WriteLine(Constants.Game.Message.FinalScore);
             if (to4kii.Count > 0)
             {
                 for (int i = 0; i < to4kii.Count; i++)
@@ -184,33 +191,19 @@ namespace Mocksweeper
             Console.WriteLine("   ---------------------\n");
         }
 
-        private static char[,] create_igralno_pole()
+        
+
+        private static char[,] getNewRandomGameBoard()
         {
-            int boardRows = 5;
-            int boardColumns = 10;
-            char[,] board = new char[boardRows, boardColumns];
-            for (int i = 0; i < boardRows; i++)
+            int rows = 5;
+            int columns = 10;
+            char[,] gameBoard = new char[rows, columns];
+
+            for (int i = 0; i < rows; i++)
             {
-                for (int j = 0; j < boardColumns; j++)
+                for (int j = 0; j < columns; j++)
                 {
-                    board[i, j] = '?';
-                }
-            }
-
-            return board;
-        }
-
-        private static char[,] slojibombite()
-        {
-            int Редове = 5;
-            int Колони = 10;
-            char[,] игрално_поле = new char[Редове, Колони];
-
-            for (int i = 0; i < Редове; i++)
-            {
-                for (int j = 0; j < Колони; j++)
-                {
-                    игрално_поле[i, j] = '-';
+                    gameBoard[i, j] = '-';
                 }
             }
 
@@ -227,36 +220,36 @@ namespace Mocksweeper
 
             foreach (int i2 in r3)
             {
-                int kol = (i2 / Колони);
-                int red = (i2 % Колони);
-                if (red == 0 && i2 != 0)
+                int col = (i2 / columns);
+                int row = (i2 % columns);
+                if (row == 0 && i2 != 0)
                 {
-                    kol--;
-                    red = Колони;
+                    col--;
+                    row = columns;
                 }
                 else
                 {
-                    red++;
+                    row++;
                 }
-                игрално_поле[kol, red - 1] = '*';
+                gameBoard[col, row - 1] = '*';
             }
 
-            return игрално_поле;
+            return gameBoard;
         }
 
-        private static void smetki(char[,] pole)
+        private static void smetki(char[,] cell)
         {
-            int kol = pole.GetLength(0);
-            int red = pole.GetLength(1);
+            int kol = cell.GetLength(0);
+            int red = cell.GetLength(1);
 
             for (int i = 0; i < kol; i++)
             {
                 for (int j = 0; j < red; j++)
                 {
-                    if (pole[i, j] != '*')
+                    if (cell[i, j] != '*')
                     {
-                        char kolkoo = kolko(pole, i, j);
-                        pole[i, j] = kolkoo;
+                        char kolkoo = kolko(cell, i, j);
+                        cell[i, j] = kolkoo;
                     }
                 }
             }
@@ -275,6 +268,7 @@ namespace Mocksweeper
                     brojkata++;
                 }
             }
+
             if (rr + 1 < reds)
             {
                 if (r[rr + 1, rrr] == '*')
@@ -282,6 +276,7 @@ namespace Mocksweeper
                     brojkata++;
                 }
             }
+
             if (rrr - 1 >= 0)
             {
                 if (r[rr, rrr - 1] == '*')
@@ -289,6 +284,7 @@ namespace Mocksweeper
                     brojkata++;
                 }
             }
+
             if (rrr + 1 < kols)
             {
                 if (r[rr, rrr + 1] == '*')
@@ -296,6 +292,7 @@ namespace Mocksweeper
                     brojkata++;
                 }
             }
+
             if ((rr - 1 >= 0) && (rrr - 1 >= 0))
             {
                 if (r[rr - 1, rrr - 1] == '*')
@@ -303,6 +300,7 @@ namespace Mocksweeper
                     brojkata++;
                 }
             }
+
             if ((rr - 1 >= 0) && (rrr + 1 < kols))
             {
                 if (r[rr - 1, rrr + 1] == '*')
@@ -310,6 +308,7 @@ namespace Mocksweeper
                     brojkata++;
                 }
             }
+
             if ((rr + 1 < reds) && (rrr - 1 >= 0))
             {
                 if (r[rr + 1, rrr - 1] == '*')
@@ -317,6 +316,7 @@ namespace Mocksweeper
                     brojkata++;
                 }
             }
+
             if ((rr + 1 < reds) && (rrr + 1 < kols))
             {
                 if (r[rr + 1, rrr + 1] == '*')
@@ -324,6 +324,7 @@ namespace Mocksweeper
                     brojkata++;
                 }
             }
+
             return char.Parse(brojkata.ToString());
         }
     }
