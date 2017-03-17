@@ -12,7 +12,7 @@ namespace Minesweeper.Common.Constants
         public static class Player
         {
             /// <summary>Minesweeper default player name constant.</summary>
-            public const string DefaultName = "unknown player";
+            public const string DefaultName = " unknown player";
 
             /// <summary>Minesweeper default player points constant.</summary>
             public const int DefaultPoints = -1;
@@ -28,31 +28,31 @@ namespace Minesweeper.Common.Constants
                 public const string PromptNextPlayerTurn = "next turn: ";
 
                 /// <summary>Title line in Minesweeper game.</summary>
-                public const string TitleLine = "minesweeper - don't blow up"; 
-                
+                public const string TitleLine = "minesweeper - don't blow up";
+
                 /// <summary>Keyboard instructions.</summary>
-                public const string Instructions = "Keyboard commands:\n\n              [t][o][p] > highscores\n  [r][e][s][t][a][r][t] > new game\n           [e][x][i][t] > quit game\n";
+                public const string Instructions = "keyboard commands:\n\n              [t][o][p] > highscores\n  [r][e][s][t][a][r][t] > new game\n           [e][x][i][t] > quit game\n";
 
                 /// <summary>Invalid command notification in Minesweeper game.</summary>
-                public const string InvalidCommand = "\n _Error! Invalid command!\n";
+                public const string InvalidCommand = "\n error! invalid command!\n";
 
                 /// <summary>High scores line in Minesweeper game.</summary>
-                public const string TopPlayers = "\n _Best Scores: ";
+                public const string TopPlayers = "\n best scores: ";
 
                 /// <summary>Congratulatory message celebrating your amazing success.</summary>
-                public const string PointsVictory = "\n _Victory! You found 35 mine-free cells!\n\n";
+                public const string PointsVictory = "\n victory! you found 35 mine-free cells!\n\n";
 
                 /// <summary>Sourcing details.</summary>
-                public const string ProductOf = "  \n _made by ninja-in-training_";
+                public const string ProductOf = "  \n made by ninja-in-training";
 
                 /// <summary>Prompts player to type their name.</summary>
-                public const string PromptPlayerNameSubmission = " _Enter your name: ";
+                public const string PromptPlayerNameSubmission = " enter your name: ";
 
                 /// <summary>Player left game.</summary>
-                public const string PlayerQuit = " _player left_\n";
+                public const string PlayerQuit = " player left.\n";
 
                 /// <summary>No high score available to display.</summary>
-                public const string HighscoreEmpty = " _none_";
+                public const string HighscoreEmpty = " none";
 
                 /// <summary>Gets goodbye string to reply with when player quits game.</summary>
                 public static string FarewellMessage
@@ -63,14 +63,14 @@ namespace Minesweeper.Common.Constants
                 /// <summary>Game over line with final score in Minesweeper game.</summary><param name="result">Final number of points collected.</param><returns>Game over line for console.</returns>
                 public static string GetGameOverLine(int result)
                 {
-                    return string.Format($"You died with {result} points.\n\nPlayer name?: ");
+                    return string.Format($" you died with balance of {result} points.\n\n player name?: ");
                 }
 
                 /// <summary>Goodbye wish.</summary><returns>Sample goodbye utterance.</returns>
                 private static string BidGoodbye()
                 {
                     var now = DateTimeProvider.Now;
-                    return string.Format($"[{now.Day.ToString("00")}/{now.Month.ToString("00")}/{now.Year.ToString("0000")}]@[{now.Hour.ToString("00")}:{now.Minute.ToString("00")}:{now.Second.ToString("00")}sec]  <Chatbot>:  gg wp m8\n\n");
+                    return string.Format($"[{now.Day.ToString("00")}/{now.Month.ToString("00")}/{now.Year.ToString("0000")}]@[{now.Hour.ToString("00")}:{now.Minute.ToString("00")}:{now.Second.ToString("00")}]<Chatbot>: gg wp m8\n\n");
                 }
             }
 

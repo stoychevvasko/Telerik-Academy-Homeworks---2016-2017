@@ -10,10 +10,10 @@ namespace Minesweeper.Core.Providers
         /// <summary>Keeps count.</summary>
         private static int count = 0;
 
-        /// <summary>Returns current count.</summary><returns>Integer count value.</returns>
-        public int GetCount()
+        /// <summary>Gets current count.</summary><returns>Integer count value.</returns>
+        public int GetCount
         {
-            return MineCounter.count;
+            get { return MineCounter.count; }
         }
 
         /// <summary>Increases count by one.</summary>

@@ -1,7 +1,6 @@
 ﻿//// <copyright file="Engine.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
 namespace Minesweeper.Core.Models
 {
-    using System;
     using System.Collections.Generic;
     using Common.Constants;
     using Common.Enumerations;
@@ -18,15 +17,22 @@ namespace Minesweeper.Core.Models
         /// <summary>Holds last user command literal.</summary>
         private static string lastCommand = Constants.Game.Command.DefaultCommand;
 
+        /// <summary>This boolean flag determines if a new frame needs to be drawn.</summary>
+        private static bool drawingEnabled = true;
+
+        /// <summary>This boolean flag determines if a player is actively playing right now.</summary>
+        private static bool liveGame = false;
+
         /// <summary>Prevents a default instance of the <see cref="Engine"/> class from being created.</summary>
         private Engine()
         {
+            Engine.drawingEnabled = true;
             Engine.lastCommand = Constants.Game.Command.DefaultCommand;
             this.Command = CommandParser.Parse(Engine.lastCommand);
             this.MineCounter = GameFactory.Instance.CreateNewMineCounter();
-            this.Minefield = GameFactory.Instance.CreateNewMinefield();            
+            this.Minefield = GameFactory.Instance.CreateNewMinefield();
             this.Reader = GameFactory.Instance.CreateNewConsoleReader();
-            this.Writer = GameFactory.Instance.CreateNewConsoleWriter();            
+            this.Writer = GameFactory.Instance.CreateNewConsoleWriter();
         }
 
         /// <summary>Gets the engine singleton instance.</summary>
@@ -42,6 +48,9 @@ namespace Minesweeper.Core.Models
             set { Engine.lastCommand = value.ToString(); }
         }
 
+        /// <summary>Gets or sets mine counter.</summary>
+        public ICounter MineCounter { get; set; }
+
         /// <summary>Gets or sets the game board minefield.</summary>
         public IMinefield Minefield { get; set; }
 
@@ -51,9 +60,6 @@ namespace Minesweeper.Core.Models
         /// <summary>Gets or sets the engine writer.</summary>
         public IWriter Writer { get; set; }
 
-        /// <summary>Gets or sets mine counter.</summary>
-        public ICounter MineCounter { get; set; }
-
         /// <summary>Sets the engine in motion.</summary>        
         public void Start()
         {
@@ -61,20 +67,19 @@ namespace Minesweeper.Core.Models
 
             Engine.Instance.Minefield.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
             Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
-            int counter = 0;
-            bool isGameplayActive = false;
+            Engine.liveGame = false;
             List<Score> topPlayers = new List<Score>(6);
             int row = 0;
             int column = 0;
-            bool activeSession = true;
+            Engine.drawingEnabled = true;
             bool pointVictoryConditionMet = false;
 
             do
             {
-                if (activeSession)
+                if (Engine.drawingEnabled)
                 {
                     ReDrawMarks(Engine.Instance.Minefield.Marks);
-                    activeSession = false;
+                    Engine.drawingEnabled = false;
                 }
 
                 Engine.Instance.Writer.Write(Constants.Game.Notifications.PromptNextPlayerTurn);
@@ -92,21 +97,19 @@ namespace Minesweeper.Core.Models
 
                 switch (Engine.Instance.Command)
                 {
-                    case CommandTypes.Top:
-                        Engine.Instance.Writer.ClearConsole();
+                    case CommandTypes.Top:                        
                         RankTopPlayers(topPlayers);
                         break;
-                    case CommandTypes.Restart:
-                        Engine.Instance.Writer.ClearConsole();
+                    case CommandTypes.Restart:                                       
                         Engine.Instance.Minefield.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
                         Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
                         ReDrawMarks(Engine.Instance.Minefield.Marks);
-                        isGameplayActive = false;
-                        activeSession = false;
+                        Engine.liveGame = false;
+                        Engine.drawingEnabled = false;
                         break;
                     case CommandTypes.Exit:
+                        Engine.Instance.Writer.ClearConsole();
                         Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.PlayerQuit);
-                        Engine.Instance.Reader.ReadKey();
                         break;
                     case CommandTypes.Turn:
                         if (Engine.Instance.Minefield.Mines[row, column] != MinefieldConstants.LoadedMineCell)
@@ -114,22 +117,21 @@ namespace Minesweeper.Core.Models
                             if (Engine.Instance.Minefield.Mines[row, column] == MinefieldConstants.EmptyMineCell)
                             {
                                 UpdateSquareMark(Engine.Instance.Minefield.Marks, Engine.Instance.Minefield.Mines, row, column);
-                                counter++;
+                                Engine.Instance.MineCounter.Increase();
                             }
 
-                            if (counter == Constants.Game.VictoryConditions.NumberOfPoints)
+                            if (Engine.Instance.MineCounter.GetCount == Constants.Game.VictoryConditions.NumberOfPoints)
                             {
                                 pointVictoryConditionMet = true;
                             }
                             else
-                            {
-                                Engine.Instance.Writer.ClearConsole();
+                            {                                
                                 ReDrawMarks(Engine.Instance.Minefield.Marks);
                             }
                         }
                         else
                         {
-                            isGameplayActive = true;
+                            Engine.liveGame = true;
                         }
 
                         break;
@@ -138,13 +140,12 @@ namespace Minesweeper.Core.Models
                         break;
                 }
 
-                if (isGameplayActive)
-                {
-                    Engine.Instance.Writer.ClearConsole();
+                if (Engine.liveGame)
+                {                    
                     ReDrawMarks(Engine.Instance.Minefield.Mines);
-                    Engine.Instance.Writer.Write(Constants.Game.Notifications.GetGameOverLine(counter));
+                    Engine.Instance.Writer.Write(Constants.Game.Notifications.GetGameOverLine(Engine.Instance.MineCounter.GetCount));
                     string playerNickname = Engine.Instance.Reader.ReadLine();
-                    Score newScoreEntry = new Score(playerNickname, counter);
+                    Score newScoreEntry = new Score(playerNickname, Engine.Instance.MineCounter.GetCount);
                     if (topPlayers.Count < 5)
                     {
                         topPlayers.Add(newScoreEntry);
@@ -168,9 +169,9 @@ namespace Minesweeper.Core.Models
 
                     Engine.Instance.Minefield.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
                     Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
-                    counter = 0;
-                    isGameplayActive = false;
-                    activeSession = true;
+                    Engine.Instance.MineCounter.Reset();
+                    Engine.liveGame = false;
+                    Engine.drawingEnabled = true;
                 }
 
                 if (pointVictoryConditionMet)
@@ -179,14 +180,14 @@ namespace Minesweeper.Core.Models
                     ReDrawMarks(Engine.Instance.Minefield.Mines);
                     Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.PromptPlayerNameSubmission);
                     string playerName = Engine.Instance.Reader.ReadLine();
-                    Score playerScore = new Score(playerName, counter);
+                    Score playerScore = new Score(playerName, Engine.Instance.MineCounter.GetCount);
                     topPlayers.Add(playerScore);
                     RankTopPlayers(topPlayers);
-                    Engine.Instance.Minefield.Marks = Constants.Game.Minefield.GetNewEmptyMinesMatrix();
+                    Engine.Instance.Minefield.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
                     Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
-                    counter = 0;
+                    Engine.Instance.MineCounter.Reset();
                     pointVictoryConditionMet = false;
-                    activeSession = true;
+                    Engine.drawingEnabled = true;
                 }
             }
             while (Engine.Instance.Command != CommandTypes.Exit);
@@ -228,6 +229,8 @@ namespace Minesweeper.Core.Models
         /// <summary>Display the minefield anew.</summary><param name="marks">Player game area.</param>
         private static void ReDrawMarks(char[,] marks)
         {
+            Engine.Instance.Writer.ClearConsole();
+            Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.Instructions);
             Engine.Instance.Writer.WriteLine(MinefieldConstants.TopRulers);
             Engine.Instance.Writer.WriteLine(MinefieldConstants.LineBreak);
             for (int row = 0; row < MinefieldConstants.DefaultRows; row++)
