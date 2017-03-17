@@ -23,6 +23,14 @@ namespace Minesweeper.Core.Providers
         public void Write(string message)
         {
             Console.Write(message);
-        }        
+        }
+
+        /// <summary>Clears console screen.</summary>
+        public void ClearConsole()
+        {
+            Console.SetCursorPosition(0, 0);
+            Console.Clear();
+            Console.SetCursorPosition(0, 0);
+        }
     }
 }

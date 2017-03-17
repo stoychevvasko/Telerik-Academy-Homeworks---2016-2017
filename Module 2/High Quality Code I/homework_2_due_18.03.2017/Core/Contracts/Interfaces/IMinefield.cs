@@ -3,6 +3,6 @@ namespace Minesweeper.Core.Contracts.Interfaces
 {
     /// <summary>Standard minefield functionality.</summary>
     public interface IMinefield : IMarks, IMines
-    {
+    {        
     }
 }

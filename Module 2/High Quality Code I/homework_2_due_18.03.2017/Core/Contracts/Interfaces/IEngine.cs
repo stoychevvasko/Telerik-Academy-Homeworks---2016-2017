@@ -9,6 +9,9 @@ namespace Minesweeper.Core.Contracts.Interfaces
         /// <summary>Gets or sets current engine command.</summary>
         CommandTypes Command { get; set; }
 
+        /// <summary>Gets or sets mine counter.</summary>
+        ICounter MineCounter { get; set; }
+
         /// <summary>Gets or sets the game board minefield.</summary>
         IMinefield Minefield { get; set; }
 

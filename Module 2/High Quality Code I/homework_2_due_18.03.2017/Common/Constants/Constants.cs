@@ -28,28 +28,31 @@ namespace Minesweeper.Common.Constants
                 public const string PromptNextPlayerTurn = "next turn: ";
 
                 /// <summary>Title line in Minesweeper game.</summary>
-                public const string TitleLine = "Play Minesweeper - step on all the mine-free cells >:(\n\nKeyboard commands:\n\n              [t][o][p] > highscores\n  [r][e][s][t][a][r][t] > new game\n           [e][x][i][t] > quit game\n";
+                public const string TitleLine = "minesweeper - don't blow up"; 
+                
+                /// <summary>Keyboard instructions.</summary>
+                public const string Instructions = "Keyboard commands:\n\n              [t][o][p] > highscores\n  [r][e][s][t][a][r][t] > new game\n           [e][x][i][t] > quit game\n";
 
                 /// <summary>Invalid command notification in Minesweeper game.</summary>
-                public const string InvalidCommand = "\nError! Invalid command!\n";
+                public const string InvalidCommand = "\n _Error! Invalid command!\n";
 
                 /// <summary>High scores line in Minesweeper game.</summary>
-                public const string TopPlayers = "\nBest Scores: ";
+                public const string TopPlayers = "\n _Best Scores: ";
 
                 /// <summary>Congratulatory message celebrating your amazing success.</summary>
-                public const string PointsVictory = "\n Victory! You found 35 mine-free cells!\n\n";
+                public const string PointsVictory = "\n _Victory! You found 35 mine-free cells!\n\n";
 
                 /// <summary>Sourcing details.</summary>
-                public const string ProductOf = "  \nmade by ninja-wannabe";
+                public const string ProductOf = "  \n _made by ninja-in-training_";
 
                 /// <summary>Prompts player to type their name.</summary>
-                public const string PromptPlayerNameSubmission = "Enter your name: ";
+                public const string PromptPlayerNameSubmission = " _Enter your name: ";
 
                 /// <summary>Player left game.</summary>
-                public const string PlayerQuit = " (player left)\n";
+                public const string PlayerQuit = " _player left_\n";
 
                 /// <summary>No high score available to display.</summary>
-                public const string HighscoreEmpty = " (none)";
+                public const string HighscoreEmpty = " _none_";
 
                 /// <summary>Gets goodbye string to reply with when player quits game.</summary>
                 public static string FarewellMessage

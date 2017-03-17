@@ -11,7 +11,7 @@ namespace Minesweeper.Core.Providers
         /// <returns>Enum value of the <see cref="CommandTypes"/>.</returns>
         public static CommandTypes Parse(string userCommand)
         {
-            switch (string.Join(string.Empty, userCommand.ToLower().Trim().Split(' ')))
+            switch (userCommand == null ? string.Empty : string.Join(string.Empty, userCommand.ToLower().Trim().Split(' ')))
             {
                 case "top":
                     return CommandTypes.Top;

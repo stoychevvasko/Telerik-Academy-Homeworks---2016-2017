@@ -12,5 +12,8 @@ namespace Minesweeper.Core.Contracts.Interfaces
 
         /// <summary>Writes to the same line of text on the console.</summary><param name="message">A literal string.</param>
         void Write(string message);
+
+        /// <summary>Clears console screen.</summary>
+        void ClearConsole();
     }
 }

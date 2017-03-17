@@ -1,6 +1,7 @@
 ﻿//// <copyright file="Engine.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
 namespace Minesweeper.Core.Models
 {
+    using System;
     using System.Collections.Generic;
     using Common.Constants;
     using Common.Enumerations;
@@ -20,11 +21,12 @@ namespace Minesweeper.Core.Models
         /// <summary>Prevents a default instance of the <see cref="Engine"/> class from being created.</summary>
         private Engine()
         {
-            this.Command = CommandParser.Parse(Engine.lastCommand);
-            this.Minefield = GameFactory.Instance.CreateNewMinefield();
             Engine.lastCommand = Constants.Game.Command.DefaultCommand;
-            this.Reader = new ConsoleReader();
-            this.Writer = new ConsoleWriter();
+            this.Command = CommandParser.Parse(Engine.lastCommand);
+            this.MineCounter = GameFactory.Instance.CreateNewMineCounter();
+            this.Minefield = GameFactory.Instance.CreateNewMinefield();            
+            this.Reader = GameFactory.Instance.CreateNewConsoleReader();
+            this.Writer = GameFactory.Instance.CreateNewConsoleWriter();            
         }
 
         /// <summary>Gets the engine singleton instance.</summary>
@@ -36,15 +38,8 @@ namespace Minesweeper.Core.Models
         /// <summary>Gets or sets active engine command.</summary>
         public CommandTypes Command
         {
-            get
-            {
-                return CommandParser.Parse(Engine.lastCommand);
-            }
-
-            set
-            {
-                Engine.lastCommand = value.ToString();
-            }
+            get { return CommandParser.Parse(Engine.lastCommand); }
+            set { Engine.lastCommand = value.ToString(); }
         }
 
         /// <summary>Gets or sets the game board minefield.</summary>
@@ -55,6 +50,9 @@ namespace Minesweeper.Core.Models
 
         /// <summary>Gets or sets the engine writer.</summary>
         public IWriter Writer { get; set; }
+
+        /// <summary>Gets or sets mine counter.</summary>
+        public ICounter MineCounter { get; set; }
 
         /// <summary>Sets the engine in motion.</summary>        
         public void Start()
@@ -95,9 +93,11 @@ namespace Minesweeper.Core.Models
                 switch (Engine.Instance.Command)
                 {
                     case CommandTypes.Top:
+                        Engine.Instance.Writer.ClearConsole();
                         RankTopPlayers(topPlayers);
                         break;
                     case CommandTypes.Restart:
+                        Engine.Instance.Writer.ClearConsole();
                         Engine.Instance.Minefield.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
                         Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
                         ReDrawMarks(Engine.Instance.Minefield.Marks);
@@ -106,6 +106,7 @@ namespace Minesweeper.Core.Models
                         break;
                     case CommandTypes.Exit:
                         Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.PlayerQuit);
+                        Engine.Instance.Reader.ReadKey();
                         break;
                     case CommandTypes.Turn:
                         if (Engine.Instance.Minefield.Mines[row, column] != MinefieldConstants.LoadedMineCell)
@@ -122,6 +123,7 @@ namespace Minesweeper.Core.Models
                             }
                             else
                             {
+                                Engine.Instance.Writer.ClearConsole();
                                 ReDrawMarks(Engine.Instance.Minefield.Marks);
                             }
                         }
@@ -138,6 +140,7 @@ namespace Minesweeper.Core.Models
 
                 if (isGameplayActive)
                 {
+                    Engine.Instance.Writer.ClearConsole();
                     ReDrawMarks(Engine.Instance.Minefield.Mines);
                     Engine.Instance.Writer.Write(Constants.Game.Notifications.GetGameOverLine(counter));
                     string playerNickname = Engine.Instance.Reader.ReadLine();
@@ -210,6 +213,8 @@ namespace Minesweeper.Core.Models
             {
                 Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.HighscoreEmpty);
             }
+
+            Engine.Instance.Reader.ReadKey();
         }
 
         /// <summary>Mark cell with result from counting mines in adjacent cell contents.</summary><param name="marks">Matrix of all cells containing outer display values - {?} for unopened cells, {digits} for marked cells, {blank} for open empty cells.</param><param name="mines">Matrix of all cells containing inner cell contents - {*} in cells holding active mines, {-} for mine-free cells, {blank} for open empty cells.</param><param name="row">Cell row index value.</param><param name="column">Cell column index value.</param>
