@@ -1,9 +1,9 @@
 ﻿//// <copyright file="Engine.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
 namespace Minesweeper.Core.Models
 {
-    using System;
     using System.Collections.Generic;
     using Common.Constants;
+    using Common.Enumerations;
     using Contracts.Interfaces;
     using Providers;
     using MinefieldConstants = Common.Constants.Constants.Game.Minefield;
@@ -14,11 +14,15 @@ namespace Minesweeper.Core.Models
         /// <summary>Holds engine singleton instance.</summary>
         private static IEngine instanceHolder = new Engine();
 
+        /// <summary>Holds last user command literal.</summary>
+        private static string lastCommand = Constants.Game.Command.DefaultCommand;
+
         /// <summary>Prevents a default instance of the <see cref="Engine"/> class from being created.</summary>
         private Engine()
         {
-            this.Command = Constants.Game.Command.DefaultCommand;
+            this.Command = CommandParser.Parse(Engine.lastCommand);
             this.Minefield = GameFactory.Instance.CreateNewMinefield();
+            Engine.lastCommand = Constants.Game.Command.DefaultCommand;
             this.Reader = new ConsoleReader();
             this.Writer = new ConsoleWriter();
         }
@@ -30,7 +34,18 @@ namespace Minesweeper.Core.Models
         }
 
         /// <summary>Gets or sets active engine command.</summary>
-        public string Command { get; set; }
+        public CommandTypes Command
+        {
+            get
+            {
+                return CommandParser.Parse(Engine.lastCommand);
+            }
+
+            set
+            {
+                Engine.lastCommand = value.ToString();
+            }
+        }
 
         /// <summary>Gets or sets the game board minefield.</summary>
         public IMinefield Minefield { get; set; }
@@ -46,8 +61,8 @@ namespace Minesweeper.Core.Models
         {
             //// TO-DO: complete the cycle
 
-            Engine.Instance.Minefield.Cells = MinefieldConstants.GetNewBlankGameBoard();
-            char[,] mines = getNewRandomGameBoard();
+            Engine.Instance.Minefield.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
+            Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
             int counter = 0;
             bool isGameplayActive = false;
             List<Score> topPlayers = new List<Score>(6);
@@ -60,45 +75,44 @@ namespace Minesweeper.Core.Models
             {
                 if (activeSession)
                 {
-                    Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.TitleLine);
-                    RedrawBoard(Engine.Instance.Minefield.Cells);
+                    ReDrawMarks(Engine.Instance.Minefield.Marks);
                     activeSession = false;
                 }
 
                 Engine.Instance.Writer.Write(Constants.Game.Notifications.PromptNextPlayerTurn);
-                Engine.Instance.Command = Engine.Instance.Reader.ReadLine().Trim();
-                if (Engine.Instance.Command.Length >= 3)
+                Engine.lastCommand = Engine.Instance.Reader.ReadLine().Trim();
+                if (Engine.lastCommand.Length >= 3)
                 {
-                    if (int.TryParse(Engine.Instance.Command[0].ToString(), out row) &&
-                        int.TryParse(Engine.Instance.Command[2].ToString(), out column) &&
-                        row <= Engine.Instance.Minefield.Cells.GetLength(0) &&
-                        column <= Engine.Instance.Minefield.Cells.GetLength(1))
+                    if (int.TryParse(Engine.lastCommand[0].ToString(), out row) &&
+                        int.TryParse(Engine.lastCommand[2].ToString(), out column) &&
+                        row <= MinefieldConstants.DefaultRows &&
+                        column <= MinefieldConstants.DefaultColumns)
                     {
-                        Engine.Instance.Command = "turn";
+                        Engine.Instance.Command = CommandTypes.Turn;
                     }
                 }
 
                 switch (Engine.Instance.Command)
                 {
-                    case "top":
+                    case CommandTypes.Top:
                         RankTopPlayers(topPlayers);
                         break;
-                    case "restart":
-                        Engine.Instance.Minefield.Cells = Constants.Game.Minefield.GetNewBlankGameBoard();
-                        mines = getNewRandomGameBoard();
-                        RedrawBoard(Engine.Instance.Minefield.Cells);
+                    case CommandTypes.Restart:
+                        Engine.Instance.Minefield.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
+                        Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
+                        ReDrawMarks(Engine.Instance.Minefield.Marks);
                         isGameplayActive = false;
                         activeSession = false;
                         break;
-                    case "exit":
+                    case CommandTypes.Exit:
                         Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.PlayerQuit);
                         break;
-                    case "turn":
-                        if (mines[row, column] != '*')
+                    case CommandTypes.Turn:
+                        if (Engine.Instance.Minefield.Mines[row, column] != MinefieldConstants.LoadedMineCell)
                         {
-                            if (mines[row, column] == '-')
+                            if (Engine.Instance.Minefield.Mines[row, column] == MinefieldConstants.EmptyMineCell)
                             {
-                                tisinahod(Engine.Instance.Minefield.Cells, mines, row, column);
+                                UpdateSquareMark(Engine.Instance.Minefield.Marks, Engine.Instance.Minefield.Mines, row, column);
                                 counter++;
                             }
 
@@ -108,7 +122,7 @@ namespace Minesweeper.Core.Models
                             }
                             else
                             {
-                                RedrawBoard(Engine.Instance.Minefield.Cells);
+                                ReDrawMarks(Engine.Instance.Minefield.Marks);
                             }
                         }
                         else
@@ -124,21 +138,21 @@ namespace Minesweeper.Core.Models
 
                 if (isGameplayActive)
                 {
-                    RedrawBoard(mines);
-                    Engine.Instance.Writer.Write(Constants.Game.Notifications.GameOverLine(counter));
-                    string playerNickname = Console.ReadLine();
-                    Score t = new Score(playerNickname, counter);
+                    ReDrawMarks(Engine.Instance.Minefield.Mines);
+                    Engine.Instance.Writer.Write(Constants.Game.Notifications.GetGameOverLine(counter));
+                    string playerNickname = Engine.Instance.Reader.ReadLine();
+                    Score newScoreEntry = new Score(playerNickname, counter);
                     if (topPlayers.Count < 5)
                     {
-                        topPlayers.Add(t);
+                        topPlayers.Add(newScoreEntry);
                     }
                     else
                     {
                         for (int i = 0; i < topPlayers.Count; i++)
                         {
-                            if (topPlayers[i].Points < t.Points)
+                            if (topPlayers[i].Points < newScoreEntry.Points)
                             {
-                                topPlayers.Insert(i, t);
+                                topPlayers.Insert(i, newScoreEntry);
                                 topPlayers.RemoveAt(topPlayers.Count - 1);
                                 break;
                             }
@@ -149,8 +163,8 @@ namespace Minesweeper.Core.Models
                     topPlayers.Sort((Score r1, Score r2) => r2.Points.CompareTo(r1.Points));
                     RankTopPlayers(topPlayers);
 
-                    Engine.Instance.Minefield.Cells = Constants.Game.Minefield.GetNewBlankGameBoard();
-                    mines = getNewRandomGameBoard();
+                    Engine.Instance.Minefield.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
+                    Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
                     counter = 0;
                     isGameplayActive = false;
                     activeSession = true;
@@ -159,24 +173,24 @@ namespace Minesweeper.Core.Models
                 if (pointVictoryConditionMet)
                 {
                     Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.PointsVictory);
-                    RedrawBoard(mines);
+                    ReDrawMarks(Engine.Instance.Minefield.Mines);
                     Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.PromptPlayerNameSubmission);
                     string playerName = Engine.Instance.Reader.ReadLine();
                     Score playerScore = new Score(playerName, counter);
                     topPlayers.Add(playerScore);
                     RankTopPlayers(topPlayers);
-                    Engine.Instance.Minefield.Cells = Constants.Game.Minefield.GetNewBlankGameBoard();
-                    mines = getNewRandomGameBoard();
+                    Engine.Instance.Minefield.Marks = Constants.Game.Minefield.GetNewEmptyMinesMatrix();
+                    Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
                     counter = 0;
                     pointVictoryConditionMet = false;
                     activeSession = true;
                 }
             }
-            while (Engine.Instance.Command != "exit");
+            while (Engine.Instance.Command != CommandTypes.Exit);
 
             Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.FarewellMessage);
             Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.ProductOf);
-            //// Engine.Instance.Reader.ReadKey();
+            Engine.Instance.Reader.ReadKey();
         }
 
         /// <summary>Ranks the top players by score achieved.</summary><param name="individualPlayerScores">A collection of player scores.</param>
@@ -198,104 +212,65 @@ namespace Minesweeper.Core.Models
             }
         }
 
-        private static void tisinahod(char[,] gameBoard, char[,] mines, int row, int column)
+        /// <summary>Mark cell with result from counting mines in adjacent cell contents.</summary><param name="marks">Matrix of all cells containing outer display values - {?} for unopened cells, {digits} for marked cells, {blank} for open empty cells.</param><param name="mines">Matrix of all cells containing inner cell contents - {*} in cells holding active mines, {-} for mine-free cells, {blank} for open empty cells.</param><param name="row">Cell row index value.</param><param name="column">Cell column index value.</param>
+        private static void UpdateSquareMark(char[,] marks, char[,] mines, int row, int column)
         {
-            char kolkoBombi = CountAdjacentMines(mines, row, column);
-            mines[row, column] = kolkoBombi;
-            gameBoard[row, column] = kolkoBombi;
+            char newCountToCharacter = GetNeighbourMineCount(mines, row, column);
+            mines[row, column] = newCountToCharacter;
+            marks[row, column] = newCountToCharacter;
         }
 
-        private static void RedrawBoard(char[,] board)
+        /// <summary>Display the minefield anew.</summary><param name="marks">Player game area.</param>
+        private static void ReDrawMarks(char[,] marks)
         {
-            Console.WriteLine(MinefieldConstants.TopRowLabels);
-            Console.WriteLine(MinefieldConstants.LineBreak);
-            for (int i = 0; i < MinefieldConstants.DefaultNumberOfRows; i++)
+            Engine.Instance.Writer.WriteLine(MinefieldConstants.TopRulers);
+            Engine.Instance.Writer.WriteLine(MinefieldConstants.LineBreak);
+            for (int row = 0; row < MinefieldConstants.DefaultRows; row++)
             {
-                Console.Write("{0} | ", i);
-                for (int j = 0; j < MinefieldConstants.DefaultNumberOfColumns; j++)
+                Engine.Instance.Writer.Write(string.Format($"{row} {MinefieldConstants.SideEdge} "));
+                for (int column = 0; column < MinefieldConstants.DefaultColumns; column++)
                 {
-                    Console.Write(string.Format("{0} ", board[i, j]));
+                    Engine.Instance.Writer.Write(string.Format($"{marks[row, column]} "));
                 }
-                Console.Write("|");
-                Console.WriteLine();
+
+                Engine.Instance.Writer.Write(MinefieldConstants.SideEdge);
+                Engine.Instance.Writer.WriteLine();
             }
 
-            Console.WriteLine(MinefieldConstants.LineBreak);
+            Engine.Instance.Writer.WriteLine(MinefieldConstants.LineBreak);
         }
 
-
-
-        private static char[,] getNewRandomGameBoard()
+        /// <summary>Refresh all mine cell values.</summary><param name="mines">Matrix of mine cells.</param>
+        private static void UpdateMineCounts(char[,] mines)
         {
-            char[,] gameBoard = MinefieldConstants.GetNewBlankGameBoard();
-            for (int row = 0; row < MinefieldConstants.DefaultNumberOfRows; row++)
+            for (int row = 0; row < MinefieldConstants.DefaultRows; row++)
             {
-                for (int column = 0; column < MinefieldConstants.DefaultNumberOfColumns; column++)
+                for (int column = 0; column < MinefieldConstants.DefaultColumns; column++)
                 {
-                    gameBoard[row, column] = '-';
-                }
-            }
-
-            List<int> uniqueRandomNumbers = new List<int>();
-            while (uniqueRandomNumbers.Count < 15)
-            {
-                Random random = new Random();
-                int nextRandomNumber = random.Next(50);
-                if (!uniqueRandomNumbers.Contains(nextRandomNumber))
-                {
-                    uniqueRandomNumbers.Add(nextRandomNumber);
-                }
-            }
-
-            foreach (int number in uniqueRandomNumbers)
-            {
-                int columnPlacement = (number / MinefieldConstants.DefaultNumberOfColumns);
-                int rowPlacement = (number % MinefieldConstants.DefaultNumberOfColumns);
-                if (rowPlacement == 0 && number != 0)
-                {
-                    columnPlacement--;
-                    rowPlacement = MinefieldConstants.DefaultNumberOfColumns;
-                }
-                else
-                {
-                    rowPlacement++;
-                }
-
-                gameBoard[columnPlacement, rowPlacement - 1] = '*';
-            }
-
-            return gameBoard;
-        }
-
-        private static void revealCellDigit(char[,] cells)
-        {
-            for (int i = 0; i < MinefieldConstants.DefaultNumberOfRows; i++)
-            {
-                for (int j = 0; j < MinefieldConstants.DefaultNumberOfColumns; j++)
-                {
-                    if (cells[i, j] != '*')
+                    if (mines[row, column] != MinefieldConstants.LoadedMineCell)
                     {
-                        char adjacentMineCount = CountAdjacentMines(cells, i, j);
-                        cells[i, j] = adjacentMineCount;
+                        char mineCountUpdate = GetNeighbourMineCount(mines, row, column);
+                        mines[row, column] = mineCountUpdate;
                     }
                 }
             }
         }
 
-        private static char CountAdjacentMines(char[,] gameBoard, int row, int column)
+        /// <summary>Char the number of mines in adjacent cell contents by row and column index.</summary><param name="mines">Matrix of all cell contents - {*} for cells holding active mines, {-} for mine-free cells, {blank} for open empty cells.</param><param name="row">Cell row index.</param><param name="column">Cell column index.</param><returns>Adjacent mine count as char value.</returns>
+        private static char GetNeighbourMineCount(char[,] mines, int row, int column)
         {
             int count = 0;
             if (row - 1 >= 0)
             {
-                if (gameBoard[row - 1, column] == MinefieldConstants.DefaultMineDisplayCharacter)
+                if (mines[row - 1, column] == MinefieldConstants.LoadedMineCell)
                 {
                     count++;
                 }
             }
 
-            if (row + 1 < MinefieldConstants.DefaultNumberOfRows)
+            if (row + 1 < MinefieldConstants.DefaultRows)
             {
-                if (gameBoard[row + 1, column] == MinefieldConstants.DefaultMineDisplayCharacter)
+                if (mines[row + 1, column] == MinefieldConstants.LoadedMineCell)
                 {
                     count++;
                 }
@@ -303,15 +278,15 @@ namespace Minesweeper.Core.Models
 
             if (column - 1 >= 0)
             {
-                if (gameBoard[row, column - 1] == MinefieldConstants.DefaultMineDisplayCharacter)
+                if (mines[row, column - 1] == MinefieldConstants.LoadedMineCell)
                 {
                     count++;
                 }
             }
 
-            if (column + 1 < MinefieldConstants.DefaultNumberOfColumns)
+            if (column + 1 < MinefieldConstants.DefaultColumns)
             {
-                if (gameBoard[row, column + 1] == MinefieldConstants.DefaultMineDisplayCharacter)
+                if (mines[row, column + 1] == MinefieldConstants.LoadedMineCell)
                 {
                     count++;
                 }
@@ -319,31 +294,31 @@ namespace Minesweeper.Core.Models
 
             if ((row - 1 >= 0) && (column - 1 >= 0))
             {
-                if (gameBoard[row - 1, column - 1] == MinefieldConstants.DefaultMineDisplayCharacter)
+                if (mines[row - 1, column - 1] == MinefieldConstants.LoadedMineCell)
                 {
                     count++;
                 }
             }
 
-            if ((row - 1 >= 0) && (column + 1 < MinefieldConstants.DefaultNumberOfColumns))
+            if ((row - 1 >= 0) && (column + 1 < MinefieldConstants.DefaultColumns))
             {
-                if (gameBoard[row - 1, column + 1] == MinefieldConstants.DefaultMineDisplayCharacter)
+                if (mines[row - 1, column + 1] == MinefieldConstants.LoadedMineCell)
                 {
                     count++;
                 }
             }
 
-            if ((row + 1 < MinefieldConstants.DefaultNumberOfRows) && (column - 1 >= 0))
+            if ((row + 1 < MinefieldConstants.DefaultRows) && (column - 1 >= 0))
             {
-                if (gameBoard[row + 1, column - 1] == MinefieldConstants.DefaultMineDisplayCharacter)
+                if (mines[row + 1, column - 1] == MinefieldConstants.LoadedMineCell)
                 {
                     count++;
                 }
             }
 
-            if ((row + 1 < MinefieldConstants.DefaultNumberOfRows) && (column + 1 < MinefieldConstants.DefaultNumberOfColumns))
+            if ((row + 1 < MinefieldConstants.DefaultRows) && (column + 1 < MinefieldConstants.DefaultColumns))
             {
-                if (gameBoard[row + 1, column + 1] == MinefieldConstants.DefaultMineDisplayCharacter)
+                if (mines[row + 1, column + 1] == MinefieldConstants.LoadedMineCell)
                 {
                     count++;
                 }

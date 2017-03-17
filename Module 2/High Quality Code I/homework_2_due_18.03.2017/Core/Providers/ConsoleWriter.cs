@@ -5,7 +5,7 @@ namespace Minesweeper.Core.Providers
     using Contracts.Interfaces;
 
     /// <summary>Provides standard console writing functionality.</summary>
-    public class ConsoleWriter : IWriter
+    internal class ConsoleWriter : IWriter
     {
         /// <summary>Writes a new line of text to the console.</summary><param name="message">Text message to be written to console.</param>
         public void WriteLine(string message)
@@ -23,8 +23,6 @@ namespace Minesweeper.Core.Providers
         public void Write(string message)
         {
             Console.Write(message);
-        }
-
-        
+        }        
     }
 }

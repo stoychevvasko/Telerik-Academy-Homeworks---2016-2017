@@ -21,7 +21,7 @@ namespace Minesweeper.Core
             get { return instanceHolder; }
         }
 
-        /// <summary>Creates a new <see cref="IMinefield"/>-like object.</summary><returns>A new blank game board.</returns>
+        /// <summary>Creates a new <see cref="IMarks"/>-like object.</summary><returns>A new blank game board.</returns>
         public IMinefield CreateNewMinefield()
         {
             return new Minefield();

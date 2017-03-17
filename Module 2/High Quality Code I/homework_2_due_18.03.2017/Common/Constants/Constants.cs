@@ -2,16 +2,17 @@
 namespace Minesweeper.Common.Constants
 {
     using System;
-    using MinefieldConstants = Minesweeper.Common.Constants.Constants.Game.Minefield;
+    using System.Collections.Generic;
+    using Core.Providers;
 
     /// <summary>Minesweeper constants and default values.</summary>
-    public static class Constants
+    internal static class Constants
     {
         /// <summary>Minesweeper player constants and default values.</summary>
         public static class Player
         {
             /// <summary>Minesweeper default player name constant.</summary>
-            public const string DefaultName = "Default_Name";
+            public const string DefaultName = "unknown player";
 
             /// <summary>Minesweeper default player points constant.</summary>
             public const int DefaultPoints = -1;
@@ -24,7 +25,7 @@ namespace Minesweeper.Common.Constants
             public static class Notifications
             {
                 /// <summary>Prompts player turn.</summary>
-                public const string PromptNextPlayerTurn = "[row:0-4]>[space]>[col:0-9]>[enter]: ";
+                public const string PromptNextPlayerTurn = "next turn: ";
 
                 /// <summary>Title line in Minesweeper game.</summary>
                 public const string TitleLine = "Play Minesweeper - step on all the mine-free cells >:(\n\nKeyboard commands:\n\n              [t][o][p] > highscores\n  [r][e][s][t][a][r][t] > new game\n           [e][x][i][t] > quit game\n";
@@ -44,19 +45,29 @@ namespace Minesweeper.Common.Constants
                 /// <summary>Prompts player to type their name.</summary>
                 public const string PromptPlayerNameSubmission = "Enter your name: ";
 
-                /// <summary>Bids player goodbye.</summary>
-                public const string FarewellMessage = "<Chatbot>: gg wp m8\n";
-
                 /// <summary>Player left game.</summary>
                 public const string PlayerQuit = " (player left)\n";
 
                 /// <summary>No high score available to display.</summary>
                 public const string HighscoreEmpty = " (none)";
 
-                /// <summary>Game over line with final score in Minesweeper game.</summary><param name="result">Final number of points collected.</param><returns>Game over line for console.</returns>
-                public static string GameOverLine(int result)
+                /// <summary>Gets goodbye string to reply with when player quits game.</summary>
+                public static string FarewellMessage
                 {
-                    return string.Format($"\n*kaBooM!* You died with {result} points.\n\nPlayer name?: ");
+                    get { return BidGoodbye(); }
+                }
+
+                /// <summary>Game over line with final score in Minesweeper game.</summary><param name="result">Final number of points collected.</param><returns>Game over line for console.</returns>
+                public static string GetGameOverLine(int result)
+                {
+                    return string.Format($"You died with {result} points.\n\nPlayer name?: ");
+                }
+
+                /// <summary>Goodbye wish.</summary><returns>Sample goodbye utterance.</returns>
+                private static string BidGoodbye()
+                {
+                    var now = DateTimeProvider.Now;
+                    return string.Format($"[{now.Day.ToString("00")}/{now.Month.ToString("00")}/{now.Year.ToString("0000")}]@[{now.Hour.ToString("00")}:{now.Minute.ToString("00")}:{now.Second.ToString("00")}sec]  <Chatbot>:  gg wp m8\n\n");
                 }
             }
 
@@ -64,37 +75,43 @@ namespace Minesweeper.Common.Constants
             public static class Command
             {
                 /// <summary>Initial command value at game-start.</summary>
-                public static readonly string DefaultCommand = string.Empty;
+                public const string DefaultCommand = "";
             }
 
             /// <summary>Minesweeper game minefield constants and default values.</summary>
             public static class Minefield
             {
                 /// <summary>Standard minefield number of rows value.</summary>
-                public const int DefaultNumberOfRows = 5;
+                public const int DefaultRows = 5;
 
                 /// <summary>Standard minefield number of columns value.</summary>
-                public const int DefaultNumberOfColumns = 10;
+                public const int DefaultColumns = 10;
 
                 /// <summary>Standard character for cells not yet revealed on the game board./// </summary>
-                public const char DefaultHiddenCellDisplayCharacter = '?';
+                public const char UnmarkedSquare = '?';
 
                 /// <summary>Standard character for mines already revealed on the game board.</summary>
-                public const char DefaultMineDisplayCharacter = '*';
+                public const char LoadedMineCell = '*';
 
-                /// <summary>Column labels on first line.</summary>
-                public const string TopRowLabels = "\n    0 1 2 3 4 5 6 7 8 9";
+                /// <summary>Standard character for mine-free clear cells.</summary>
+                public const char EmptyMineCell = '-';
+
+                /// <summary>Top-row column numbers.</summary>
+                public const string TopRulers = "\n    0 1 2 3 4 5 6 7 8 9";
 
                 /// <summary>A horizontal visual delimiter.</summary>
-                public const string LineBreak = "   ---------------------\n";
+                public const string LineBreak = "    ---------------------\n";
+
+                /// <summary>A vertical delimiter.</summary>
+                public const string SideEdge = "|";
 
                 /// <summary>Standard blank game board in the Minesweeper game.</summary><returns>A blank game board filled with default unrevealed cell character.</returns>
-                public static char[,] GetNewBlankGameBoard()
+                public static char[,] GetNewEmptyMinesMatrix()
                 {
-                    var boardBuilder = new char[DefaultNumberOfRows, DefaultNumberOfColumns];
-                    for (int row = 0; row < DefaultNumberOfRows; row++)
+                    var boardBuilder = new char[DefaultRows, DefaultColumns];
+                    for (int row = 0; row < DefaultRows; row++)
                     {
-                        for (int column = 0; column < DefaultNumberOfColumns; column++)
+                        for (int column = 0; column < DefaultColumns; column++)
                         {
                             boardBuilder[row, column] = '?';
                         }
@@ -102,16 +119,56 @@ namespace Minesweeper.Common.Constants
 
                     return boardBuilder;
                 }
+
+                /// <summary>Creates a new matrix with mines (pseudo)-randomly placed.</summary><returns>Randomized matrix of cells</returns>
+                public static char[,] GetRandomizedCells()
+                {
+                    char[,] cells = GetNewEmptyMinesMatrix();
+                    for (int row = 0; row < DefaultRows; row++)
+                    {
+                        for (int column = 0; column < DefaultColumns; column++)
+                        {
+                            cells[row, column] = EmptyMineCell;
+                        }
+                    }
+
+                    List<int> randoms = new List<int>();
+                    while (randoms.Count < 15)
+                    {
+                        Random random = new Random();
+                        int nextRandomNumber = random.Next(50);
+                        if (!randoms.Contains(nextRandomNumber))
+                        {
+                            randoms.Add(nextRandomNumber);
+                        }
+                    }
+
+                    foreach (int number in randoms)
+                    {
+                        int row = number / DefaultColumns;
+                        int column = number % DefaultColumns;
+                        if (column == 0 && number != 0)
+                        {
+                            row--;
+                            column = DefaultColumns;
+                        }
+                        else
+                        {
+                            column++;
+                        }
+
+                        cells[row, column - 1] = LoadedMineCell;
+                    }
+
+                    return cells;
+                }
             }
 
             /// <summary>Minesweeper game victory conditions constants and default values.</summary>
             public static class VictoryConditions
             {
                 /// <summary>Gets number of player points required to meet standard victory condition.</summary>
-                public static int NumberOfPoints
-                {
-                    get { return 35; }
-                }
+                public const int NumberOfPoints = 35;
             }
         }
     }

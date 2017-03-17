@@ -1,8 +1,8 @@
-﻿//// <copyright file="ConsoleCommands.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
+﻿//// <copyright file="CommandTypes.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
 namespace Minesweeper.Common.Enumerations
 {
     /// <summary>Valid user commands.</summary>
-    public enum ConsoleCommands
+    public enum CommandTypes
     {
         /// <summary>Player quit command.</summary>
         Exit = 0,

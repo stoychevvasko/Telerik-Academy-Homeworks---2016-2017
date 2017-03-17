@@ -10,14 +10,14 @@ namespace Minesweeper.Core.Models
         /// <summary>Initializes a new instance of the <see cref="Minefield"/> class.</summary>
         public Minefield()
         {
-            this.Cells = MinefieldConstants.GetNewBlankGameBoard();
+            this.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
+            this.Mines = MinefieldConstants.GetRandomizedCells();
         }
 
-        /// <summary>Gets or sets Minesweeper game board matrix.</summary>
-        public char[,] Cells
-        {
-            get;
-            set;
-        }
+        /// <summary>Gets or sets matrix of all cells containing outer display values - {?} for unopened cells, {digits} for marked cells, {blank} for open empty cells.</summary>
+        public char[,] Marks { get; set; }
+
+        /// <summary>Gets or sets matrix of all cells containing inner cell contents - {*} in cells holding active mines, {-} for mine-free cells, {blank} for open empty cells.</summary>
+        public char[,] Mines { get; set; }
     }
 }
