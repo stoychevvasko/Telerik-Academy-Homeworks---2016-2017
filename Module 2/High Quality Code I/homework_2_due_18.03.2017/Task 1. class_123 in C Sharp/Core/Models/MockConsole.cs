@@ -1,5 +1,5 @@
 ﻿//// <copyright file="MockConsole.cs" company="indepentent developer">Copyright (c) Vassil Stoychev 2017. All rights reserved.</copyright>
-namespace Task_1_class_123_in_C_sharp
+namespace Task_1_class_123_in_C_sharp.Core.Models
 {
     /// <summary>Provides console-like functionality.</summary>
     internal class MockConsole

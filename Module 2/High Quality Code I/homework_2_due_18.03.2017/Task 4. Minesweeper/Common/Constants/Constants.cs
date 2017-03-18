@@ -37,7 +37,7 @@ namespace Minesweeper.Common.Constants
                 public const string InvalidCommand = "\n error! invalid command!\n";
 
                 /// <summary>High scores line in Minesweeper game.</summary>
-                public const string TopPlayers = "\n best scores: ";
+                public const string TopPlayers = " best scores: ";
 
                 /// <summary>Congratulatory message celebrating your amazing success.</summary>
                 public const string PointsVictory = "\n victory! you found 35 mine-free cells!\n\n";
@@ -70,7 +70,7 @@ namespace Minesweeper.Common.Constants
                 private static string BidGoodbye()
                 {
                     var now = DateTimeProvider.Now;
-                    return string.Format($"[{now.Day.ToString("00")}/{now.Month.ToString("00")}/{now.Year.ToString("0000")}]@[{now.Hour.ToString("00")}:{now.Minute.ToString("00")}:{now.Second.ToString("00")}]<Chatbot>: gg wp m8\n\n");
+                    return string.Format($"[{now.Day.ToString("00")}/{now.Month.ToString("00")}/{now.Year.ToString("0000")}@{now.Hour.ToString("00")}:{now.Minute.ToString("00")}:{now.Second.ToString("00")}]:\n <Chatbot>: gg wp m8\n\n");
                 }
             }
 

@@ -3,11 +3,13 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 14
 VisualStudioVersion = 14.0.25420.1
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Minesweeper", "Minesweeper.csproj", "{B20E8DFD-5F12-4358-849D-1F25806E9052}"
-EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 1 - class_123 in C Sharp", "..\Task 1. class_123 in C Sharp\Task 1 - class_123 in C Sharp.csproj", "{20C7BD6F-5F2F-48AC-A647-5E3F4FEF2857}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 2 - Make_4yek in C Sharp", "Task 2 - Make_4yek in C Sharp\Task 2 - Make_4yek in C Sharp.csproj", "{321566DE-B0A2-4C69-8232-8023BD926501}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 3. - _ClickON_TheButton in JS", "Task 3.  _ClickON_TheButton in JS\Task 3. - _ClickON_TheButton in JS.csproj", "{02EE3462-6C3A-4DC0-A2FC-C6C21D72E7BF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 4. Minesweeper", "Task 4. Minesweeper\Task 4. Minesweeper.csproj", "{B9CB7774-757E-4B55-BBA4-E8C56E3B6D63}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Task 1. class_123 in C Sharp", "Task 1. class_123 in C Sharp\Task 1. class_123 in C Sharp.csproj", "{92D08D66-9A83-4A5E-B92E-442A8527050C}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,18 +17,22 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{B20E8DFD-5F12-4358-849D-1F25806E9052}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{B20E8DFD-5F12-4358-849D-1F25806E9052}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{B20E8DFD-5F12-4358-849D-1F25806E9052}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{B20E8DFD-5F12-4358-849D-1F25806E9052}.Release|Any CPU.Build.0 = Release|Any CPU
-		{20C7BD6F-5F2F-48AC-A647-5E3F4FEF2857}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{20C7BD6F-5F2F-48AC-A647-5E3F4FEF2857}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{20C7BD6F-5F2F-48AC-A647-5E3F4FEF2857}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{20C7BD6F-5F2F-48AC-A647-5E3F4FEF2857}.Release|Any CPU.Build.0 = Release|Any CPU
 		{321566DE-B0A2-4C69-8232-8023BD926501}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{321566DE-B0A2-4C69-8232-8023BD926501}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{321566DE-B0A2-4C69-8232-8023BD926501}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{321566DE-B0A2-4C69-8232-8023BD926501}.Release|Any CPU.Build.0 = Release|Any CPU
+		{02EE3462-6C3A-4DC0-A2FC-C6C21D72E7BF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{02EE3462-6C3A-4DC0-A2FC-C6C21D72E7BF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{02EE3462-6C3A-4DC0-A2FC-C6C21D72E7BF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{02EE3462-6C3A-4DC0-A2FC-C6C21D72E7BF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{B9CB7774-757E-4B55-BBA4-E8C56E3B6D63}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B9CB7774-757E-4B55-BBA4-E8C56E3B6D63}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B9CB7774-757E-4B55-BBA4-E8C56E3B6D63}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B9CB7774-757E-4B55-BBA4-E8C56E3B6D63}.Release|Any CPU.Build.0 = Release|Any CPU
+		{92D08D66-9A83-4A5E-B92E-442A8527050C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{92D08D66-9A83-4A5E-B92E-442A8527050C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{92D08D66-9A83-4A5E-B92E-442A8527050C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{92D08D66-9A83-4A5E-B92E-442A8527050C}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

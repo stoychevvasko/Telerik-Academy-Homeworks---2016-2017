@@ -199,7 +199,7 @@ namespace Minesweeper.Core.Models
 
         /// <summary>Ranks the top players by score achieved.</summary><param name="individualPlayerScores">A collection of player scores.</param>
         private static void RankTopPlayers(List<Score> individualPlayerScores)
-        {
+        {            
             Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.TopPlayers);
             if (individualPlayerScores.Count > 0)
             {
@@ -216,6 +216,7 @@ namespace Minesweeper.Core.Models
             }
 
             Engine.Instance.Reader.ReadKey();
+            Engine.Instance.Writer.ClearConsole();
         }
 
         /// <summary>Mark cell with result from counting mines in adjacent cell contents.</summary><param name="marks">Matrix of all cells containing outer display values - {?} for unopened cells, {digits} for marked cells, {blank} for open empty cells.</param><param name="mines">Matrix of all cells containing inner cell contents - {*} in cells holding active mines, {-} for mine-free cells, {blank} for open empty cells.</param><param name="row">Cell row index value.</param><param name="column">Cell column index value.</param>
