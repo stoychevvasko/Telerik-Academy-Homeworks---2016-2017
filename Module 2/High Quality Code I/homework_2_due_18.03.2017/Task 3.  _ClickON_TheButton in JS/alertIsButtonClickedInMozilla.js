@@ -3,8 +3,8 @@ function alertIsButtonClickedInMozilla(event, arguments) {
     browserSelected = windowSelected.navigator.appCodeName,
     isMozilla = browserSelected == "Mozilla";
   if (isMozilla) {
-    alert("button clicked in Mozilla browser");
+    alert("yes Mozilla");
   } else {
-    alert("another browser was used");
+    alert("not Mozilla");
   }
 }

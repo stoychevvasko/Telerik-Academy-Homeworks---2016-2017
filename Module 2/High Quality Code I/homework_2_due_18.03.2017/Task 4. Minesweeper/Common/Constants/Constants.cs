@@ -25,34 +25,37 @@ namespace Minesweeper.Common.Constants
             public static class Notifications
             {
                 /// <summary>Prompts player turn.</summary>
-                public const string PromptNextPlayerTurn = "next turn: ";
+                public const string PromptNextPlayerTurn = " next turn: ";
 
                 /// <summary>Title line in Minesweeper game.</summary>
                 public const string TitleLine = "minesweeper - don't blow up";
 
                 /// <summary>Keyboard instructions.</summary>
-                public const string Instructions = "keyboard commands:\n\n              [t][o][p] > highscores\n  [r][e][s][t][a][r][t] > new game\n           [e][x][i][t] > quit game\n";
+                public const string Instructions = " \n keyboard commands:\n\n              [t][o][p] > highscores\n  [r][e][s][t][a][r][t] > new game\n           [e][x][i][t] > quit game\n";
 
                 /// <summary>Invalid command notification in Minesweeper game.</summary>
-                public const string InvalidCommand = "\n error! invalid command!\n";
+                public const string InvalidCommand = " error! invalid command!\n";
 
                 /// <summary>High scores line in Minesweeper game.</summary>
-                public const string TopPlayers = " best scores: ";
+                public const string TopPlayers = " \n best scores:\n";
 
                 /// <summary>Congratulatory message celebrating your amazing success.</summary>
-                public const string PointsVictory = "\n victory! you found 35 mine-free cells!\n\n";
+                public const string PointsVictory = " victory! you found 35 mine-free cells!\n";
 
                 /// <summary>Sourcing details.</summary>
-                public const string ProductOf = "  \n made by ninja-in-training";
+                public const string ProductOf = "  made by: ninja in training\n";
 
                 /// <summary>Prompts player to type their name.</summary>
                 public const string PromptPlayerNameSubmission = " enter your name: ";
 
                 /// <summary>Player left game.</summary>
-                public const string PlayerQuit = " player left.\n";
+                public const string PlayerQuit = "\n (player left)";
 
                 /// <summary>No high score available to display.</summary>
-                public const string HighscoreEmpty = " none";
+                public const string HighscoreEmpty = " (no records)\n";
+
+                /// <summary>Prompts player to press any key.</summary>
+                public const string PressAnyKey = "\n press any key...";
 
                 /// <summary>Gets goodbye string to reply with when player quits game.</summary>
                 public static string FarewellMessage
@@ -63,14 +66,14 @@ namespace Minesweeper.Common.Constants
                 /// <summary>Game over line with final score in Minesweeper game.</summary><param name="result">Final number of points collected.</param><returns>Game over line for console.</returns>
                 public static string GetGameOverLine(int result)
                 {
-                    return string.Format($" you died with balance of {result} points.\n\n player name?: ");
+                    return string.Format($" you died with balance of {result} points\n  player name?: ");
                 }
 
                 /// <summary>Goodbye wish.</summary><returns>Sample goodbye utterance.</returns>
                 private static string BidGoodbye()
                 {
                     var now = DateTimeProvider.Now;
-                    return string.Format($"[{now.Day.ToString("00")}/{now.Month.ToString("00")}/{now.Year.ToString("0000")}@{now.Hour.ToString("00")}:{now.Minute.ToString("00")}:{now.Second.ToString("00")}]:\n <Chatbot>: gg wp m8\n\n");
+                    return string.Format($"  @{now.Day.ToString("00")}/{now.Month.ToString("00")}/{now.Year.ToString("0000")} {now.Hour.ToString("00")}:{now.Minute.ToString("00")}:{now.Second.ToString("00")}\n\n  <Chatbot>: gg wp m8\n\n");
                 }
             }
 
@@ -100,10 +103,10 @@ namespace Minesweeper.Common.Constants
                 public const char EmptyMineCell = '-';
 
                 /// <summary>Top-row column numbers.</summary>
-                public const string TopRulers = "\n    0 1 2 3 4 5 6 7 8 9";
+                public const string TopRulers = "\n      0 1 2 3 4 5 6 7 8 9";
 
                 /// <summary>A horizontal visual delimiter.</summary>
-                public const string LineBreak = "    ---------------------\n";
+                public const string LineBreak = "      ---------------------";
 
                 /// <summary>A vertical delimiter.</summary>
                 public const string SideEdge = "|";

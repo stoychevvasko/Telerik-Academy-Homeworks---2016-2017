@@ -63,7 +63,7 @@ namespace Minesweeper.Core.Models
         /// <summary>Sets the engine in motion.</summary>        
         public void Start()
         {
-            //// TO-DO: complete the cycle
+            //// TO-DO: refactor spaghetti code
 
             Engine.Instance.Minefield.Marks = MinefieldConstants.GetNewEmptyMinesMatrix();
             Engine.Instance.Minefield.Mines = MinefieldConstants.GetRandomizedCells();
@@ -145,6 +145,7 @@ namespace Minesweeper.Core.Models
                     ReDrawMarks(Engine.Instance.Minefield.Mines);
                     Engine.Instance.Writer.Write(Constants.Game.Notifications.GetGameOverLine(Engine.Instance.MineCounter.GetCount));
                     string playerNickname = Engine.Instance.Reader.ReadLine();
+                    Engine.Instance.Writer.ClearConsole();
                     Score newScoreEntry = new Score(playerNickname, Engine.Instance.MineCounter.GetCount);
                     if (topPlayers.Count < 5)
                     {
@@ -180,6 +181,7 @@ namespace Minesweeper.Core.Models
                     ReDrawMarks(Engine.Instance.Minefield.Mines);
                     Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.PromptPlayerNameSubmission);
                     string playerName = Engine.Instance.Reader.ReadLine();
+                    Engine.Instance.Writer.ClearConsole();
                     Score playerScore = new Score(playerName, Engine.Instance.MineCounter.GetCount);
                     topPlayers.Add(playerScore);
                     RankTopPlayers(topPlayers);
@@ -194,18 +196,21 @@ namespace Minesweeper.Core.Models
 
             Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.FarewellMessage);
             Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.ProductOf);
+            Engine.Instance.Writer.Write(Constants.Game.Notifications.PressAnyKey);
             Engine.Instance.Reader.ReadKey();
+            Engine.Instance.Writer.ClearConsole();
         }
 
         /// <summary>Ranks the top players by score achieved.</summary><param name="individualPlayerScores">A collection of player scores.</param>
         private static void RankTopPlayers(List<Score> individualPlayerScores)
-        {            
+        {
+            Engine.Instance.Writer.ClearConsole();
             Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.TopPlayers);
             if (individualPlayerScores.Count > 0)
             {
                 for (int index = 0; index < individualPlayerScores.Count; index++)
                 {
-                    Engine.Instance.Writer.WriteLine(string.Format($"{index + 1}. {individualPlayerScores[index].Name} --> {individualPlayerScores[index].Points} points"));
+                    Engine.Instance.Writer.WriteLine(string.Format($"  {index + 1}. {individualPlayerScores[index].Name} . . . . . {individualPlayerScores[index].Points} points"));
                 }
 
                 Engine.Instance.Writer.WriteLine();
@@ -215,8 +220,9 @@ namespace Minesweeper.Core.Models
                 Engine.Instance.Writer.WriteLine(Constants.Game.Notifications.HighscoreEmpty);
             }
 
-            Engine.Instance.Reader.ReadKey();
-            Engine.Instance.Writer.ClearConsole();
+            Engine.Instance.Writer.Write(Constants.Game.Notifications.PressAnyKey);
+            Engine.Instance.Reader.ReadKey();      
+            Engine.Instance.Writer.ClearConsole();      
         }
 
         /// <summary>Mark cell with result from counting mines in adjacent cell contents.</summary><param name="marks">Matrix of all cells containing outer display values - {?} for unopened cells, {digits} for marked cells, {blank} for open empty cells.</param><param name="mines">Matrix of all cells containing inner cell contents - {*} in cells holding active mines, {-} for mine-free cells, {blank} for open empty cells.</param><param name="row">Cell row index value.</param><param name="column">Cell column index value.</param>
@@ -236,17 +242,19 @@ namespace Minesweeper.Core.Models
             Engine.Instance.Writer.WriteLine(MinefieldConstants.LineBreak);
             for (int row = 0; row < MinefieldConstants.DefaultRows; row++)
             {
-                Engine.Instance.Writer.Write(string.Format($"{row} {MinefieldConstants.SideEdge} "));
+                Engine.Instance.Writer.Write(string.Format($"   {row} {MinefieldConstants.SideEdge} "));
                 for (int column = 0; column < MinefieldConstants.DefaultColumns; column++)
                 {
                     Engine.Instance.Writer.Write(string.Format($"{marks[row, column]} "));
                 }
 
                 Engine.Instance.Writer.Write(MinefieldConstants.SideEdge);
-                Engine.Instance.Writer.WriteLine();
+                Engine.Instance.Writer.WriteLine();                
             }
 
             Engine.Instance.Writer.WriteLine(MinefieldConstants.LineBreak);
+            Engine.Instance.Writer.WriteLine();
+            Engine.Instance.Writer.WriteLine();
         }
 
         /// <summary>Refresh all mine cell values.</summary><param name="mines">Matrix of mine cells.</param>
