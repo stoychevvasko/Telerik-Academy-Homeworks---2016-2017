@@ -1,4 +1,4 @@
-﻿//// <copyright file="Engine.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
+﻿//// <copyright file="Engine.cs" company="indepentent developer">Copyright (c) Vassil Stoychev 2017. All rights reserved.</copyright>
 namespace Minesweeper.Core.Models
 {
     using System.Collections.Generic;

@@ -1,4 +1,4 @@
-﻿//// <copyright file="Score.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
+﻿//// <copyright file="Score.cs" company="indepentent developer">Copyright (c) Vassil Stoychev 2017. All rights reserved.</copyright>
 namespace Minesweeper.Core.Models
 {
     using Common.Constants;

@@ -1,4 +1,4 @@
-﻿//// <copyright file="IMarks.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
+﻿//// <copyright file="IMarks.cs" company="indepentent developer">Copyright (c) Vassil Stoychev 2017. All rights reserved.</copyright>
 namespace Minesweeper.Core.Contracts.Interfaces
 {
     /// <summary>Marks functionality - outer layer with {?} for unopened cells, {digits} for marked cells, {blank} for open empty cells.</summary>

@@ -1,4 +1,4 @@
-﻿//// <copyright file="IGameFactory.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
+﻿//// <copyright file="IGameFactory.cs" company="indepentent developer">Copyright (c) Vassil Stoychev 2017. All rights reserved.</copyright>
 namespace Minesweeper.Core.Contracts.Interfaces
 {
     /// <summary>Provides game factory functionality for instantiation of all relevant game objects.</summary>

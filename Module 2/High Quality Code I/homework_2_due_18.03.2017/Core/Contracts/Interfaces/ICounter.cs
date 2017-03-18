@@ -1,4 +1,4 @@
-﻿//// <copyright file="ICounter.cs" company="indepentent developer">Copyright (c) *hidden* 2017. All rights reserved.</copyright>
+﻿//// <copyright file="ICounter.cs" company="indepentent developer">Copyright (c) Vassil Stoychev 2017. All rights reserved.</copyright>
 namespace Minesweeper.Core.Contracts.Interfaces
 {
     /// <summary>Provides counter-related functionality.</summary>
