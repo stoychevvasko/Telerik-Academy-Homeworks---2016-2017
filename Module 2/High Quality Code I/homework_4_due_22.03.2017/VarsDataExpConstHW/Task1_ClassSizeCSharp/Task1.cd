@@ -1,0 +1,88 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Task1.Shape">
+    <Position X="2.5" Y="0.75" Width="2.5" />
+    <NestedTypes>
+      <Class Name="Task1.Shape.Validations" Collapsed="true">
+        <Compartments>
+          <Compartment Name="Nested Types" Collapsed="false" />
+        </Compartments>
+        <NestedTypes>
+          <Class Name="Task1.Shape.Validations.Property">
+            <Compartments>
+              <Compartment Name="Nested Types" Collapsed="false" />
+            </Compartments>
+            <NestedTypes>
+              <Class Name="Task1.Shape.Validations.Property.Getter">
+                <Compartments>
+                  <Compartment Name="Nested Types" Collapsed="false" />
+                </Compartments>
+                <NestedTypes>
+                  <Class Name="Task1.Shape.Validations.Property.Getter.Height">
+                    <TypeIdentifier>
+                      <NewMemberFileName>Shape.cs</NewMemberFileName>
+                    </TypeIdentifier>
+                  </Class>
+                  <Class Name="Task1.Shape.Validations.Property.Getter.Width">
+                    <TypeIdentifier>
+                      <NewMemberFileName>Shape.cs</NewMemberFileName>
+                    </TypeIdentifier>
+                  </Class>
+                </NestedTypes>
+                <TypeIdentifier>
+                  <NewMemberFileName>Shape.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+              <Class Name="Task1.Shape.Validations.Property.Setter">
+                <Compartments>
+                  <Compartment Name="Nested Types" Collapsed="false" />
+                </Compartments>
+                <NestedTypes>
+                  <Class Name="Task1.Shape.Validations.Property.Setter.Height">
+                    <TypeIdentifier>
+                      <NewMemberFileName>Shape.cs</NewMemberFileName>
+                    </TypeIdentifier>
+                  </Class>
+                  <Class Name="Task1.Shape.Validations.Property.Setter.Width">
+                    <TypeIdentifier>
+                      <NewMemberFileName>Shape.cs</NewMemberFileName>
+                    </TypeIdentifier>
+                  </Class>
+                </NestedTypes>
+                <TypeIdentifier>
+                  <NewMemberFileName>Shape.cs</NewMemberFileName>
+                </TypeIdentifier>
+              </Class>
+            </NestedTypes>
+            <TypeIdentifier>
+              <NewMemberFileName>Shape.cs</NewMemberFileName>
+            </TypeIdentifier>
+          </Class>
+        </NestedTypes>
+        <TypeIdentifier>
+          <NewMemberFileName>Shape.cs</NewMemberFileName>
+        </TypeIdentifier>
+      </Class>
+    </NestedTypes>
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAQAQAAAAEAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Shape.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Interface Name="Task1.Contracts.Interfaces.IRotatable">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Interfaces\IRotatable.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Task1.Contracts.Interfaces.IShape">
+    <Position X="0.5" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAABAAAAAAAAAAAAEAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Contracts\Interfaces\IShape.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>

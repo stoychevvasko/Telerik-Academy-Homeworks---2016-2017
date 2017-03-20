@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{38839B1F-D8CD-4129-951F-98DB6982A257}</ProjectGuid>
+    <ProjectGuid>{67959F98-3CF9-48D9-89FF-788E54BE0A80}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Task1.Tests</RootNamespace>
-    <AssemblyName>Task1.Tests</AssemblyName>
+    <RootNamespace>Task2.Tests</RootNamespace>
+    <AssemblyName>Task2.Tests</AssemblyName>
     <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
@@ -52,19 +52,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Shape\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Shape\Properties\Height_Should.cs" />
-    <Compile Include="Shape\Properties\Width_Should.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <ProjectReference Include="..\Task1_ClassSizeCSharp\Task1.csproj">
-      <Project>{922d07ed-6d49-4b67-aa26-b1b280c3652a}</Project>
-      <Name>Task1</Name>
-    </ProjectReference>
-  </ItemGroup>
-  <ItemGroup>
-    <Service Include="{82A7F48D-3B50-4B1E-B82E-3ADA8210C358}" />
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
