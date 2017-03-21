@@ -8,15 +8,16 @@ namespace Task1.Core.Models
     {
         /// <summary>Initializes a new instance of the <see cref="Potato"/> class.</summary>
         public Potato()
-            : this(false, false)
+            : this(false, false, false)
         {
         }
 
-        /// <summary>Initializes a new instance of the <see cref="Potato"/> class.</summary><param name="isCut">Boolean value confirming whether potato has been cut already.</param><param name="isPeeled">Boolean value confirming whether potato has been peeled already.</param>
-        public Potato(bool isCut, bool isPeeled)
+        /// <summary>Initializes a new instance of the <see cref="Potato"/> class.</summary><param name="isCut">Boolean value confirming whether potato has been cut already.</param><param name="isPeeled">Boolean value confirming whether potato has been peeled already.</param><param name="isRotten">Boolean value confirming whether potato has gone bad already.</param>
+        public Potato(bool isCut, bool isPeeled, bool isRotten)
         {
             this.IsCut = isCut;
             this.IsPeeled = isPeeled;
+            this.IsRotten = isRotten;
         }
 
         /// <summary>Gets or sets a value indicating whether potato was cut.</summary>
@@ -28,6 +29,13 @@ namespace Task1.Core.Models
 
         /// <summary>Gets or sets a value indicating whether potato was peeled.</summary>
         public bool IsPeeled
+        {
+            get;
+            set;
+        }
+
+        /// <summary>Gets or sets a value indicating whether potato has gone bad.</summary>
+        public bool IsRotten
         {
             get;
             set;
