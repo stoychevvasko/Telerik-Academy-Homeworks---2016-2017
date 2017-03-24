@@ -1,21 +1,25 @@
-﻿using System;
-
+﻿//// <copyright file="Methods.cs" company="indepentent developer">Copyright (c) Vassil Stoychev 2017. All rights reserved.</copyright>
 namespace Methods
 {
-    class Methods
+    using System;
+
+    public class Methods
     {
+        /// <summary>Calculates the surface area of a 2-dimensional triangle shape.</summary><param name="a">A triangle side.</param><param name="b">A triangle side.</param><param name="c">A triangle side.</param><returns>The surface area calculated.</returns>
         static double CalcTriangleArea(double a, double b, double c)
         {
             if (a <= 0 || b <= 0 || c <= 0)
             {
                 Console.Error.WriteLine("Sides should be positive.");
-                return -1;
+                throw new ArgumentOutOfRangeException("Cannot have negative values for triangle sides!");
             }
-            double s = (a + b + c) / 2;
-            double area = Math.Sqrt(s * (s - a) * (s - b) * (s - c));
+
+            double semiPerimeter = (a + b + c) / 2;
+            double area = Math.Sqrt(semiPerimeter * (semiPerimeter - a) * (semiPerimeter - b) * (semiPerimeter - c));
             return area;
         }
 
+        /// <summary>Converts an integer number into its string name.</summary><param name="number">Original number as integer.</param><returns>The string value that matches.</returns>
         static string NumberToDigit(int number)
         {
             switch (number)
@@ -30,26 +34,29 @@ namespace Methods
                 case 7: return "seven";
                 case 8: return "eight";
                 case 9: return "nine";
+                default: throw new ArgumentOutOfRangeException("Invalid number!");
             }
-
-            return "Invalid number!";
         }
 
+        /// <summary>Finds the maximum element among an array of integers.</summary><param name="elements">Original array of integers.</param><returns>Maximum element found.</returns>
         static int FindMax(params int[] elements)
         {
             if (elements == null || elements.Length == 0)
             {
-                return -1;
+                throw new ArgumentOutOfRangeException("Invalid array!");
             }
+
+            int max = elements[0];
 
             for (int i = 1; i < elements.Length; i++)
             {
-                if (elements[i] > elements[0])
+                if (elements[i] > max)
                 {
-                    elements[0] = elements[i];
+                    max = elements[i];
                 }
             }
-            return elements[0];
+
+            return max;
         }
 
         static void PrintAsNumber(object number, string format)
@@ -69,7 +76,7 @@ namespace Methods
         }
 
 
-        static double CalcDistance(double x1, double y1, double x2, double y2, 
+        static double CalcDistance(double x1, double y1, double x2, double y2,
             out bool isHorizontal, out bool isVertical)
         {
             isHorizontal = (y1 == y2);
@@ -82,11 +89,11 @@ namespace Methods
         static void Main()
         {
             Console.WriteLine(CalcTriangleArea(3, 4, 5));
-            
+
             Console.WriteLine(NumberToDigit(5));
-            
+
             Console.WriteLine(FindMax(5, -1, 3, 2, 14, 2, 3));
-            
+
             PrintAsNumber(1.3, "f");
             PrintAsNumber(0.75, "%");
             PrintAsNumber(2.30, "r");
