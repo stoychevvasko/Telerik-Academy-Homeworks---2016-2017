@@ -7,7 +7,7 @@ namespace CohesionAndCoupling.Core.Models
     internal class Point2D
     {
         /// <summary>Calculates the distance between two points in two-dimensional space.</summary><param name="x1">Start point's x-coordinate.</param><param name="y1">Start point's y-coordinate.</param><param name="x2">End point's x-coordinate.</param><param name="y2">End point's y-coordinate.</param><returns>Distance as <see cref="double"/> value calculated using standard formula.</returns>
-        public static double CalcDistance2D(double x1, double y1, double x2, double y2)
+        public static double CalcDistance(double x1, double y1, double x2, double y2)
         {
             double distance = Math.Sqrt(((x2 - x1) * (x2 - x1)) + ((y2 - y1) * (y2 - y1)));
             return distance;

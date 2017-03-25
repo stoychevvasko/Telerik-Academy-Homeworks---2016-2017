@@ -90,28 +90,28 @@ namespace CohesionAndCoupling.Core.Models
         /// <summary>Calculates the XY diagonal of a cuboid shape.</summary><returns>A <see cref="double"/> value as result.</returns>
         public double CalcDiagonalXY()
         {
-            double distance = Point2D.CalcDistance2D(0, 0, this.Width, this.Height);
+            double distance = Point2D.CalcDistance(0, 0, this.Width, this.Height);
             return distance;
         }
 
         /// <summary>Calculates the XYZ diagonal of a cuboid shape.</summary><returns>A <see cref="double"/> value as result.</returns>
         public double CalcDiagonalXYZ()
         {
-            double distance = Point3D.CalcDistance3D(0, 0, 0, this.Width, this.Height, this.Depth);
+            double distance = Point3D.CalcDistance(0, 0, 0, this.Width, this.Height, this.Depth);
             return distance;
         }
 
         /// <summary>Calculates the XZ diagonal of a cuboid shape.</summary><returns>A <see cref="double"/> value as result.</returns>
         public double CalcDiagonalXZ()
         {
-            double distance = Point2D.CalcDistance2D(0, 0, this.Width, this.Depth);
+            double distance = Point2D.CalcDistance(0, 0, this.Width, this.Depth);
             return distance;
         }
 
         /// <summary>Calculates the YZ diagonal of a cuboid shape.</summary><returns>A <see cref="double"/> value as result.</returns>
         public double CalcDiagonalYZ()
         {
-            double distance = Point2D.CalcDistance2D(0, 0, this.Height, this.Depth);
+            double distance = Point2D.CalcDistance(0, 0, this.Height, this.Depth);
             return distance;
         }
 

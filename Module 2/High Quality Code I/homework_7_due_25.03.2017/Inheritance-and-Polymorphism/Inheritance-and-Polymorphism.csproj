@@ -41,8 +41,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="OffsiteCourse.cs" />
-    <Compile Include="LocalCourse.cs" />
+    <Compile Include="Core\Contracts\Interfaces\ICourse.cs" />
+    <Compile Include="Core\Contracts\Interfaces\ILocal.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IOffsite.cs" />
+    <Compile Include="Core\Models\Course.cs" />
+    <Compile Include="Core\Models\OffsiteCourse.cs" />
+    <Compile Include="Core\Models\LocalCourse.cs" />
     <Compile Include="CoursesExamples.cs" />
   </ItemGroup>
   <ItemGroup>
