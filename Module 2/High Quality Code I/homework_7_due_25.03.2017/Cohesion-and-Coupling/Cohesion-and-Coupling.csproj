@@ -41,8 +41,13 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="UtilsExamples.cs" />
-    <Compile Include="Utils.cs" />
+    <Compile Include="Core\Contracts\Interfaces\ICuboid.cs" />
+    <Compile Include="Core\Contracts\Interfaces\IShape.cs" />
+    <Compile Include="Core\Models\Cuboid.cs" />
+    <Compile Include="Core\Models\Filename.cs" />
+    <Compile Include="Core\Models\Point2D.cs" />
+    <Compile Include="Core\Models\Point3D.cs" />
+    <Compile Include="Examples.cs" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Properties\" />

@@ -7,9 +7,10 @@ namespace Abstraction.Core.Models
     /// <summary>Represents a generalized circle shape.</summary>
     internal class Circle : ICircle, IFigure
     {
-        /// <summary>
-        /// Initializes a new instance of the <see cref="Circle"/> class with standard values.
-        /// </summary>
+        /// <summary>Holds the radius of a <see cref="Circle"/> geometrical object.</summary>
+        private double radius;
+
+        /// <summary>Initializes a new instance of the <see cref="Circle"/> class with standard values.</summary>
         public Circle()
             : this(1.0f)
         {
@@ -22,7 +23,23 @@ namespace Abstraction.Core.Models
         }
 
         /// <summary>Gets or sets the radius of a <see cref="Circle"/> geometrical object.</summary>
-        public double Radius { get; set; }
+        public double Radius
+        {
+            get
+            {
+                return this.radius;
+            }
+
+            set
+            {
+                if (value <= 0)
+                {
+                    throw new ArgumentOutOfRangeException("Invalid radius!");
+                }
+
+                this.radius = value;
+            }
+        }
 
         /// <summary>Calculates the perimeter of a circle.</summary><returns>Perimeter length as <see cref="double"/> value.</returns>
         public double CalcPerimeter()
