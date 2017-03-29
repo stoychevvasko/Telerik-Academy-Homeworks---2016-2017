@@ -28,7 +28,12 @@ function solve() {
     }
 
     function deleteItem(event) {
-      console.log('test');
+      var target = event.target;
+      var liElement = target.parentElement;
+      var textValue = target.parentElement.innerHTML.split('<')[0];
+      var selectedInputTextField = document.querySelector('.column-container').nextElementSibling;      
+      selectedInputTextField.value = textValue;
+      liElement.parentElement.removeChild(liElement);      
     }
 
     var root = document.querySelector(selector);
@@ -74,14 +79,16 @@ function solve() {
       if (typeof defaultLeft[i] === 'string' && defaultLeft[i] !== '') {
         var newLi = document.createElement('li');
         newLi.className = 'entry';      
+        newLi.innerHTML += defaultLeft[i];
 
         var newImg = document.createElement('img');
         newImg.className = 'delete';
-        newImg.src = 'imgs/Remove-icon.png';    
-        newImg.addEventListener('click', deleteItem);           
-        newLi.appendChild(newImg);      
-        newLi.innerHTML += defaultLeft[i];
-        newLeftOl.appendChild(newLi);
+        newImg.src = 'imgs/Remove-icon.png';            
+
+        newImg.addEventListener('click', deleteItem);
+
+        newLeftOl.appendChild(newLi);        
+        newLi.appendChild(newImg);                         
       }
     }
 
@@ -117,15 +124,16 @@ function solve() {
       if (typeof defaultRight[j] === 'string' && defaultRight[j] !== '') {
         var newLiRight = document.createElement('li');
         newLiRight.className = 'entry';
-        newLiRight.innerHtml = defaultRight[j];
+        newLiRight.innerHTML += defaultRight[j];
 
         var newImgRight = document.createElement('img');
         newImgRight.className = 'delete';
         newImgRight.src = 'imgs/Remove-icon.png'; 
+
         newImgRight.addEventListener('click', deleteItem);       
-        newLiRight.appendChild(newImgRight);      
-        newLiRight.innerHTML += defaultRight[j];
+
         newRightOl.appendChild(newLiRight);
+        newLiRight.appendChild(newImgRight);              
       }
     }
 
