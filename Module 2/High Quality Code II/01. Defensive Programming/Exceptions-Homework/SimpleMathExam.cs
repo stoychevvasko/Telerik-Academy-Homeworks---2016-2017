@@ -12,14 +12,14 @@ namespace ExceptionsHomeworkProject
         /// <param name="problemsSolved">number of problems solved</param>
         public SimpleMathExam(int problemsSolved)
         {
-            if (problemsSolved <= 0)
+            if (problemsSolved < 0)
             {
-                throw new ArgumentOutOfRangeException("Number of problems cannot be non-positive!");
+                problemsSolved = 0;
             }
 
             if (problemsSolved > 10)
             {
-                throw new ArgumentOutOfRangeException("Cannot create an exam with more than 10 problems!");
+                problemsSolved = 10;
             }
 
             this.ProblemsSolved = problemsSolved;
@@ -32,20 +32,13 @@ namespace ExceptionsHomeworkProject
         /// <returns>ExamResults object</returns>
         public override ExamResult Check()
         {
-            if (this.ProblemsSolved == 0)
+            switch (this.ProblemsSolved)
             {
-                return new ExamResult(2, 2, 6, "Bad result: nothing done.");
+                case 0: return new ExamResult(2, 2, 6, "Bad result: nothing done.");
+                case 1: return new ExamResult(4, 2, 6, "Average result: nothing done.");
+                case 2: return new ExamResult(6, 2, 6, "Average result: nothing done.");
+                default: throw new ArgumentOutOfRangeException("Invalid number of problems solved!");
             }
-            else if (this.ProblemsSolved == 1)
-            {
-                return new ExamResult(4, 2, 6, "Average result: nothing done.");
-            }
-            else if (this.ProblemsSolved == 2)
-            {
-                return new ExamResult(6, 2, 6, "Average result: nothing done.");
-            }
-
-            throw new ArgumentOutOfRangeException("Invalid number of problems solved!");            
         }
     }
 }

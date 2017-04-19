@@ -16,18 +16,25 @@ namespace ExceptionsHomeworkProject
         /// <param name="exams">a list of exams taken by the student</param>
         public Student(string firstName, string lastName, IList<Exam> exams = null)
         {
-            if (firstName == null)
+            if (string.IsNullOrEmpty(firstName))
             {
-                throw new ArgumentNullException("First name cannot be null!");
-            }
-
-            if (lastName == null)
-            {
-                throw new ArgumentNullException("Last name cannot be null!");
+                throw new ArgumentException("First name cannot be null or empty!");
             }
 
             this.FirstName = firstName;
+
+            if (string.IsNullOrEmpty(lastName))
+            {
+                throw new ArgumentException("Last name cannot be null or empty!");
+            }
+
             this.LastName = lastName;
+
+            if (exams == null)
+            {
+                throw new ArgumentNullException("Cannot set null as exams!");
+            }
+
             this.Exams = exams;
         }
 
@@ -52,7 +59,6 @@ namespace ExceptionsHomeworkProject
             if (this.Exams.Count == 0)
             {
                 Console.WriteLine("The student has no exams!");
-                return null;
             }
 
             IList<ExamResult> results = new List<ExamResult>();
@@ -76,8 +82,7 @@ namespace ExceptionsHomeworkProject
 
             if (this.Exams.Count == 0)
             {
-                // No exams --> return -1;
-                return -1;
+                throw new ArgumentException("Cannot average missing results!");
             }
 
             double[] examScore = new double[this.Exams.Count];

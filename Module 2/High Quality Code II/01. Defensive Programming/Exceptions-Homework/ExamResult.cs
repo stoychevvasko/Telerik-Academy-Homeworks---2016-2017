@@ -30,9 +30,9 @@ namespace ExceptionsHomeworkProject
                 throw new ArgumentOutOfRangeException("Minimum grade cannot be breater than maximum grade!");
             }
 
-            if (comments == null || comments == string.Empty)
+            if (string.IsNullOrEmpty(comments))
             {
-                throw new ArgumentNullException("Comments cannot be null or empty string!");
+                throw new ArgumentException("Comments cannot be null or empty string!");
             }
 
             this.Grade = grade;

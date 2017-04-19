@@ -5,17 +5,16 @@ namespace AssertionsHomeworkProject
 {
     using System;
     using System.Diagnostics;
-    using System.Linq;
 
     /// <summary>Homework assignment due June 8, 2014.</summary>
-    public class AssertionsHomework
+    internal class AssertionsHomework
     {
         /// <summary>Performs a generic selection sort algorithm.</summary>
         /// <typeparam name="T">Generic type</typeparam>
         /// <param name="arr">an array of generic elements</param>
         public static void SelectionSort<T>(T[] arr) where T : IComparable<T>
         {
-            Debug.Assert(arr != null, "Array is null!");
+            Debug.Assert(arr != null, "Array reference cannot point to null!");
 
             int len = arr.Length;
             for (int index = 0; index < arr.Length - 1; index++)
@@ -30,7 +29,7 @@ namespace AssertionsHomeworkProject
                 Debug.Assert(arr[i].CompareTo(arr[i + 1]) <= 0, "The array is not sorted!");
             }
         }
-        
+
         /// <summary>Finds the index of a search item in a sorted generic-type array.</summary>
         /// <typeparam name="T">generic type</typeparam>
         /// <param name="arr">array of generic-type items</param>
@@ -38,15 +37,18 @@ namespace AssertionsHomeworkProject
         /// <returns>index of item if found or -1 if not found</returns>
         public static int BinarySearch<T>(T[] arr, T value) where T : IComparable<T>
         {
-            Debug.Assert(arr != null, "Array is null");
-            Debug.Assert(value != null, "Searched value cannot be null!");
+            Debug.Assert(arr != null, "Array reference cannot point to null!");
+            Debug.Assert(value != null, "Sought value cannot be null!");
 
+            // binary search algorithm requires array to be sorted already
             for (int i = 0; i < arr.Length - 1; i++)
             {
                 Debug.Assert(arr[i].CompareTo(arr[i + 1]) <= 0, "The array is not sorted!");
             }
 
-            return BinarySearch(arr, value, 0, arr.Length - 1);
+            var result = BinarySearch(arr, value, 0, arr.Length - 1);
+            Debug.Assert(result < -1, "Binary search cannot produce invalid result index!");
+            return result;
         }
 
         /// <summary>Performs a generic binary search within a specific index range.</summary>
@@ -59,21 +61,24 @@ namespace AssertionsHomeworkProject
         private static int BinarySearch<T>(T[] arr, T value, int startIndex, int endIndex)
             where T : IComparable<T>
         {
-            Debug.Assert(startIndex <= endIndex, "Start index should be smaller than or equal to end index!");
-            Debug.Assert(startIndex >= 0, "Start index should be positive!");
-            Debug.Assert(endIndex >= 0, "End index should be positive!");
-            Debug.Assert(endIndex <= arr.Length - 1, "End index should be smaller than the length of the array!");
+            Debug.Assert(startIndex <= endIndex, "Start index should be less than or equal to end index!");
+            Debug.Assert(startIndex >= 0, "Start index should be non-negative!");
+            Debug.Assert(startIndex <= arr.Length - 1, "Start index cannot exceed the array's length!");
+            Debug.Assert(endIndex >= 0, "End index should be non-negative!");
+            Debug.Assert(endIndex <= arr.Length - 1, "End index cannot exceed the array's length!");
 
             while (startIndex <= endIndex)
             {
                 int midIndex = (startIndex + endIndex) / 2;
                 if (arr[midIndex].Equals(value))
                 {
+                    Debug.Assert(midIndex >= 0, "midIndex must be a non-negative number!");
+                    Debug.Assert(midIndex <= arr.Length - 1, "midIndex cannot exceed the array's length!");
                     return midIndex;
                 }
 
                 if (arr[midIndex].CompareTo(value) < 0)
-                {                    
+                {
                     startIndex = midIndex + 1;
                 }
                 else
@@ -81,7 +86,7 @@ namespace AssertionsHomeworkProject
                     endIndex = midIndex - 1;
                 }
             }
-            
+
             return -1;
         }
 
@@ -123,28 +128,12 @@ namespace AssertionsHomeworkProject
         /// <param name="y">second parameter for swap</param>
         private static void Swap<T>(ref T x, ref T y)
         {
+            Debug.Assert(x != null, "Reference to left element cannot be null!");
+            Debug.Assert(y != null, "Reference to right element cannot be null!");
+
             T oldX = x;
             x = y;
             y = oldX;
-        }
-
-        /// <summary>Main() class within</summary>
-        private static void Main()
-        {
-            int[] testArray = new int[] { 1, 5, -10, -2, 20, -5, 20, -10 };
-            Console.WriteLine("testArray [ {0} ]", string.Join(", ", testArray));
-            SelectionSort(testArray);
-            Console.WriteLine("after selection sort [ {0} ]", string.Join(", ", testArray));
-
-            SelectionSort(new int[0]); // Test sorting empty array
-            SelectionSort(new int[1]); // Test sorting single element array
-
-            Console.WriteLine();
-            Console.WriteLine(BinarySearch(testArray, -55));
-            Console.WriteLine(BinarySearch(testArray, 0));
-            Console.WriteLine(BinarySearch(testArray, 17));
-            Console.WriteLine(BinarySearch(testArray, -5));
-            Console.WriteLine(BinarySearch(testArray, 1000));
         }
     }
 }
