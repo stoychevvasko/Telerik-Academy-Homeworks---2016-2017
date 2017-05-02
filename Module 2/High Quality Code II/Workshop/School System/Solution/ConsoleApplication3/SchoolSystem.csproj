@@ -60,6 +60,10 @@
     <Compile Include="Core\Providers\Reader.cs" />
     <Compile Include="Commands\CreateStudentCommand.cs" />
     <Compile Include="Core\Providers\Writer.cs" />
+    <Compile Include="Models\Abstract\Person.cs" />
+    <Compile Include="Models\Contracts\IPerson.cs" />
+    <Compile Include="Models\Contracts\IStudent.cs" />
+    <Compile Include="Models\Contracts\ITeacher.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Models\Enumerations\Grade.cs" />
     <Compile Include="Models\Enumerations\Subject.cs" />
@@ -71,6 +75,7 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
+    <None Include="ClassHierarchy.cd" />
     <None Include="Settings.StyleCop" />
   </ItemGroup>
   <ItemGroup />

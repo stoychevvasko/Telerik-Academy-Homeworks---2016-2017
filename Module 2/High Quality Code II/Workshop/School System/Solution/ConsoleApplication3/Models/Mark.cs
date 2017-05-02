@@ -65,7 +65,7 @@
             {
                 if (Enum.IsDefined(typeof(Subject), value))
                 {
-                    this.subject = (Subject)value;
+                    this.subject = value;
                 }
                 else
                 {

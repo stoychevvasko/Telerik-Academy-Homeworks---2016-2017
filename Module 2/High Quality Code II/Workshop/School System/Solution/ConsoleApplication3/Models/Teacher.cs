@@ -1,49 +1,26 @@
 ﻿namespace SchoolSystem
 {
     using Models;
+    using Models.Abstract;
+    using Models.Contracts;
     using Models.Enumerations;
 
-    public class Teacher
+    /// <summary>Represents a teacher.</summary>
+    public class Teacher : Person, IPerson, ITeacher
     {
-        private string firstName;
-
-        private string lastName;
-
         private Subject subject;
 
+        /// <summary>Initializes a new instance of the <see cref="Teacher"/> class.</summary>
+        /// <param name="firstName">Teacher's first name.</param>
+        /// <param name="lastName">Teacher's last name.</param>
+        /// <param name="subject">Teacher's subject.</param>
         public Teacher(string firstName, string lastName, Subject subject)
+            : base(firstName, lastName)
         {
-            this.firstName = firstName;
-            this.lastName = lastName;
             this.subject = subject;
-        }
+        }        
 
-        public string FirstName
-        {
-            get
-            {
-                return this.firstName;
-            }
-
-            set
-            {
-                this.firstName = value;
-            }
-        }
-
-        public string LastName
-        {
-            get
-            {
-                return this.lastName;
-            }
-
-            set
-            {
-                this.lastName = value;
-            }
-        }
-
+        /// <summary>Gets or sets teacher's subject.</summary>
         public Subject Subject
         {
             get
@@ -57,10 +34,10 @@
             }
         }
 
-        public void AddMark(Student teacher, float value)
+        public void AddMark(IStudent student, float value)
         {
             var newMark = new Mark(this.Subject, value);
-            teacher.Marks.Add(newMark);
+            student.Marks.Add(newMark);
         }
     }
 }

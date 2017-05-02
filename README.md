@@ -84,4 +84,12 @@
   * *High-Quality Methods*
   * *High-Quality Classes and Class Hierarchies*
 
+![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/javascript_logo.png "JavaScript Applications")**[JavaScript IV](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/JS%20IV%20-%20Applications)**
+  * *Promises and Asynchronous Programming*
+
+![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/high_quality_code.png "High Quality Code II")**[High Quality Code II](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/High%20Quality%20Code%20II)**
+  * *Defensive Programming*
+  * *Code Tuning and Optimization*
+  * *Refactoring*
+  * *Development Tools*
 

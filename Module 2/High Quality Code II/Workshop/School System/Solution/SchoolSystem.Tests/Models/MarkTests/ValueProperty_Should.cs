@@ -12,12 +12,14 @@
         [TestCase(2f)]
         [TestCase(4.25f)]
         [TestCase(6f)]
-        public void NotThrow_WhenSetValidParameter(float caseValue)
+        public void NotThrow_WhenSetValidParameter(float validTestMarkValue)
         {
-            var sut = new Mark(Subject.Bulgarian, 6f);
+            var validSubject = Subject.Bulgarian;
+            var validMark = 6f;
+            var sut = new Mark(validSubject, validMark);
 
             Assert.That(
-                () => sut.Value = caseValue,
+                () => sut.Value = validTestMarkValue,
                 Throws.Nothing);
         }
 
@@ -26,12 +28,14 @@
         [TestCase(float.MaxValue)]
         [TestCase(-1f)]
         [TestCase(6.50f)]
-        public void Throws_WhenSetInvalidParameter(float caseValue)
+        public void Throw_WhenSetInvalidParameter(float invalidTestMarkValue)
         {
-            var sut = new Mark(Subject.Bulgarian, 6f);
+            var validSubject = Subject.Bulgarian;
+            var validMark = 6f;
+            var sut = new Mark(validSubject, validMark);
 
             Assert.That(
-                () => sut.Value = caseValue,
+                () => sut.Value = invalidTestMarkValue,
                 Throws.Exception);
         }
     }
