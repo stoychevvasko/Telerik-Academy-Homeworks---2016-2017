@@ -5,18 +5,27 @@
     using System.Linq;
     using System.Reflection;
     using System.Threading;
+    using Commands.Contracts;
     using Contracts;
     using Models;
+    using Providers;
 
     public class Engine
     {
-        // TODO: change param to IReader instead ConsoleReaderProvider
-        private ConsoleReaderProvider reader;
-
-        public Engine(ConsoleReaderProvider readed)
+        public Engine(IReader reader)
         {
-            this.reader = readed;
+            this.Reader = reader;
         }
+
+        public IReader Reader
+        {
+            get;
+            set;
+        }
+
+        internal static Dictionary<int, Teacher> Teachers { get; set; } = new Dictionary<int, Teacher>();
+
+        internal static Dictionary<int, Student> Students { get; set; } = new Dictionary<int, Student>();
 
         public void Start()
         {
@@ -24,35 +33,35 @@
             {
                 try
                 {
-                    var cmd = System.Console.ReadLine();
-                    if (cmd == "End")
+                    var command = this.Reader.ReadLine();
+                    if (command == "End")
                     {
                         break;
                     }
 
-                    var aadeshName = cmd.Split(' ')[0];
+                    var aadeshName = command.Split(' ')[0];
 
                     // When I wrote this, only God and I understood what it was doing
                     // Now, only God knows
-                    var assembli = GetType().GetTypeInfo().Assembly;
-                    var tpyeinfo = assembli.DefinedTypes
+                    var assembly = GetType().GetTypeInfo().Assembly;
+                    var typeInfo = assembly.DefinedTypes
                         .Where(type => type.ImplementedInterfaces.Any(inter => inter == typeof(ICommand)))
                         .Where(type => type.Name.ToLower().Contains(aadeshName.ToLower()))
                         .FirstOrDefault();
-                    if (tpyeinfo == null)
+                    if (typeInfo == null)
                     {
                         // throw exception when typeinfo is null
                         throw new ArgumentException("The passed command is not found!");
                     }
 
-                    var aadesh = Activator.CreateInstance(tpyeinfo) as ICommand;
-                    var paramss = cmd.Split(' ').ToList();
-                    paramss.RemoveAt(0);
-                    this.WriteLine(aadesh.Execute(paramss));
+                    var userCommand = Activator.CreateInstance(typeInfo) as ICommand;
+                    var parameters = command.Split(' ').ToList();
+                    parameters.RemoveAt(0);
+                    this.WriteLine(userCommand.Execute(parameters));
                 }
                 catch (Exception ex)
                 {
-                    WriteLine(ex.Message);
+                    this.WriteLine(ex.Message);
                 }
             }
         }
@@ -78,8 +87,5 @@
             Console.Write("\n");
             Thread.Sleep(350);
         }
-
-        internal static Dictionary<int, Teachers> teachers { get; set; } = new Dictionary<int, Teachers>();
-        internal static Dictionary<int, Student> students { get; set; } = new Dictionary<int, Student>();
     }
 }

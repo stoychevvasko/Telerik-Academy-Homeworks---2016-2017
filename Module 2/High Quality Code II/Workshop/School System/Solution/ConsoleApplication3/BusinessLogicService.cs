@@ -1,14 +1,15 @@
 ﻿namespace SchoolSystem
 {
-    using SchoolSystem.Core;
+    using Core;
+    using Core.Providers;    
 
     // I am not sure if we need this, but too scared to delete. 
     public class BusinessLogicService
     {
-        public void Execute(ConsoleReaderProvider padhana)
+        public void Execute(Reader reader)
         {
-            var injan = new Engine(padhana);
-            injan.Start();
+            var engine = new Engine(reader);
+            engine.Start();
         }
     }
 }

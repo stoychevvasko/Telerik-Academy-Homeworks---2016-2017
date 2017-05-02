@@ -1,4 +1,6 @@
-﻿namespace SchoolSystem
+﻿using SchoolSystem.Models.Enumerations;
+
+namespace SchoolSystem.Models
 {
     public class Mark
     {

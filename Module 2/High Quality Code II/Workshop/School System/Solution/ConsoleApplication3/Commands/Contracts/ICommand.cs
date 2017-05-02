@@ -1,4 +1,4 @@
-﻿namespace SchoolSystem.Core.Contracts
+﻿namespace SchoolSystem.Commands.Contracts
 {
     using System.Collections.Generic;
 

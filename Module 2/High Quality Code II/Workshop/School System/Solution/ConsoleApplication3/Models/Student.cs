@@ -1,7 +1,8 @@
 ﻿namespace SchoolSystem.Models
 {
     using System.Collections.Generic;
-    using System.Linq;    
+    using System.Linq;
+    using Enumerations;
 
     /// <summary>Represents a student.</summary>
     public class Student
