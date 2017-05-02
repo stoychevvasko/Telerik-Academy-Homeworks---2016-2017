@@ -12,12 +12,19 @@
 
     public class Engine
     {
-        public Engine(IReader reader)
+        public Engine(IReader reader, IWriter writer)
         {
             this.Reader = reader;
+            this.Writer = writer;
         }
 
         public IReader Reader
+        {
+            get;
+            set;
+        }
+
+        public IWriter Writer
         {
             get;
             set;
@@ -70,7 +77,7 @@
         {
             var p = m.Split();
             var s = string.Join(" ", p);
-            var c = 0d;
+            //// var c = 0d;
 
             for (double i = 0; i < 0x105; i++)
             {

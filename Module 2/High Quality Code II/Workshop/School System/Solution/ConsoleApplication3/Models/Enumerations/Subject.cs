@@ -2,7 +2,7 @@
 {
     public enum Subject
     {
-        Bulgarian,
+        Bulgarian = 0,
         English,
         Math,
         Programming

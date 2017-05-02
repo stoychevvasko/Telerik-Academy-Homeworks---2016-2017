@@ -6,7 +6,7 @@ Bug reports: --------------------
 Format: #Bug number - Class name - Bug description
 Example: #1 - PartnerBankingService - The variable "money" at line 36 overflows when you try to add more than 2.1 billion dollars.
 --------
-#1 - Made all command classes to implement the ICommand interface so reflection can recognize them.
-#2 -
+#1 - Made all command classes implement the ICommand interface so reflection can recognize them.
+#2 - 
 #3 -
 #4 - 

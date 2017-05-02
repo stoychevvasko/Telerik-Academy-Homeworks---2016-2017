@@ -54,10 +54,12 @@
     <Compile Include="Commands\StudentListMarksCommand.cs" />
     <Compile Include="Commands\TeacherAddMarkCommand.cs" />
     <Compile Include="Core\Contracts\IReader.cs" />
+    <Compile Include="Core\Contracts\IWriter.cs" />
     <Compile Include="Core\Engine.cs" />
     <Compile Include="Commands\Contracts\ICommand.cs" />
     <Compile Include="Core\Providers\Reader.cs" />
     <Compile Include="Commands\CreateStudentCommand.cs" />
+    <Compile Include="Core\Providers\Writer.cs" />
     <Compile Include="Startup.cs" />
     <Compile Include="Models\Enumerations\Grade.cs" />
     <Compile Include="Models\Enumerations\Subject.cs" />

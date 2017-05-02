@@ -6,11 +6,12 @@
     {
         public static void Main()
         {
-            // TODO: abstract at leest 2 mor provider like thiso ne
+            // TODO: abstract at least 2 more providers like this
             var reader = new Reader();
+            var writer = new Writer();
 
             var service = new BusinessLogicService();
-            service.Execute(reader);
+            service.Execute(reader, writer);
         }
     }
 }
