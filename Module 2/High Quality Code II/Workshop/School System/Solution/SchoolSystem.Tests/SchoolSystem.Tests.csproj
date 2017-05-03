@@ -73,6 +73,7 @@
     <Compile Include="Models\StudentTests\LastNameProperty_Should.cs" />
     <Compile Include="Models\StudentTests\ListMarksMethod_Should.cs" />
     <Compile Include="Models\StudentTests\MarksProperty_Should.cs" />
+    <Compile Include="Models\TeacherTests\Constructor_Should.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>

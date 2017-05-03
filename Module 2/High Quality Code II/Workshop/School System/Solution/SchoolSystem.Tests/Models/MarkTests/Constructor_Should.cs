@@ -12,9 +12,9 @@
         [TestCase(2f)]
         [TestCase(4.25f)]
         [TestCase(6f)]
-        public void CreateValidMarkInstance_WhenCalledWithValidParameters(float caseValue)
+        public void CreateValidMarkInstance_WhenCalledWithValidParameters(float validTestMarkValue)
         {
-            var validValue = caseValue;
+            var validValue = validTestMarkValue;
             var validSubject = Subject.Bulgarian;
 
             Mark sut;

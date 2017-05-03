@@ -2,20 +2,25 @@
 {
     using System;
     using System.Text.RegularExpressions;
-    using SchoolSystem.Models.Contracts;
+    using Contracts;
 
+    /// <summary>Represents a person.</summary>
     public abstract class Person : IPerson
     {
         private string firstName;
 
         private string lastName;
 
+        /// <summary>Initializes a new instance of the <see cref="Person"/> class.</summary>
+        /// <param name="firstName">Person's first name.</param>
+        /// <param name="lastName">Person's last name.</param>
         public Person(string firstName, string lastName)
         {
             this.FirstName = firstName;
             this.LastName = lastName;
         }
 
+        /// <summary>Gets or sets person's first name.</summary>
         public string FirstName
         {
             get
@@ -36,6 +41,7 @@
             }
         }
 
+        /// <summary>Gets or sets person's last name.</summary>
         public string LastName
         {
             get

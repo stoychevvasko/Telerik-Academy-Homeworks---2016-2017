@@ -6,8 +6,8 @@
     /// <summary>Represents a student's mark in a certain <see cref="Subject"/>.</summary>
     public class Mark
     {
-        private const float MinimumMarkValue = 2f;
-        private const float MaximumMarkValue = 6f;
+        public const float MinimumMarkValue = 2f;
+        public const float MaximumMarkValue = 6f;
 
         private float value;
         private Subject subject;
@@ -19,19 +19,14 @@
         {
             if (Enum.IsDefined(typeof(Subject), subject))
             {
-                this.subject = subject;
+                this.Subject = subject;
             }
             else
             {
-                throw new ArgumentOutOfRangeException($"cannot create mark with subject (Subject){value}");
+                throw new ArgumentOutOfRangeException("cannot create mark with subject (Subject)" + value);
             }
 
-            if (Mark.MinimumMarkValue > value || value > Mark.MaximumMarkValue)
-            {
-                throw new ArgumentOutOfRangeException($"cannot create mark with value {value}");
-            }
-
-            this.value = value;
+            this.Value = value;
         }
 
         /// <summary>Gets or sets the value of a student's mark.</summary>
@@ -44,9 +39,9 @@
 
             set
             {
-                if (Mark.MinimumMarkValue > value || value > Mark.MaximumMarkValue)
+                if (Mark.MinimumMarkValue > value + float.Epsilon || value + float.Epsilon > Mark.MaximumMarkValue)
                 {
-                    throw new ArgumentOutOfRangeException($"cannot set mark value {value}");
+                    throw new ArgumentOutOfRangeException("cannot set mark value " + value);
                 }
 
                 this.value = value;
