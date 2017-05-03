@@ -5,6 +5,7 @@
     });
 
     this.get('#/home', homeController.all);
+	this.get('#/home/login', loginController.all);
   });
 
   $(function(){
