@@ -1,0 +1,10 @@
+﻿Bugs:
+
+#1 FileLogger.cs - line 22 - uncommented this code log.Error(message);
+#2 ModelsFactory.cs - line 46 - fixed swapped username and email parameter places
+#3 Task.cs - line 41 - added owner to ToString() override
+#4 CommandProcessor.cs - line 31 - moved return statement to bottom so no more unreachable code
+
+Bottleneck:
+
+#1 CommandFactory.cs - disabled 1sec wait on line 48-49
