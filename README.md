@@ -93,3 +93,18 @@
   * *Refactoring*
   * *Development Tools*
 
+![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/databases.png "Databases")**[Databases](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/Databases)**
+  * *XML Basics*
+  * *Processing XML in .NET*
+  * *Processing JSON in .NET*
+  * *Database Systems Overview*
+  * *SQL Server Introduction*
+  * *Database Modeling*
+  * *Intro to SQL*
+  * *Advanced SQL*
+  * *Transact-SQL*
+  * *Entity Framework*
+  * *Entity Framework Code First*
+  * *Database Transactions - Concepts*
+  * *Database Transactions - with EF*
+  * *NoSQL Databases*
