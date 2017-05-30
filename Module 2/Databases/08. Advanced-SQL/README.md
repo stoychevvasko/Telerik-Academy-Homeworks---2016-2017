@@ -96,9 +96,32 @@
     ```
 1.	Write a SQL query to find the count of all employees in each department and for each town.
   * ```sql
+        SELECT DD.Name AS [Department],
+         	     TT.Name AS [Town],
+        	     COUNT(*) AS [Number of employees]
+        FROM Employees EE
+        	 INNER JOIN Departments DD
+        	 ON EE.DepartmentID = DD.DepartmentID
+        		INNER JOIN Addresses AA		
+        		ON EE.AddressID = AA.AddressID
+        			INNER JOIN Towns TT 
+        			ON AA.TownID = TT.TownID
+        GROUP BY DD.Name,
+        		     TT.Name
+        ORDER BY DD.Name,
+        		     TT.Name
     ```
 1.	Write a SQL query to find all managers that have exactly 5 employees. Display their first name and last name.
   * ```sql
+        SELECT MM.FirstName + ' ' +  MM.LastName AS [Manager of 5 employees],
+               COUNT(*) AS [Number of Employees]
+        FROM Employees EE
+            INNER JOIN Employees MM
+        	  ON EE.ManagerID = MM.EmployeeID
+        GROUP BY EE.ManagerID, 
+        	     MM.FirstName, 
+        		   MM.LastName
+        HAVING COUNT(*) = 5
     ```
 1.	Write a SQL query to find all employees along with their managers. For employees that do not have manager display the value "(no manager)".
   * ```sql
