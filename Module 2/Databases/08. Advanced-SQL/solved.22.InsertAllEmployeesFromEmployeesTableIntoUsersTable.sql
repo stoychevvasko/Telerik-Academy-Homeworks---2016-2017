@@ -7,14 +7,18 @@ USE TelerikAcademy
 BEGIN TRAN
 
 INSERT INTO Users ([UserName], [Password], [FullName], [LastLogin], [GroupID])
-SELECT LEFT(LOWER(EE.FirstName), 3) + LOWER(EE.LastName),
-	   LEFT(LOWER(EE.FirstName), 3) + LOWER(EE.LastName),
-	   EE.FirstName + ' ' + EE.LastName,
-	   Null,
-	   2
-FROM Employees EE
+SELECT LOWER(SUBSTRING(e.FirstName, 1, 1)) + LOWER(e.LastName) AS [UserName],
+	   LOWER(SUBSTRING(e.FirstName, 1, 1)) + LOWER(e.LastName)  AS [Password],
+	   e.FirstName + ' ' + e.LastName AS [FullName],
+	   Null AS [LastLogin],
+	   NULL AS [GroupID]
+FROM Employees e
+ORDER BY [UserName]
 
 SELECT * 
 FROM Users
 
-COMMIT TRAN
+ROLLBACK TRAN
+
+
+
