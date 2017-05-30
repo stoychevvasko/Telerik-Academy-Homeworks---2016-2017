@@ -125,19 +125,22 @@
     ```
 1.	Write a SQL query to find all employees along with their managers. For employees that do not have manager display the value "(no manager)".
   * ```sql
+        SELECT EE.FirstName + ' ' + EE.LastName AS [Employee Name],
+        	   COALESCE(MM.FirstName + ' ' + MM.LastName, 'no manager') AS [Manager Name]
+        FROM Employees EE
+        	   LEFT OUTER JOIN Employees MM
+        	   ON EE.ManagerID = MM.EmployeeID  
     ```
 1.	Write a SQL query to find the names of all employees whose last name is exactly 5 characters long. Use the built-in `LEN(str)` function.
   * ```sql
+        SELECT FirstName + ' ' + LastName AS [Employee Name]
+        FROM Employees
+        WHERE LEN(LastName) = 5
     ```
-1.	Write a SQL query to display the current date and time in the following format "`day.month.year hour:minutSELECT AVG(Salary) AS [Average salary], 
-	   D.Name AS [Department]
-FROM Employees E
-	JOIN Departments D
-	ON E.DepartmentID = D.DepartmentID
-WHERE D.DepartmentID = 1
-GROUP BY D.Namees:seconds:milliseconds`".
+1.	Write a SQL query to display the current date and time in the following format "`day.month.year hour:minutes:seconds:milliseconds`".
 	*	Search in Google to find how to format dates in SQL Server.
   * ```sql
+        SELECT FORMAT(GETDATE(),'dd.MM.yyyy HH:mm:ss:f') AS [Current Time]
     ```
 1.	Write a SQL statement to create a table `Users`. Users should have username, password, full name and last login time.
 	*	Choose appropriate data types for the table fields. Define a primary key column with a primary key constraint.
@@ -145,6 +148,33 @@ GROUP BY D.Namees:seconds:milliseconds`".
 	*	Define unique constraint to avoid repeating usernames.
 	*	Define a check constraint to ensure the password is at least 5 characters long.
     * ```sql
+        BEGIN TRAN
+
+        CREATE TABLE Users
+        (
+        	ID int IDENTITY,
+        	[UserName] varchar(20) NOT NULL,
+        	[Password] varchar(100) NOT NULL,
+        	[FullName] varchar(50) NOT NULL,
+        	[LastLogin] dateTime,
+        	CONSTRAINT PK_Users PRIMARY KEY(ID),
+        	CONSTRAINT UK_UserName UNIQUE(UserName),
+        	CONSTRAINT Check_Password CHECK(LEN([Password])>=5)
+        )
+
+        INSERT INTO Users (UserName, [Password], FullName, LastLogin)
+        VALUES ('User', '$5$MnfsQ4iN$ZMTppKN16y/tIsUYs/obHlhdP.Os80yXhTurpBMUbA5', 'User Sample', NULL);
+        
+        INSERT INTO Users (UserName, [Password], FullName, LastLogin)
+        VALUES ('User2', '$5$rounds=5000$usesomesillystri$KqJWpanXZHKq2BOB43TSaYhEWsQ1Lr5QNyPCDH/Tp.6 ', 'User2 Sample', NULL);
+
+        INSERT INTO Users (UserName, [Password], FullName, LastLogin)
+        VALUES ('NewUser', '7dc5c078dcd6d4b374b90a85d66ce0da4526773fb3844faab90300c2efa1fcb3', 'Todays User', GETDATE());
+
+        -- Test the command and rollback. Then change ROLLBACK to COMMIT
+        SELECT * FROM Users
+
+        COMMIT TRAN
       ```
 1.	Write a SQL statement to create a view that displays the users from the `Users` table that have been in the system today.
 	*	Test if the view works correctly.
