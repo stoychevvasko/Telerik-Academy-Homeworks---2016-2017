@@ -239,43 +239,158 @@
       ```
 #### 19.	Write SQL statements to insert several records in the `Users` and `Groups` tables.
   * ```sql
+        INSERT INTO Users ([UserName], [Password], [FullName], [LastLogin], [GroupID])
+        VALUES ('RedOne', '7849e1d65de0028a7da5901ac5004462f238e467fd37320ca5fa5e86c9379652', 'Reddd TheFirst', NULL, 1),
+        		('Leslie123', '457af59805fa29a196a70ec12f0f042cd72e74dbee923b3204cc35d97c8956cf', 'Leslie Knope', GETDATE(), 2),
+		        ('jerry', '671b16ed98a14f053aac09447d6f51cadb3654c59b9f33ddfecb0fc4797879c0', 'Garry Gergich', GETDATE(), 2),
+		        ('notme', 'fedb5532f2a52d5a646f6e05d1ffd1e73f630a97ee4efc232807b03b3cc62710', 'Ron Swanson', GETDATE(), 2),
+		        ('tom', '0bddce0a2102d6b93d1300908df4919e5a647940e495e748ac883687f2746f2b', 'Tom Haverford', GETDATE(), 2),
+        		('benwyatt', 'e8be84604783a904831cc91e68396c06eee57340caf097e235e3faf4976c3e6a', 'Ben Wyatt', GETDATE(), 2);
+
+        INSERT INTO Groups ([Name])
+        VALUES ('Managers'),
+               ('Legacy')
+
+        -- Test the command and ROLLBACK. Then change ROLLBACK to COMMIT
+        SELECT * FROM Users
+        SELECT * FROM Groups
+       
+        COMMIT TRAN
     ```
 #### 20.	Write SQL statements to update some of the records in the `Users` and `Groups` tables.
   * ```sql
+        UPDATE Users 
+        SET GroupID = g.ID
+        FROM 
+        (
+            SELECT ID, Name 
+            FROM Groups 
+            WHERE Name = 'Managers'
+        ) g
+        WHERE UserName = 'notme'
+
+        SELECT * FROM Users WHERE UserName = 'notme'
     ```
 #### 21.	Write SQL statements to delete some of the records from the `Users` and `Groups` tables.
   * ```sql
+        DELETE FROM Users
+        WHERE ID = 1
+
+        DELETE FROM Groups
+        WHERE Name = 'Legacy'
+
+        SELECT * 
+        FROM Users
+
+        SELECT * 
+        FROM Groups
     ```
 #### 22.	Write SQL statements to insert in the `Users` table the names of all employees from the `Employees` table.
 	*	Combine the first and last names as a full name.
 	*	For username use the first letter of the first name + the last name (in lowercase).
 	*	Use the same for the password, and `NULL` for last login time.
     * ```sql
+          BEGIN TRAN
+
+          INSERT INTO Users ([UserName], [Password], [FullName], [LastLogin], [GroupID])
+          SELECT LEFT(LOWER(EE.FirstName), 3) + LOWER(EE.LastName),
+          	   LEFT(LOWER(EE.FirstName), 3) + LOWER(EE.LastName),
+          	   EE.FirstName + ' ' + EE.LastName,
+          	   Null,
+          	   2
+          FROM Employees EE
+
+          SELECT * 
+          FROM Users
+
+          COMMIT TRAN
       ```
 #### 23.	Write a SQL statement that changes the password to `NULL` for all users that have not been in the system since 10.03.2010.
   * ```sql
+        UPDATE Users
+        SET [Password] = NULL
+        WHERE [LastLogin] < CONVERT(DATETIME, '2010-03-10')
+
+        SELECT *
+        FROM Users
     ```
 #### 24.	Write a SQL statement that deletes all users without passwords (`NULL` password).
   * ```sql
+        DELETE FROM Users
+        WHERE Password IS NULL
+
+        SELECT *
+        FROM Users
     ```
 #### 25.	Write a SQL query to display the average employee salary by department and job title.
   * ```sql
+        SELECT AVG(e.Salary) AS [Average salary],
+        	   e.JobTitle AS [Job title or Department]
+        FROM Employees e
+        		LEFT OUTER JOIN Departments d
+        		ON e.DepartmentID = d.DepartmentID
+        GROUP BY e.JobTitle
+        UNION
+        SELECT AVG(E.Salary) AS [Average salary],
+        	   D.Name
+        FROM Employees E
+        	 LEFT OUTER JOIN Departments D
+        	 ON E.DepartmentId = D.DepartmentID
+        GROUP BY D.Name
     ```
 #### 26.	Write a SQL query to display the minimal employee salary by department and job title along with the name of some of the employees that take it.
   * ```sql
+        SELECT MIN(e.Salary) AS [Minimal salary],
+	          e.JobTitle AS [Job title or Department],
+	          MIN(e.FirstName + ' ' + e.LastName + ' - ( min salary within job title )') AS [Sample employee]
+        FROM Employees e        		
+        GROUP BY e.JobTitle
+
+        UNION
+
+        SELECT MIN(E.Salary) AS [Minimal salary],
+	          D.Name AS [Department],
+	          MIN(E.FirstName + ' ' + E.LastName + ' - ( min salary within dept )')
+        FROM Employees E
+        	 LEFT OUTER JOIN Departments D
+        	 ON E.DepartmentId = D.DepartmentID
+        GROUP BY D.Name
     ```
 #### 27.	Write a SQL query to display the town where maximal number of employees work.
   * ```sql
-    ```#### 
+        SELECT TOP 1 t.Name AS [Town],
+        	   COUNT(DISTINCT e.EmployeeId) as [Headcount]	   
+        FROM Employees e,
+        	 Addresses a,
+        	 Towns t
+        WHERE e.AddressID = a.AddressID
+        	  AND a.TownID = t.TownID
+        GROUP BY t.Name
+    ```
 #### 28.	Write a SQL query to display the number of managers from each town.
   * ```sql
-    ```#### 
+        SELECT t.Name AS [Town],
+	          COUNT(DISTINCT m.EmployeeID) AS [Manager headcount]
+        FROM Employees e
+		        JOIN Employees m
+		        ON e.ManagerID = m.EmployeeID
+			        JOIN Addresses a
+			        ON m.AddressID = a.AddressID
+				        JOIN Towns t
+				        ON a.TownID = t.TownID
+        WHERE e.ManagerID = m.EmployeeID
+        	  AND m.AddressID = a.AddressID
+	          AND a.TownID = t.TownID
+        GROUP BY t.Name
+        ORDER BY [Manager headcount] DESC
+    ``` 
 #### 29.	Write a SQL to create table `WorkHours` to store work reports for each employee (employee id, date, task, hours, comments).
 	*	Don't forget to define  identity, primary key and appropriate foreign key. 
 	*	Issue few SQL statements to insert, update and delete of some data in the table.
 	*	Define a table `WorkHoursLogs` to track all changes in the `WorkHours` table with triggers.
 		*	For each change keep the old record data, the new record data and the command (insert / update / delete).
       * ```sql
+
         ```
 #### 30.	Start a database transaction, delete all employees from the '`Sales`' department along with all dependent records from the pother tables.
 	*	At the end rollback the transaction.
