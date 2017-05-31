@@ -1,7 +1,7 @@
-## Structured Query Language (SQL)
+## 07. Intro to SQL
 ### _Homework_
 
-1.	What is SQL? What is DML? What is DDL? Recite the most important SQL commands.
+#### 01.	What is SQL? What is DML? What is DDL? Recite the most important SQL commands.
   * **SQL** - **Structured Query Language** is a domain-specific language used in programming and designed for managing data held in a relational database management system (*RDBMS*),
     or for stream processing in a relational data stream management system (*RDSMS*). SQL allows defining and modifying the database schema, also searching and modifying table data.
     SQL includes the DML and DDL sub-languages within its formal body.
@@ -42,11 +42,11 @@
             dateofbirth   DATE          not null
           );
       ```
-1.	What is Transact-SQL (T-SQL)?
+#### 02.	What is Transact-SQL (T-SQL)?
   * **T-SQL** or **Transact-SQL" is an extension to the standard SQL language, standardly used in MS SQL Server. It supports ***if-statements***, ***loops***, ***exceptions***,
     ***stored procedures***, ***functions*** and ***triggers***. 
-1.	Start SQL Management Studio and connect to the database TelerikAcademy. Examine the major tables in the "TelerikAcademy" database.
-1.	Write a SQL query to find all information about all departments (use "TelerikAcademy" database).
+#### 03.	Start SQL Management Studio and connect to the database TelerikAcademy. Examine the major tables in the "TelerikAcademy" database.
+#### 04..	Write a SQL query to find all information about all departments (use "TelerikAcademy" database).
 	* ```sql
 		USE TelerikAcademy
 		SELECT * FROM Departments
