@@ -109,5 +109,12 @@
   * *Database Transactions - with EF*
   * *NoSQL Databases*
 
-  ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/Design_Patterns_logo.png "Design Patters")**[Design Patters](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/Design%Patterns)**
-  * *...*
+  ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/Design_Patterns_logo.png "Design Patters")**[Design Patters](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/Design%20Patterns)**
+  * *Course Intro*
+  * *SOLID*
+  * *Design Patterns*
+  * *Creational Design Patterns*
+  * *Structural Design Patterns*
+  * *Behavioral Design Patterns*
+  * *Dependency Injection and Containers*
+  * *Creational Design Patterns*
