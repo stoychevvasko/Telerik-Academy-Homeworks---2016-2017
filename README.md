@@ -109,7 +109,7 @@
   * *Database Transactions - with EF*
   * *NoSQL Databases*
 
-  ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/Design_Patterns_logo.png "Design Patters")**[Design Patters](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/Design%20Patterns)**
+  ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/Design_Patterns_logo.png "Design Patters")**[Design Patterns](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/Design%20Patterns)**
   * *Course Intro*
   * *SOLID*
   * *Design Patterns*
@@ -118,3 +118,41 @@
   * *Behavioral Design Patterns*
   * *Dependency Injection and Containers*
   * *Creational Design Patterns*
+
+  ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/nodejs-logo.png "Node.js")**[Node.js](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/Node%20JS)**
+  * *Course Introduction*
+  * *Node.js Introduction*
+  * *Modules in Node.js*
+  * *IO and Streams*
+  * *Mongoose for Node.js and MongoDB*
+  * *Async programming in Node.js*
+  * *Building data and service layer*
+  * *Pug Overview*
+  * *Express Overview*
+  * *MVC architecture with Express and Pug*
+  * *Authentication with Passport*
+  * *Creating RESTful APIs with Express*
+  * *Web Sockets*
+  * *Unit testing with Mocha Chai and Karma*
+  * *Node.js tools Grunt Gulp NPM Bower Debugging*
+  * *Running Node.js apps in the cloud*
+
+  ![alt text](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/blob/master/.resources/dsa.png "Data Structures & Algorithms")**[Data Structures & Algorithms](https://github.com/stoychevvasko/Telerik-Academy-Homeworks---2016-2017/tree/master/Module%202/Data%20Structures%20and%20Algorithms)**
+  * *Course Introduction*
+  * *Data Structures Algorithms and Complexity*
+  * *Linear Data Structures*
+  * *Recursion*
+  * *Combinatorics*
+  * *Sorting Algorithms*
+  * *Searching Algorithms*
+  * *Trees and Traversals*
+  * *Graphs*
+  * *Graph Algorithms*
+  * *Dictionaries, Hash Tables and Sets*
+  * *Advanced Data Structures*
+  * *Greedy Algorithms*
+  * *Dynamic Programming*
+  * *Strings and String Algorithms*
+  * *State Machines*
+  * *Regular Expressions*
+  * *Data Structure Efficiency*
